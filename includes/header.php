@@ -60,19 +60,25 @@ $canonical_url = "https://koreantestpapers.in" . ($_SERVER['REQUEST_URI'] ?? '')
     <!-- Header Navigation -->
     <header class="header-main">
         <div class="container header-container">
-            <!-- Image Logo Only (No text logo) -->
+            <!-- Image Logo Only -->
             <a href="./" class="brand-logo-img">
                 <img src="images/logo.png" alt="Korean Test Papers Logo" class="site-header-logo">
             </a>
+
+            <!-- Mobile Action Bar (Live Test Button & Hamburger Toggle) -->
+            <div class="mobile-header-actions">
+                <a href="#live-test-box" class="btn-header-cta-mobile">▶ Live Test</a>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Navigation">☰</button>
+            </div>
             
-            <nav>
+            <nav id="siteNav">
                 <ul class="nav-links">
                     <li><a href="./" class="active">Home</a></li>
                     <li><a href="#eps-topik-section">EPS TOPIK</a></li>
                     <li><a href="#topik-levels-section">TOPIK I & II</a></li>
                     <li><a href="#download-table-section">Past Papers PDF</a></li>
                     <li><a href="#faq-section">FAQ</a></li>
-                    <li><a href="#live-test-box" class="btn-header-cta">▶ Live CBT Test</a></li>
+                    <li class="desktop-only-cta"><a href="#live-test-box" class="btn-header-cta">▶ Live CBT Test</a></li>
                 </ul>
             </nav>
         </div>

@@ -86,6 +86,7 @@ a:hover {
     justify-content: space-between;
     align-items: center;
     padding: 12px 20px;
+    position: relative;
 }
 
 .brand-logo-img {
@@ -104,6 +105,39 @@ a:hover {
 
 .site-header-logo:hover {
     transform: scale(1.03);
+}
+
+/* Mobile Actions & Menu Toggle */
+.mobile-header-actions {
+    display: none;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-header-cta-mobile {
+    background: linear-gradient(135deg, #2563eb, #0284c7);
+    color: #ffffff !important;
+    padding: 6px 14px;
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    font-size: 0.82rem;
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+    white-space: nowrap;
+}
+
+.mobile-menu-toggle {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    font-size: 1.4rem;
+    padding: 4px 10px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    line-height: 1;
+}
+
+.mobile-menu-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
 }
 
 .nav-links {
@@ -594,8 +628,42 @@ a:hover {
     color: #64748b;
 }
 
-/* Full Mobile Responsiveness */
+/* Mobile Navigation Breakpoints */
 @media (max-width: 992px) {
+    .mobile-header-actions {
+        display: flex;
+    }
+    .desktop-only-cta {
+        display: none;
+    }
+    nav#siteNav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #0f172a;
+        border-bottom: 2px solid var(--primary-light);
+        display: none;
+        padding: 16px 20px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    }
+    nav#siteNav.mobile-active {
+        display: block;
+    }
+    .nav-links {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    .nav-links li {
+        width: 100%;
+    }
+    .nav-links a {
+        display: block;
+        width: 100%;
+        padding: 10px 14px;
+        font-size: 1rem;
+    }
     .hero-split-container {
         grid-template-columns: 1fr;
     }
@@ -623,9 +691,6 @@ a:hover {
     }
     .card-grid-4, .stats-grid-box {
         grid-template-columns: 1fr;
-    }
-    .nav-links {
-        display: none;
     }
     .footer-grid {
         grid-template-columns: 1fr;

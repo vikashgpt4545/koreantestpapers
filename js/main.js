@@ -1,12 +1,39 @@
 /**
- * koreantestpapers.in - Interactive Live Test & Question Bank Search Logic
+ * koreantestpapers.in - Interactive Live Test, Mobile Menu & Question Bank Search Logic
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+    initMobileMenu();
     initLiveTestModule();
     initSearchFilter();
     initQuestionBankSearch();
 });
+
+// Mobile Hamburger Menu Toggle Logic
+function initMobileMenu() {
+    const menuToggle = document.getElementById('mobileMenuToggle');
+    const siteNav = document.getElementById('siteNav');
+
+    if (!menuToggle || !siteNav) return;
+
+    menuToggle.addEventListener('click', function () {
+        siteNav.classList.toggle('mobile-active');
+        if (siteNav.classList.contains('mobile-active')) {
+            this.textContent = '✕';
+        } else {
+            this.textContent = '☰';
+        }
+    });
+
+    // Close mobile menu when clicking any nav link
+    const navLinks = siteNav.querySelectorAll('a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            siteNav.classList.remove('mobile-active');
+            if (menuToggle) menuToggle.textContent = '☰';
+        });
+    });
+}
 
 // Live CBT Test State
 let currentQuestionIndex = 0;
