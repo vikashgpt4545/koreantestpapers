@@ -26,12 +26,12 @@
                 <div class="footer-col">
                     <h4>Exam Categories</h4>
                     <ul class="footer-links">
-                        <li><a href="#eps-topik-section">EPS TOPIK Reading Papers</a></li>
-                        <li><a href="#eps-topik-section">EPS TOPIK Listening Audio</a></li>
-                        <li><a href="#topik-levels-section">TOPIK I Beginner Test</a></li>
-                        <li><a href="#topik-levels-section">TOPIK II Advanced Papers</a></li>
-                        <li><a href="#download-table-section">2025 Model Questions</a></li>
-                        <li><a href="#download-table-section">2024 Solved Test Sets</a></li>
+                        <li><a href="/eps-topik-reading-korean-test-papers">EPS TOPIK Reading Papers</a></li>
+                        <li><a href="/#eps-topik-section">EPS TOPIK Listening Audio</a></li>
+                        <li><a href="/#topik-levels-section">TOPIK I Beginner Test</a></li>
+                        <li><a href="/#topik-levels-section">TOPIK II Advanced Papers</a></li>
+                        <li><a href="/#download-table-section">2025 Model Questions</a></li>
+                        <li><a href="/#download-table-section">2024 Solved Test Sets</a></li>
                     </ul>
                 </div>
 
@@ -39,11 +39,11 @@
                 <div class="footer-col">
                     <h4>Industry Sectors</h4>
                     <ul class="footer-links">
-                        <li><a href="#eps-topik-section">Manufacturing Sector Paper</a></li>
-                        <li><a href="#eps-topik-section">Agriculture Sector Paper</a></li>
-                        <li><a href="#eps-topik-section">Construction Field Paper</a></li>
-                        <li><a href="#eps-topik-section">Fishery Sector Paper</a></li>
-                        <li><a href="#eps-topik-section">Special CBT Re-entry Paper</a></li>
+                        <li><a href="/#eps-topik-section">Manufacturing Sector Paper</a></li>
+                        <li><a href="/#eps-topik-section">Agriculture Sector Paper</a></li>
+                        <li><a href="/#eps-topik-section">Construction Field Paper</a></li>
+                        <li><a href="/#eps-topik-section">Fishery Sector Paper</a></li>
+                        <li><a href="/#eps-topik-section">Special CBT Re-entry Paper</a></li>
                     </ul>
                 </div>
 
@@ -51,11 +51,11 @@
                 <div class="footer-col">
                     <h4>Featured Resources</h4>
                     <ul class="footer-links">
-                        <li><a href="./">Official Korean Test Papers</a></li>
-                        <li><a href="#download-table-section">Answer Key PDF Archive</a></li>
-                        <li><a href="#live-test-box">Live Computer Based Test</a></li>
-                        <li><a href="#faq-section">Exam Scoring & Cutoffs</a></li>
-                        <li><a href="#study-guide-section">60 Chapter Textbook Notes</a></li>
+                        <li><a href="/">Official Korean Test Papers</a></li>
+                        <li><a href="/#download-table-section">Answer Key PDF Archive</a></li>
+                        <li><a href="/#live-test-box">Live Computer Based Test</a></li>
+                        <li><a href="/#faq-section">Exam Scoring & Cutoffs</a></li>
+                        <li><a href="/eps-topik-reading-korean-test-papers">EPS TOPIK Reading Guide</a></li>
                     </ul>
                 </div>
             </div>
@@ -68,6 +68,6 @@
     </footer>
 
     <!-- JavaScript File -->
-    <script src="js/main.js"></script>
+    <script src="/js/main.js"></script>
 </body>
 </html>

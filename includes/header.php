@@ -19,9 +19,9 @@ $canonical_url = "https://koreantestpapers.in" . ($_SERVER['REQUEST_URI'] ?? '')
     <link rel="canonical" href="<?php echo htmlspecialchars($canonical_url); ?>">
     
     <!-- Site Icon / Favicon -->
-    <link rel="icon" type="image/png" href="images/favicon.png">
-    <link rel="shortcut icon" href="images/favicon.png">
-    <link rel="apple-touch-icon" href="images/favicon.png">
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="shortcut icon" href="/images/favicon.png">
+    <link rel="apple-touch-icon" href="/images/favicon.png">
 
     <!-- Open Graph Metadata -->
     <meta property="og:title" content="<?php echo htmlspecialchars($page_title); ?>">
@@ -29,10 +29,10 @@ $canonical_url = "https://koreantestpapers.in" . ($_SERVER['REQUEST_URI'] ?? '')
     <meta property="og:type" content="website">
     <meta property="og:url" content="<?php echo htmlspecialchars($canonical_url); ?>">
     <meta property="og:site_name" content="KoreanTestPapers.in">
-    <meta property="og:image" content="images/logo.png">
+    <meta property="og:image" content="/images/logo.png">
 
     <!-- CSS Stylesheet -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 
     <!-- JSON-LD Structured Data Schema -->
     <script type="application/ld+json">
@@ -61,11 +61,11 @@ $canonical_url = "https://koreantestpapers.in" . ($_SERVER['REQUEST_URI'] ?? '')
     <header class="header-main">
         <div class="container header-container">
             <!-- Image Logo -->
-            <a href="./" class="brand-logo-img">
-                <img src="images/logo.png" alt="Korean Test Papers Logo" class="site-header-logo">
+            <a href="/" class="brand-logo-img">
+                <img src="/images/logo.png" alt="Korean Test Papers Logo" class="site-header-logo">
             </a>
 
-            <!-- Mobile Only Header Actions (Hidden on PC/Desktop) -->
+            <!-- Mobile Only Header Actions -->
             <div class="mobile-header-actions">
                 <a href="#live-test-box" class="btn-header-cta-mobile">▶ Live Test</a>
                 <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Navigation">
@@ -76,11 +76,11 @@ $canonical_url = "https://koreantestpapers.in" . ($_SERVER['REQUEST_URI'] ?? '')
             <!-- Navigation Menu -->
             <nav id="siteNav" class="site-nav">
                 <ul class="nav-links">
-                    <li><a href="./" class="active">Home</a></li>
-                    <li><a href="#eps-topik-section">EPS TOPIK</a></li>
-                    <li><a href="#topik-levels-section">TOPIK I & II</a></li>
-                    <li><a href="#download-table-section">Past Papers PDF</a></li>
-                    <li><a href="#faq-section">FAQ</a></li>
+                    <li><a href="/" class="active">Home</a></li>
+                    <li><a href="/eps-topik-reading-korean-test-papers">EPS TOPIK Reading</a></li>
+                    <li><a href="/#topik-levels-section">TOPIK I & II</a></li>
+                    <li><a href="/#download-table-section">Past Papers PDF</a></li>
+                    <li><a href="/#faq-section">FAQ</a></li>
                     <li class="desktop-only-cta"><a href="#live-test-box" class="btn-header-cta">▶ Live CBT Test</a></li>
                 </ul>
             </nav>
