@@ -1,10 +1,11 @@
 /**
- * koreantestpapers.in - Interactive Live Test & UI Logic
+ * koreantestpapers.in - Interactive Live Test & Question Bank Search Logic
  */
 
 document.addEventListener('DOMContentLoaded', () => {
     initLiveTestModule();
     initSearchFilter();
+    initQuestionBankSearch();
 });
 
 // Live CBT Test State
@@ -119,7 +120,7 @@ function initLiveTestModule() {
     }, 1000);
 }
 
-// Live Search Filter for Exam Papers
+// Live Search Filter for Master Exam Download Table
 function initSearchFilter() {
     const searchInput = document.getElementById('searchExamPapersInput');
     if (!searchInput) return;
@@ -134,6 +135,26 @@ function initSearchFilter() {
                 row.style.display = '';
             } else {
                 row.style.display = 'none';
+            }
+        });
+    });
+}
+
+// Dedicated Real-Time Question Bank Search & Filter Widget Logic
+function initQuestionBankSearch() {
+    const qSearchInput = document.getElementById('questionBankSearchInput');
+    if (!qSearchInput) return;
+
+    qSearchInput.addEventListener('input', function () {
+        const query = this.value.toLowerCase().trim();
+        const qCards = document.querySelectorAll('.qbank-search-item');
+
+        qCards.forEach(card => {
+            const text = card.textContent.toLowerCase();
+            if (text.includes(query)) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
             }
         });
     });
