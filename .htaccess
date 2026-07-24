@@ -1,7 +1,9 @@
 # Apache rewrite rules for koreantestpapers.in
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteBase /koreantestpapers/
+
+    # Custom 404 Page Handler
+    ErrorDocument 404 /404.php
 
     # Redirect /index.php to root clean URL
     RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /+(.*/)index\.php[?\s] [NC]
@@ -10,7 +12,16 @@
     # Handle directory index
     DirectoryIndex index.php index.html
 
-    # Route requests if file or directory doesn't exist
+    # Do not rewrite real existing files or directories
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Route clean subpage URLs to pages/{slug}.php if the file exists
+    RewriteCond %{DOCUMENT_ROOT}/pages/$1.php -f
+    RewriteRule ^([a-zA-Z0-9\-]+)$ pages/$1.php [L,QSA]
+
+    # Subfolder route fallback for local server environments
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^([a-zA-Z0-9\-]+)$ pages/$1.php [L,QSA]
