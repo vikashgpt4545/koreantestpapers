@@ -9,7 +9,7 @@
                 <div class="footer-col">
                     <h4>KoreanTestPapers.in</h4>
                     <p style="font-size: 0.9rem; line-height: 1.7; color: #94a3b8;">
-                        The premier online portal dedicated to helping HRD Korea aspirants and Korean language students succeed. Download authentic <strong>korean test papers</strong> and <strong>korean exam paper</strong> sets complete with verified answer keys, audio mp3 files, and detailed explanations.
+                        The premier online portal dedicated to helping Indian candidates, HRD Korea aspirants, and Korean language students succeed. Download authentic <strong>korean test papers</strong> and <strong>korean exam paper</strong> sets complete with verified answer keys, English translations, audio MP3 files, and detailed explanations.
                     </p>
                     <div class="tag-cloud">
                         <span class="tag-cloud-item">korean test papers</span>
@@ -51,7 +51,7 @@
                 <div class="footer-col">
                     <h4>Featured Resources</h4>
                     <ul class="footer-links">
-                        <li><a href="index.php">Official Korean Test Papers</a></li>
+                        <li><a href="./">Official Korean Test Papers</a></li>
                         <li><a href="#download-table-section">Answer Key PDF Archive</a></li>
                         <li><a href="#live-test-box">Live Computer Based Test</a></li>
                         <li><a href="#faq-section">Exam Scoring & Cutoffs</a></li>

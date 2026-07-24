@@ -9,7 +9,7 @@ $live_questions = get_live_questions();
 
 // Page Meta configuration
 $page_title = "Download Korean Test Papers and Korean Exam Paper with Answer Keys";
-$page_desc = "Download free official Korean test papers and Korean exam paper PDFs with answer keys, audio files, and full explanations. Practice live EPS-TOPIK and TOPIK I/II CBT online mock tests.";
+$page_desc = "Download free official Korean test papers and Korean exam paper PDFs with answer keys, audio files, and full explanations for Indian candidates. Practice live EPS-TOPIK and TOPIK I/II CBT online mock tests.";
 
 // Include Header Template
 require_once __DIR__ . '/includes/header.php';
@@ -29,7 +29,7 @@ require_once __DIR__ . '/includes/header.php';
         <div class="hero-heading-box">
             <h1 class="hero-title">Download Korean Test Papers and Korean Exam Paper with Answer Keys</h1>
             <p class="hero-subtitle">
-                Access the world's largest free archive of official <strong>korean test papers</strong>, past <strong>korean exam paper</strong> sets, audio scripts, and interactive CBT live practice tests for EPS-TOPIK and TOPIK I & II.
+                Access the world's largest free archive of official <strong>korean test papers</strong>, past <strong>korean exam paper</strong> sets, audio scripts, and interactive CBT live practice tests for EPS-TOPIK and TOPIK I & II (With English translations for Indian aspirants).
             </p>
         </div>
 
@@ -97,7 +97,7 @@ require_once __DIR__ . '/includes/header.php';
             <div class="hero-right-box" id="live-test-box">
                 <div class="live-test-header">
                     <div class="live-indicator">
-                        <span class="live-dot"></span> LIVE ONLINE CBT PORTAL
+                        <span class="live-dot"></span> LIVE ONLINE CBT PORTAL (KOREAN + ENGLISH)
                     </div>
                     <div style="font-weight: 700; font-size: 0.9rem; color: #475569;">
                         ⏱ Timer: <span id="liveTimerDisplay" style="color: #2563eb;">25:00</span>
@@ -226,7 +226,9 @@ require_once __DIR__ . '/includes/header.php';
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($featured_papers as $paper): ?>
+                    <?php foreach ($featured_papers as $paper): 
+                        $pdf_file = !empty($paper['pdf_filename']) ? $paper['pdf_filename'] : 'eps-topik-reading-2025.pdf';
+                    ?>
                     <tr>
                         <td>
                             <strong><?php echo htmlspecialchars($paper['title']); ?></strong>
@@ -235,9 +237,9 @@ require_once __DIR__ . '/includes/header.php';
                         <td><span class="tag-badge green"><?php echo htmlspecialchars($paper['exam_type']); ?></span></td>
                         <td><strong><?php echo htmlspecialchars($paper['year']); ?></strong></td>
                         <td><?php echo htmlspecialchars($paper['skill_type']); ?></td>
-                        <td><span style="color: #059669; font-weight: 700;">✔ Solved</span></td>
+                        <td><span style="color: #059669; font-weight: 700;">✔ Solved (Eng Explanations)</span></td>
                         <td>
-                            <a href="pdf/sample-paper.pdf" class="btn-download-sm" download>📥 Download PDF</a>
+                            <a href="pdf/<?php echo htmlspecialchars($pdf_file); ?>" class="btn-download-sm" download>📥 Download PDF</a>
                         </td>
                     </tr>
                     <?php endforeach; ?>
@@ -257,7 +259,7 @@ require_once __DIR__ . '/includes/header.php';
         <div class="seo-content-box">
             <h2>The Definitive Guide to Downloading Official Korean Test Papers and Korean Exam Paper Resources</h2>
             <p>
-                Preparing for official Korean language certification exams requires access to structured, authentic, and updated study materials. Whether you are aiming to secure employment in South Korea through the Employment Permit System (EPS-TOPIK) or seeking higher education admission and career advancement via the Test of Proficiency in Korean (TOPIK I & II), practicing with real <strong>korean test papers</strong> is the single most effective strategy to ensure success. At <strong>koreantestpapers.in</strong>, we provide free, unrestricted access to an extensive collection of solved <strong>korean exam paper</strong> archives, complete with verified answer keys, detailed explanations, listening audio MP3 files, and interactive computer-based test (CBT) simulations.
+                Preparing for official Korean language certification exams requires access to structured, authentic, and updated study materials. Whether you are aiming to secure employment in South Korea through the Employment Permit System (EPS-TOPIK) or seeking higher education admission and career advancement via the Test of Proficiency in Korean (TOPIK I & II), practicing with real <strong>korean test papers</strong> is the single most effective strategy to ensure success. At <strong>koreantestpapers.in</strong>, we provide free, unrestricted access to an extensive collection of solved <strong>korean exam paper</strong> archives, complete with verified answer keys, detailed explanations in English, listening audio MP3 files, and interactive computer-based test (CBT) simulations designed specifically for Indian candidates and international learners.
             </p>
             <p>
                 The Korean language evaluation framework is rigorously standardized by governing authorities in South Korea, primarily HRD Korea (Human Resources Development Service of Korea) and NIIED (National Institute for International Education). Because these exams feature strict time limitations, unique question patterns, and specific vocabulary lists, relying solely on theoretical textbook reading is insufficient. Candidates who routinely test their knowledge using official past <strong>korean test papers</strong> achieve significantly higher scores, build essential exam-day confidence, and master the pace required to complete both reading and listening sections within allotted time windows.
@@ -278,7 +280,7 @@ require_once __DIR__ . '/includes/header.php';
         <div class="seo-content-box" id="eps-topik-section">
             <h2>Comprehensive EPS-TOPIK Exam Paper Blueprint & Scoring Architecture</h2>
             <p>
-                The Employment Permit System Test of Proficiency in Korean (EPS-TOPIK) is the mandatory gateway examination for foreign job seekers from partner nations—including Nepal, Vietnam, Cambodia, Indonesia, Sri Lanka, Thailand, the Philippines, Myanmar, Bangladesh, Uzbekistan, Pakistan, Mongolia, Laos, and Kyrgyzstan—who aspire to work in South Korea's industrial and agricultural sectors. Understanding the layout of an official EPS-TOPIK <strong>korean test papers</strong> set is critical for strategic preparation.
+                The Employment Permit System Test of Proficiency in Korean (EPS-TOPIK) is the mandatory gateway examination for foreign job seekers from partner nations—including India, Nepal, Vietnam, Cambodia, Indonesia, Sri Lanka, Thailand, the Philippines, Myanmar, Bangladesh, Uzbekistan, Pakistan, Mongolia, Laos, and Kyrgyzstan—who aspire to work in South Korea's industrial and agricultural sectors. Understanding the layout of an official EPS-TOPIK <strong>korean test papers</strong> set is critical for strategic preparation.
             </p>
             
             <h3>Structure of the EPS-TOPIK Examination</h3>
@@ -315,7 +317,7 @@ require_once __DIR__ . '/includes/header.php';
 
         <!-- ARTICLE CONTAINER BOX 3: COUNTRY-WISE EPS-TOPIK CUTOFF MARKS & BENCHMARKS (600+ WORDS) -->
         <div class="seo-content-box">
-            <h2>EPS-TOPIK Country-Wise Cutoff Score Matrix & Passing Benchmarks</h2>
+            <h2>EPS-TOPIK Country-Wise Cutoff Score Matrix & Benchmarks for Indian & Asian Candidates</h2>
             <p>
                 Because HRD Korea determines pass quotas based on annual labor demands and national candidate volume, passing scores fluctuate across send countries and industry sectors. Practicing with past <strong>korean test papers</strong> helps candidates target specific numerical score goals needed to guarantee placement in the candidate roster (Roster of Job Seekers).
             </p>
@@ -333,6 +335,13 @@ require_once __DIR__ . '/includes/header.php';
                     </thead>
                     <tbody>
                         <tr>
+                            <td><strong>India & SAARC</strong></td>
+                            <td>175 / 200 (35 Qs)</td>
+                            <td>160 / 200 (32 Qs)</td>
+                            <td>165 / 200 (33 Qs)</td>
+                            <td><span class="tag-badge green">Target Score (180+)</span></td>
+                        </tr>
+                        <tr>
                             <td><strong>Nepal</strong></td>
                             <td>185 / 200 (37 Qs)</td>
                             <td>170 / 200 (34 Qs)</td>
@@ -345,13 +354,6 @@ require_once __DIR__ . '/includes/header.php';
                             <td>165 / 200 (33 Qs)</td>
                             <td>170 / 200 (34 Qs)</td>
                             <td><span class="tag-badge red" style="background:#dc2626; color:#fff;">High Competition (185+)</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Cambodia</strong></td>
-                            <td>160 / 200 (32 Qs)</td>
-                            <td>145 / 200 (29 Qs)</td>
-                            <td>150 / 200 (30 Qs)</td>
-                            <td><span class="tag-badge green">Moderate Competition (165+)</span></td>
                         </tr>
                         <tr>
                             <td><strong>Sri Lanka</strong></td>
@@ -367,19 +369,12 @@ require_once __DIR__ . '/includes/header.php';
                             <td>160 / 200 (32 Qs)</td>
                             <td><span class="tag-badge amber">Moderate Competition (175+)</span></td>
                         </tr>
-                        <tr>
-                            <td><strong>Myanmar</strong></td>
-                            <td>180 / 200 (36 Qs)</td>
-                            <td>165 / 200 (33 Qs)</td>
-                            <td>170 / 200 (34 Qs)</td>
-                            <td><span class="tag-badge red" style="background:#dc2626; color:#fff;">High Competition (185+)</span></td>
-                        </tr>
                     </tbody>
                 </table>
             </div>
 
             <p>
-                As illustrated in the data table above, highly competitive sending countries like Nepal, Vietnam, and Myanmar require candidates to score at least 180 to 190 points (answering 36 to 38 out of 40 questions correctly) in their written <strong>korean exam paper</strong>. Scoring at this level is impossible without rigorous mock test practice. Solving at least 20 model <strong>korean test papers</strong> on our platform guarantees speed and precision on test day.
+                As illustrated in the data table above, highly competitive sending countries require candidates to score at least 175 to 190 points (answering 35 to 38 out of 40 questions correctly) in their written <strong>korean exam paper</strong>. Scoring at this level is impossible without rigorous mock test practice. Solving at least 20 model <strong>korean test papers</strong> on our platform guarantees speed and precision on test day.
             </p>
         </div>
 
@@ -481,10 +476,10 @@ require_once __DIR__ . '/includes/header.php';
                 <h4 style="color: #1e3a8a; margin-bottom: 10px;">Sample Question 1: Synonyms & Word Associations (EPS-TOPIK Reading)</h4>
                 <p style="font-weight: 700; color: #0f172a;">다음 단어의 반대말은 무엇입니까? [ 가깝다 ]</p>
                 <ul style="list-style: none; margin: 10px 0; padding-left: 0;">
-                    <li>① 멀다 (Far)</li>
-                    <li>② 좁다 (Narrow)</li>
-                    <li>③ 크다 (Big)</li>
-                    <li>④ 무겁다 (Heavy)</li>
+                    <li>① 멀다 (Far / दूर)</li>
+                    <li>② 좁다 (Narrow / संकीर्ण)</li>
+                    <li>③ 크다 (Big / बड़ा)</li>
+                    <li>④ 무겁다 (Heavy / भारी)</li>
                 </ul>
                 <p style="background: #f1f5f9; padding: 12px; border-radius: 6px; font-size: 0.92rem;">
                     <strong>Correct Answer: ① 멀다</strong><br>
@@ -496,10 +491,10 @@ require_once __DIR__ . '/includes/header.php';
                 <h4 style="color: #1e3a8a; margin-bottom: 10px;">Sample Question 2: Fill in the Blank Grammar (TOPIK I Reading)</h4>
                 <p style="font-weight: 700; color: #0f172a;">다음 빈칸에 들어갈 가장 알맞은 것을 고르십시오: "비가 오기 ________ 우산을 챙기세요."</p>
                 <ul style="list-style: none; margin: 10px 0; padding-left: 0;">
-                    <li>① 전에 (Before)</li>
-                    <li>② 후에 (After)</li>
-                    <li>③ 동안 (While)</li>
-                    <li>④ 때문에 (Because of)</li>
+                    <li>① 전에 (Before / से पहले)</li>
+                    <li>② 후에 (After / के बाद)</li>
+                    <li>③ 동안 (While / के दौरान)</li>
+                    <li>④ 때문에 (Because of / की वजह से)</li>
                 </ul>
                 <p style="background: #f1f5f9; padding: 12px; border-radius: 6px; font-size: 0.92rem;">
                     <strong>Correct Answer: ① 전에</strong><br>
@@ -511,10 +506,10 @@ require_once __DIR__ . '/includes/header.php';
                 <h4 style="color: #1e3a8a; margin-bottom: 10px;">Sample Question 3: Signboard & Workplace Safety Symbol (EPS-TOPIK Reading)</h4>
                 <p style="font-weight: 700; color: #0f172a;">다음 표지판이 뜻하는 것은 무엇입니까? [ 🚫 손대지 마시오 ]</p>
                 <ul style="list-style: none; margin: 10px 0; padding-left: 0;">
-                    <li>① 만지지 마십시오 (Do not touch)</li>
-                    <li>② 들어가지 마십시오 (Do not enter)</li>
-                    <li>③ 담배를 피우지 마십시오 (No smoking)</li>
-                    <li>④ 주차하지 마십시오 (No parking)</li>
+                    <li>① 만지지 마십시오 (Do not touch / छूना सख्त मना है)</li>
+                    <li>② 들어가지 마십시오 (Do not enter / प्रवेश वर्जित)</li>
+                    <li>③ 담배를 피우지 마십시오 (No smoking / धूम्रपान वर्जित)</li>
+                    <li>④ 주차하지 마십시오 (No parking / पार्किंग मना है)</li>
                 </ul>
                 <p style="background: #f1f5f9; padding: 12px; border-radius: 6px; font-size: 0.92rem;">
                     <strong>Correct Answer: ① 만지지 마십시오</strong><br>
@@ -582,16 +577,16 @@ require_once __DIR__ . '/includes/header.php';
                 </div>
 
                 <div class="faq-item-box">
-                    <div class="faq-question">Q3: Do the downloadable Korean exam paper PDFs include official answer keys?</div>
+                    <div class="faq-question">Q3: Do the downloadable Korean exam paper PDFs include official answer keys and English explanations?</div>
                     <div class="faq-answer">
-                        Yes! Every single <strong>korean exam paper</strong> PDF in our master collection includes a verified answer key at the end of the document, allowing you to self-evaluate your score accurately.
+                        Yes! Every single <strong>korean exam paper</strong> PDF in our master collection includes a verified answer key and English explanations at the end of the document, allowing Indian and global candidates to self-evaluate accurately.
                     </div>
                 </div>
 
                 <div class="faq-item-box">
                     <div class="faq-question">Q4: How can I practice live online CBT Korean test papers for free?</div>
                     <div class="faq-answer">
-                        You can practice right on our homepage! Our interactive Hero Live Test portal allows you to answer real exam questions with immediate scoring, timer tracking, and step-by-step explanations.
+                        You can practice right on our homepage! Our interactive Hero Live Test portal allows you to answer real exam questions with immediate scoring, timer tracking, and step-by-step bilingual explanations.
                     </div>
                 </div>
 

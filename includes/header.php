@@ -4,7 +4,7 @@ if (!isset($page_title)) {
     $page_title = "Download Korean Test Papers and Korean Exam Paper with Answer Keys";
 }
 if (!isset($page_desc)) {
-    $page_desc = "Download free official Korean test papers and Korean exam paper with answer keys, audio transcripts, and reading solutions. Practice live EPS-TOPIK & TOPIK I/II CBT tests online.";
+    $page_desc = "Download free official Korean test papers and Korean exam paper with answer keys, audio transcripts, and reading solutions for Indian aspirants. Practice live EPS-TOPIK & TOPIK I/II CBT tests online.";
 }
 $canonical_url = "https://koreantestpapers.in" . ($_SERVER['REQUEST_URI'] ?? '');
 ?>
@@ -15,16 +15,22 @@ $canonical_url = "https://koreantestpapers.in" . ($_SERVER['REQUEST_URI'] ?? '')
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($page_title); ?></title>
     <meta name="description" content="<?php echo htmlspecialchars($page_desc); ?>">
-    <meta name="keywords" content="korean test papers, korean exam paper, EPS TOPIK test papers, TOPIK I exam paper, TOPIK II question paper with answer key, Korean language practice test PDF">
+    <meta name="keywords" content="korean test papers, korean exam paper, EPS TOPIK test papers India, TOPIK I exam paper, TOPIK II question paper with answer key, Korean language practice test PDF">
     <link rel="canonical" href="<?php echo htmlspecialchars($canonical_url); ?>">
     
+    <!-- Site Icon / Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/favicon.png">
+
     <!-- Open Graph Metadata -->
     <meta property="og:title" content="<?php echo htmlspecialchars($page_title); ?>">
     <meta property="og:description" content="<?php echo htmlspecialchars($page_desc); ?>">
     <meta property="og:type" content="website">
     <meta property="og:url" content="<?php echo htmlspecialchars($canonical_url); ?>">
     <meta property="og:site_name" content="KoreanTestPapers.in">
-    
+    <meta property="og:image" content="images/logo.png">
+
     <!-- CSS Stylesheet -->
     <link rel="stylesheet" href="css/style.css">
 
@@ -46,22 +52,22 @@ $canonical_url = "https://koreantestpapers.in" . ($_SERVER['REQUEST_URI'] ?? '')
 </head>
 <body>
 
-    <!-- Notification Bar -->
+    <!-- Top Notification Bar -->
     <div class="top-notification-bar">
-        ⚡ Free 2025 EPS-TOPIK & TOPIK I & II Solved Question Papers & Live Online CBT Mock Tests Available!
+        ⚡ Free 2025 EPS-TOPIK & TOPIK I & II Solved Question Papers with English Explanations for Indian Candidates!
     </div>
 
     <!-- Header Navigation -->
     <header class="header-main">
         <div class="container header-container">
-            <a href="index.php" class="brand-logo">
-                🌐 KoreanTestPapers.in
-                <span class="brand-badge">Official Hub</span>
+            <!-- Image Logo Only (No text logo) -->
+            <a href="./" class="brand-logo-img">
+                <img src="images/logo.png" alt="Korean Test Papers Logo" class="site-header-logo">
             </a>
             
             <nav>
                 <ul class="nav-links">
-                    <li><a href="index.php" class="active">Home</a></li>
+                    <li><a href="./" class="active">Home</a></li>
                     <li><a href="#eps-topik-section">EPS TOPIK</a></li>
                     <li><a href="#topik-levels-section">TOPIK I & II</a></li>
                     <li><a href="#download-table-section">Past Papers PDF</a></li>
