@@ -60,18 +60,21 @@ $canonical_url = "https://koreantestpapers.in" . ($_SERVER['REQUEST_URI'] ?? '')
     <!-- Header Navigation -->
     <header class="header-main">
         <div class="container header-container">
-            <!-- Image Logo Only -->
+            <!-- Image Logo -->
             <a href="./" class="brand-logo-img">
                 <img src="images/logo.png" alt="Korean Test Papers Logo" class="site-header-logo">
             </a>
 
-            <!-- Mobile Action Bar (Live Test Button & Hamburger Toggle) -->
+            <!-- Mobile Only Header Actions (Hidden on PC/Desktop) -->
             <div class="mobile-header-actions">
                 <a href="#live-test-box" class="btn-header-cta-mobile">▶ Live Test</a>
-                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Navigation">☰</button>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Navigation">
+                    <span class="hamburger-icon">☰</span>
+                </button>
             </div>
             
-            <nav id="siteNav">
+            <!-- Navigation Menu -->
+            <nav id="siteNav" class="site-nav">
                 <ul class="nav-links">
                     <li><a href="./" class="active">Home</a></li>
                     <li><a href="#eps-topik-section">EPS TOPIK</a></li>
