@@ -1,0 +1,36 @@
+================================================================================
+KOREANTESTPAPERS.IN - PROJECT EXECUTION & SEO RULES
+================================================================================
+
+RULE 1: MANUAL PAGE CREATION ONLY (NO AUTOMATED SCRIPTS)
+- All website pages MUST be created manually, one by one, strictly following the 100 URL entries in `urls.txt`.
+- No automated scripts, batch generators, or programmatically generated dummy files are allowed.
+
+RULE 2: HOMEPAGE WORD COUNT & CONTENT DEPTH (3,000+ WORDS)
+- The Homepage (`index.php` / `index.html`) MUST contain over 3,000 words of rich, original, and deeply informative content.
+- Page Title must strictly follow: "Download Korean Test Papers and Korean Exam Paper with Answer Keys".
+- Hero section must be a split 2-column box layout: Left side listing all exam names, right side offering live test options.
+
+RULE 3: SUBPAGE WORD COUNT & CONTENT DEPTH (2,000+ WORDS PER PAGE)
+- Each individual subpage created from `urls.txt` MUST contain at least 2,000+ words.
+- Pages must feature in-depth exam analysis, syllabus breakdown, actual sample/past questions, detailed step-by-step explanations, answer keys, and direct PDF download links of previous exam papers.
+
+RULE 4: KEYWORD INTEGRATION MANDATE
+- Every single page title and main H1 heading MUST feature at least one primary target keyword:
+  1. "korean test papers"
+  2. "korean exam paper"
+- Maintain high keyword density and natural semantic variations across content sections.
+
+RULE 5: STRUCTURAL CONTAINER BOX LAYOUT
+- Use clean, modular container box UI styling across all pages.
+- Standardized CSS box models for Exam Lists, Live Test Boxes, Question Cards, Download Tables, and FAQ Accordions.
+
+RULE 6: TECHNICAL SEO & ASSETS
+- Schema markup (FAQ Page, Article, Course/Exam schema) on every page.
+- Clean semantic HTML5 layout (`<header>`, `<nav>`, `<main>`, `<section>`, `<aside>`, `<footer>`).
+- Standardized directory structure:
+  - `pages/` (for subpages)
+  - `css/` (for styling)
+  - `js/` (for interactive live tests)
+  - `pdf/` (for downloadable exam paper PDFs)
+  - `includes/` (for header, footer, navigation modules)

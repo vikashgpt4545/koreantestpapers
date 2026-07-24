@@ -1,0 +1,91 @@
+================================================================================
+KOREANTESTPAPERS.IN - HOMEPAGE & SITE ARCHITECTURE STRUCTURE (BOX LAYOUT)
+================================================================================
+
+[SITE DOMAIN]: https://koreantestpapers.in
+[PRIMARY KEYWORDS]: "korean test papers", "korean exam paper"
+[HOMEPAGE H1/TITLE]: Download Korean Test Papers and Korean Exam Paper with Answer Keys
+
+--------------------------------------------------------------------------------
+HOMEPAGE CONTAINER LAYOUT BLUEPRINT (3,000+ WORDS COMPREHENSIVE SEO STRUCTURE)
+--------------------------------------------------------------------------------
+
++------------------------------------------------------------------------------+
+| HEADER CONTAINER                                                             |
+| - Logo & Branding (koreantestpapers.in)                                      |
+| - Navigation Bar: Home | EPS TOPIK | TOPIK I & II | Live Tests | PDFs | FAQ  |
+| - Live Test Quick Access CTA Button                                          |
++------------------------------------------------------------------------------+
+
++------------------------------------------------------------------------------+
+| HERO CONTAINER (2-COLUMN SPLIT BOX LAYOUT)                                   |
+|                                                                              |
+|  LEFT COLUMN BOX: EXAM DIRECTORY LIST   | RIGHT COLUMN BOX: LIVE TEST PORTAL  |
+|  - All Exam Category Quick Links         | - Interactive Live CBT Mock Test    |
+|  - EPS-TOPIK General & Sector Papers     | - Choose Exam Type (Reading/Listen) |
+|  - TOPIK I (Level 1 & 2) Papers          | - Timer & Dynamic Question Display  |
+|  - TOPIK II (Level 3 - 6) Papers         | - Instant Score & Answer Key Check  |
+|  - Year-Wise Archives (2015-2025)        | - "Start Free Live Test" Button     |
++------------------------------------------------------------------------------+
+
++------------------------------------------------------------------------------+
+| SEARCH & QUICK FILTER CONTAINER                                              |
+| - Instant Live Search Input Box ("Search Korean Test Papers, Exams, Years") |
+| - Filter Badges: [EPS-TOPIK] [TOPIK I] [TOPIK II] [Reading] [Listening] [PDF] |
++------------------------------------------------------------------------------+
+
++------------------------------------------------------------------------------+
+| FEATURED EXAM PAPERS GRID CONTAINER (4-BOX CARD LAYOUT)                      |
+| - Box 1: EPS-TOPIK Official Reading & Listening Papers (PDF + Audio)        |
+| - Box 2: TOPIK I Beginner Level 1-2 Exam Papers with Explanations            |
+| - Box 3: TOPIK II Intermediate & Advanced Level 3-6 Papers                   |
+| - Box 4: EPS-TOPIK Industry Special (Manufacturing, Agriculture, etc.)       |
++------------------------------------------------------------------------------+
+
++------------------------------------------------------------------------------+
+| MASTER PREVIOUS YEAR PAPERS DOWNLOAD TABLE CONTAINER                         |
+| - Tabular Box: Exam Name | Category | Year | File Size | Action Box (PDF)    |
+| - Contains Direct PDF Download Links with Official Answer Keys               |
++------------------------------------------------------------------------------+
+
++------------------------------------------------------------------------------+
+| COMPREHENSIVE CONTENT CONTAINER 1: EPS-TOPIK EXAM SYSTEM (800+ WORDS)        |
+| - Box A: EPS TOPIK Exam Overview & Employment Permit System Guidelines       |
+| - Box B: Marking Scheme, Time Duration (Reading 25 min, Listening 25 min)    |
+| - Box C: Passing Score Criteria & Country-wise Cutoff Matrix                 |
++------------------------------------------------------------------------------+
+
++------------------------------------------------------------------------------+
+| COMPREHENSIVE CONTENT CONTAINER 2: TOPIK I & II EXAM GUIDE (900+ WORDS)       |
+| - Box A: National Institute for International Education (NIIED) Standards    |
+| - Box B: TOPIK I (Levels 1-2) vs TOPIK II (Levels 3-6) Complete Breakdown    |
+| - Box C: Evaluation Criteria: Reading, Listening, and Writing Essay Sections |
++------------------------------------------------------------------------------+
+
++------------------------------------------------------------------------------+
+| COMPREHENSIVE CONTENT CONTAINER 3: STUDY & STRATEGY BOX (800+ WORDS)         |
+| - Box A: How to Effectively Solve Korean Test Papers & Analyze Weak Areas   |
+| - Box B: Key Hangul Vocabulary & Essential Grammar Rules for High Scores     |
+| - Box C: CBT/UBT Software Navigation Guide & Audio Listening Tips            |
++------------------------------------------------------------------------------+
+
++------------------------------------------------------------------------------+
+| SAMPLE QUESTION & ANSWER KEY CONTAINER (500+ WORDS)                          |
+| - Interactive Sample Box: Question breakdown with explanation & Hangeul text |
+| - Solved Answer Key Table for Quick Reference                                |
++------------------------------------------------------------------------------+
+
++------------------------------------------------------------------------------+
+| FREQUENTLY ASKED QUESTIONS (FAQ) CONTAINER (SCHEMA ACCORDION BOX)            |
+| - Box 1: Where can I download official Korean test papers with answer keys? |
+| - Box 2: What is the difference between EPS TOPIK and TOPIK exam paper?      |
+| - Box 3: How often are Korean exam papers updated on koreantestpapers.in?    |
+| - Box 4: Can I practice live online CBT Korean test papers for free?         |
++------------------------------------------------------------------------------+
+
++------------------------------------------------------------------------------+
+| FOOTER CONTAINER                                                             |
+| - Quick Links to all 100 SEO URLs                                            |
+| - Keyword Tags Cloud ("korean test papers", "korean exam paper")              |
+| - Copyright & Disclaimer Notice                                              |
++------------------------------------------------------------------------------+
