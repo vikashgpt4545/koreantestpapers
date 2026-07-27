@@ -1,6 +1,7 @@
 <?php
 // Core PHP & Database Setup
 require_once __DIR__ . '/../includes/db.php';
+require_once __DIR__ . '/../includes/media_catalog.php';
 
 // Page SEO Meta Configuration
 $page_title = "Master Download Korean Exam Paper and PDF Answer Keys - Complete Archive";
@@ -9,6 +10,7 @@ $canonical_url = "https://koreantestpapers.in/korean-exam-paper-master-collectio
 
 // Fetch dynamic exam questions & test paper list
 $live_questions = get_live_questions();
+$master_catalog = get_master_pdf_catalog();
 
 // Include Shared Header Template
 require_once __DIR__ . '/../includes/header.php';
@@ -34,91 +36,8 @@ require_once __DIR__ . '/../includes/header.php';
 }
 </script>
 
-<!-- HERO SECTION CONTAINER -->
-<section class="hero-section">
-    <div class="container">
-        <div class="hero-heading-box">
-            <h1 class="hero-title">Master Download Korean Exam Paper and PDF Answer Keys - Complete Archive</h1>
-            <p class="hero-subtitle">
-                Access the definitive master collection of free <strong>korean exam paper</strong> PDFs, official NIIED & HRD Korea answer key bundles, 10-year historical archives, downloadable <strong>korean test papers</strong>, and interactive CBT simulators.
-            </p>
-        </div>
-
-        <!-- 2-Column Split Box Container -->
-        <div class="hero-split-container">
-            <!-- Left Box: Master Collection Quick Download Menu -->
-            <div class="hero-left-box">
-                <div class="box-title-header">
-                    <h3>🏆 Master Collection Quick Downloads</h3>
-                    <span class="tag-badge green">Master Archive</span>
-                </div>
-                <div class="exam-nav-list">
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>Master Korean Exam Paper Collection PDF</h4>
-                            <p>Complete multi-year archive compilation with keys & solutions</p>
-                        </div>
-                        <a href="../pdf/topik-91st-official-paper.pdf" class="btn-download-sm" download>PDF</a>
-                    </div>
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>EPS TOPIK Official Question Bank PDF</h4>
-                            <p>Full 2000-question reading & listening compilation</p>
-                        </div>
-                        <a href="../pdf/eps-topik-official-question-bank.pdf" class="btn-download-sm" download>PDF</a>
-                    </div>
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>TOPIK II Advanced Model Test Paper PDF</h4>
-                            <p>Reading, Listening & Essay writing test set</p>
-                        </div>
-                        <a href="../pdf/topik-2-advanced-model.pdf" class="btn-download-sm" download>PDF</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right Box: Live CBT Mock Test Widget -->
-            <div class="hero-right-box" id="live-test-box">
-                <div class="live-test-header">
-                    <div class="live-indicator">
-                        <span class="live-dot"></span> LIVE MASTER COLLECTION SIMULATOR
-                    </div>
-                    <div style="font-weight: 700; font-size: 0.9rem; color: #475569;">
-                        ⏱ Timer: <span id="liveTimerDisplay" style="color: #2563eb;">25:00</span>
-                    </div>
-                </div>
-
-                <div class="quiz-card-box">
-                    <div class="quiz-question-title" id="liveQuestionText">
-                        <?php echo htmlspecialchars($live_questions[0]['question_text']); ?>
-                    </div>
-                    
-                    <div class="quiz-options-list" id="liveOptionsContainer">
-                        <button class="quiz-option-btn" data-option="A">
-                            <span>A. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_a']); ?></span></span>
-                        </button>
-                        <button class="quiz-option-btn" data-option="B">
-                            <span>B. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_b']); ?></span></span>
-                        </button>
-                        <button class="quiz-option-btn" data-option="C">
-                            <span>C. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_c']); ?></span></span>
-                        </button>
-                        <button class="quiz-option-btn" data-option="D">
-                            <span>D. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_d']); ?></span></span>
-                        </button>
-                    </div>
-
-                    <div id="liveExplanationBox" style="display:none; margin-top: 14px; padding: 12px; background: #eff6ff; border-radius: 6px; font-size: 0.88rem; color: #1e3a8a;"></div>
-                </div>
-
-                <div class="quiz-action-bar">
-                    <button class="btn-primary-action" id="btnSubmitAnswer" disabled>Submit Answer</button>
-                    <button class="btn-primary-action" id="btnNextQuestion" style="display:none; background: #059669;">Next Question ▶</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<!-- UNIFIED 70%/30% HERO SECTION -->
+<?php require_once __DIR__ . '/../includes/hero-section.php'; ?>
 
 <!-- MAIN CONTENT CONTAINER (2,000+ WORDS DETAILED MASTER COLLECTION GUIDE) -->
 <section class="section-padding">
@@ -145,108 +64,62 @@ require_once __DIR__ . '/../includes/header.php';
             </div>
         </div>
 
-        <!-- ARTICLE BOX 2: CATEGORY ARCHIVE MATRIX TABLE -->
+        <!-- PROMOTIONAL CALLOUT BANNER 1 -->
+        <div class="callout-box" style="background: linear-gradient(135deg, #1e3a8a, #0284c7); color: white; border: none; padding: 24px; text-align: center; margin-bottom: 28px;">
+            <h3 style="color: white; margin-bottom: 8px;">Past papers alone won't tell you why you got an answer wrong!</h3>
+            <p style="color: #cbd5e1; max-width: 750px; margin: 0 auto 16px;">Try our level-based interactive Korean games, Hangul vocabulary drills, and dynamic CBT test simulator to boost your exam score fast.</p>
+            <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                <button onclick="switchHeroTab('gamesTab'); window.scrollTo({top: 0, behavior: 'smooth'});" class="btn-primary-action" style="background: #059669; max-width: 220px;">⚡ Start Free Practice</button>
+                <a href="/subscription" class="btn-primary-action" style="background: #f59e0b; max-width: 220px; text-decoration: none;">🔓 View Premium Passes</a>
+            </div>
+        </div>
+
+        <!-- MASTER SEARCH & DOWNLOAD TABLE FOR ALL EXAM PAPERS -->
         <div class="seo-content-box">
-            <h2>Master Korean Exam Paper Architecture & Category Index</h2>
+            <h2>Master Archive Search & Download Table (All 156 PDF/MP3 Files)</h2>
             <p>
-                Explore the complete organizational structure of our master examination archive:
+                Use the search box below to instantly filter past test papers, official answer sheets, listening scripts, and MP3 audio files:
             </p>
+
+            <div style="margin: 16px 0 20px 0;">
+                <input type="text" id="searchExamPapersInput" placeholder="🔍 Search exam session (e.g. 102nd, 96th, 91st, 83rd, 64th, TOPIK I, EPS)..." style="width: 100%; padding: 12px 16px; font-size: 1rem; border: 2px solid #2563eb; border-radius: 8px; outline: none;">
+            </div>
 
             <div class="table-box-container">
                 <table class="responsive-table">
                     <thead>
                         <tr>
-                            <th>Category Tier</th>
-                            <th>Target Audience / Purpose</th>
-                            <th>Total Papers</th>
-                            <th>Format</th>
-                            <th>Primary Keywords Included</th>
+                            <th>Exam Session</th>
+                            <th>Exam Level / Sector</th>
+                            <th>Resource Type</th>
+                            <th>Year</th>
+                            <th>Download Action</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <?php foreach ($master_catalog as $item): ?>
                         <tr>
-                            <td><span class="tag-badge blue">EPS TOPIK Work Visa</span></td>
-                            <td>HRD Korea E-9 Employment Seekers (16 Countries)</td>
-                            <td>50+ Sets</td>
-                            <td>PDF + Audio + CBT</td>
-                            <td>korean test papers, eps topik, cbt exam paper</td>
+                            <td><strong><?php echo htmlspecialchars($item['session']); ?></strong></td>
+                            <td><span class="tag-badge blue"><?php echo htmlspecialchars($item['level']); ?></span></td>
+                            <td><?php echo htmlspecialchars($item['type']); ?></td>
+                            <td><?php echo htmlspecialchars($item['year']); ?></td>
+                            <td>
+                                <a href="<?php echo get_google_drive_download_url($item['drive_id'], $item['file_name']); ?>" target="_blank" class="btn-download-sm">
+                                    📥 Download File
+                                </a>
+                            </td>
                         </tr>
-                        <tr>
-                            <td><span class="tag-badge green">TOPIK I (Beginner)</span></td>
-                            <td>Levels 1 & 2 (Language Schools, Basic Fluency)</td>
-                            <td>20+ Sets</td>
-                            <td>PDF + Answer Key</td>
-                            <td>korean exam paper, topik 1 level 1, topik 1 level 2</td>
-                        </tr>
-                        <tr>
-                            <td><span class="tag-badge amber">TOPIK II (Int / Adv)</span></td>
-                            <td>Levels 3 to 6 (University BA/MA, GKS, Corporate)</td>
-                            <td>20+ Sets</td>
-                            <td>PDF + Essay Keys</td>
-                            <td>korean test papers, topik 2 level 3-6, essay paper</td>
-                        </tr>
-                        <tr>
-                            <td><span class="tag-badge red">Historical Archives</span></td>
-                            <td>10-Year Past Paper Archives (2015 - 2025)</td>
-                            <td>10+ Sets</td>
-                            <td>PDF + Full Solutions</td>
-                            <td>korean exam paper past papers, solved answers</td>
-                        </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
         </div>
 
-        <!-- ARTICLE BOX 3: MASTER DOWNLOAD TABLE FOR ALL EXAM PAPERS -->
-        <div class="seo-content-box">
-            <h2>Master Download Table - All Korean Exam Papers PDF & Keys</h2>
-            <p>
-                Download official master test paper bundles and practice sets with complete answer keys below:
-            </p>
-
-            <div class="table-box-container" style="margin-top: 18px;">
-                <table class="responsive-table">
-                    <thead>
-                        <tr>
-                            <th>Master Exam Title</th>
-                            <th>Exam Category</th>
-                            <th>Year</th>
-                            <th>Answer Key Status</th>
-                            <th>Download Link</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>91st Official TOPIK Master Exam Paper PDF</strong></td>
-                            <td><span class="tag-badge green">Official NIIED</span></td>
-                            <td>2025</td>
-                            <td>✔ Solved Key + Explanations</td>
-                            <td><a href="../pdf/topik-91st-official-paper.pdf" class="btn-download-sm" download>📥 Download PDF</a></td>
-                        </tr>
-                        <tr>
-                            <td><strong>EPS TOPIK Master Question Bank 2000 PDF</strong></td>
-                            <td><span class="tag-badge blue">EPS TOPIK Bank</span></td>
-                            <td>2025</td>
-                            <td>✔ Solved Answer Key</td>
-                            <td><a href="../pdf/eps-topik-official-question-bank.pdf" class="btn-download-sm" download>📥 Download PDF</a></td>
-                        </tr>
-                        <tr>
-                            <td><strong>TOPIK II Advanced Model Master Paper PDF</strong></td>
-                            <td><span class="tag-badge amber">TOPIK II Advanced</span></td>
-                            <td>2025</td>
-                            <td>✔ Solved Answer Key</td>
-                            <td><a href="../pdf/topik-2-advanced-model.pdf" class="btn-download-sm" download>📥 Download PDF</a></td>
-                        </tr>
-                        <tr>
-                            <td><strong>EPS TOPIK Manufacturing Master Test Paper PDF</strong></td>
-                            <td><span class="tag-badge red">Manufacturing</span></td>
-                            <td>2024</td>
-                            <td>✔ Solved Answer Key</td>
-                            <td><a href="../pdf/eps-topik-manufacturing.pdf" class="btn-download-sm" download>📥 Download PDF</a></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <!-- PROMOTIONAL CALLOUT BANNER 2 -->
+        <div class="callout-box" style="background: #0f172a; color: white; border-left: 4px solid #059669; padding: 24px; margin-bottom: 28px;">
+            <h3 style="color: white; margin-bottom: 8px;">Ready to go beyond past papers?</h3>
+            <p style="color: #94a3b8; margin-bottom: 14px;">Unlock Level 2+ hard mode game challenges, dynamic no-repeat CBT questions, and high-yield study notes with our time-based student passes ($3 - $11 USD).</p>
+            <a href="/subscription" class="btn-primary-action" style="background: #2563eb; display: inline-block; padding: 10px 20px; text-decoration: none;">View Subscription Passes ($3 - $11 USD) ▶</a>
         </div>
 
         <!-- ARTICLE BOX 4: STRATEGIC EXAM MASTER BLUEPRINT -->
@@ -270,7 +143,7 @@ require_once __DIR__ . '/../includes/header.php';
                 <div class="faq-item-box">
                     <div class="faq-question">Q1: Are all exam papers in the Master Collection free to download?</div>
                     <div class="faq-answer">
-                        Yes! Every single downloadable <strong>korean test papers</strong> PDF file and answer key in our master repository is completely free to access and download.
+                        Yes! Every single downloadable <strong>korean test papers</strong> PDF file and answer key in our master repository is completely free to access and download directly from Google Drive.
                     </div>
                 </div>
 

@@ -186,3 +186,97 @@ function initQuestionBankSearch() {
         });
     });
 }
+
+/* Tab Switcher Logic */
+function switchHeroTab(tabId) {
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.tab-content-panel').forEach(panel => panel.classList.remove('active'));
+
+    const activePanel = document.getElementById(tabId);
+    if (activePanel) activePanel.classList.add('active');
+
+    // Set active button
+    event.target.classList.add('active');
+}
+
+/* Hangul & Vocab Flashcard Mechanics */
+const vocabList = [
+    { kor: '안전모', eng: 'Safety Helmet (सुरक्षा पेटी)', cat: 'Factory Safety' },
+    { kor: '스패너', eng: 'Spanner / Wrench (पाना)', cat: 'Hand Tools' },
+    { kor: '손대지 마시오', eng: 'Do Not Touch (छूना मना है)', cat: 'Safety Signboard' },
+    { kor: '의사', eng: 'Doctor (डॉक्टर)', cat: 'Occupations' },
+    { kor: '일어납니다', eng: 'Wake Up (उठना)', cat: 'Daily Verbs' }
+];
+let currentVocabIdx = 0;
+
+function nextVocabCard() {
+    currentVocabIdx = (currentVocabIdx + 1) % vocabList.length;
+    const item = vocabList[currentVocabIdx];
+    document.querySelector('.flashcard-category').textContent = item.cat;
+    document.getElementById('fcKorean').textContent = item.kor;
+    document.getElementById('fcEnglish').textContent = item.eng;
+}
+
+function playHangulSound(char, name) {
+    alert(`Pronunciation: [${char}] - ${name}`);
+}
+
+/* Game Mechanics & Paywall Trial Limit (5 Questions / Level 1 Limit) */
+let gameAnswerCount = 0;
+let gameCurrentScore = 0;
+const gameMaxFreeQuestions = 5;
+
+function checkGameAnswer(chosen) {
+    const isPro = localStorage.getItem('koreantestpapers_pro') === 'true';
+
+    gameAnswerCount++;
+    if (gameAnswerCount >= gameMaxFreeQuestions && !isPro) {
+        openProModal();
+        return;
+    }
+
+    if (chosen === '의사') {
+        gameCurrentScore += 10;
+        alert('✅ Correct Answer! +10 Points');
+    } else {
+        alert('❌ Incorrect! Correct option was 의사 (Doctor)');
+    }
+
+    document.getElementById('gameScore').textContent = gameCurrentScore;
+    document.getElementById('gameQCount').textContent = `${gameAnswerCount + 1} / 5`;
+}
+
+function selectGameMode(mode) {
+    document.querySelectorAll('.game-mode-btn').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+
+    const isPro = localStorage.getItem('koreantestpapers_pro') === 'true';
+    if ((mode === 'signboard' || mode === 'audio') && !isPro) {
+        openProModal();
+    }
+}
+
+/* Pro Paywall Modal Functions */
+function openProModal() {
+    const modal = document.getElementById('proPaywallModal');
+    if (modal) modal.style.display = 'flex';
+}
+
+function closeProModal() {
+    const modal = document.getElementById('proPaywallModal');
+    if (modal) modal.style.display = 'none';
+}
+
+function selectPassPlan(planId, priceUSD) {
+    window.location.href = `/subscription?plan=${planId}&price=${priceUSD}`;
+}
+
+function checkProAccessForNotes() {
+    const isPro = localStorage.getItem('koreantestpapers_pro') === 'true';
+    if (!isPro) {
+        openProModal();
+    } else {
+        alert('🔓 Pro Note Unlocked! Downloading High-Yield Study Guide...');
+    }
+}
+
