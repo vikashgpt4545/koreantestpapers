@@ -67,7 +67,7 @@ $canonical_url = "https://koreantestpapers.in" . ($_SERVER['REQUEST_URI'] ?? '')
 
             <!-- Mobile Only Header Actions -->
             <div class="mobile-header-actions">
-                <a href="#live-test-box" class="btn-header-cta-mobile">▶ Live Test</a>
+                <a href="/eps-topik-online-free-quiz-korean-exam-paper" class="btn-header-cta-mobile">▶ Live Test</a>
                 <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Navigation">
                     <span class="hamburger-icon">☰</span>
                 </button>
@@ -78,10 +78,10 @@ $canonical_url = "https://koreantestpapers.in" . ($_SERVER['REQUEST_URI'] ?? '')
                 <ul class="nav-links">
                     <li><a href="/" class="active">Home</a></li>
                     <li><a href="/eps-topik-reading-korean-test-papers">EPS TOPIK Reading</a></li>
-                    <li><a href="/#topik-levels-section">TOPIK I & II</a></li>
-                    <li><a href="/#download-table-section">Past Papers PDF</a></li>
-                    <li><a href="/#faq-section">FAQ</a></li>
-                    <li class="desktop-only-cta"><a href="#live-test-box" class="btn-header-cta">▶ Live CBT Test</a></li>
+                    <li><a href="/topik-1-level-1-korean-test-papers">TOPIK I & II</a></li>
+                    <li><a href="/korean-exam-paper-master-collection">Past Papers PDF</a></li>
+                    <li><a href="/eps-topik-passing-marks-guide-korean-exam-paper">FAQ</a></li>
+                    <li class="desktop-only-cta"><a href="/eps-topik-online-free-quiz-korean-exam-paper" class="btn-header-cta">▶ Live CBT Test</a></li>
                 </ul>
             </nav>
         </div>
