@@ -32,7 +32,7 @@ $canonical_url = "https://koreantestpapers.in" . ($_SERVER['REQUEST_URI'] ?? '')
     <meta property="og:image" content="/images/logo.png">
 
     <!-- CSS Stylesheet -->
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/style.css?v=<?= time() ?>">
 
     <!-- JSON-LD Structured Data Schema -->
     <script type="application/ld+json">
