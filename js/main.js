@@ -231,9 +231,59 @@ function playHangulSound(char, name) {
 }
 
 /* Game Mechanics & Paywall Trial Limit (5 Questions / Level 1 Limit) */
+const gameQuestionBank = [
+    {
+        kor: "의사",
+        eng: "Doctor (डॉक्टर)",
+        opts: ["A. Doctor (डॉक्टर)", "B. Teacher (शिक्षक)", "C. Police (पुलिस)", "D. Chef (र소इया)"],
+        ans: "A. Doctor (डॉक्टर)"
+    },
+    {
+        kor: "안전모",
+        eng: "Safety Helmet (सुरक्षा पेटी)",
+        opts: ["A. Safety Helmet (सुरक्षा पेटी)", "B. Safety Glasses (चश्मा)", "C. Safety Boots (जूते)", "D. Gloves (दस्ताने)"],
+        ans: "A. Safety Helmet (सुरक्षा पेटी)"
+    },
+    {
+        kor: "손대지 마시오",
+        eng: "Do Not Touch (छूना मना है)",
+        opts: ["A. No Smoking (धूम्रपान मना है)", "B. Do Not Touch (छूना मना है)", "C. Danger High Voltage", "D. Exit (निकास)"],
+        ans: "B. Do Not Touch (छूना मना है)"
+    },
+    {
+        kor: "스패너",
+        eng: "Spanner / Wrench (पाना)",
+        opts: ["A. Hammer (हथौड़ा)", "B. Screwdriver (पेचकस)", "C. Spanner / Wrench (पाना)", "D. Saw (आरी)"],
+        ans: "C. Spanner / Wrench (पाना)"
+    },
+    {
+        kor: "사과",
+        eng: "Apple (सेब)",
+        opts: ["A. Apple (सेब)", "B. Banana (केला)", "C. Grape (अंगूर)", "D. Watermelon (तरबूज)"],
+        ans: "A. Apple (सेब)"
+    }
+];
+
+let currentGameIdx = 0;
 let gameAnswerCount = 0;
 let gameCurrentScore = 0;
 const gameMaxFreeQuestions = 5;
+
+function renderCurrentGameQuestion() {
+    const q = gameQuestionBank[currentGameIdx % gameQuestionBank.length];
+    const qArea = document.getElementById('gameQuestionText');
+    const qGrid = document.getElementById('gameOptionsGrid');
+
+    if (qArea) {
+        qArea.innerHTML = `What is the English / Hindi meaning of Korean word: <strong style="color: #60a5fa; font-size: 1.3rem;">"${q.kor}"</strong>?`;
+    }
+
+    if (qGrid) {
+        qGrid.innerHTML = q.opts.map(opt => `
+            <button class="game-opt-btn" onclick="checkGameAnswer('${opt.replace(/'/g, "\\'")}')">${opt}</button>
+        `).join('');
+    }
+}
 
 function checkGameAnswer(chosen) {
     const isPro = localStorage.getItem('koreantestpapers_pro') === 'true';
@@ -244,25 +294,33 @@ function checkGameAnswer(chosen) {
         return;
     }
 
-    if (chosen === '의사') {
+    const currentQ = gameQuestionBank[currentGameIdx % gameQuestionBank.length];
+    if (chosen === currentQ.ans) {
         gameCurrentScore += 10;
-        alert('✅ Correct Answer! +10 Points');
+        alert(`✅ Correct Answer! [${currentQ.kor}] = ${currentQ.eng} (+10 Points)`);
     } else {
-        alert('❌ Incorrect! Correct option was 의사 (Doctor)');
+        alert(`❌ Incorrect! Correct answer for "${currentQ.kor}" was: ${currentQ.ans}`);
     }
 
     document.getElementById('gameScore').textContent = gameCurrentScore;
     document.getElementById('gameQCount').textContent = `${gameAnswerCount + 1} / 5`;
+
+    currentGameIdx++;
+    renderCurrentGameQuestion();
 }
 
 function selectGameMode(mode) {
     document.querySelectorAll('.game-mode-btn').forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
+    if (window.event && window.event.target) window.event.target.classList.add('active');
 
     const isPro = localStorage.getItem('koreantestpapers_pro') === 'true';
     if ((mode === 'signboard' || mode === 'audio') && !isPro) {
         openProModal();
+        return;
     }
+    
+    currentGameIdx = 0;
+    renderCurrentGameQuestion();
 }
 
 /* Pro Paywall Modal Functions */

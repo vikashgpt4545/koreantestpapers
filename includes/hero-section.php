@@ -106,14 +106,14 @@ $live_questions = get_live_questions();
                         </div>
 
                         <div class="game-question-area" id="gameQuestionText">
-                            What is the correct Korean translation for: <strong>"Doctor"</strong>?
+                            What is the English / Hindi meaning of Korean word: <strong style="color: #60a5fa; font-size: 1.3rem;">"의사"</strong>?
                         </div>
 
                         <div class="game-options-grid" id="gameOptionsGrid">
-                            <button class="game-opt-btn" onclick="checkGameAnswer('의사')">A. 의사 (Doctor)</button>
-                            <button class="game-opt-btn" onclick="checkGameAnswer('선생님')">B. 선생님 (Teacher)</button>
-                            <button class="game-opt-btn" onclick="checkGameAnswer('경찰관')">C. 경찰관 (Police)</button>
-                            <button class="game-opt-btn" onclick="checkGameAnswer('요리사')">D. 요리사 (Chef)</button>
+                            <button class="game-opt-btn" onclick="checkGameAnswer('A. Doctor (डॉक्टर)')">A. Doctor (डॉक्टर)</button>
+                            <button class="game-opt-btn" onclick="checkGameAnswer('B. Teacher (शिक्षक)')">B. Teacher (शिक्षक)</button>
+                            <button class="game-opt-btn" onclick="checkGameAnswer('C. Police (पुलिस)')">C. Police (पुलिस)</button>
+                            <button class="game-opt-btn" onclick="checkGameAnswer('D. Chef (रसोइया)')">D. Chef (रसोइ야)</button>
                         </div>
                     </div>
                 </div>
