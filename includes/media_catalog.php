@@ -3,8 +3,9 @@
 // Google Drive Master Folder ID: 1opEW5O5mvYt2lcFP169Sizil7z0z6Qsv
 
 function get_google_drive_download_url($file_id, $filename = '') {
-    if (empty($file_id)) {
-        return "https://drive.google.com/drive/folders/1opEW5O5mvYt2lcFP169Sizil7z0z6Qsv";
+    $master_folder_id = "1opEW5O5mvYt2lcFP169Sizil7z0z6Qsv";
+    if (empty($file_id) || $file_id === $master_folder_id) {
+        return "https://drive.google.com/drive/folders/" . $master_folder_id;
     }
     return "https://drive.google.com/uc?export=download&id=" . $file_id;
 }

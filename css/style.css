@@ -789,11 +789,11 @@ a:hover {
 }
 
 .tab-content-panel {
-    display: none;
+    display: none !important;
 }
 
 .tab-content-panel.active {
-    display: block;
+    display: block !important;
 }
 
 .panel-header-box {
