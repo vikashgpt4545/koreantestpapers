@@ -20,15 +20,22 @@ require_once __DIR__ . '/../includes/header.php';
                 Enter your registered Pro Account credentials to unlock the subscriber portal.
             </p>
 
+            <!-- DEMO PRO CREDENTIALS DISPLAY BOX -->
+            <div style="background: #0f172a; border: 1px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin-bottom: 20px; text-align: left;">
+                <div style="font-size: 0.82rem; color: #60a5fa; font-weight: 700; margin-bottom: 6px;">🔑 Master Pro Access Credentials:</div>
+                <div style="font-size: 0.84rem; color: #ffffff; margin-bottom: 2px;">Email ID: <strong style="color: #fbbf24; font-family: monospace;">pro@koreantestpapers.in</strong></div>
+                <div style="font-size: 0.84rem; color: #ffffff;">Password: <strong style="color: #fbbf24; font-family: monospace;">KOREA2025</strong></div>
+            </div>
+
             <form onsubmit="handleProMemberLogin(event)">
                 <div style="margin-bottom: 16px; text-align: left;">
                     <label style="color: #cbd5e1; font-size: 0.84rem; font-weight: 600; display: block; margin-bottom: 6px;">Pro Account Email</label>
-                    <input type="email" id="proEmailInput" placeholder="name@example.com" required style="width: 100%; padding: 12px 14px; background: #0f172a; border: 1px solid #334155; border-radius: 6px; color: #ffffff; outline: none; font-size: 0.95rem;">
+                    <input type="email" id="proEmailInput" value="pro@koreantestpapers.in" placeholder="name@example.com" required style="width: 100%; padding: 12px 14px; background: #0f172a; border: 1px solid #334155; border-radius: 6px; color: #ffffff; outline: none; font-size: 0.95rem;">
                 </div>
                 
                 <div style="margin-bottom: 20px; text-align: left;">
                     <label style="color: #cbd5e1; font-size: 0.84rem; font-weight: 600; display: block; margin-bottom: 6px;">Password / Passkey</label>
-                    <input type="password" id="proPasswordInput" placeholder="••••••••" required style="width: 100%; padding: 12px 14px; background: #0f172a; border: 1px solid #334155; border-radius: 6px; color: #ffffff; outline: none; font-size: 0.95rem;">
+                    <input type="password" id="proPasswordInput" value="KOREA2025" placeholder="••••••••" required style="width: 100%; padding: 12px 14px; background: #0f172a; border: 1px solid #334155; border-radius: 6px; color: #ffffff; outline: none; font-size: 0.95rem;">
                 </div>
 
                 <button type="submit" class="btn-primary-action" style="width: 100%; padding: 12px; font-size: 0.95rem; font-weight: 800; background: #2563eb; color: #ffffff; border-radius: 6px;">
