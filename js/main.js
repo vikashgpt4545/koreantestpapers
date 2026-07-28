@@ -208,30 +208,181 @@ function switchHeroTab(tabId, btnElement) {
     }
 }
 
-/* Hangul & Vocab Flashcard Mechanics */
+/* Hangul & Vocab Flashcard Mechanics (100+ EPS-TOPIK Words Deck) */
 const vocabList = [
+    // Factory Safety & Gear
     { kor: '안전모', eng: 'Safety Helmet', cat: 'Factory Safety' },
-    { kor: '스패너', eng: 'Spanner / Wrench', cat: 'Hand Tools' },
-    { kor: '손대지 마시오', eng: 'Do Not Touch', cat: 'Safety Signboard' },
-    { kor: '의사', eng: 'Doctor', cat: 'Occupations' },
-    { kor: '일어납니다', eng: 'To Wake Up', cat: 'Daily Verbs' },
-    { kor: '안녕하세요', eng: 'Hello / Greetings', cat: 'Daily Conversation' },
-    { kor: '감사합니다', eng: 'Thank You', cat: 'Polite Expressions' },
+    { kor: '안전화', eng: 'Safety Boots / Steel-Toe Shoes', cat: 'Factory Safety' },
+    { kor: '안전장갑', eng: 'Protective Safety Gloves', cat: 'Factory Safety' },
+    { kor: '보안경', eng: 'Safety Goggles / Glasses', cat: 'Factory Safety' },
+    { kor: '마스크', eng: 'Dust Respirator Mask', cat: 'Factory Safety' },
+    { kor: '귀마개', eng: 'Earplugs / Noise Protectors', cat: 'Factory Safety' },
+    { kor: '안전대', eng: 'Safety Harness / Belt', cat: 'Factory Safety' },
+    { kor: '소화기', eng: 'Fire Extinguisher', cat: 'Emergency Equipment' },
     { kor: '비상구', eng: 'Emergency Exit', cat: 'Safety Signboard' },
-    { kor: '감전 주의', eng: 'Electric Shock Warning', cat: 'Workplace Safety' },
-    { kor: '장갑', eng: 'Protective Gloves', cat: 'Safety Gear' },
+    { kor: '구급함', eng: 'First Aid Kit', cat: 'Emergency Equipment' },
+    { kor: '붕대', eng: 'Medical Bandage / Dressing', cat: 'First Aid Supplies' },
+
+    // Safety Signs & Warnings
+    { kor: '손대지 마시오', eng: 'Do Not Touch (Danger)', cat: 'Safety Signboard' },
+    { kor: '감전 주의', eng: 'Electric Shock Warning', cat: 'Safety Signboard' },
+    { kor: '낙하물 주의', eng: 'Falling Objects Danger', cat: 'Safety Signboard' },
+    { kor: '화기 엄금', eng: 'No Flammable Materials / No Fire', cat: 'Safety Signboard' },
+    { kor: '관계자 외 출입금지', eng: 'Authorized Personnel Only', cat: 'Safety Signboard' },
+    { kor: '조심하십시오', eng: 'Caution / Be Careful', cat: 'Workplace Warnings' },
+    { kor: '위험', eng: 'Danger / Hazard', cat: 'Workplace Warnings' },
+    { kor: '금연', eng: 'No Smoking Area', cat: 'Safety Signboard' },
+    { kor: '보호구 착용', eng: 'Wear Protective Equipment', cat: 'Safety Rules' },
+
+    // Hand Tools & Construction Equipment
     { kor: '망치', eng: 'Hammer', cat: 'Hand Tools' },
-    { kor: '소화기', eng: 'Fire Extinguisher', cat: 'Emergency Tools' },
-    { kor: '병원', eng: 'Hospital', cat: 'Essential Places' }
+    { kor: '스패너', eng: 'Spanner / Wrench', cat: 'Hand Tools' },
+    { kor: '드라이버', eng: 'Screwdriver', cat: 'Hand Tools' },
+    { kor: '펜치', eng: 'Pliers / Cutting Pliers', cat: 'Hand Tools' },
+    { kor: '줄자', eng: 'Measuring Tape', cat: 'Measuring Tools' },
+    { kor: '톱', eng: 'Hand Saw', cat: 'Cutting Tools' },
+    { kor: '수평대', eng: 'Bubble Spirit Level', cat: 'Measuring Tools' },
+    { kor: '볼트', eng: 'Bolt', cat: 'Fasteners' },
+    { kor: '너트', eng: 'Nut', cat: 'Fasteners' },
+    { kor: '못', eng: 'Nail', cat: 'Fasteners' },
+    { kor: '사다리', eng: 'Ladder', cat: 'Work Tools' },
+    { kor: '전동 드릴', eng: 'Electric Drill Machine', cat: 'Power Tools' },
+    { kor: '절단기', eng: 'Cutting Machine / Grinder', cat: 'Power Tools' },
+    { kor: '용접기', eng: 'Welding Machine', cat: 'Heavy Tools' },
+    { kor: '지게차', eng: 'Forklift Vehicle', cat: 'Heavy Machinery' },
+    { kor: '크레인', eng: 'Crane / Hoist', cat: 'Heavy Machinery' },
+    { kor: '손수레', eng: 'Hand Cart / Wheelbarrow', cat: 'Transport Gear' },
+    { kor: '밧줄', eng: 'Heavy Rope / Cable', cat: 'Workplace Materials' },
+
+    // Workplace Actions & Operations
+    { kor: '일하다', eng: 'To Work / Execute Job', cat: 'Workplace Action' },
+    { kor: '쉬다', eng: 'To Take a Break / Rest', cat: 'Workplace Action' },
+    { kor: '고치다', eng: 'To Repair / Fix Equipment', cat: 'Workplace Action' },
+    { kor: '수리하다', eng: 'To Overhaul / Repair', cat: 'Workplace Action' },
+    { kor: '운반하다', eng: 'To Carry / Transport Freight', cat: 'Workplace Action' },
+    { kor: '포장하다', eng: 'To Pack / Wrap Goods', cat: 'Workplace Action' },
+    { kor: '조립하다', eng: 'To Assemble / Put Together', cat: 'Workplace Action' },
+    { kor: '분해하다', eng: 'To Disassemble / Take Apart', cat: 'Workplace Action' },
+    { kor: '자르다', eng: 'To Cut / Trim Material', cat: 'Workplace Action' },
+    { kor: '구부리다', eng: 'To Bend / Shape Metal', cat: 'Workplace Action' },
+    { kor: '용접하다', eng: 'To Weld / Join Metals', cat: 'Workplace Action' },
+    { kor: '청소하다', eng: 'To Clean / Tidy Workshop', cat: 'Maintenance' },
+    { kor: '점검하다', eng: 'To Inspect / Check Safety', cat: 'Maintenance' },
+
+    // Everyday Verbs
+    { kor: '일어나다', eng: 'To Wake Up / Get Up', cat: 'Daily Verbs' },
+    { kor: '자다', eng: 'To Sleep / Go to Bed', cat: 'Daily Verbs' },
+    { kor: '먹다', eng: 'To Eat', cat: 'Daily Verbs' },
+    { kor: '마시다', eng: 'To Drink', cat: 'Daily Verbs' },
+    { kor: '가다', eng: 'To Go', cat: 'Daily Verbs' },
+    { kor: '오다', eng: 'To Come', cat: 'Daily Verbs' },
+    { kor: '사다', eng: 'To Buy / Purchase', cat: 'Daily Verbs' },
+    { kor: '팔다', eng: 'To Sell', cat: 'Daily Verbs' },
+    { kor: '만들다', eng: 'To Produce / Make', cat: 'Daily Verbs' },
+    { kor: '운전하다', eng: 'To Drive Vehicle', cat: 'Daily Verbs' },
+    { kor: '씻다', eng: 'To Wash Hands / Body', cat: 'Daily Verbs' },
+    { kor: '전화하다', eng: 'To Make Phone Call', cat: 'Daily Verbs' },
+    { kor: '공부하다', eng: 'To Study / Learn', cat: 'Daily Verbs' },
+    { kor: '기다리다', eng: 'To Wait', cat: 'Daily Verbs' },
+    { kor: '도와주다', eng: 'To Help / Assist', cat: 'Daily Verbs' },
+
+    // Factory Nouns & Roles
+    { kor: '공장', eng: 'Factory / Manufacturing Plant', cat: 'Workplace Terms' },
+    { kor: '작업장', eng: 'Workshop / Workplace Area', cat: 'Workplace Terms' },
+    { kor: '창고', eng: 'Warehouse / Storage Room', cat: 'Workplace Terms' },
+    { kor: '사무실', eng: 'Administrative Office', cat: 'Workplace Terms' },
+    { kor: '기숙사', eng: 'Dormitory / Living Quarters', cat: 'Workplace Terms' },
+    { kor: '식당', eng: 'Cafeteria / Dining Hall', cat: 'Workplace Terms' },
+    { kor: '화장실', eng: 'Restroom / Washroom', cat: 'Workplace Terms' },
+    { kor: '사장님', eng: 'Company Director / Owner', cat: 'Workplace Roles' },
+    { kor: '반장님', eng: 'Workplace Supervisor / Foreman', cat: 'Workplace Roles' },
+    { kor: '동료', eng: 'Co-worker / Colleague', cat: 'Workplace Roles' },
+    { kor: '월급', eng: 'Monthly Salary / Wages', cat: 'Labor Terms' },
+    { kor: '출근', eng: 'Arrival at Work / Punching In', cat: 'Labor Terms' },
+    { kor: '퇴근', eng: 'Leaving Work / Punching Out', cat: 'Labor Terms' },
+    { kor: '잔업', eng: 'Overtime Shift Work', cat: 'Labor Terms' },
+    { kor: '휴일', eng: 'Holiday / Day Off', cat: 'Labor Terms' },
+
+    // Places & Transportation
+    { kor: '병원', eng: 'Hospital / Medical Clinic', cat: 'Essential Places' },
+    { kor: '약국', eng: 'Pharmacy / Drugstore', cat: 'Essential Places' },
+    { kor: '은행', eng: 'Bank', cat: 'Essential Places' },
+    { kor: '우체국', eng: 'Post Office', cat: 'Essential Places' },
+    { kor: '마트', eng: 'Supermarket / Grocery Mart', cat: 'Essential Places' },
+    { kor: '버스', eng: 'City / Express Bus', cat: 'Transportation' },
+    { kor: '지하철', eng: 'Subway Train System', cat: 'Transportation' },
+    { kor: '택시', eng: 'Taxi / Cab', cat: 'Transportation' },
+    { kor: '기차', eng: 'Train / Railway', cat: 'Transportation' },
+    { kor: '비행기', eng: 'Airplane / Flight', cat: 'Transportation' },
+
+    // Useful Adjectives
+    { kor: '크다', eng: 'Big / Large in Size', cat: 'Adjectives' },
+    { kor: '작다', eng: 'Small / Compact in Size', cat: 'Adjectives' },
+    { kor: '빠르다', eng: 'Fast / Quick Speed', cat: 'Adjectives' },
+    { kor: '느리다', eng: 'Slow Speed', cat: 'Adjectives' },
+    { kor: '무겁다', eng: 'Heavy Weight', cat: 'Adjectives' },
+    { kor: '가볍다', eng: 'Light Weight', cat: 'Adjectives' },
+    { kor: '뜨겁다', eng: 'Hot Temperature', cat: 'Adjectives' },
+    { kor: '차갑다', eng: 'Cold Temperature', cat: 'Adjectives' },
+    { kor: '깨끗하다', eng: 'Clean / Spotless', cat: 'Adjectives' },
+    { kor: '더럽다', eng: 'Dirty / Unclean', cat: 'Adjectives' },
+    { kor: '바쁘다', eng: 'Busy / Occupied', cat: 'Adjectives' },
+    { kor: '피곤하다', eng: 'Tired / Exhausted', cat: 'Adjectives' },
+
+    // Time & Days
+    { kor: '오늘', eng: 'Today', cat: 'Time & Calendar' },
+    { kor: '내일', eng: 'Tomorrow', cat: 'Time & Calendar' },
+    { kor: '어제', eng: 'Yesterday', cat: 'Time & Calendar' },
+    { kor: '지금', eng: 'Now / Right At This Moment', cat: 'Time & Calendar' },
+    { kor: '시간', eng: 'Time / Hours', cat: 'Time & Calendar' },
+    { kor: '주말', eng: 'Weekend (Saturday & Sunday)', cat: 'Time & Calendar' },
+    { kor: '월요일', eng: 'Monday', cat: 'Days of the Week' },
+    { kor: '화요일', eng: 'Tuesday', cat: 'Days of the Week' },
+    { kor: '수요일', eng: 'Wednesday', cat: 'Days of the Week' },
+    { kor: '목요일', eng: 'Thursday', cat: 'Days of the Week' },
+    { kor: '금요일', eng: 'Friday', cat: 'Days of the Week' },
+    { kor: '토요일', eng: 'Saturday', cat: 'Days of the Week' },
+    { kor: '일요일', eng: 'Sunday', cat: 'Days of the Week' }
 ];
-let currentVocabIdx = 0;
+
+let shuffledVocabQueue = [];
+let currentVocabItem = null;
+
+function shuffleArray(array) {
+    const arr = [...array];
+    for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+}
 
 function nextVocabCard() {
-    currentVocabIdx = (currentVocabIdx + 1) % vocabList.length;
-    const item = vocabList[currentVocabIdx];
-    document.querySelector('.flashcard-category').textContent = item.cat;
-    document.getElementById('fcKorean').textContent = item.kor;
-    document.getElementById('fcEnglish').textContent = item.eng;
+    if (shuffledVocabQueue.length === 0) {
+        shuffledVocabQueue = shuffleArray(vocabList);
+    }
+    
+    currentVocabItem = shuffledVocabQueue.pop();
+
+    const catElem = document.querySelector('.flashcard-category');
+    const korElem = document.getElementById('fcKorean');
+    const engElem = document.getElementById('fcEnglish');
+
+    if (catElem) catElem.textContent = currentVocabItem.cat;
+    if (korElem) korElem.innerHTML = currentVocabItem.kor + ' <span style="font-size: 1.1rem; vertical-align: middle;">🔊</span>';
+    if (engElem) engElem.textContent = currentVocabItem.eng;
+}
+
+function speakCurrentVocab() {
+    if (currentVocabItem && currentVocabItem.kor) {
+        speakKorean(currentVocabItem.kor);
+    } else {
+        const korElem = document.getElementById('fcKorean');
+        if (korElem) {
+            let txt = korElem.textContent.replace(/🔊/g, '').trim();
+            speakKorean(txt);
+        }
+    }
 }
 
 function speakKorean(text) {
