@@ -70,19 +70,14 @@ require_once __DIR__ . '/../includes/header.php';
             </div>
 
             <!-- PRO TOP NAVIGATION BAR (HORIZONTALLY POSITIONED AT TOP) -->
-            <div class="pro-nav-bar">
-                <div class="pro-tab-list">
-                    <button class="pro-tab-btn active" onclick="switchProTab('learnTab', this)">📚 Learn Korean</button>
-                    <button class="pro-tab-btn" onclick="switchProTab('gamesTab', this)">🎮 Play Games</button>
-                    <button class="pro-tab-btn" onclick="switchProTab('cbtSimTab', this)">⏱️ CBT Mock Test</button>
-                    <button class="pro-tab-btn" onclick="switchProTab('cheatsheetsTab', this)">📝 Pro Study Notes</button>
-                    <button class="pro-tab-btn" onclick="switchProTab('pdfVaultTab', this)">📄 Master PDF Vault</button>
-                    <button class="pro-tab-btn" onclick="switchProTab('accountTab', this)">👤 Account Info</button>
-                </div>
-                <div>
-                    <button onclick="handleProLogout()" style="background: #dc2626; color: #ffffff; border: none; padding: 8px 14px; border-radius: 6px; font-weight: 700; font-size: 0.82rem; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">
-                        🚪 Log Out
-                    </button>
+            <div class="pro-nav-bar" style="background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 12px 16px; margin-bottom: 24px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center;">
+                <div class="pro-tab-list" style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center; width: 100%;">
+                    <button class="pro-tab-btn active" onclick="switchProTab('learnTab', this)" style="background: #2563eb; color: #ffffff; border: 1px solid #2563eb; padding: 10px 18px; border-radius: 8px; font-weight: 800; font-size: 0.88rem; cursor: pointer;">📚 Learn Korean</button>
+                    <button class="pro-tab-btn" onclick="switchProTab('gamesTab', this)" style="background: #0f172a; color: #cbd5e1; border: 1px solid #334155; padding: 10px 18px; border-radius: 8px; font-weight: 700; font-size: 0.88rem; cursor: pointer;">🎮 Play Games</button>
+                    <button class="pro-tab-btn" onclick="switchProTab('cbtSimTab', this)" style="background: #0f172a; color: #cbd5e1; border: 1px solid #334155; padding: 10px 18px; border-radius: 8px; font-weight: 700; font-size: 0.88rem; cursor: pointer;">⏱️ CBT Mock Test</button>
+                    <button class="pro-tab-btn" onclick="switchProTab('cheatsheetsTab', this)" style="background: #0f172a; color: #cbd5e1; border: 1px solid #334155; padding: 10px 18px; border-radius: 8px; font-weight: 700; font-size: 0.88rem; cursor: pointer;">📝 Pro Study Notes</button>
+                    <button class="pro-tab-btn" onclick="switchProTab('pdfVaultTab', this)" style="background: #0f172a; color: #cbd5e1; border: 1px solid #334155; padding: 10px 18px; border-radius: 8px; font-weight: 700; font-size: 0.88rem; cursor: pointer;">📄 Master PDF Vault</button>
+                    <button class="pro-tab-btn" onclick="switchProTab('accountTab', this)" style="background: #0f172a; color: #cbd5e1; border: 1px solid #334155; padding: 10px 18px; border-radius: 8px; font-weight: 700; font-size: 0.88rem; cursor: pointer;">👤 Account Info</button>
                 </div>
             </div>
 
@@ -186,13 +181,10 @@ require_once __DIR__ . '/../includes/header.php';
                                 </div>
                             </div>
 
-                            <!-- MODULE 2: ENGLISH VOCABULARY FLASHCARDS & MASTER 125-WORD LIST -->
+                            <!-- MODULE 2: ENGLISH VOCABULARY FLASHCARDS -->
                             <div style="background: #0f172a; border: 1px solid #334155; border-radius: 10px; padding: 14px; margin-bottom: 20px;">
-                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
-                                    <div style="display: flex; align-items: center; gap: 10px;">
-                                        <h4 style="color: #60a5fa; font-size: 0.95rem; font-weight: 700; margin: 0;">🎴 Interactive Vocabulary Flashcards</h4>
-                                        <span style="background: #059669; color: #ffffff; font-size: 0.72rem; font-weight: 800; padding: 2px 8px; border-radius: 12px;">125 EPS Words Unlocked</span>
-                                    </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                                    <h4 style="color: #60a5fa; font-size: 0.95rem; font-weight: 700; margin: 0;">🎴 Interactive Vocabulary Flashcards</h4>
                                     <button onclick="toggleModuleBox('vocabFlashcard', this)" style="background: #334155; color: #ffffff; border: 1px solid #475569; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; cursor: pointer;">− Minimize</button>
                                 </div>
                                 <div class="vocab-flashcard-box" id="vocabFlashcard">
@@ -202,11 +194,6 @@ require_once __DIR__ . '/../includes/header.php';
                                     <div style="display: flex; gap: 10px; justify-content: center; margin-top: 14px; flex-wrap: wrap;">
                                         <button class="btn-sm-action" onclick="speakCurrentVocab()" style="background: #2563eb; font-weight: 800; padding: 10px 16px; cursor: pointer;">🔊 Listen Word Sound</button>
                                         <button class="btn-sm-action" onclick="nextVocabCard()" style="background: #059669; font-weight: 800; padding: 10px 16px; cursor: pointer;">Next Word ▶</button>
-                                        <button id="toggleMasterVocabBtn" class="btn-sm-action" onclick="toggleVocabMasterList()" style="background: #1e293b; color: #38bdf8; border: 1px solid #334155; font-weight: 800; padding: 10px 16px; cursor: pointer;">📋 Browse All 125+ Words Master List ▶</button>
-                                    </div>
-                                    <div id="masterVocabBox" style="display: none; margin-top: 16px; border-top: 1px solid #334155; padding-top: 14px; text-align: left;">
-                                        <div style="font-size: 0.85rem; color: #94a3b8; margin-bottom: 10px; font-weight: 700;">Click any card below to hear instant audio pronunciation:</div>
-                                        <div id="masterVocabGridContainer" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; max-height: 400px; overflow-y: auto; padding-right: 6px;"></div>
                                     </div>
                                 </div>
                             </div>
@@ -528,13 +515,25 @@ function switchProTab(tabId, btnElement) {
     const panels = document.querySelectorAll('.pro-tab-panel');
     panels.forEach(panel => panel.style.display = 'none');
 
-    const buttons = document.querySelectorAll('.pro-tab-btn, .pro-sidebar-btn');
-    buttons.forEach(btn => btn.classList.remove('active'));
+    const buttons = document.querySelectorAll('.pro-tab-btn');
+    buttons.forEach(btn => {
+        btn.classList.remove('active');
+        btn.style.background = '#0f172a';
+        btn.style.color = '#cbd5e1';
+        btn.style.borderColor = '#334155';
+        btn.style.fontWeight = '700';
+    });
 
     const targetPanel = document.getElementById(tabId);
     if (targetPanel) targetPanel.style.display = 'block';
 
-    if (btnElement) btnElement.classList.add('active');
+    if (btnElement) {
+        btnElement.classList.add('active');
+        btnElement.style.background = '#2563eb';
+        btnElement.style.color = '#ffffff';
+        btnElement.style.borderColor = '#2563eb';
+        btnElement.style.fontWeight = '800';
+    }
 }
 </script>
 

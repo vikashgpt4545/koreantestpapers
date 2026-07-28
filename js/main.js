@@ -450,16 +450,6 @@ function playHangulSound(char, name) {
     speakKorean(char);
 }
 
-function speakCurrentVocab() {
-    const item = vocabList[currentVocabIdx];
-    if (item && item.kor) {
-        speakKorean(item.kor);
-    } else {
-        const korElem = document.getElementById('fcKorean');
-        if (korElem) speakKorean(korElem.textContent);
-    }
-}
-
 function toggleModuleBox(boxId, btn) {
     const content = document.getElementById(boxId);
     if (!content) return;
