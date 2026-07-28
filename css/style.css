@@ -1357,12 +1357,12 @@ a:hover {
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    width: 58px !important;
-    min-width: 58px !important;
+    width: 44px !important;
+    min-width: 44px !important;
     background: #0f172a;
     border: 1px solid #334155;
-    border-radius: 8px;
-    padding: 8px 4px;
+    border-radius: 6px;
+    padding: 4px 2px;
     text-align: center;
     cursor: pointer;
     box-sizing: border-box;
@@ -1378,17 +1378,19 @@ a:hover {
 
 .hangul-card-sm .kor-char {
     display: block;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 800;
     color: #60a5fa;
-    margin-bottom: 2px;
+    margin-bottom: 0px;
+    line-height: 1.1;
 }
 
 .hangul-card-sm .rom-char {
     display: block;
-    font-size: 0.68rem;
+    font-size: 0.65rem;
     color: #94a3b8;
     font-weight: 600;
+    line-height: 1;
 }
 
 @media (max-width: 992px) {

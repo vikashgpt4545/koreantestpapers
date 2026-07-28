@@ -110,16 +110,16 @@ require_once __DIR__ . '/../includes/header.php';
                                 <span class="tag-badge green" style="font-size: 0.82rem; padding: 4px 10px;">All Lessons Unlocked</span>
                             </div>
 
-                            <!-- MODULE 1: COMPLETE HANGUL ALPHABET GRID (40 CHARACTERS) -->
-                            <div style="background: #0f172a; border: 1px solid #334155; border-radius: 10px; padding: 18px; margin-bottom: 24px;">
-                                <h4 style="color: #60a5fa; font-size: 1rem; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">
+                            <!-- MODULE 1: COMPLETE HANGUL ALPHABET GRID (40 CHARACTERS - 4 COMPACT ROWS) -->
+                            <div style="background: #0f172a; border: 1px solid #334155; border-radius: 10px; padding: 14px; margin-bottom: 20px;">
+                                <h4 style="color: #60a5fa; font-size: 0.95rem; font-weight: 700; margin-bottom: 10px; display: flex; align-items: center; gap: 6px;">
                                     <span>🔤 Complete Hangul Alphabet Chart (Tap character to hear pronunciation)</span>
                                 </h4>
 
-                                <!-- Basic Consonants (14) -->
-                                <div style="margin-bottom: 12px;">
-                                    <span style="font-size: 0.78rem; color: #cbd5e1; font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 6px;">1. Basic Consonants (기초 자음 - 14)</span>
-                                    <div class="hangul-compact-grid" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px;">
+                                <!-- Line 1: Basic Consonants (14) -->
+                                <div style="margin-bottom: 8px;">
+                                    <span style="font-size: 0.74rem; color: #cbd5e1; font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 3px;">1. Basic Consonants (14)</span>
+                                    <div class="hangul-compact-grid" style="display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 0;">
                                         <div class="hangul-card-sm" onclick="playHangulSound('ㄱ', 'g / k')"><span class="kor-char">ㄱ</span><span class="rom-char">g/k</span></div>
                                         <div class="hangul-card-sm" onclick="playHangulSound('ㄴ', 'n')"><span class="kor-char">ㄴ</span><span class="rom-char">n</span></div>
                                         <div class="hangul-card-sm" onclick="playHangulSound('ㄷ', 'd / t')"><span class="kor-char">ㄷ</span><span class="rom-char">d/t</span></div>
@@ -137,10 +137,10 @@ require_once __DIR__ . '/../includes/header.php';
                                     </div>
                                 </div>
 
-                                <!-- Double Consonants (5) -->
-                                <div style="margin-bottom: 12px;">
-                                    <span style="font-size: 0.78rem; color: #cbd5e1; font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 6px;">2. Double Consonants (쌍자음 - 5)</span>
-                                    <div class="hangul-compact-grid" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px;">
+                                <!-- Line 2: Double Consonants (5) -->
+                                <div style="margin-bottom: 8px;">
+                                    <span style="font-size: 0.74rem; color: #cbd5e1; font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 3px;">2. Double Consonants (5)</span>
+                                    <div class="hangul-compact-grid" style="display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 0;">
                                         <div class="hangul-card-sm" onclick="playHangulSound('ㄲ', 'kk')"><span class="kor-char">ㄲ</span><span class="rom-char">kk</span></div>
                                         <div class="hangul-card-sm" onclick="playHangulSound('ㄸ', 'tt')"><span class="kor-char">ㄸ</span><span class="rom-char">tt</span></div>
                                         <div class="hangul-card-sm" onclick="playHangulSound('ㅃ', 'pp')"><span class="kor-char">ㅃ</span><span class="rom-char">pp</span></div>
@@ -149,10 +149,10 @@ require_once __DIR__ . '/../includes/header.php';
                                     </div>
                                 </div>
 
-                                <!-- Basic Vowels (10) -->
-                                <div style="margin-bottom: 12px;">
-                                    <span style="font-size: 0.78rem; color: #cbd5e1; font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 6px;">3. Basic Vowels (기초 모음 - 10)</span>
-                                    <div class="hangul-compact-grid" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px;">
+                                <!-- Line 3: Basic Vowels (10) -->
+                                <div style="margin-bottom: 8px;">
+                                    <span style="font-size: 0.74rem; color: #cbd5e1; font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 3px;">3. Basic Vowels (10)</span>
+                                    <div class="hangul-compact-grid" style="display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 0;">
                                         <div class="hangul-card-sm" onclick="playHangulSound('ㅏ', 'a')"><span class="kor-char">ㅏ</span><span class="rom-char">a</span></div>
                                         <div class="hangul-card-sm" onclick="playHangulSound('ㅑ', 'ya')"><span class="kor-char">ㅑ</span><span class="rom-char">ya</span></div>
                                         <div class="hangul-card-sm" onclick="playHangulSound('ㅓ', 'eo')"><span class="kor-char">ㅓ</span><span class="rom-char">eo</span></div>
@@ -166,10 +166,10 @@ require_once __DIR__ . '/../includes/header.php';
                                     </div>
                                 </div>
 
-                                <!-- Complex Vowels (11) -->
+                                <!-- Line 4: Complex Vowels (11) -->
                                 <div>
-                                    <span style="font-size: 0.78rem; color: #cbd5e1; font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 6px;">4. Complex Vowels (복합 모음 - 11)</span>
-                                    <div class="hangul-compact-grid" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px;">
+                                    <span style="font-size: 0.74rem; color: #cbd5e1; font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 3px;">4. Complex Vowels (11)</span>
+                                    <div class="hangul-compact-grid" style="display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 0;">
                                         <div class="hangul-card-sm" onclick="playHangulSound('ㅐ', 'ae')"><span class="kor-char">ㅐ</span><span class="rom-char">ae</span></div>
                                         <div class="hangul-card-sm" onclick="playHangulSound('ㅒ', 'yae')"><span class="kor-char">ㅒ</span><span class="rom-char">yae</span></div>
                                         <div class="hangul-card-sm" onclick="playHangulSound('ㅔ', 'e')"><span class="kor-char">ㅔ</span><span class="rom-char">e</span></div>
