@@ -210,11 +210,19 @@ function switchHeroTab(tabId, btnElement) {
 
 /* Hangul & Vocab Flashcard Mechanics */
 const vocabList = [
-    { kor: '안전모', eng: 'Safety Helmet (सुरक्षा पेटी)', cat: 'Factory Safety' },
-    { kor: '스패너', eng: 'Spanner / Wrench (पाना)', cat: 'Hand Tools' },
-    { kor: '손대지 마시오', eng: 'Do Not Touch (छूना मना है)', cat: 'Safety Signboard' },
-    { kor: '의사', eng: 'Doctor (डॉक्टर)', cat: 'Occupations' },
-    { kor: '일어납니다', eng: 'Wake Up (उठना)', cat: 'Daily Verbs' }
+    { kor: '안전모', eng: 'Safety Helmet', cat: 'Factory Safety' },
+    { kor: '스패너', eng: 'Spanner / Wrench', cat: 'Hand Tools' },
+    { kor: '손대지 마시오', eng: 'Do Not Touch', cat: 'Safety Signboard' },
+    { kor: '의사', eng: 'Doctor', cat: 'Occupations' },
+    { kor: '일어납니다', eng: 'To Wake Up', cat: 'Daily Verbs' },
+    { kor: '안녕하세요', eng: 'Hello / Greetings', cat: 'Daily Conversation' },
+    { kor: '감사합니다', eng: 'Thank You', cat: 'Polite Expressions' },
+    { kor: '비상구', eng: 'Emergency Exit', cat: 'Safety Signboard' },
+    { kor: '감전 주의', eng: 'Electric Shock Warning', cat: 'Workplace Safety' },
+    { kor: '장갑', eng: 'Protective Gloves', cat: 'Safety Gear' },
+    { kor: '망치', eng: 'Hammer', cat: 'Hand Tools' },
+    { kor: '소화기', eng: 'Fire Extinguisher', cat: 'Emergency Tools' },
+    { kor: '병원', eng: 'Hospital', cat: 'Essential Places' }
 ];
 let currentVocabIdx = 0;
 
@@ -234,33 +242,33 @@ function playHangulSound(char, name) {
 const gameQuestionBank = [
     {
         kor: "의사",
-        eng: "Doctor (डॉक्टर)",
-        opts: ["A. Doctor (डॉक्टर)", "B. Teacher (शिक्षक)", "C. Police (पुलिस)", "D. Chef (र소इया)"],
-        ans: "A. Doctor (डॉक्टर)"
+        eng: "Doctor",
+        opts: ["A. Doctor", "B. Teacher", "C. Police Officer", "D. Chef"],
+        ans: "A. Doctor"
     },
     {
         kor: "안전모",
-        eng: "Safety Helmet (सुरक्षा पेटी)",
-        opts: ["A. Safety Helmet (सुरक्षा पेटी)", "B. Safety Glasses (चश्मा)", "C. Safety Boots (जूते)", "D. Gloves (दस्ताने)"],
-        ans: "A. Safety Helmet (सुरक्षा पेटी)"
+        eng: "Safety Helmet",
+        opts: ["A. Safety Helmet", "B. Safety Glasses", "C. Safety Boots", "D. Gloves"],
+        ans: "A. Safety Helmet"
     },
     {
         kor: "손대지 마시오",
-        eng: "Do Not Touch (छूना मना है)",
-        opts: ["A. No Smoking (धूम्रपान मना है)", "B. Do Not Touch (छूना मना है)", "C. Danger High Voltage", "D. Exit (निकास)"],
-        ans: "B. Do Not Touch (छूना मना है)"
+        eng: "Do Not Touch",
+        opts: ["A. No Smoking", "B. Do Not Touch", "C. High Voltage Danger", "D. Emergency Exit"],
+        ans: "B. Do Not Touch"
     },
     {
         kor: "스패너",
-        eng: "Spanner / Wrench (पाना)",
-        opts: ["A. Hammer (हथौड़ा)", "B. Screwdriver (पेचकस)", "C. Spanner / Wrench (पाना)", "D. Saw (आरी)"],
-        ans: "C. Spanner / Wrench (पाना)"
+        eng: "Spanner / Wrench",
+        opts: ["A. Hammer", "B. Screwdriver", "C. Spanner / Wrench", "D. Hand Saw"],
+        ans: "C. Spanner / Wrench"
     },
     {
         kor: "사과",
-        eng: "Apple (सेब)",
-        opts: ["A. Apple (सेब)", "B. Banana (केला)", "C. Grape (अंगूर)", "D. Watermelon (तरबूज)"],
-        ans: "A. Apple (सेब)"
+        eng: "Apple",
+        opts: ["A. Apple", "B. Banana", "C. Grape", "D. Watermelon"],
+        ans: "A. Apple"
     }
 ];
 

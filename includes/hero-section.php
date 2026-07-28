@@ -106,14 +106,14 @@ $live_questions = get_live_questions();
                         </div>
 
                         <div class="game-question-area" id="gameQuestionText">
-                            What is the English / Hindi meaning of Korean word: <strong style="color: #60a5fa; font-size: 1.3rem;">"의사"</strong>?
+                            What is the English meaning of Korean word: <strong style="color: #60a5fa; font-size: 1.3rem;">"의사"</strong>?
                         </div>
 
                         <div class="game-options-grid" id="gameOptionsGrid">
-                            <button class="game-opt-btn" onclick="checkGameAnswer('A. Doctor (डॉक्टर)')">A. Doctor (डॉक्टर)</button>
-                            <button class="game-opt-btn" onclick="checkGameAnswer('B. Teacher (शिक्षक)')">B. Teacher (शिक्षक)</button>
-                            <button class="game-opt-btn" onclick="checkGameAnswer('C. Police (पुलिस)')">C. Police (पुलिस)</button>
-                            <button class="game-opt-btn" onclick="checkGameAnswer('D. Chef (रसोइया)')">D. Chef (रसोइ야)</button>
+                            <button class="game-opt-btn" onclick="checkGameAnswer('A. Doctor')">A. Doctor</button>
+                            <button class="game-opt-btn" onclick="checkGameAnswer('B. Teacher')">B. Teacher</button>
+                            <button class="game-opt-btn" onclick="checkGameAnswer('C. Police Officer')">C. Police Officer</button>
+                            <button class="game-opt-btn" onclick="checkGameAnswer('D. Chef')">D. Chef</button>
                         </div>
                     </div>
                 </div>
