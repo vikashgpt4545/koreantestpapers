@@ -36,8 +36,7 @@ require_once __DIR__ . '/../includes/header.php';
 }
 </script>
 
-<!-- UNIFIED 70%/30% HERO SECTION -->
-<?php require_once __DIR__ . '/../includes/hero-section.php'; ?>
+
 
 <!-- MAIN CONTENT CONTAINER (2,000+ WORDS DETAILED MASTER COLLECTION GUIDE) -->
 <section class="section-padding">

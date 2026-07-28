@@ -87,61 +87,7 @@ require_once __DIR__ . '/includes/header.php';
     </div>
 </section>
 
-<!-- ==========================================================================
-     MASTER PREVIOUS YEAR PAPERS DOWNLOAD TABLE CONTAINER (ALL YEARS 2015-2025)
-     ========================================================================== -->
-<section class="section-padding" id="download-table-section" style="background: #ffffff;">
-    <div class="container">
-        <div class="section-header-center">
-            <h2 class="section-title">Master Download Archive: All Years & Exams Korean Test Papers (2015 - 2025)</h2>
-            <p class="section-subtitle">Use the instant search box below to search by year (e.g. 2025, 2024, 2023), exam category, or skill section.</p>
-            
-            <div style="margin-top: 20px;">
-                <input type="text" id="searchExamPapersInput" placeholder="🔍 Search exam paper by title, year (2015-2025), category (Reading/Listening), or industry..." style="width: 100%; max-width: 650px; padding: 14px 20px; font-size: 1rem; border: 2px solid #e2e8f0; border-radius: 8px; outline: none; font-family: inherit;">
-            </div>
-        </div>
 
-        <div style="margin-top: 16px; text-align: center; margin-bottom: 24px;">
-            <a href="/korean-exam-paper-master-collection" class="btn-primary-action" style="font-size: 0.95rem; padding: 12px 24px; background: #2563eb; color: #ffffff; border-radius: 6px; display: inline-block;">
-                🚀 Looking for All 156+ Exam Papers? Visit Master Archive Hub →
-            </a>
-        </div>
-
-        <div class="table-box-container">
-            <table class="responsive-table">
-                <thead>
-                    <tr>
-                        <th>Exam Paper Title</th>
-                        <th>Type</th>
-                        <th>Year</th>
-                        <th>Skill Section</th>
-                        <th>Answer Key & Explanations</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($featured_papers as $paper): 
-                        $pdf_file = !empty($paper['pdf_filename']) ? $paper['pdf_filename'] : 'eps-topik-reading-2025.pdf';
-                    ?>
-                    <tr>
-                        <td>
-                            <strong><?php echo htmlspecialchars($paper['title']); ?></strong>
-                            <div style="font-size: 0.8rem; color: #64748b; margin-top: 2px;"><?php echo htmlspecialchars($paper['total_questions']); ?> Questions | Verified Authentic PDF</div>
-                        </td>
-                        <td><span class="tag-badge green"><?php echo htmlspecialchars($paper['exam_type']); ?></span></td>
-                        <td><strong><?php echo htmlspecialchars($paper['year']); ?></strong></td>
-                        <td><?php echo htmlspecialchars($paper['skill_type']); ?></td>
-                        <td><span style="color: #059669; font-weight: 700;">✔ Solved (Eng Explanations)</span></td>
-                        <td>
-                            <a href="/download-paper?title=<?php echo urlencode($paper['title']); ?>" class="btn-download-sm">📥 Download PDF</a>
-                        </td>
-                    </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</section>
 
 <!-- ==========================================================================
      DEDICATED EXAM QUESTION SEARCH & FILTER WIDGET (BELOW QUESTION SECTION)
