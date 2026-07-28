@@ -110,162 +110,192 @@ require_once __DIR__ . '/../includes/header.php';
                                 <span class="tag-badge green" style="font-size: 0.82rem; padding: 4px 10px;">All Lessons Unlocked</span>
                             </div>
 
-                            <!-- MODULE 1: COMPLETE HANGUL ALPHABET GRID (40 CHARACTERS - 4 COMPACT ROWS) -->
+                            <!-- MODULE 1: COMPLETE HANGUL ALPHABET GRID (2-COLUMN SIDE-BY-SIDE LAYOUT) -->
                             <div style="background: #0f172a; border: 1px solid #334155; border-radius: 10px; padding: 14px; margin-bottom: 20px;">
-                                <h4 style="color: #60a5fa; font-size: 0.95rem; font-weight: 700; margin-bottom: 10px; display: flex; align-items: center; gap: 6px;">
-                                    <span>🔤 Complete Hangul Alphabet Chart (Tap character to hear pronunciation)</span>
-                                </h4>
-
-                                <!-- Line 1: Basic Consonants (14) -->
-                                <div style="margin-bottom: 8px;">
-                                    <span style="font-size: 0.74rem; color: #cbd5e1; font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 3px;">1. Basic Consonants (14)</span>
-                                    <div class="hangul-compact-grid" style="display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 0;">
-                                        <div class="hangul-card-sm" onclick="playHangulSound('ㄱ', 'g / k')"><span class="kor-char">ㄱ</span><span class="rom-char">g/k</span></div>
-                                        <div class="hangul-card-sm" onclick="playHangulSound('ㄴ', 'n')"><span class="kor-char">ㄴ</span><span class="rom-char">n</span></div>
-                                        <div class="hangul-card-sm" onclick="playHangulSound('ㄷ', 'd / t')"><span class="kor-char">ㄷ</span><span class="rom-char">d/t</span></div>
-                                        <div class="hangul-card-sm" onclick="playHangulSound('ㄹ', 'r / l')"><span class="kor-char">ㄹ</span><span class="rom-char">r/l</span></div>
-                                        <div class="hangul-card-sm" onclick="playHangulSound('ㅁ', 'm')"><span class="kor-char">ㅁ</span><span class="rom-char">m</span></div>
-                                        <div class="hangul-card-sm" onclick="playHangulSound('ㅂ', 'b / p')"><span class="kor-char">ㅂ</span><span class="rom-char">b/p</span></div>
-                                        <div class="hangul-card-sm" onclick="playHangulSound('ㅅ', 's')"><span class="kor-char">ㅅ</span><span class="rom-char">s</span></div>
-                                        <div class="hangul-card-sm" onclick="playHangulSound('ㅇ', 'ng / silent')"><span class="kor-char">ㅇ</span><span class="rom-char">ng</span></div>
-                                        <div class="hangul-card-sm" onclick="playHangulSound('ㅈ', 'j / ch')"><span class="kor-char">ㅈ</span><span class="rom-char">j</span></div>
-                                        <div class="hangul-card-sm" onclick="playHangulSound('ㅊ', 'ch')"><span class="kor-char">ㅊ</span><span class="rom-char">ch</span></div>
-                                        <div class="hangul-card-sm" onclick="playHangulSound('ㅋ', 'k')"><span class="kor-char">ㅋ</span><span class="rom-char">k</span></div>
-                                        <div class="hangul-card-sm" onclick="playHangulSound('ㅌ', 't')"><span class="kor-char">ㅌ</span><span class="rom-char">t</span></div>
-                                        <div class="hangul-card-sm" onclick="playHangulSound('ㅍ', 'p')"><span class="kor-char">ㅍ</span><span class="rom-char">p</span></div>
-                                        <div class="hangul-card-sm" onclick="playHangulSound('ㅎ', 'h')"><span class="kor-char">ㅎ</span><span class="rom-char">h</span></div>
-                                    </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                                    <h4 style="color: #60a5fa; font-size: 0.95rem; font-weight: 700; margin: 0; display: flex; align-items: center; gap: 6px;">
+                                        <span>🔤 Complete Hangul Alphabet Chart (Tap letter to listen audio)</span>
+                                    </h4>
+                                    <button onclick="toggleModuleBox('hangulModuleContent', this)" style="background: #334155; color: #ffffff; border: 1px solid #475569; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; cursor: pointer;">− Minimize</button>
                                 </div>
 
-                                <!-- Line 2: Double Consonants (5) -->
-                                <div style="margin-bottom: 8px;">
-                                    <span style="font-size: 0.74rem; color: #cbd5e1; font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 3px;">2. Double Consonants (5)</span>
-                                    <div class="hangul-compact-grid" style="display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 0;">
-                                        <div class="hangul-card-sm" onclick="playHangulSound('ㄲ', 'kk')"><span class="kor-char">ㄲ</span><span class="rom-char">kk</span></div>
-                                        <div class="hangul-card-sm" onclick="playHangulSound('ㄸ', 'tt')"><span class="kor-char">ㄸ</span><span class="rom-char">tt</span></div>
-                                        <div class="hangul-card-sm" onclick="playHangulSound('ㅃ', 'pp')"><span class="kor-char">ㅃ</span><span class="rom-char">pp</span></div>
-                                        <div class="hangul-card-sm" onclick="playHangulSound('ㅆ', 'ss')"><span class="kor-char">ㅆ</span><span class="rom-char">ss</span></div>
-                                        <div class="hangul-card-sm" onclick="playHangulSound('ㅉ', 'jj')"><span class="kor-char">ㅉ</span><span class="rom-char">jj</span></div>
-                                    </div>
-                                </div>
+                                <div id="hangulModuleContent">
+                                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px;">
+                                        
+                                        <!-- LEFT COLUMN: CONSONANTS -->
+                                        <div style="background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 12px;">
+                                            <div style="margin-bottom: 10px;">
+                                                <span style="font-size: 0.75rem; color: #38bdf8; font-weight: 800; text-transform: uppercase; display: block; margin-bottom: 4px;">1. Basic Consonants (14)</span>
+                                                <div class="hangul-compact-grid" style="display: flex; flex-wrap: wrap; gap: 5px;">
+                                                    <div class="hangul-card-sm" onclick="playHangulSound('ㄱ', 'g / k')"><span class="kor-char">ㄱ</span><span class="rom-char">g/k</span></div>
+                                                    <div class="hangul-card-sm" onclick="playHangulSound('ㄴ', 'n')"><span class="kor-char">ㄴ</span><span class="rom-char">n</span></div>
+                                                    <div class="hangul-card-sm" onclick="playHangulSound('ㄷ', 'd / t')"><span class="kor-char">ㄷ</span><span class="rom-char">d/t</span></div>
+                                                    <div class="hangul-card-sm" onclick="playHangulSound('ㄹ', 'r / l')"><span class="kor-char">ㄹ</span><span class="rom-char">r/l</span></div>
+                                                    <div class="hangul-card-sm" onclick="playHangulSound('ㅁ', 'm')"><span class="kor-char">ㅁ</span><span class="rom-char">m</span></div>
+                                                    <div class="hangul-card-sm" onclick="playHangulSound('ㅂ', 'b / p')"><span class="kor-char">ㅂ</span><span class="rom-char">b/p</span></div>
+                                                    <div class="hangul-card-sm" onclick="playHangulSound('ㅅ', 's')"><span class="kor-char">ㅅ</span><span class="rom-char">s</span></div>
+                                                    <div class="hangul-card-sm" onclick="playHangulSound('ㅇ', 'ng / silent')"><span class="kor-char">ㅇ</span><span class="rom-char">ng</span></div>
+                                                    <div class="hangul-card-sm" onclick="playHangulSound('ㅈ', 'j / ch')"><span class="kor-char">ㅈ</span><span class="rom-char">j</span></div>
+                                                    <div class="hangul-card-sm" onclick="playHangulSound('ㅊ', 'ch')"><span class="kor-char">ㅊ</span><span class="rom-char">ch</span></div>
+                                                    <div class="hangul-card-sm" onclick="playHangulSound('ㅋ', 'k')"><span class="kor-char">ㅋ</span><span class="rom-char">k</span></div>
+                                                    <div class="hangul-card-sm" onclick="playHangulSound('ㅌ', 't')"><span class="kor-char">ㅌ</span><span class="rom-char">t</span></div>
+                                                    <div class="hangul-card-sm" onclick="playHangulSound('ㅍ', 'p')"><span class="kor-char">ㅍ</span><span class="rom-char">p</span></div>
+                                                    <div class="hangul-card-sm" onclick="playHangulSound('ㅎ', 'h')"><span class="kor-char">ㅎ</span><span class="rom-char">h</span></div>
+                                                </div>
+                                            </div>
 
-                                <!-- Line 3: Basic Vowels (10) -->
-                                <div style="margin-bottom: 8px;">
-                                    <span style="font-size: 0.74rem; color: #cbd5e1; font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 3px;">3. Basic Vowels (10)</span>
-                                    <div class="hangul-compact-grid" style="display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 0;">
-                                        <div class="hangul-card-sm" onclick="playHangulSound('ㅏ', 'a')"><span class="kor-char">ㅏ</span><span class="rom-char">a</span></div>
-                                        <div class="hangul-card-sm" onclick="playHangulSound('ㅑ', 'ya')"><span class="kor-char">ㅑ</span><span class="rom-char">ya</span></div>
-                                        <div class="hangul-card-sm" onclick="playHangulSound('ㅓ', 'eo')"><span class="kor-char">ㅓ</span><span class="rom-char">eo</span></div>
-                                        <div class="hangul-card-sm" onclick="playHangulSound('ㅕ', 'yeo')"><span class="kor-char">ㅕ</span><span class="rom-char">yeo</span></div>
-                                        <div class="hangul-card-sm" onclick="playHangulSound('ㅗ', 'o')"><span class="kor-char">ㅗ</span><span class="rom-char">o</span></div>
-                                        <div class="hangul-card-sm" onclick="playHangulSound('ㅛ', 'yo')"><span class="kor-char">ㅛ</span><span class="rom-char">yo</span></div>
-                                        <div class="hangul-card-sm" onclick="playHangulSound('ㅜ', 'u')"><span class="kor-char">ㅜ</span><span class="rom-char">u</span></div>
-                                        <div class="hangul-card-sm" onclick="playHangulSound('ㅠ', 'yu')"><span class="kor-char">ㅠ</span><span class="rom-char">yu</span></div>
-                                        <div class="hangul-card-sm" onclick="playHangulSound('ㅡ', 'eu')"><span class="kor-char">ㅡ</span><span class="rom-char">eu</span></div>
-                                        <div class="hangul-card-sm" onclick="playHangulSound('ㅣ', 'i')"><span class="kor-char">ㅣ</span><span class="rom-char">i</span></div>
-                                    </div>
-                                </div>
+                                            <div>
+                                                <span style="font-size: 0.75rem; color: #38bdf8; font-weight: 800; text-transform: uppercase; display: block; margin-bottom: 4px;">2. Double Consonants (5)</span>
+                                                <div class="hangul-compact-grid" style="display: flex; flex-wrap: wrap; gap: 5px;">
+                                                    <div class="hangul-card-sm" onclick="playHangulSound('ㄲ', 'kk')"><span class="kor-char">ㄲ</span><span class="rom-char">kk</span></div>
+                                                    <div class="hangul-card-sm" onclick="playHangulSound('ㄸ', 'tt')"><span class="kor-char">ㄸ</span><span class="rom-char">tt</span></div>
+                                                    <div class="hangul-card-sm" onclick="playHangulSound('ㅃ', 'pp')"><span class="kor-char">ㅃ</span><span class="rom-char">pp</span></div>
+                                                    <div class="hangul-card-sm" onclick="playHangulSound('ㅆ', 'ss')"><span class="kor-char">ㅆ</span><span class="rom-char">ss</span></div>
+                                                    <div class="hangul-card-sm" onclick="playHangulSound('ㅉ', 'jj')"><span class="kor-char">ㅉ</span><span class="rom-char">jj</span></div>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                <!-- Line 4: Complex Vowels (11) -->
-                                <div>
-                                    <span style="font-size: 0.74rem; color: #cbd5e1; font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 3px;">4. Complex Vowels (11)</span>
-                                    <div class="hangul-compact-grid" style="display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 0;">
-                                        <div class="hangul-card-sm" onclick="playHangulSound('ㅐ', 'ae')"><span class="kor-char">ㅐ</span><span class="rom-char">ae</span></div>
-                                        <div class="hangul-card-sm" onclick="playHangulSound('ㅒ', 'yae')"><span class="kor-char">ㅒ</span><span class="rom-char">yae</span></div>
-                                        <div class="hangul-card-sm" onclick="playHangulSound('ㅔ', 'e')"><span class="kor-char">ㅔ</span><span class="rom-char">e</span></div>
-                                        <div class="hangul-card-sm" onclick="playHangulSound('ㅖ', 'ye')"><span class="kor-char">ㅖ</span><span class="rom-char">ye</span></div>
-                                        <div class="hangul-card-sm" onclick="playHangulSound('ㅘ', 'wa')"><span class="kor-char">ㅘ</span><span class="rom-char">wa</span></div>
-                                        <div class="hangul-card-sm" onclick="playHangulSound('ㅙ', 'wae')"><span class="kor-char">ㅙ</span><span class="rom-char">wae</span></div>
-                                        <div class="hangul-card-sm" onclick="playHangulSound('ㅚ', 'oe')"><span class="kor-char">ㅚ</span><span class="rom-char">oe</span></div>
-                                        <div class="hangul-card-sm" onclick="playHangulSound('ㅝ', 'wo')"><span class="kor-char">ㅝ</span><span class="rom-char">wo</span></div>
-                                        <div class="hangul-card-sm" onclick="playHangulSound('ㅞ', 'we')"><span class="kor-char">ㅞ</span><span class="rom-char">we</span></div>
-                                        <div class="hangul-card-sm" onclick="playHangulSound('ㅟ', 'wi')"><span class="kor-char">ㅟ</span><span class="rom-char">wi</span></div>
-                                        <div class="hangul-card-sm" onclick="playHangulSound('ㅢ', 'ui')"><span class="kor-char">ㅢ</span><span class="rom-char">ui</span></div>
+                                        <!-- RIGHT COLUMN: VOWELS -->
+                                        <div style="background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 12px;">
+                                            <div style="margin-bottom: 10px;">
+                                                <span style="font-size: 0.75rem; color: #38bdf8; font-weight: 800; text-transform: uppercase; display: block; margin-bottom: 4px;">3. Basic Vowels (10)</span>
+                                                <div class="hangul-compact-grid" style="display: flex; flex-wrap: wrap; gap: 5px;">
+                                                    <div class="hangul-card-sm" onclick="playHangulSound('ㅏ', 'a')"><span class="kor-char">ㅏ</span><span class="rom-char">a</span></div>
+                                                    <div class="hangul-card-sm" onclick="playHangulSound('ㅑ', 'ya')"><span class="kor-char">ㅑ</span><span class="rom-char">ya</span></div>
+                                                    <div class="hangul-card-sm" onclick="playHangulSound('ㅓ', 'eo')"><span class="kor-char">ㅓ</span><span class="rom-char">eo</span></div>
+                                                    <div class="hangul-card-sm" onclick="playHangulSound('ㅕ', 'yeo')"><span class="kor-char">ㅕ</span><span class="rom-char">yeo</span></div>
+                                                    <div class="hangul-card-sm" onclick="playHangulSound('ㅗ', 'o')"><span class="kor-char">ㅗ</span><span class="rom-char">o</span></div>
+                                                    <div class="hangul-card-sm" onclick="playHangulSound('ㅛ', 'yo')"><span class="kor-char">ㅛ</span><span class="rom-char">yo</span></div>
+                                                    <div class="hangul-card-sm" onclick="playHangulSound('ㅜ', 'u')"><span class="kor-char">ㅜ</span><span class="rom-char">u</span></div>
+                                                    <div class="hangul-card-sm" onclick="playHangulSound('ㅠ', 'yu')"><span class="kor-char">ㅠ</span><span class="rom-char">yu</span></div>
+                                                    <div class="hangul-card-sm" onclick="playHangulSound('ㅡ', 'eu')"><span class="kor-char">ㅡ</span><span class="rom-char">eu</span></div>
+                                                    <div class="hangul-card-sm" onclick="playHangulSound('ㅣ', 'i')"><span class="kor-char">ㅣ</span><span class="rom-char">i</span></div>
+                                                </div>
+                                            </div>
+
+                                            <div>
+                                                <span style="font-size: 0.75rem; color: #38bdf8; font-weight: 800; text-transform: uppercase; display: block; margin-bottom: 4px;">4. Complex Vowels (11)</span>
+                                                <div class="hangul-compact-grid" style="display: flex; flex-wrap: wrap; gap: 5px;">
+                                                    <div class="hangul-card-sm" onclick="playHangulSound('ㅐ', 'ae')"><span class="kor-char">ㅐ</span><span class="rom-char">ae</span></div>
+                                                    <div class="hangul-card-sm" onclick="playHangulSound('ㅒ', 'yae')"><span class="kor-char">ㅒ</span><span class="rom-char">yae</span></div>
+                                                    <div class="hangul-card-sm" onclick="playHangulSound('ㅔ', 'e')"><span class="kor-char">ㅔ</span><span class="rom-char">e</span></div>
+                                                    <div class="hangul-card-sm" onclick="playHangulSound('ㅖ', 'ye')"><span class="kor-char">ㅖ</span><span class="rom-char">ye</span></div>
+                                                    <div class="hangul-card-sm" onclick="playHangulSound('ㅘ', 'wa')"><span class="kor-char">ㅘ</span><span class="rom-char">wa</span></div>
+                                                    <div class="hangul-card-sm" onclick="playHangulSound('ㅙ', 'wae')"><span class="kor-char">ㅙ</span><span class="rom-char">wae</span></div>
+                                                    <div class="hangul-card-sm" onclick="playHangulSound('ㅚ', 'oe')"><span class="kor-char">ㅚ</span><span class="rom-char">oe</span></div>
+                                                    <div class="hangul-card-sm" onclick="playHangulSound('ㅝ', 'wo')"><span class="kor-char">ㅝ</span><span class="rom-char">wo</span></div>
+                                                    <div class="hangul-card-sm" onclick="playHangulSound('ㅞ', 'we')"><span class="kor-char">ㅞ</span><span class="rom-char">we</span></div>
+                                                    <div class="hangul-card-sm" onclick="playHangulSound('ㅟ', 'wi')"><span class="kor-char">ㅟ</span><span class="rom-char">wi</span></div>
+                                                    <div class="hangul-card-sm" onclick="playHangulSound('ㅢ', 'ui')"><span class="kor-char">ㅢ</span><span class="rom-char">ui</span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
 
                             <!-- MODULE 2: ENGLISH VOCABULARY FLASHCARDS -->
-                            <div style="margin-bottom: 24px;">
-                                <h4 style="color: #60a5fa; font-size: 1rem; font-weight: 700; margin-bottom: 12px;">🎴 Interactive Vocabulary Flashcards</h4>
+                            <div style="background: #0f172a; border: 1px solid #334155; border-radius: 10px; padding: 14px; margin-bottom: 20px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                                    <h4 style="color: #60a5fa; font-size: 0.95rem; font-weight: 700; margin: 0;">🎴 Interactive Vocabulary Flashcards</h4>
+                                    <button onclick="toggleModuleBox('vocabFlashcard', this)" style="background: #334155; color: #ffffff; border: 1px solid #475569; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; cursor: pointer;">− Minimize</button>
+                                </div>
                                 <div class="vocab-flashcard-box" id="vocabFlashcard">
                                     <div class="flashcard-category">Factory Safety & Tools</div>
-                                    <div class="flashcard-kor" id="fcKorean" onclick="speakCurrentVocab()" style="cursor: pointer; position: relative;" title="Click to listen">안전모 <span style="font-size: 1rem; vertical-align: middle;">🔊</span></div>
+                                    <div class="flashcard-kor" id="fcKorean" onclick="speakCurrentVocab()" style="cursor: pointer;" title="Click to listen">안전모 🔊</div>
                                     <div class="flashcard-eng" id="fcEnglish">Safety Helmet</div>
                                     <div style="display: flex; gap: 10px; justify-content: center; margin-top: 14px; flex-wrap: wrap;">
-                                        <button class="btn-sm-action" onclick="speakCurrentVocab()" style="background: #2563eb; font-weight: 800; padding: 10px 16px;">🔊 Listen Word Sound</button>
-                                        <button class="btn-sm-action" onclick="nextVocabCard()" style="background: #059669; font-weight: 800; padding: 10px 16px;">Next Word ▶</button>
+                                        <button class="btn-sm-action" onclick="speakCurrentVocab()" style="background: #2563eb; font-weight: 800; padding: 10px 16px; cursor: pointer;">🔊 Listen Word Sound</button>
+                                        <button class="btn-sm-action" onclick="nextVocabCard()" style="background: #059669; font-weight: 800; padding: 10px 16px; cursor: pointer;">Next Word ▶</button>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- MODULE 3: ESSENTIAL KOREAN GRAMMAR LESSONS -->
-                            <div style="background: #0f172a; border: 1px solid #334155; border-radius: 10px; padding: 18px; margin-bottom: 24px;">
-                                <h4 style="color: #60a5fa; font-size: 1rem; font-weight: 700; margin-bottom: 12px;">📘 Essential Korean Grammar Rules for Beginners</h4>
+                            <div style="background: #0f172a; border: 1px solid #334155; border-radius: 10px; padding: 14px; margin-bottom: 20px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                                    <h4 style="color: #60a5fa; font-size: 0.95rem; font-weight: 700; margin: 0;">📘 Essential Korean Grammar Rules for Beginners</h4>
+                                    <button onclick="toggleModuleBox('grammarModuleContent', this)" style="background: #334155; color: #ffffff; border: 1px solid #475569; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; cursor: pointer;">− Minimize</button>
+                                </div>
                                 
-                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px;">
-                                    <div style="background: #1e293b; border: 1px solid #334155; padding: 14px; border-radius: 8px;">
-                                        <h5 style="color: #38bdf8; font-size: 0.92rem; font-weight: 700; margin-bottom: 6px;">1. Topic & Subject Markers</h5>
-                                        <p style="color: #cbd5e1; font-size: 0.84rem; margin-bottom: 6px;"><strong>-은 / -는</strong> (Topic Marker): Emphasizes what you are talking about.</p>
-                                        <p style="color: #cbd5e1; font-size: 0.84rem; margin: 0;"><strong>-이 / -가</strong> (Subject Marker): Identifies the subject performing the action.</p>
-                                    </div>
+                                <div id="grammarModuleContent">
+                                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px;">
+                                        <div style="background: #1e293b; border: 1px solid #334155; padding: 14px; border-radius: 8px;">
+                                            <h5 style="color: #38bdf8; font-size: 0.92rem; font-weight: 700; margin-bottom: 6px;">1. Topic & Subject Markers</h5>
+                                            <p style="color: #cbd5e1; font-size: 0.84rem; margin-bottom: 6px;"><strong>-은 / -는</strong> (Topic Marker): Emphasizes what you are talking about.</p>
+                                            <p style="color: #cbd5e1; font-size: 0.84rem; margin: 0;"><strong>-이 / -가</strong> (Subject Marker): Identifies the subject performing the action.</p>
+                                        </div>
 
-                                    <div style="background: #1e293b; border: 1px solid #334155; padding: 14px; border-radius: 8px;">
-                                        <h5 style="color: #38bdf8; font-size: 0.92rem; font-weight: 700; margin-bottom: 6px;">2. Object Marker (-을 / -를)</h5>
-                                        <p style="color: #cbd5e1; font-size: 0.84rem; margin: 0;">Attached to nouns that receive the action of a transitive verb (e.g. 사과를 먹습니다 = Eats an apple).</p>
-                                    </div>
+                                        <div style="background: #1e293b; border: 1px solid #334155; padding: 14px; border-radius: 8px;">
+                                            <h5 style="color: #38bdf8; font-size: 0.92rem; font-weight: 700; margin-bottom: 6px;">2. Object Marker (-을 / -를)</h5>
+                                            <p style="color: #cbd5e1; font-size: 0.84rem; margin: 0;">Attached to nouns that receive the action of a transitive verb (e.g. 사과를 먹습니다 = Eats an apple).</p>
+                                        </div>
 
-                                    <div style="background: #1e293b; border: 1px solid #334155; padding: 14px; border-radius: 8px;">
-                                        <h5 style="color: #38bdf8; font-size: 0.92rem; font-weight: 700; margin-bottom: 6px;">3. Polite Sentence Endings</h5>
-                                        <p style="color: #cbd5e1; font-size: 0.84rem; margin-bottom: 6px;"><strong>-습니다 / -ㅂ니다</strong>: Formal polite ending used in workplace & exams.</p>
-                                        <p style="color: #cbd5e1; font-size: 0.84rem; margin: 0;"><strong>-아요 / -어요</strong>: Informal polite ending used in everyday speech.</p>
-                                    </div>
+                                        <div style="background: #1e293b; border: 1px solid #334155; padding: 14px; border-radius: 8px;">
+                                            <h5 style="color: #38bdf8; font-size: 0.92rem; font-weight: 700; margin-bottom: 6px;">3. Polite Sentence Endings</h5>
+                                            <p style="color: #cbd5e1; font-size: 0.84rem; margin-bottom: 6px;"><strong>-습니다 / -ㅂ니다</strong>: Formal polite ending used in workplace & exams.</p>
+                                            <p style="color: #cbd5e1; font-size: 0.84rem; margin: 0;"><strong>-아요 / -어요</strong>: Informal polite ending used in everyday speech.</p>
+                                        </div>
 
-                                    <div style="background: #1e293b; border: 1px solid #334155; padding: 14px; border-radius: 8px;">
-                                        <h5 style="color: #38bdf8; font-size: 0.92rem; font-weight: 700; margin-bottom: 6px;">4. Location & Time (-에 / -에서)</h5>
-                                        <p style="color: #cbd5e1; font-size: 0.84rem; margin-bottom: 6px;"><strong>-에</strong>: Indicates location of existence or destination (to/at).</p>
-                                        <p style="color: #cbd5e1; font-size: 0.84rem; margin: 0;"><strong>-에서</strong>: Indicates location where an action takes place (from/at).</p>
+                                        <div style="background: #1e293b; border: 1px solid #334155; padding: 14px; border-radius: 8px;">
+                                            <h5 style="color: #38bdf8; font-size: 0.92rem; font-weight: 700; margin-bottom: 6px;">4. Location & Time (-에 / -에서)</h5>
+                                            <p style="color: #cbd5e1; font-size: 0.84rem; margin-bottom: 6px;"><strong>-에</strong>: Indicates location of existence or destination (to/at).</p>
+                                            <p style="color: #cbd5e1; font-size: 0.84rem; margin: 0;"><strong>-에서</strong>: Indicates location where an action takes place (from/at).</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- MODULE 4: PRACTICAL ENGLISH-KOREAN PHRASES -->
-                            <div style="background: #0f172a; border: 1px solid #334155; border-radius: 10px; padding: 18px;">
-                                <h4 style="color: #60a5fa; font-size: 1rem; font-weight: 700; margin-bottom: 12px;">🗣️ Useful Everyday Korean Phrases (Tap card to listen)</h4>
+                            <div style="background: #0f172a; border: 1px solid #334155; border-radius: 10px; padding: 14px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                                    <h4 style="color: #60a5fa; font-size: 0.95rem; font-weight: 700; margin: 0;">🗣️ Useful Everyday Korean Phrases (Tap card to listen)</h4>
+                                    <button onclick="toggleModuleBox('phrasesModuleContent', this)" style="background: #334155; color: #ffffff; border: 1px solid #475569; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; cursor: pointer;">− Minimize</button>
+                                </div>
                                 
-                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px;">
-                                    <div style="background: #1e293b; border: 1px solid #334155; padding: 10px 14px; border-radius: 6px; cursor: pointer; transition: all 0.2s ease;" onclick="speakKorean('안녕하세요')" title="Tap to listen audio">
-                                        <div style="color: #ffffff; font-weight: 800; font-size: 0.95rem; display: flex; justify-content: space-between; align-items: center;">
-                                            <span>안녕하세요</span> <span>🔊</span>
+                                <div id="phrasesModuleContent">
+                                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px;">
+                                        <div style="background: #1e293b; border: 1px solid #334155; padding: 10px 14px; border-radius: 6px; cursor: pointer; transition: all 0.2s ease;" onclick="speakKorean('안녕하세요')" title="Tap to listen audio">
+                                            <div style="color: #ffffff; font-weight: 800; font-size: 0.95rem; display: flex; justify-content: space-between; align-items: center;">
+                                                <span>안녕하세요</span> <span>🔊</span>
+                                            </div>
+                                            <div style="color: #94a3b8; font-size: 0.8rem;">An-nyeong-ha-se-yo (Hello)</div>
                                         </div>
-                                        <div style="color: #94a3b8; font-size: 0.8rem;">An-nyeong-ha-se-yo (Hello)</div>
-                                    </div>
-                                    <div style="background: #1e293b; border: 1px solid #334155; padding: 10px 14px; border-radius: 6px; cursor: pointer; transition: all 0.2s ease;" onclick="speakKorean('감사합니다')" title="Tap to listen audio">
-                                        <div style="color: #ffffff; font-weight: 800; font-size: 0.95rem; display: flex; justify-content: space-between; align-items: center;">
-                                            <span>감사합니다</span> <span>🔊</span>
+                                        <div style="background: #1e293b; border: 1px solid #334155; padding: 10px 14px; border-radius: 6px; cursor: pointer; transition: all 0.2s ease;" onclick="speakKorean('감사합니다')" title="Tap to listen audio">
+                                            <div style="color: #ffffff; font-weight: 800; font-size: 0.95rem; display: flex; justify-content: space-between; align-items: center;">
+                                                <span>감사합니다</span> <span>🔊</span>
+                                            </div>
+                                            <div style="color: #94a3b8; font-size: 0.8rem;">Gam-sa-ham-ni-da (Thank You)</div>
                                         </div>
-                                        <div style="color: #94a3b8; font-size: 0.8rem;">Gam-sa-ham-ni-da (Thank You)</div>
-                                    </div>
-                                    <div style="background: #1e293b; border: 1px solid #334155; padding: 10px 14px; border-radius: 6px; cursor: pointer; transition: all 0.2s ease;" onclick="speakKorean('죄송합니다')" title="Tap to listen audio">
-                                        <div style="color: #ffffff; font-weight: 800; font-size: 0.95rem; display: flex; justify-content: space-between; align-items: center;">
-                                            <span>죄송합니다</span> <span>🔊</span>
+                                        <div style="background: #1e293b; border: 1px solid #334155; padding: 10px 14px; border-radius: 6px; cursor: pointer; transition: all 0.2s ease;" onclick="speakKorean('죄송합니다')" title="Tap to listen audio">
+                                            <div style="color: #ffffff; font-weight: 800; font-size: 0.95rem; display: flex; justify-content: space-between; align-items: center;">
+                                                <span>죄송합니다</span> <span>🔊</span>
+                                            </div>
+                                            <div style="color: #94a3b8; font-size: 0.8rem;">Joe-song-ham-ni-da (I am sorry)</div>
                                         </div>
-                                        <div style="color: #94a3b8; font-size: 0.8rem;">Joe-song-ham-ni-da (I am sorry)</div>
-                                    </div>
-                                    <div style="background: #1e293b; border: 1px solid #334155; padding: 10px 14px; border-radius: 6px; cursor: pointer; transition: all 0.2s ease;" onclick="speakKorean('도와주세요')" title="Tap to listen audio">
-                                        <div style="color: #ffffff; font-weight: 800; font-size: 0.95rem; display: flex; justify-content: space-between; align-items: center;">
-                                            <span>도와주세요</span> <span>🔊</span>
+                                        <div style="background: #1e293b; border: 1px solid #334155; padding: 10px 14px; border-radius: 6px; cursor: pointer; transition: all 0.2s ease;" onclick="speakKorean('도와주세요')" title="Tap to listen audio">
+                                            <div style="color: #ffffff; font-weight: 800; font-size: 0.95rem; display: flex; justify-content: space-between; align-items: center;">
+                                                <span>도와주세요</span> <span>🔊</span>
+                                            </div>
+                                            <div style="color: #94a3b8; font-size: 0.8rem;">Do-wa-ju-se-yo (Please help me)</div>
                                         </div>
-                                        <div style="color: #94a3b8; font-size: 0.8rem;">Do-wa-ju-se-yo (Please help me)</div>
-                                    </div>
-                                    <div style="background: #1e293b; border: 1px solid #334155; padding: 10px 14px; border-radius: 6px; cursor: pointer; transition: all 0.2s ease;" onclick="speakKorean('어디입니까?')" title="Tap to listen audio">
-                                        <div style="color: #ffffff; font-weight: 800; font-size: 0.95rem; display: flex; justify-content: space-between; align-items: center;">
-                                            <span>어디입니까?</span> <span>🔊</span>
+                                        <div style="background: #1e293b; border: 1px solid #334155; padding: 10px 14px; border-radius: 6px; cursor: pointer; transition: all 0.2s ease;" onclick="speakKorean('어디입니까?')" title="Tap to listen audio">
+                                            <div style="color: #ffffff; font-weight: 800; font-size: 0.95rem; display: flex; justify-content: space-between; align-items: center;">
+                                                <span>어디입니까?</span> <span>🔊</span>
+                                            </div>
+                                            <div style="color: #94a3b8; font-size: 0.8rem;">Eo-di-im-ni-ka? (Where is it?)</div>
                                         </div>
-                                        <div style="color: #94a3b8; font-size: 0.8rem;">Eo-di-im-ni-ka? (Where is it?)</div>
+                                        <div style="background: #1e293b; border: 1px solid #334155; padding: 10px 14px; border-radius: 6px; cursor: pointer; transition: all 0.2s ease;" onclick="speakKorean('얼마입니까?')" title="Tap to listen audio">
+                                            <div style="color: #ffffff; font-weight: 800; font-size: 0.95rem; display: flex; justify-content: space-between; align-items: center;">
+                                                <span>얼마입니까?</span> <span>🔊</span>
+                                            </div>
+                                            <div style="color: #94a3b8; font-size: 0.8rem;">Eol-ma-im-ni-ka? (How much is it?)</div>
+                                        </div>
                                     </div>
-                                    <div style="background: #1e293b; border: 1px solid #334155; padding: 10px 14px; border-radius: 6px; cursor: pointer; transition: all 0.2s ease;" onclick="speakKorean('얼마입니까?')" title="Tap to listen audio">
-                                        <div style="color: #ffffff; font-weight: 800; font-size: 0.95rem; display: flex; justify-content: space-between; align-items: center;">
+                                </div>
+                            </div>: flex; justify-content: space-between; align-items: center;">
                                             <span>얼마입니까?</span> <span>🔊</span>
                                         </div>
                                         <div style="color: #94a3b8; font-size: 0.8rem;">Eol-ma-im-ni-ka? (How much is it?)</div>

@@ -235,15 +235,30 @@ function nextVocabCard() {
 }
 
 function speakKorean(text) {
+    if (!text) return;
+    text = text.replace(/🔊/g, '').trim();
+    if (!text) return;
+
+    try {
+        const audio = new Audio('https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=ko&q=' + encodeURIComponent(text));
+        const playPromise = audio.play();
+        if (playPromise !== undefined) {
+            playPromise.catch(() => {
+                useSpeechSynthesis(text);
+            });
+        }
+    } catch (e) {
+        useSpeechSynthesis(text);
+    }
+}
+
+function useSpeechSynthesis(text) {
     if ('speechSynthesis' in window) {
         window.speechSynthesis.cancel();
         const utterance = new SpeechSynthesisUtterance(text);
         utterance.lang = 'ko-KR';
         utterance.rate = 0.85;
-        utterance.pitch = 1.0;
         window.speechSynthesis.speak(utterance);
-    } else {
-        alert(`Pronunciation: [${text}]`);
     }
 }
 
@@ -252,12 +267,26 @@ function playHangulSound(char, name) {
 }
 
 function speakCurrentVocab() {
-    const korText = document.getElementById('fcKorean') ? document.getElementById('fcKorean').textContent : '';
-    if (korText) {
-        speakKorean(korText);
+    const item = vocabList[currentVocabIdx];
+    if (item && item.kor) {
+        speakKorean(item.kor);
     } else {
-        const item = vocabList[currentVocabIdx];
-        if (item && item.kor) speakKorean(item.kor);
+        const korElem = document.getElementById('fcKorean');
+        if (korElem) speakKorean(korElem.textContent);
+    }
+}
+
+function toggleModuleBox(boxId, btn) {
+    const content = document.getElementById(boxId);
+    if (!content) return;
+    if (content.style.display === 'none') {
+        content.style.display = 'block';
+        btn.textContent = '− Minimize';
+        btn.style.background = '#334155';
+    } else {
+        content.style.display = 'none';
+        btn.textContent = '+ Maximize';
+        btn.style.background = '#2563eb';
     }
 }
 
