@@ -240,19 +240,19 @@ function speakKorean(text) {
     if (!text) return;
 
     try {
-        const audio = new Audio('https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=ko&q=' + encodeURIComponent(text));
+        const audio = new Audio('https://api.streamelements.com/kappa/v2/speech?voice=Seoyeon&text=' + encodeURIComponent(text));
         const playPromise = audio.play();
         if (playPromise !== undefined) {
             playPromise.catch(() => {
-                useSpeechSynthesis(text);
+                useSpeechSynthesisFallback(text);
             });
         }
     } catch (e) {
-        useSpeechSynthesis(text);
+        useSpeechSynthesisFallback(text);
     }
 }
 
-function useSpeechSynthesis(text) {
+function useSpeechSynthesisFallback(text) {
     if ('speechSynthesis' in window) {
         window.speechSynthesis.cancel();
         const utterance = new SpeechSynthesisUtterance(text);
