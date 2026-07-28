@@ -163,18 +163,24 @@ $live_questions = get_live_questions();
 
                     <div class="notes-list-grid">
                         <div class="note-card-item">
-                            <h4>1000 High-Yield EPS TOPIK Workplace Vocab</h4>
-                            <p>Complete English & Hindi dictionary for factory work</p>
+                            <div class="note-card-info">
+                                <h4>1000 High-Yield EPS TOPIK Workplace Vocab</h4>
+                                <p>Complete English & Hindi dictionary for factory work</p>
+                            </div>
                             <button onclick="checkProAccessForNotes()" class="btn-download-sm">View Notes</button>
                         </div>
                         <div class="note-card-item">
-                            <h4>Complete Korean Grammar Particles Cheatsheet</h4>
-                            <p>Master -은/는, -이/가, -을/를, -아/어서 rules in 10 minutes</p>
+                            <div class="note-card-info">
+                                <h4>Complete Korean Grammar Particles Cheatsheet</h4>
+                                <p>Master -은/는, -이/가, -을/를, -아/어서 rules in 10 minutes</p>
+                            </div>
                             <button onclick="checkProAccessForNotes()" class="btn-download-sm">View Notes</button>
                         </div>
                         <div class="note-card-item">
-                            <h4>Industrial Safety Signboard Reference Guide</h4>
-                            <p>High-resolution diagrams of all 50 HRD Korea warning signs</p>
+                            <div class="note-card-info">
+                                <h4>Industrial Safety Signboard Reference Guide</h4>
+                                <p>High-resolution diagrams of all 50 HRD Korea warning signs</p>
+                            </div>
                             <button onclick="checkProAccessForNotes()" class="btn-download-sm">View Notes</button>
                         </div>
                     </div>

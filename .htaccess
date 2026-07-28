@@ -17,6 +17,9 @@
     RewriteCond %{REQUEST_FILENAME} -d
     RewriteRule ^ - [L]
 
+    # Route /subscription clean URL to root subscription.php
+    RewriteRule ^subscription/?$ subscription.php [L,QSA]
+
     # Route clean subpage URLs to pages/{slug}.php if the file exists
     RewriteCond %{DOCUMENT_ROOT}/pages/$1.php -f
     RewriteRule ^([a-zA-Z0-9\-]+)$ pages/$1.php [L,QSA]

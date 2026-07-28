@@ -37,98 +37,8 @@ require_once __DIR__ . '/../includes/header.php';
 }
 </script>
 
-<!-- HERO SECTION CONTAINER -->
-<section class="hero-section">
-    <div class="container">
-        <div class="hero-heading-box">
-            <h1 class="hero-title">EPS TOPIK Reading Korean Test Papers with Answer Keys PDF</h1>
-            <p class="hero-subtitle">
-                Access official 20-question EPS TOPIK Reading <strong>korean test papers</strong>, model practice sets, solved <strong>korean exam paper</strong> archives (2015 - 2025), and step-by-step English explanations tailored for Indian job seekers under HRD Korea.
-            </p>
-        </div>
-
-        <!-- 2-Column Split Box Container -->
-        <div class="hero-split-container">
-            <!-- Left Box: Quick Download Highlights -->
-            <div class="hero-left-box">
-                <div class="box-title-header">
-                    <h3>📄 Reading Test Paper Highlights</h3>
-                    <span class="tag-badge green">20 Questions / Set</span>
-                </div>
-                <div class="exam-nav-list">
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>2025 EPS TOPIK Reading Model Paper</h4>
-                            <p>Official 20-question reading comprehension set with key</p>
-                        </div>
-                        <a href="../pdf/eps-topik-reading-2025.pdf" class="btn-download-sm" download>PDF</a>
-                    </div>
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>2024 Solved Reading Exam Paper</h4>
-                            <p>Real test questions with English step-by-step explanations</p>
-                        </div>
-                        <a href="../pdf/eps-topik-2024-solved.pdf" class="btn-download-sm" download>PDF</a>
-                    </div>
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>Factory & Workplace Signboards Paper</h4>
-                            <p>20 Image-based safety signboards & tool identification</p>
-                        </div>
-                        <a href="../pdf/eps-topik-manufacturing.pdf" class="btn-download-sm" download>PDF</a>
-                    </div>
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>Master 2000 Reading Question Bank</h4>
-                            <p>Complete HRD Korea standardized reading question bank</p>
-                        </div>
-                        <a href="../pdf/eps-topik-official-question-bank.pdf" class="btn-download-sm" download>PDF</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right Box: Live CBT Mock Test Widget -->
-            <div class="hero-right-box" id="live-test-box">
-                <div class="live-test-header">
-                    <div class="live-indicator">
-                        <span class="live-dot"></span> LIVE READING CBT TEST
-                    </div>
-                    <div style="font-weight: 700; font-size: 0.9rem; color: #475569;">
-                        ⏱ Timer: <span id="liveTimerDisplay" style="color: #2563eb;">25:00</span>
-                    </div>
-                </div>
-
-                <div class="quiz-card-box">
-                    <div class="quiz-question-title" id="liveQuestionText">
-                        <?php echo htmlspecialchars($live_questions[0]['question_text']); ?>
-                    </div>
-                    
-                    <div class="quiz-options-list" id="liveOptionsContainer">
-                        <button class="quiz-option-btn" data-option="A">
-                            <span>A. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_a']); ?></span></span>
-                        </button>
-                        <button class="quiz-option-btn" data-option="B">
-                            <span>B. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_b']); ?></span></span>
-                        </button>
-                        <button class="quiz-option-btn" data-option="C">
-                            <span>C. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_c']); ?></span></span>
-                        </button>
-                        <button class="quiz-option-btn" data-option="D">
-                            <span>D. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_d']); ?></span></span>
-                        </button>
-                    </div>
-
-                    <div id="liveExplanationBox" style="display:none; margin-top: 14px; padding: 12px; background: #eff6ff; border-radius: 6px; font-size: 0.88rem; color: #1e3a8a;"></div>
-                </div>
-
-                <div class="quiz-action-bar">
-                    <button class="btn-primary-action" id="btnSubmitAnswer" disabled>Submit Answer</button>
-                    <button class="btn-primary-action" id="btnNextQuestion" style="display:none; background: #059669;">Next Question ▶</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<!-- UNIFIED HERO SECTION COMPONENT -->
+<?php require_once __DIR__ . '/../includes/hero-section.php'; ?>
 
 <!-- MAIN CONTENT CONTAINER (2,000+ WORDS IN-DEPTH ANALYSIS) -->
 <section class="section-padding">
@@ -226,42 +136,42 @@ require_once __DIR__ . '/../includes/header.php';
                             <td><span class="tag-badge green">Reading</span></td>
                             <td>2025</td>
                             <td>✔ Solved + English Explanations</td>
-                            <td><a href="../pdf/eps-topik-reading-2025.pdf" class="btn-download-sm" download>📥 Download PDF</a></td>
+                            <td><a href="https://drive.google.com/drive/folders/1opEW5O5mvYt2lcFP169Sizil7z0z6Qsv" target="_blank" class="btn-download-sm">📥 Download PDF</a></td>
                         </tr>
                         <tr>
                             <td><strong>2024 Real Shift Solved EPS TOPIK Reading Paper</strong></td>
                             <td><span class="tag-badge green">Reading</span></td>
                             <td>2024</td>
                             <td>✔ Solved + English Explanations</td>
-                            <td><a href="../pdf/eps-topik-2024-solved.pdf" class="btn-download-sm" download>📥 Download PDF</a></td>
+                            <td><a href="https://drive.google.com/drive/folders/1opEW5O5mvYt2lcFP169Sizil7z0z6Qsv" target="_blank" class="btn-download-sm">📥 Download PDF</a></td>
                         </tr>
                         <tr>
                             <td><strong>2023 EPS TOPIK Reading Previous Year Paper</strong></td>
                             <td><span class="tag-badge green">Reading</span></td>
                             <td>2023</td>
                             <td>✔ Solved + Key</td>
-                            <td><a href="../pdf/eps-topik-2023-past.pdf" class="btn-download-sm" download>📥 Download PDF</a></td>
+                            <td><a href="https://drive.google.com/drive/folders/1opEW5O5mvYt2lcFP169Sizil7z0z6Qsv" target="_blank" class="btn-download-sm">📥 Download PDF</a></td>
                         </tr>
                         <tr>
                             <td><strong>EPS TOPIK Manufacturing Sector Reading Paper</strong></td>
                             <td><span class="tag-badge">Industry</span></td>
                             <td>2024</td>
                             <td>✔ Solved + Key</td>
-                            <td><a href="../pdf/eps-topik-manufacturing.pdf" class="btn-download-sm" download>📥 Download PDF</a></td>
+                            <td><a href="https://drive.google.com/drive/folders/1opEW5O5mvYt2lcFP169Sizil7z0z6Qsv" target="_blank" class="btn-download-sm">📥 Download PDF</a></td>
                         </tr>
                         <tr>
                             <td><strong>EPS TOPIK Agriculture & Stockbreeding Paper</strong></td>
                             <td><span class="tag-badge amber">Agriculture</span></td>
                             <td>2023</td>
                             <td>✔ Solved + Key</td>
-                            <td><a href="../pdf/eps-topik-agriculture.pdf" class="btn-download-sm" download>📥 Download PDF</a></td>
+                            <td><a href="https://drive.google.com/drive/folders/1opEW5O5mvYt2lcFP169Sizil7z0z6Qsv" target="_blank" class="btn-download-sm">📥 Download PDF</a></td>
                         </tr>
                         <tr>
                             <td><strong>Master 2000 Reading Question Bank PDF</strong></td>
                             <td><span class="tag-badge cyan">Bank</span></td>
                             <td>2025</td>
                             <td>✔ Solved + Key</td>
-                            <td><a href="../pdf/eps-topik-official-question-bank.pdf" class="btn-download-sm" download>📥 Download PDF</a></td>
+                            <td><a href="https://drive.google.com/drive/folders/1opEW5O5mvYt2lcFP169Sizil7z0z6Qsv" target="_blank" class="btn-download-sm">📥 Download PDF</a></td>
                         </tr>
                     </tbody>
                 </table>
