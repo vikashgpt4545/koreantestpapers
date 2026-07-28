@@ -188,15 +188,24 @@ function initQuestionBankSearch() {
 }
 
 /* Tab Switcher Logic */
-function switchHeroTab(tabId) {
+function switchHeroTab(tabId, btnElement) {
     document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-    document.querySelectorAll('.tab-content-panel').forEach(panel => panel.classList.remove('active'));
+    document.querySelectorAll('.tab-content-panel').forEach(panel => {
+        panel.classList.remove('active');
+        panel.style.display = 'none';
+    });
 
     const activePanel = document.getElementById(tabId);
-    if (activePanel) activePanel.classList.add('active');
+    if (activePanel) {
+        activePanel.classList.add('active');
+        activePanel.style.display = 'block';
+    }
 
-    // Set active button
-    event.target.classList.add('active');
+    if (btnElement) {
+        btnElement.classList.add('active');
+    } else if (window.event && window.event.target) {
+        window.event.target.classList.add('active');
+    }
 }
 
 /* Hangul & Vocab Flashcard Mechanics */

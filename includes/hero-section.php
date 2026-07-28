@@ -25,14 +25,14 @@ $live_questions = get_live_questions();
                 
                 <!-- Tab Navigation Header -->
                 <div class="hero-tab-nav">
-                    <button class="tab-btn active" onclick="switchHeroTab('learnTab')">📚 Learn Korean</button>
-                    <button class="tab-btn" onclick="switchHeroTab('gamesTab')">🎮 Play Games</button>
-                    <button class="tab-btn" onclick="switchHeroTab('cbtTab')">⏱️ CBT Mock Test</button>
-                    <button class="tab-btn" onclick="switchHeroTab('notesTab')">📝 Pro Study Notes</button>
+                    <button class="tab-btn active" onclick="switchHeroTab('learnTab', this)">📚 Learn Korean</button>
+                    <button class="tab-btn" onclick="switchHeroTab('gamesTab', this)">🎮 Play Games</button>
+                    <button class="tab-btn" onclick="switchHeroTab('cbtTab', this)">⏱️ CBT Mock Test</button>
+                    <button class="tab-btn" onclick="switchHeroTab('notesTab', this)">📝 Pro Study Notes</button>
                 </div>
 
                 <!-- TAB 1: LEARN KOREAN -->
-                <div id="learnTab" class="tab-content-panel active">
+                <div id="learnTab" class="tab-content-panel active" style="display: block;">
                     <div class="panel-header-box">
                         <h3>한글 & 어휘 학습 — Basic Hangul & Vocab Lessons</h3>
                         <span class="tag-badge green">Free Lessons</span>
@@ -84,7 +84,7 @@ $live_questions = get_live_questions();
                 </div>
 
                 <!-- TAB 2: PLAY GAMES FOR TEST & LEARN -->
-                <div id="gamesTab" class="tab-content-panel">
+                <div id="gamesTab" class="tab-content-panel" style="display: none;">
                     <div class="panel-header-box">
                         <h3>🎮 Level-Based Korean Practice Games</h3>
                         <div class="level-indicator-badge">Level 1 (Free Trial)</div>
@@ -119,7 +119,7 @@ $live_questions = get_live_questions();
                 </div>
 
                 <!-- TAB 3: FULL CBT MOCK TEST -->
-                <div id="cbtTab" class="tab-content-panel">
+                <div id="cbtTab" class="tab-content-panel" style="display: none;">
                     <div class="panel-header-box">
                         <h3>⏱️ Dynamic Random CBT Mock Simulator</h3>
                         <span class="tag-badge blue">Dynamic Question Engine</span>
@@ -155,7 +155,7 @@ $live_questions = get_live_questions();
                 </div>
 
                 <!-- TAB 4: PRO STUDY NOTES -->
-                <div id="notesTab" class="tab-content-panel">
+                <div id="notesTab" class="tab-content-panel" style="display: none;">
                     <div class="panel-header-box">
                         <h3>📝 Exclusive Pro Study Notes & Cheatsheets</h3>
                         <span class="tag-badge amber">Pro Vault</span>
