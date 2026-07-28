@@ -1285,6 +1285,65 @@ a:hover {
     box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
 }
 
+/* Pro Dashboard Left Sidebar Layout */
+.pro-sidebar-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.pro-sidebar-box {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.pro-sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.pro-sidebar-btn {
+    background: #0f172a;
+    color: #cbd5e1;
+    border: 1px solid #334155;
+    padding: 12px 14px;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+.pro-sidebar-btn:hover {
+    color: #ffffff;
+    border-color: #60a5fa;
+    background: #1e293b;
+}
+
+.pro-sidebar-btn.active {
+    background: #2563eb;
+    color: #ffffff;
+    border-color: #2563eb;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+}
+
+@media (max-width: 992px) {
+    .pro-sidebar-layout {
+        grid-template-columns: 1fr;
+    }
+    .pro-sidebar-nav {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 8px;
+    }
+}
+
 @media (max-width: 992px) {
     .hero-split-container-7030 {
         grid-template-columns: 1fr;
