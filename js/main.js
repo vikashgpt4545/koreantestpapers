@@ -385,6 +385,39 @@ function speakCurrentVocab() {
     }
 }
 
+function renderMasterVocabTable() {
+    const container = document.getElementById('masterVocabGridContainer');
+    if (!container || container.children.length > 0) return;
+    
+    let html = '';
+    vocabList.forEach(item => {
+        html += `
+        <div style="background: #1e293b; border: 1px solid #334155; padding: 10px 12px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: transform 0.15s ease;" onclick="speakKorean('${item.kor.replace(/'/g, "\\'")}')" title="Click to listen">
+            <div>
+                <div style="color: #60a5fa; font-size: 0.7rem; font-weight: 700; text-transform: uppercase;">${item.cat}</div>
+                <div style="color: #ffffff; font-weight: 800; font-size: 0.95rem; margin-top: 2px;">${item.kor}</div>
+                <div style="color: #cbd5e1; font-size: 0.8rem;">${item.eng}</div>
+            </div>
+            <div style="background: #0f172a; border: 1px solid #334155; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; color: #38bdf8; flex-shrink: 0;">🔊</div>
+        </div>`;
+    });
+    container.innerHTML = html;
+}
+
+function toggleVocabMasterList() {
+    const box = document.getElementById('masterVocabBox');
+    const btn = document.getElementById('toggleMasterVocabBtn');
+    if (!box) return;
+    if (box.style.display === 'none' || !box.style.display) {
+        renderMasterVocabTable();
+        box.style.display = 'block';
+        if (btn) btn.textContent = '▲ Hide All Words List';
+    } else {
+        box.style.display = 'none';
+        if (btn) btn.textContent = '📋 Browse All 125+ Words Master List ▶';
+    }
+}
+
 function speakKorean(text) {
     if (!text) return;
     text = text.replace(/🔊/g, '').trim();
