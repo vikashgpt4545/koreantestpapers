@@ -192,6 +192,7 @@ require_once __DIR__ . '/../includes/header.php';
                                     <div class="flashcard-kor" id="fcKorean" onclick="speakCurrentVocab()" style="cursor: pointer;" title="Click to listen">안전모 🔊</div>
                                     <div class="flashcard-eng" id="fcEnglish">Safety Helmet</div>
                                     <div style="display: flex; gap: 10px; justify-content: center; margin-top: 14px; flex-wrap: wrap;">
+                                        <button class="btn-sm-action" onclick="prevVocabCard()" style="background: #475569; font-weight: 800; padding: 10px 16px; cursor: pointer;">◀ Previous Word</button>
                                         <button class="btn-sm-action" onclick="speakCurrentVocab()" style="background: #2563eb; font-weight: 800; padding: 10px 16px; cursor: pointer;">🔊 Listen Word Sound</button>
                                         <button class="btn-sm-action" onclick="nextVocabCard()" style="background: #059669; font-weight: 800; padding: 10px 16px; cursor: pointer;">Next Word ▶</button>
                                     </div>

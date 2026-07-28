@@ -345,32 +345,37 @@ const vocabList = [
     { kor: '일요일', eng: 'Sunday', cat: 'Days of the Week' }
 ];
 
-let shuffledVocabQueue = [];
-let currentVocabItem = null;
-
-function shuffleArray(array) {
-    const arr = [...array];
-    for (let i = arr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [arr[i], arr[j]] = [arr[j], arr[i]];
-    }
-    return arr;
-}
+let currentVocabLinearIndex = 0;
+let currentVocabItem = vocabList[0];
 
 function nextVocabCard() {
-    if (shuffledVocabQueue.length === 0) {
-        shuffledVocabQueue = shuffleArray(vocabList);
-    }
+    if (!vocabList || vocabList.length === 0) return;
     
-    currentVocabItem = shuffledVocabQueue.pop();
+    currentVocabLinearIndex = (currentVocabLinearIndex + 1) % vocabList.length;
+    currentVocabItem = vocabList[currentVocabLinearIndex];
+    updateVocabCardDisplay();
+}
 
-    const catElem = document.querySelector('.flashcard-category');
-    const korElem = document.getElementById('fcKorean');
-    const engElem = document.getElementById('fcEnglish');
+function prevVocabCard() {
+    if (!vocabList || vocabList.length === 0) return;
+    
+    currentVocabLinearIndex = (currentVocabLinearIndex - 1 + vocabList.length) % vocabList.length;
+    currentVocabItem = vocabList[currentVocabLinearIndex];
+    updateVocabCardDisplay();
+}
 
-    if (catElem) catElem.textContent = currentVocabItem.cat;
-    if (korElem) korElem.innerHTML = currentVocabItem.kor + ' <span style="font-size: 1.1rem; vertical-align: middle;">🔊</span>';
-    if (engElem) engElem.textContent = currentVocabItem.eng;
+function updateVocabCardDisplay() {
+    if (!currentVocabItem) return;
+    const totalWords = vocabList.length;
+    const currentNum = currentVocabLinearIndex + 1;
+
+    const catElems = document.querySelectorAll('.flashcard-category');
+    const korElems = document.querySelectorAll('#fcKorean');
+    const engElems = document.querySelectorAll('#fcEnglish');
+
+    catElems.forEach(el => el.textContent = `${currentVocabItem.cat} • [Word ${currentNum} of ${totalWords}]`);
+    korElems.forEach(el => el.innerHTML = currentVocabItem.kor + ' <span style="font-size: 1.1rem; vertical-align: middle;">🔊</span>');
+    engElems.forEach(el => el.textContent = currentVocabItem.eng);
 }
 
 function speakCurrentVocab() {
