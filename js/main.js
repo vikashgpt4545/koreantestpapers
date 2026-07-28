@@ -286,7 +286,7 @@ function renderCurrentGameQuestion() {
 }
 
 function checkGameAnswer(chosen) {
-    const isPro = localStorage.getItem('koreantestpapers_pro') === 'true';
+    const isPro = localStorage.getItem('koreantestpapers_pro') === 'true' || localStorage.getItem('koreanTestProAccess') === 'true';
 
     gameAnswerCount++;
     if (gameAnswerCount >= gameMaxFreeQuestions && !isPro) {
@@ -302,18 +302,24 @@ function checkGameAnswer(chosen) {
         alert(`❌ Incorrect! Correct answer for "${currentQ.kor}" was: ${currentQ.ans}`);
     }
 
-    document.getElementById('gameScore').textContent = gameCurrentScore;
-    document.getElementById('gameQCount').textContent = `${gameAnswerCount + 1} / 5`;
+    const scoreEl = document.getElementById('gameScore');
+    const countEl = document.getElementById('gameQCount');
+    if (scoreEl) scoreEl.textContent = gameCurrentScore;
+    if (countEl) countEl.textContent = `${gameAnswerCount + 1} / 5`;
 
     currentGameIdx++;
     renderCurrentGameQuestion();
 }
 
-function selectGameMode(mode) {
+function selectGameMode(mode, btnElement) {
     document.querySelectorAll('.game-mode-btn').forEach(btn => btn.classList.remove('active'));
-    if (window.event && window.event.target) window.event.target.classList.add('active');
+    if (btnElement) {
+        btnElement.classList.add('active');
+    } else if (window.event && window.event.target) {
+        window.event.target.classList.add('active');
+    }
 
-    const isPro = localStorage.getItem('koreantestpapers_pro') === 'true';
+    const isPro = localStorage.getItem('koreantestpapers_pro') === 'true' || localStorage.getItem('koreanTestProAccess') === 'true';
     if ((mode === 'signboard' || mode === 'audio') && !isPro) {
         openProModal();
         return;
@@ -339,7 +345,7 @@ function selectPassPlan(planId, priceUSD) {
 }
 
 function checkProAccessForNotes() {
-    const isPro = localStorage.getItem('koreantestpapers_pro') === 'true';
+    const isPro = localStorage.getItem('koreantestpapers_pro') === 'true' || localStorage.getItem('koreanTestProAccess') === 'true';
     if (!isPro) {
         openProModal();
     } else {

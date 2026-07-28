@@ -2,6 +2,7 @@
 // Core PHP Setup
 require_once __DIR__ . '/../includes/db.php';
 
+$live_questions = get_live_questions();
 $page_title = "Pro Vault & Subscriber Member Portal - KoreanTestPapers.in";
 $page_desc = "Exclusive Pro Member Portal for unlocked access to 156+ Korean Test Papers, grammar cheatsheets, workplace vocabulary lists, and unlimited CBT mock test practice.";
 $canonical_url = "https://koreantestpapers.in/pro-portal";
@@ -168,9 +169,9 @@ require_once __DIR__ . '/../includes/header.php';
 
                             <!-- Game Mode Selection -->
                             <div class="game-select-buttons" style="margin-bottom: 16px;">
-                                <button class="game-mode-btn active" onclick="selectGameMode('speed')">⚡ Speed Word Match</button>
-                                <button class="game-mode-btn" onclick="selectGameMode('signboard')">🚫 Safety Signboard Puzzle</button>
-                                <button class="game-mode-btn" onclick="selectGameMode('audio')">🎧 Audio Challenge</button>
+                                <button class="game-mode-btn active" onclick="selectGameMode('speed', this)">⚡ Speed Word Match</button>
+                                <button class="game-mode-btn" onclick="selectGameMode('signboard', this)">🚫 Safety Signboard Puzzle</button>
+                                <button class="game-mode-btn" onclick="selectGameMode('audio', this)">🎧 Audio Challenge</button>
                             </div>
 
                             <!-- Interactive Game Canvas Box -->
@@ -203,22 +204,46 @@ require_once __DIR__ . '/../includes/header.php';
                                     <h3 style="color: #ffffff; font-size: 1.25rem; font-weight: 800; margin-bottom: 4px;">⏱️ Interactive CBT Simulator Engine</h3>
                                     <p style="color: #94a3b8; font-size: 0.88rem; margin: 0;">Unlimited randomized question sets, real-time timer countdown, and detailed answer explanations.</p>
                                 </div>
-                                <span class="tag-badge green" style="font-size: 0.85rem; padding: 6px 12px;">Unlimited CBT</span>
+                                <span class="tag-badge green" style="font-size: 0.85rem; padding: 6px 12px;">Unlimited CBT Unlocked</span>
                             </div>
 
-                            <div style="background: #0f172a; border: 1px solid #334155; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-                                <h4 style="color: #ffffff; font-size: 1rem; font-weight: 700; margin-bottom: 10px;">✨ Features Included in Your Pass:</h4>
-                                <ul style="color: #cbd5e1; font-size: 0.88rem; padding-left: 20px; line-height: 1.9; margin: 0;">
-                                    <li>Bilingual English & Hindi Option Translations for difficult vocabulary</li>
-                                    <li>Randomized question engine — never get the exact same test sequence twice</li>
-                                    <li>Automated Score Analytics & Instant Explanations</li>
-                                    <li>Audio Listening & Workplace Signboard Question Modes</li>
-                                </ul>
+                            <script>
+                                window.liveQuestions = <?php echo json_encode($live_questions); ?>;
+                            </script>
+
+                            <!-- Embedded CBT Simulator Widget -->
+                            <div class="quiz-card-box" style="background: #0f172a; border: 1px solid #334155; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid #334155;">
+                                    <span class="tag-badge blue" style="font-size: 0.8rem;">EPS TOPIK Pro CBT Engine</span>
+                                    <span style="color: #ef4444; font-weight: 700; font-size: 0.9rem;">Timer: <strong id="liveTimerDisplay">25:00</strong></span>
+                                </div>
+
+                                <div class="quiz-question-title" id="liveQuestionText" style="color: #ffffff; font-size: 1.15rem; font-weight: 700; margin-bottom: 18px; line-height: 1.4;">
+                                    <?php echo htmlspecialchars($live_questions[0]['question_text']); ?>
+                                </div>
+                                
+                                <div class="quiz-options-list" id="liveOptionsContainer" style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 18px;">
+                                    <button class="quiz-option-btn" data-option="A" style="width: 100%; text-align: left; padding: 12px 14px; background: #1e293b; border: 1px solid #334155; border-radius: 6px; color: #ffffff; cursor: pointer; font-size: 0.92rem; transition: all 0.2s ease;">
+                                        <span>A. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_a']); ?></span></span>
+                                    </button>
+                                    <button class="quiz-option-btn" data-option="B" style="width: 100%; text-align: left; padding: 12px 14px; background: #1e293b; border: 1px solid #334155; border-radius: 6px; color: #ffffff; cursor: pointer; font-size: 0.92rem; transition: all 0.2s ease;">
+                                        <span>B. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_b']); ?></span></span>
+                                    </button>
+                                    <button class="quiz-option-btn" data-option="C" style="width: 100%; text-align: left; padding: 12px 14px; background: #1e293b; border: 1px solid #334155; border-radius: 6px; color: #ffffff; cursor: pointer; font-size: 0.92rem; transition: all 0.2s ease;">
+                                        <span>C. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_c']); ?></span></span>
+                                    </button>
+                                    <button class="quiz-option-btn" data-option="D" style="width: 100%; text-align: left; padding: 12px 14px; background: #1e293b; border: 1px solid #334155; border-radius: 6px; color: #ffffff; cursor: pointer; font-size: 0.92rem; transition: all 0.2s ease;">
+                                        <span>D. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_d']); ?></span></span>
+                                    </button>
+                                </div>
+
+                                <div id="liveExplanationBox" style="display:none; margin-top: 14px; padding: 14px; background: #1e3a8a; border: 1px solid #3b82f6; border-radius: 6px; font-size: 0.88rem; color: #ffffff;"></div>
                             </div>
 
-                            <a href="/#cbtTab" class="btn-primary-action" style="display: block; text-align: center; width: 100%; font-size: 0.95rem; padding: 14px; background: #059669; font-weight: 800;">
-                                Launch CBT Simulator Engine Now ▶
-                            </a>
+                            <div class="quiz-action-bar" style="display: flex; gap: 12px;">
+                                <button class="btn-primary-action" id="btnSubmitAnswer" disabled style="padding: 12px 24px; font-size: 0.92rem; font-weight: 800; background: #2563eb; color: #ffffff; border-radius: 6px; cursor: pointer;">Submit Answer</button>
+                                <button class="btn-primary-action" id="btnNextQuestion" style="display:none; padding: 12px 24px; font-size: 0.92rem; font-weight: 800; background: #059669; color: #ffffff; border-radius: 6px; cursor: pointer;">Next Question ▶</button>
+                            </div>
                         </div>
                     </div>
 
