@@ -81,6 +81,7 @@ $canonical_url = "https://koreantestpapers.in" . ($_SERVER['REQUEST_URI'] ?? '')
                     <li><a href="/topik-1-level-1-korean-test-papers">TOPIK I & II</a></li>
                     <li><a href="/korean-exam-paper-master-collection">Past Papers PDF</a></li>
                     <li><a href="/eps-topik-passing-marks-guide-korean-exam-paper">FAQ</a></li>
+                    <li><a href="/pro-portal" style="background: #0f172a; color: #fbbf24; border: 1px solid #fbbf24; padding: 6px 12px; border-radius: 6px; font-weight: 700; font-size: 0.85rem;">🔑 Pro Login</a></li>
                     <li class="desktop-only-cta"><a href="/#cbtTab" onclick="if(window.switchHeroTab){ switchHeroTab('cbtTab', document.querySelectorAll('.tab-btn')[2]); }" class="btn-header-cta">▶ Live CBT Test</a></li>
                 </ul>
             </nav>

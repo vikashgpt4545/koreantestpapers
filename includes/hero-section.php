@@ -188,45 +188,35 @@ $live_questions = get_live_questions();
 
             </div>
 
-            <!-- RIGHT COLUMN (30% Width — 100% Free PDF Downloads Box) -->
+            <!-- RIGHT COLUMN (30% Width — Master Archive Portal Hub Banner) -->
             <div class="hero-right-box-30">
-                <div class="box-title-header">
-                    <h3>📥 Free Exam Papers PDF</h3>
-                    <span class="tag-badge green">100% Free Downloads</span>
+                <div class="box-title-header" style="margin-bottom: 12px;">
+                    <h3 style="color: #0f172a !important; font-size: 1.15rem; font-weight: 800; margin: 0;">📥 Free Exam Papers PDF</h3>
+                    <span class="tag-badge green">100% Free Archive</span>
                 </div>
                 
-                <p style="font-size: 0.82rem; color: #64748b; margin-bottom: 12px;">
-                    Download official past test papers, answer keys, and audio files directly from Google Drive:
+                <p style="font-size: 0.85rem; color: #475569 !important; line-height: 1.5; margin-bottom: 16px;">
+                    Access all official <strong>156+ Korean Test Papers</strong>, solved <strong>Korean Exam Paper</strong> PDFs, answer keys, and listening audio files directly from Google Drive.
                 </p>
 
-                <div class="exam-nav-list">
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>102nd TOPIK I Listening Paper</h4>
-                            <p>Official PDF paper & audio MP3</p>
-                        </div>
-                        <a href="https://drive.google.com/drive/folders/1opEW5O5mvYt2lcFP169Sizil7z0z6Qsv" target="_blank" class="btn-download-sm">PDF</a>
+                <!-- Master Archive Stats Feature List -->
+                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px; margin-bottom: 16px;">
+                    <div style="font-size: 0.85rem; color: #1e293b !important; font-weight: 700; margin-bottom: 8px;">
+                        ✨ Master Archive Contents:
                     </div>
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>96th TOPIK II Solved Paper PDF</h4>
-                            <p>Reading, Writing & Answer sheet</p>
-                        </div>
-                        <a href="https://drive.google.com/drive/folders/1opEW5O5mvYt2lcFP169Sizil7z0z6Qsv" target="_blank" class="btn-download-sm">PDF</a>
-                    </div>
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>91st Official TOPIK Past Set</h4>
-                            <p>Complete multi-level test bundle</p>
-                        </div>
-                        <a href="https://drive.google.com/drive/folders/1opEW5O5mvYt2lcFP169Sizil7z0z6Qsv" target="_blank" class="btn-download-sm">PDF</a>
-                    </div>
+                    <ul style="font-size: 0.8rem; color: #475569 !important; padding-left: 18px; margin: 0; line-height: 1.6;">
+                        <li>2015 – 2025 EPS TOPIK Reading & Listening</li>
+                        <li>TOPIK I & II Full Model Practice Bundles</li>
+                        <li>HRD Korea 2000 Question Bank</li>
+                        <li>1-Click Direct Google Drive Cloud Access</li>
+                    </ul>
                 </div>
 
-                <!-- Callout Banner to Master Collection Page -->
-                <div class="master-hub-callout-card" style="margin-top: 18px; padding: 14px; background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; text-align: center;">
-                    <strong style="font-size: 0.88rem; color: #1e3a8a; display: block; margin-bottom: 6px;">Looking for all 156 Past Papers?</strong>
-                    <a href="/korean-exam-paper-master-collection" class="btn-primary-action" style="font-size: 0.8rem; padding: 8px 12px; display: inline-block;">Access Master Archive Hub ▶</a>
+                <!-- Primary CTA Banner Button -->
+                <div style="text-align: center;">
+                    <a href="/korean-exam-paper-master-collection" class="btn-primary-action" style="display: block; width: 100%; text-align: center; padding: 12px 16px; font-size: 0.9rem; font-weight: 800; background: #2563eb; color: #ffffff !important; border-radius: 6px; box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);">
+                        Access Master Archive Hub (156 Papers) ▶
+                    </a>
                 </div>
             </div>
 

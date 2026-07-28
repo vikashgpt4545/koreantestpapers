@@ -104,7 +104,7 @@ require_once __DIR__ . '/../includes/header.php';
                             <td><?php echo htmlspecialchars($item['type']); ?></td>
                             <td><?php echo htmlspecialchars($item['year']); ?></td>
                             <td>
-                                <a href="<?php echo get_google_drive_download_url($item['drive_id'], $item['file_name']); ?>" target="_blank" class="btn-download-sm">
+                                <a href="/download-paper?title=<?php echo urlencode($item['session'] . ' (' . $item['level'] . ')'); ?>" class="btn-download-sm">
                                     📥 Download File
                                 </a>
                             </td>

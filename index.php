@@ -101,6 +101,12 @@ require_once __DIR__ . '/includes/header.php';
             </div>
         </div>
 
+        <div style="margin-top: 16px; text-align: center; margin-bottom: 24px;">
+            <a href="/korean-exam-paper-master-collection" class="btn-primary-action" style="font-size: 0.95rem; padding: 12px 24px; background: #2563eb; color: #ffffff; border-radius: 6px; display: inline-block;">
+                🚀 Looking for All 156+ Exam Papers? Visit Master Archive Hub →
+            </a>
+        </div>
+
         <div class="table-box-container">
             <table class="responsive-table">
                 <thead>
@@ -127,7 +133,7 @@ require_once __DIR__ . '/includes/header.php';
                         <td><?php echo htmlspecialchars($paper['skill_type']); ?></td>
                         <td><span style="color: #059669; font-weight: 700;">✔ Solved (Eng Explanations)</span></td>
                         <td>
-                            <a href="pdf/<?php echo htmlspecialchars($pdf_file); ?>" class="btn-download-sm" download>📥 Download PDF</a>
+                            <a href="/download-paper?title=<?php echo urlencode($paper['title']); ?>" class="btn-download-sm">📥 Download PDF</a>
                         </td>
                     </tr>
                     <?php endforeach; ?>
