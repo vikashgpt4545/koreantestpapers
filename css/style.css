@@ -1346,19 +1346,26 @@ a:hover {
 
 /* Compact Hangul Alphabet Small Cards */
 .hangul-compact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(54px, 1fr));
-    gap: 8px;
-    margin-bottom: 16px;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    margin-bottom: 16px !important;
 }
 
 .hangul-card-sm {
+    display: inline-flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 58px !important;
+    min-width: 58px !important;
     background: #0f172a;
     border: 1px solid #334155;
     border-radius: 8px;
     padding: 8px 4px;
     text-align: center;
     cursor: pointer;
+    box-sizing: border-box;
     transition: all 0.2s ease;
 }
 
