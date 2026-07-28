@@ -190,9 +190,12 @@ require_once __DIR__ . '/../includes/header.php';
                                 <h4 style="color: #60a5fa; font-size: 1rem; font-weight: 700; margin-bottom: 12px;">🎴 Interactive Vocabulary Flashcards</h4>
                                 <div class="vocab-flashcard-box" id="vocabFlashcard">
                                     <div class="flashcard-category">Factory Safety & Tools</div>
-                                    <div class="flashcard-kor" id="fcKorean">안전모</div>
+                                    <div class="flashcard-kor" id="fcKorean" onclick="speakCurrentVocab()" style="cursor: pointer; position: relative;" title="Click to listen">안전모 <span style="font-size: 1rem; vertical-align: middle;">🔊</span></div>
                                     <div class="flashcard-eng" id="fcEnglish">Safety Helmet</div>
-                                    <button class="btn-sm-action" onclick="nextVocabCard()">Next Word ▶</button>
+                                    <div style="display: flex; gap: 10px; justify-content: center; margin-top: 14px; flex-wrap: wrap;">
+                                        <button class="btn-sm-action" onclick="speakCurrentVocab()" style="background: #2563eb; font-weight: 800; padding: 10px 16px;">🔊 Listen Word Sound</button>
+                                        <button class="btn-sm-action" onclick="nextVocabCard()" style="background: #059669; font-weight: 800; padding: 10px 16px;">Next Word ▶</button>
+                                    </div>
                                 </div>
                             </div>
 
@@ -228,31 +231,43 @@ require_once __DIR__ . '/../includes/header.php';
 
                             <!-- MODULE 4: PRACTICAL ENGLISH-KOREAN PHRASES -->
                             <div style="background: #0f172a; border: 1px solid #334155; border-radius: 10px; padding: 18px;">
-                                <h4 style="color: #60a5fa; font-size: 1rem; font-weight: 700; margin-bottom: 12px;">🗣️ Useful Everyday Korean Phrases (English)</h4>
+                                <h4 style="color: #60a5fa; font-size: 1rem; font-weight: 700; margin-bottom: 12px;">🗣️ Useful Everyday Korean Phrases (Tap card to listen)</h4>
                                 
                                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px;">
-                                    <div style="background: #1e293b; border: 1px solid #334155; padding: 10px 14px; border-radius: 6px;">
-                                        <div style="color: #ffffff; font-weight: 800; font-size: 0.95rem;">안녕하세요</div>
+                                    <div style="background: #1e293b; border: 1px solid #334155; padding: 10px 14px; border-radius: 6px; cursor: pointer; transition: all 0.2s ease;" onclick="speakKorean('안녕하세요')" title="Tap to listen audio">
+                                        <div style="color: #ffffff; font-weight: 800; font-size: 0.95rem; display: flex; justify-content: space-between; align-items: center;">
+                                            <span>안녕하세요</span> <span>🔊</span>
+                                        </div>
                                         <div style="color: #94a3b8; font-size: 0.8rem;">An-nyeong-ha-se-yo (Hello)</div>
                                     </div>
-                                    <div style="background: #1e293b; border: 1px solid #334155; padding: 10px 14px; border-radius: 6px;">
-                                        <div style="color: #ffffff; font-weight: 800; font-size: 0.95rem;">감사합니다</div>
+                                    <div style="background: #1e293b; border: 1px solid #334155; padding: 10px 14px; border-radius: 6px; cursor: pointer; transition: all 0.2s ease;" onclick="speakKorean('감사합니다')" title="Tap to listen audio">
+                                        <div style="color: #ffffff; font-weight: 800; font-size: 0.95rem; display: flex; justify-content: space-between; align-items: center;">
+                                            <span>감사합니다</span> <span>🔊</span>
+                                        </div>
                                         <div style="color: #94a3b8; font-size: 0.8rem;">Gam-sa-ham-ni-da (Thank You)</div>
                                     </div>
-                                    <div style="background: #1e293b; border: 1px solid #334155; padding: 10px 14px; border-radius: 6px;">
-                                        <div style="color: #ffffff; font-weight: 800; font-size: 0.95rem;">죄송합니다</div>
+                                    <div style="background: #1e293b; border: 1px solid #334155; padding: 10px 14px; border-radius: 6px; cursor: pointer; transition: all 0.2s ease;" onclick="speakKorean('죄송합니다')" title="Tap to listen audio">
+                                        <div style="color: #ffffff; font-weight: 800; font-size: 0.95rem; display: flex; justify-content: space-between; align-items: center;">
+                                            <span>죄송합니다</span> <span>🔊</span>
+                                        </div>
                                         <div style="color: #94a3b8; font-size: 0.8rem;">Joe-song-ham-ni-da (I am sorry)</div>
                                     </div>
-                                    <div style="background: #1e293b; border: 1px solid #334155; padding: 10px 14px; border-radius: 6px;">
-                                        <div style="color: #ffffff; font-weight: 800; font-size: 0.95rem;">도와주세요</div>
+                                    <div style="background: #1e293b; border: 1px solid #334155; padding: 10px 14px; border-radius: 6px; cursor: pointer; transition: all 0.2s ease;" onclick="speakKorean('도와주세요')" title="Tap to listen audio">
+                                        <div style="color: #ffffff; font-weight: 800; font-size: 0.95rem; display: flex; justify-content: space-between; align-items: center;">
+                                            <span>도와주세요</span> <span>🔊</span>
+                                        </div>
                                         <div style="color: #94a3b8; font-size: 0.8rem;">Do-wa-ju-se-yo (Please help me)</div>
                                     </div>
-                                    <div style="background: #1e293b; border: 1px solid #334155; padding: 10px 14px; border-radius: 6px;">
-                                        <div style="color: #ffffff; font-weight: 800; font-size: 0.95rem;">어디입니까?</div>
+                                    <div style="background: #1e293b; border: 1px solid #334155; padding: 10px 14px; border-radius: 6px; cursor: pointer; transition: all 0.2s ease;" onclick="speakKorean('어디입니까?')" title="Tap to listen audio">
+                                        <div style="color: #ffffff; font-weight: 800; font-size: 0.95rem; display: flex; justify-content: space-between; align-items: center;">
+                                            <span>어디입니까?</span> <span>🔊</span>
+                                        </div>
                                         <div style="color: #94a3b8; font-size: 0.8rem;">Eo-di-im-ni-ka? (Where is it?)</div>
                                     </div>
-                                    <div style="background: #1e293b; border: 1px solid #334155; padding: 10px 14px; border-radius: 6px;">
-                                        <div style="color: #ffffff; font-weight: 800; font-size: 0.95rem;">얼마입니까?</div>
+                                    <div style="background: #1e293b; border: 1px solid #334155; padding: 10px 14px; border-radius: 6px; cursor: pointer; transition: all 0.2s ease;" onclick="speakKorean('얼마입니까?')" title="Tap to listen audio">
+                                        <div style="color: #ffffff; font-weight: 800; font-size: 0.95rem; display: flex; justify-content: space-between; align-items: center;">
+                                            <span>얼마입니까?</span> <span>🔊</span>
+                                        </div>
                                         <div style="color: #94a3b8; font-size: 0.8rem;">Eol-ma-im-ni-ka? (How much is it?)</div>
                                     </div>
                                 </div>

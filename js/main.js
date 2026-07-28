@@ -234,8 +234,31 @@ function nextVocabCard() {
     document.getElementById('fcEnglish').textContent = item.eng;
 }
 
+function speakKorean(text) {
+    if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'ko-KR';
+        utterance.rate = 0.85;
+        utterance.pitch = 1.0;
+        window.speechSynthesis.speak(utterance);
+    } else {
+        alert(`Pronunciation: [${text}]`);
+    }
+}
+
 function playHangulSound(char, name) {
-    alert(`Pronunciation: [${char}] - ${name}`);
+    speakKorean(char);
+}
+
+function speakCurrentVocab() {
+    const korText = document.getElementById('fcKorean') ? document.getElementById('fcKorean').textContent : '';
+    if (korText) {
+        speakKorean(korText);
+    } else {
+        const item = vocabList[currentVocabIdx];
+        if (item && item.kor) speakKorean(item.kor);
+    }
 }
 
 /* Game Mechanics & Paywall Trial Limit (5 Questions / Level 1 Limit) */
