@@ -67,6 +67,7 @@ $canonical_url = "https://koreantestpapers.in" . ($_SERVER['REQUEST_URI'] ?? '')
 
             <!-- Mobile Only Header Actions -->
             <div class="mobile-header-actions">
+                <a href="/pro-portal" class="btn-header-login-mobile">🔑 Login</a>
                 <a href="/#cbtTab" onclick="if(window.switchHeroTab){ switchHeroTab('cbtTab', document.querySelectorAll('.tab-btn')[2]); }" class="btn-header-cta-mobile">▶ Live Test</a>
                 <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Navigation">
                     <span class="hamburger-icon">☰</span>
