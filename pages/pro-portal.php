@@ -295,12 +295,6 @@ require_once __DIR__ . '/../includes/header.php';
                                         </div>
                                     </div>
                                 </div>
-                            </div>: flex; justify-content: space-between; align-items: center;">
-                                            <span>얼마입니까?</span> <span>🔊</span>
-                                        </div>
-                                        <div style="color: #94a3b8; font-size: 0.8rem;">Eol-ma-im-ni-ka? (How much is it?)</div>
-                                    </div>
-                                </div>
                             </div>
 
                         </div>
