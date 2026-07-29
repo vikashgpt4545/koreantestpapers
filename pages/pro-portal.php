@@ -306,21 +306,20 @@ require_once __DIR__ . '/../includes/header.php';
 
                             <!-- Interactive Game Canvas Box -->
                             <div class="game-playground-box">
-                                <div class="game-score-bar">
-                                    <span>Score: <strong id="gameScore">0</strong></span>
-                                    <span>Question: <strong id="gameQCount">1 / 5</strong></span>
-                                    <span>Timer: <strong id="gameTimer" style="color: #ef4444;">60s</strong></span>
+                                <div class="game-score-bar" style="display: flex; justify-content: space-between; align-items: center;">
+                                    <span>Score: <strong id="gameScore" style="color: #10b981; font-weight: 800; font-size: 1.1rem;">0</strong></span>
+                                    <span>Timer: <strong id="gameTimer" style="color: #ef4444; font-weight: 800; font-size: 1.1rem;">60s</strong></span>
                                 </div>
 
                                 <div class="game-question-area" id="gameQuestionText">
-                                    What is the English / Hindi meaning of Korean word: <strong style="color: #60a5fa; font-size: 1.3rem;">"의사"</strong>?
+                                    What is the English meaning of Korean word: <strong style="color: #60a5fa; font-size: 1.3rem;">"의사"</strong>?
                                 </div>
 
                                 <div class="game-options-grid" id="gameOptionsGrid">
-                                    <button class="game-opt-btn" onclick="checkGameAnswer('A. Doctor (डॉक्टर)')">A. Doctor (डॉक्टर)</button>
-                                    <button class="game-opt-btn" onclick="checkGameAnswer('B. Teacher (शिक्षक)')">B. Teacher (शिक्षक)</button>
-                                    <button class="game-opt-btn" onclick="checkGameAnswer('C. Police (पुलिस)')">C. Police (पुलिस)</button>
-                                    <button class="game-opt-btn" onclick="checkGameAnswer('D. Chef (र소इया)')">D. Chef (रसोइया)</button>
+                                    <button class="game-opt-btn" onclick="checkGameAnswer('A. Doctor')">A. Doctor</button>
+                                    <button class="game-opt-btn" onclick="checkGameAnswer('B. Teacher')">B. Teacher</button>
+                                    <button class="game-opt-btn" onclick="checkGameAnswer('C. Police')">C. Police</button>
+                                    <button class="game-opt-btn" onclick="checkGameAnswer('D. Chef')">D. Chef</button>
                                 </div>
                             </div>
                         </div>

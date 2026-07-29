@@ -469,85 +469,151 @@ function toggleModuleBox(boxId, btn) {
     }
 }
 
-/* Game Mechanics & Paywall Trial Limit (5 Questions / Level 1 Limit) */
-const gameQuestionBank = [
-    {
-        kor: "의사",
-        eng: "Doctor",
-        opts: ["A. Doctor", "B. Teacher", "C. Police Officer", "D. Chef"],
-        ans: "A. Doctor"
-    },
-    {
-        kor: "안전모",
-        eng: "Safety Helmet",
-        opts: ["A. Safety Helmet", "B. Safety Glasses", "C. Safety Boots", "D. Gloves"],
-        ans: "A. Safety Helmet"
-    },
-    {
-        kor: "손대지 마시오",
-        eng: "Do Not Touch",
-        opts: ["A. No Smoking", "B. Do Not Touch", "C. High Voltage Danger", "D. Emergency Exit"],
-        ans: "B. Do Not Touch"
-    },
-    {
-        kor: "스패너",
-        eng: "Spanner / Wrench",
-        opts: ["A. Hammer", "B. Screwdriver", "C. Spanner / Wrench", "D. Hand Saw"],
-        ans: "C. Spanner / Wrench"
-    },
-    {
-        kor: "사과",
-        eng: "Apple",
-        opts: ["A. Apple", "B. Banana", "C. Grape", "D. Watermelon"],
-        ans: "A. Apple"
-    }
-];
-
+/* Dynamic ⚡ Speed Word Match Game Engine */
 let currentGameIdx = 0;
-let gameAnswerCount = 0;
 let gameCurrentScore = 0;
-const gameMaxFreeQuestions = 5;
+let gameTimerInterval = null;
+let gameTimeRemaining = 60;
+let isGameProcessing = false;
+let currentQuestionObj = null;
 
-function renderCurrentGameQuestion() {
-    const q = gameQuestionBank[currentGameIdx % gameQuestionBank.length];
+function generateDynamicQuestion() {
+    if (!vocabList || vocabList.length < 4) return null;
+    const targetIdx = Math.floor(Math.random() * vocabList.length);
+    const target = vocabList[targetIdx];
+
+    const distractors = [];
+    while (distractors.length < 3) {
+        const r = Math.floor(Math.random() * vocabList.length);
+        if (r !== targetIdx && !distractors.includes(vocabList[r])) {
+            distractors.push(vocabList[r]);
+        }
+    }
+
+    const options = shuffleArray([target, ...distractors]);
+    const labels = ['A', 'B', 'C', 'D'];
+    let correctText = '';
+
+    const optsWithLabels = options.map((opt, i) => {
+        const txt = `${labels[i]}. ${opt.eng}`;
+        if (opt.kor === target.kor) {
+            correctText = txt;
+        }
+        return txt;
+    });
+
+    return {
+        kor: target.kor,
+        eng: target.eng,
+        opts: optsWithLabels,
+        ans: correctText
+    };
+}
+
+function startGameTimer() {
+    clearInterval(gameTimerInterval);
+    gameTimeRemaining = 60;
+    const timerEl = document.getElementById('gameTimer');
+    if (timerEl) timerEl.textContent = '60s';
+
+    gameTimerInterval = setInterval(() => {
+        gameTimeRemaining--;
+        if (timerEl) timerEl.textContent = `${gameTimeRemaining}s`;
+
+        if (gameTimeRemaining <= 0) {
+            clearInterval(gameTimerInterval);
+            endGameRound();
+        }
+    }, 1000);
+}
+
+function endGameRound() {
+    isGameProcessing = true;
     const qArea = document.getElementById('gameQuestionText');
     const qGrid = document.getElementById('gameOptionsGrid');
 
     if (qArea) {
-        qArea.innerHTML = `What is the English / Hindi meaning of Korean word: <strong style="color: #60a5fa; font-size: 1.3rem;">"${q.kor}"</strong>?`;
+        qArea.innerHTML = `⏱️ <strong style="color: #ef4444; font-size: 1.4rem;">Time Up! Game Over!</strong>`;
     }
 
     if (qGrid) {
-        qGrid.innerHTML = q.opts.map(opt => `
-            <button class="game-opt-btn" onclick="checkGameAnswer('${opt.replace(/'/g, "\\'")}')">${opt}</button>
+        qGrid.innerHTML = `
+            <div style="grid-column: 1 / -1; text-align: center; background: #0f172a; border: 1px solid #334155; padding: 20px; border-radius: 10px;">
+                <h3 style="color: #ffffff; margin-bottom: 8px;">Final Score: <strong style="color: #10b981; font-size: 1.6rem;">${gameCurrentScore} Points</strong></h3>
+                <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 16px;">Great practice session! Keep building your EPS-TOPIK vocabulary speed.</p>
+                <button onclick="restartGameRound()" style="background: #2563eb; color: #ffffff; font-weight: 800; padding: 12px 24px; border-radius: 8px; font-size: 1rem; cursor: pointer;">🔄 Play Again</button>
+            </div>
+        `;
+    }
+}
+
+function restartGameRound() {
+    gameCurrentScore = 0;
+    isGameProcessing = false;
+    const scoreEl = document.getElementById('gameScore');
+    if (scoreEl) scoreEl.textContent = '0';
+    startGameTimer();
+    renderCurrentGameQuestion();
+}
+
+function renderCurrentGameQuestion() {
+    currentQuestionObj = generateDynamicQuestion();
+    if (!currentQuestionObj) return;
+
+    const qArea = document.getElementById('gameQuestionText');
+    const qGrid = document.getElementById('gameOptionsGrid');
+
+    if (qArea) {
+        qArea.innerHTML = `What is the English meaning of Korean word: <strong style="color: #60a5fa; font-size: 1.4rem;">"${currentQuestionObj.kor}"</strong>?`;
+    }
+
+    if (qGrid) {
+        qGrid.innerHTML = currentQuestionObj.opts.map(opt => `
+            <button class="game-opt-btn" onclick="checkGameAnswer('${opt.replace(/'/g, "\\'")}', this)" style="transition: background 0.2s ease, transform 0.1s ease; cursor: pointer;">${opt}</button>
         `).join('');
     }
 }
 
-function checkGameAnswer(chosen) {
-    const isPro = localStorage.getItem('koreantestpapers_pro') === 'true' || localStorage.getItem('koreanTestProAccess') === 'true';
+function checkGameAnswer(chosen, btnElem) {
+    if (isGameProcessing || gameTimeRemaining <= 0 || !currentQuestionObj) return;
+    isGameProcessing = true;
 
-    gameAnswerCount++;
-    if (gameAnswerCount >= gameMaxFreeQuestions && !isPro) {
-        openProModal();
-        return;
-    }
+    const allButtons = document.querySelectorAll('.game-opt-btn');
+    allButtons.forEach(btn => btn.style.pointerEvents = 'none');
 
-    const currentQ = gameQuestionBank[currentGameIdx % gameQuestionBank.length];
-    if (chosen === currentQ.ans) {
+    const isCorrect = (chosen === currentQuestionObj.ans);
+
+    if (isCorrect) {
         gameCurrentScore += 10;
-        alert(`✅ Correct Answer! [${currentQ.kor}] = ${currentQ.eng} (+10 Points)`);
+        if (btnElem) {
+            btnElem.style.background = '#059669';
+            btnElem.style.color = '#ffffff';
+            btnElem.style.borderColor = '#059669';
+        }
     } else {
-        alert(`❌ Incorrect! Correct answer for "${currentQ.kor}" was: ${currentQ.ans}`);
+        if (btnElem) {
+            btnElem.style.background = '#dc2626';
+            btnElem.style.color = '#ffffff';
+            btnElem.style.borderColor = '#dc2626';
+        }
+        allButtons.forEach(btn => {
+            if (btn.textContent.trim() === currentQuestionObj.ans) {
+                btn.style.background = '#059669';
+                btn.style.color = '#ffffff';
+                btn.style.borderColor = '#059669';
+            }
+        });
     }
 
     const scoreEl = document.getElementById('gameScore');
-    const countEl = document.getElementById('gameQCount');
     if (scoreEl) scoreEl.textContent = gameCurrentScore;
-    if (countEl) countEl.textContent = `${gameAnswerCount + 1} / 5`;
 
-    currentGameIdx++;
-    renderCurrentGameQuestion();
+    setTimeout(() => {
+        isGameProcessing = false;
+        if (gameTimeRemaining > 0) {
+            renderCurrentGameQuestion();
+        }
+    }, 850);
 }
 
 function selectGameMode(mode, btnElement) {
@@ -564,9 +630,17 @@ function selectGameMode(mode, btnElement) {
         return;
     }
     
-    currentGameIdx = 0;
-    renderCurrentGameQuestion();
+    restartGameRound();
 }
+
+// Auto-start timer on page load if game tab is active
+document.addEventListener('DOMContentLoaded', () => {
+    const gameArea = document.getElementById('gameQuestionText');
+    if (gameArea) {
+        startGameTimer();
+        renderCurrentGameQuestion();
+    }
+});
 
 /* Pro Paywall Modal Functions */
 function openProModal() {
