@@ -35,7 +35,7 @@ $live_questions = get_live_questions();
                 <div id="learnTab" class="tab-content-panel active" style="display: block;">
                     <div class="panel-header-box">
                         <h3>한글 & 어휘 학습 — Basic Hangul & Vocab Lessons</h3>
-                        <span class="tag-badge green">Free Lessons</span>
+                        <span class="tag-badge amber" id="vocabCountBadge">5 Free Words Trial</span>
                     </div>
 
                     <!-- Hangul Interactive Quick Chart -->
@@ -81,7 +81,7 @@ $live_questions = get_live_questions();
                         <div class="flashcard-eng" id="fcEnglish">Safety Helmet (सुरक्षा पेटी)</div>
                         <div style="display: flex; gap: 10px; margin-top: 10px;">
                             <button class="btn-sm-action" onclick="speakKorean(document.getElementById('fcKorean').innerText)" style="background: #2563eb;">🔊 Listen Audio</button>
-                            <button class="btn-sm-action" onclick="nextVocabCard()">Next Word ▶</button>
+                            <button class="btn-sm-action" id="btnNextVocab" onclick="nextVocabCard()">Next Word ▶</button>
                         </div>
                     </div>
                 </div>

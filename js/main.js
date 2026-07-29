@@ -836,8 +836,29 @@ function speakKorean(text) {
 function nextVocabCard() {
     const isPro = localStorage.getItem('koreantestpapers_pro') === 'true' || localStorage.getItem('koreanTestProAccess') === 'true';
     heroVocabCount++;
-    
+
+    const badge = document.getElementById('vocabCountBadge');
+    if (badge && !isPro) {
+        badge.textContent = `${Math.min(heroVocabCount, 5)}/5 Free Words`;
+    }
+
     if (!isPro && heroVocabCount >= 5) {
+        const flashcardBox = document.getElementById('vocabFlashcard');
+        if (flashcardBox) {
+            flashcardBox.style.background = '#1e293b';
+            flashcardBox.style.border = '1px solid #f59e0b';
+            flashcardBox.innerHTML = `
+                <div style="text-align: center; padding: 12px 6px;">
+                    <div style="font-size: 2rem; margin-bottom: 6px;">🔒</div>
+                    <div style="font-size: 0.85rem; color: #f59e0b; font-weight: 700; text-transform: uppercase; margin-bottom: 4px;">Free Trial Limit Reached (5/5 Words)</div>
+                    <div style="font-size: 1.05rem; color: #ffffff; font-weight: 800; margin-bottom: 6px;">Unlock 1000+ Unlimited Vocabulary Words</div>
+                    <p style="font-size: 0.82rem; color: #94a3b8; margin-bottom: 14px;">Upgrade to a Pro Member Pass to access complete workplace dictionaries, audio lessons & flashcards!</p>
+                    <button onclick="openProModal()" class="btn-primary-action" style="padding: 10px 20px; font-size: 0.88rem; font-weight: 800; background: #2563eb; color: #ffffff; border-radius: 6px; border: none; cursor: pointer;">
+                        🔓 Unlock Pro Pass Now ($3 - $11)
+                    </button>
+                </div>
+            `;
+        }
         openProModal();
         return;
     }
