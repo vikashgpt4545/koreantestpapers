@@ -3,7 +3,7 @@
 require_once __DIR__ . '/../includes/db.php';
 
 // Page SEO Meta Configuration
-$page_title = "Korean Basic Grammar & Verb Korean Test Papers";
+$page_title = "Korean Basic Grammar & Verb Korean Test Papers & Korean Exam Paper";
 $page_desc = "Download free Korean Basic Grammar & Verb Korean test papers PDF with particle usage (-이/가, -은/는, -을/를), verb conjugations, example drills, and answer keys.";
 $canonical_url = "https://koreantestpapers.in/korean-basic-grammar-quiz-korean-test-papers";
 
@@ -23,7 +23,7 @@ require_once __DIR__ . '/../includes/header.php';
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Korean Basic Grammar & Verb Korean Test Papers",
+  "headline": "Korean Basic Grammar & Verb Korean Test Papers & Korean Exam Paper",
   "description": "Comprehensive study guide and downloadable Korean Basic Grammar & Verb Korean test papers PDF sets with particle usage rules, verb conjugation charts, and answer keys.",
   "publisher": {
     "@type": "Organization",
@@ -34,91 +34,8 @@ require_once __DIR__ . '/../includes/header.php';
 }
 </script>
 
-<!-- HERO SECTION CONTAINER -->
-<section class="hero-section">
-    <div class="container">
-        <div class="hero-heading-box">
-            <h1 class="hero-title">Korean Basic Grammar & Verb Korean Test Papers</h1>
-            <p class="hero-subtitle">
-                Master essential Korean sentence structures, particles, and verb conjugations with official basic grammar <strong>korean test papers</strong>, complete with practice quizzes, downloadable <strong>korean exam paper</strong> PDFs, and answer keys.
-            </p>
-        </div>
-
-        <!-- 2-Column Split Box Container -->
-        <div class="hero-split-container">
-            <!-- Left Box: Basic Grammar Downloads -->
-            <div class="hero-left-box">
-                <div class="box-title-header">
-                    <h3>📘 Basic Grammar & Verbs Archive</h3>
-                    <span class="tag-badge green">Basic Grammar</span>
-                </div>
-                <div class="exam-nav-list">
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>Korean Basic Grammar & Verb Test Paper PDF</h4>
-                            <p>Full particle usage, tense conjugation & drill paper</p>
-                        </div>
-                        <a href="../pdf/eps-topik-grammar.pdf" class="btn-download-sm" download>PDF</a>
-                    </div>
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>EPS TOPIK Vocabulary & Verb Root Guide</h4>
-                            <p>Essential 1000 verbs and adjectives with Hangul roots</p>
-                        </div>
-                        <a href="../pdf/eps-topik-vocab.pdf" class="btn-download-sm" download>PDF</a>
-                    </div>
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>EPS TOPIK 2025 Model Question Paper PDF</h4>
-                            <p>Official 40-question UBT practice test set & answer key</p>
-                        </div>
-                        <a href="../pdf/eps-topik-2025-model.pdf" class="btn-download-sm" download>PDF</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right Box: Live CBT Mock Test Widget -->
-            <div class="hero-right-box" id="live-test-box">
-                <div class="live-test-header">
-                    <div class="live-indicator">
-                        <span class="live-dot"></span> LIVE GRAMMAR QUIZ SIMULATOR
-                    </div>
-                    <div style="font-weight: 700; font-size: 0.9rem; color: #475569;">
-                        ⏱ Timer: <span id="liveTimerDisplay" style="color: #2563eb;">25:00</span>
-                    </div>
-                </div>
-
-                <div class="quiz-card-box">
-                    <div class="quiz-question-title" id="liveQuestionText">
-                        <?php echo htmlspecialchars($live_questions[0]['question_text']); ?>
-                    </div>
-                    
-                    <div class="quiz-options-list" id="liveOptionsContainer">
-                        <button class="quiz-option-btn" data-option="A">
-                            <span>A. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_a']); ?></span></span>
-                        </button>
-                        <button class="quiz-option-btn" data-option="B">
-                            <span>B. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_b']); ?></span></span>
-                        </button>
-                        <button class="quiz-option-btn" data-option="C">
-                            <span>C. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_c']); ?></span></span>
-                        </button>
-                        <button class="quiz-option-btn" data-option="D">
-                            <span>D. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_d']); ?></span></span>
-                        </button>
-                    </div>
-
-                    <div id="liveExplanationBox" style="display:none; margin-top: 14px; padding: 12px; background: #eff6ff; border-radius: 6px; font-size: 0.88rem; color: #1e3a8a;"></div>
-                </div>
-
-                <div class="quiz-action-bar">
-                    <button class="btn-primary-action" id="btnSubmitAnswer" disabled>Submit Answer</button>
-                    <button class="btn-primary-action" id="btnNextQuestion" style="display:none; background: #059669;">Next Question ▶</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<!-- HERO SECTION COMPONENT -->
+<?php require_once __DIR__ . '/../includes/hero-section.php'; ?>
 
 <!-- MAIN CONTENT CONTAINER (2,000+ WORDS DETAILED GRAMMAR GUIDE) -->
 <section class="section-padding">

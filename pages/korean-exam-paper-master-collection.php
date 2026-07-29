@@ -4,7 +4,7 @@ require_once __DIR__ . '/../includes/db.php';
 require_once __DIR__ . '/../includes/media_catalog.php';
 
 // Page SEO Meta Configuration
-$page_title = "Master Download Korean Exam Paper and PDF Answer Keys - Complete Archive";
+$page_title = "Master Download Korean Exam Paper & Korean Test Papers Collection PDF Download";
 $page_desc = "Download free Master Download Korean Exam Paper and PDF Answer Keys archive covering EPS TOPIK, TOPIK I Level 1-2, TOPIK II Level 3-6, 10-year past year question papers, audio files, and CBT practice tests.";
 $canonical_url = "https://koreantestpapers.in/korean-exam-paper-master-collection";
 
@@ -25,7 +25,7 @@ require_once __DIR__ . '/../includes/header.php';
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Master Download Korean Exam Paper and PDF Answer Keys - Complete Archive",
+  "headline": "Master Download Korean Exam Paper & Korean Test Papers Collection PDF Download",
   "description": "The ultimate master repository of free downloadable Korean exam paper PDFs, EPS TOPIK model papers, TOPIK I & II past papers, and official answer keys.",
   "publisher": {
     "@type": "Organization",
@@ -35,6 +35,9 @@ require_once __DIR__ . '/../includes/header.php';
   "mainEntityOfPage": "https://koreantestpapers.in/korean-exam-paper-master-collection"
 }
 </script>
+
+<!-- HERO SECTION COMPONENT -->
+<?php require_once __DIR__ . '/../includes/hero-section.php'; ?>
 
 
 
