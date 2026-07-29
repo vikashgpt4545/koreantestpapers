@@ -156,9 +156,23 @@
         .eng-col {
             color: #334155;
         }
+        @media print {
+            .no-print { display: none !important; }
+            body { padding-top: 0 !important; }
+        }
     </style>
 </head>
-<body>
+<body style="padding-top: 70px;">
+
+    <!-- TOP DOWNLOAD / PRINT BAR -->
+    <div class="no-print" style="position: fixed; top: 0; left: 0; right: 0; background: #0f172a; border-bottom: 2px solid #2563eb; padding: 12px 24px; display: flex; justify-content: space-between; align-items: center; z-index: 99999; box-shadow: 0 4px 14px rgba(0,0,0,0.4);">
+        <div style="color: #ffffff; font-weight: 800; font-size: 1.05rem; display: flex; align-items: center; gap: 8px;">
+            <span>📖 1000 Workplace Nouns Dictionary (Korean – English)</span>
+        </div>
+        <button onclick="window.print()" style="background: #2563eb; color: #ffffff; font-weight: 800; font-size: 0.95rem; border: none; padding: 10px 22px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 10px rgba(37,99,235,0.4);">
+            <span>📥 Save / Download as PDF</span>
+        </button>
+    </div>
 
     <!-- 1. COVER PAGE -->
     <div class="cover-page">
