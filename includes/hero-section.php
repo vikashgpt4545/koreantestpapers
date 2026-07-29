@@ -230,8 +230,8 @@ $live_questions = get_live_questions();
 
                 <!-- Primary CTA Banner Button -->
                 <div style="text-align: center;">
-                    <a href="/korean-exam-paper-master-collection" class="btn-primary-action" style="display: block; width: 100%; text-align: center; padding: 12px 16px; font-size: 0.9rem; font-weight: 800; background: #2563eb; color: #ffffff !important; border-radius: 6px; box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4); text-decoration: none;">
-                        Access Master Archive Hub (156 Papers) ▶
+                    <a href="/korean-exam-paper-master-collection" class="btn-primary-action" style="display: block; width: 100%; text-align: center; padding: 12px 16px; font-size: 0.95rem; font-weight: 800; background: #2563eb; color: #ffffff !important; border-radius: 6px; box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4); text-decoration: none;">
+                        Download PDF 📥
                     </a>
                 </div>
             </div>
