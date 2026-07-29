@@ -1059,6 +1059,24 @@ a:hover {
     border-color: #475569;
 }
 
+/* CBT Simulator Option Button Hover & Selected Styling */
+.quiz-option-btn {
+    transition: all 0.2s ease !important;
+}
+
+.quiz-option-btn:hover {
+    background: #334155 !important;
+    border-color: #3b82f6 !important;
+}
+
+.quiz-option-btn.selected {
+    background: #1e3a8a !important;
+    border-color: #2563eb !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.4) !important;
+}
+
 /* Pro Notes Vault Styling */
 .notes-list-grid {
     display: flex;

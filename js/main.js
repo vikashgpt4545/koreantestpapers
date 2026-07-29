@@ -37,8 +37,33 @@ function initMobileMenu() {
 
 // Live CBT Test State
 let currentQuestionIndex = 0;
-let userScore = 0;
-let selectedOption = null;
+let cbtTimerInterval = null;
+let cbtTimeRemainingSeconds = 25 * 60;
+
+function setCbtExamTimer(minutes) {
+    const mins = parseInt(minutes, 10) || 25;
+    cbtTimeRemainingSeconds = mins * 60;
+    
+    const display = document.getElementById('liveTimerDisplay');
+    if (display) {
+        const m = Math.floor(cbtTimeRemainingSeconds / 60);
+        const s = cbtTimeRemainingSeconds % 60;
+        display.textContent = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+    }
+
+    clearInterval(cbtTimerInterval);
+    cbtTimerInterval = setInterval(() => {
+        if (cbtTimeRemainingSeconds > 0) {
+            cbtTimeRemainingSeconds--;
+            const m = Math.floor(cbtTimeRemainingSeconds / 60);
+            const s = cbtTimeRemainingSeconds % 60;
+            if (display) display.textContent = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+        } else {
+            clearInterval(cbtTimerInterval);
+            if (display) display.textContent = '00:00 - Time Up!';
+        }
+    }, 1000);
+}
 
 function initLiveTestModule() {
     const optionBtns = document.querySelectorAll('.quiz-option-btn');
@@ -50,11 +75,17 @@ function initLiveTestModule() {
 
     if (!optionBtns.length) return;
 
-    // Handle Option Selection
+    // Handle Option Selection with explicit active/selected styling
     optionBtns.forEach(btn => {
         btn.addEventListener('click', function () {
-            optionBtns.forEach(b => b.classList.remove('selected'));
+            optionBtns.forEach(b => {
+                b.classList.remove('selected');
+                b.style.background = '#1e293b';
+                b.style.borderColor = '#334155';
+            });
             this.classList.add('selected');
+            this.style.background = '#1e3a8a';
+            this.style.borderColor = '#2563eb';
             selectedOption = this.getAttribute('data-option');
             if (submitBtn) submitBtn.disabled = false;
         });

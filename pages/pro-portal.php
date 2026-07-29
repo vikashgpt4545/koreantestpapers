@@ -339,9 +339,20 @@ require_once __DIR__ . '/../includes/header.php';
 
                             <!-- Embedded CBT Simulator Widget -->
                             <div class="quiz-card-box" style="background: #0f172a; border: 1px solid #334155; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
-                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid #334155;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid #334155; flex-wrap: wrap; gap: 10px;">
                                     <span class="tag-badge blue" style="font-size: 0.8rem;">EPS TOPIK Pro CBT Engine</span>
-                                    <span style="color: #ef4444; font-weight: 700; font-size: 0.9rem;">Timer: <strong id="liveTimerDisplay">25:00</strong></span>
+                                    <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                                        <label style="color: #cbd5e1; font-size: 0.85rem; font-weight: 700;">⏱️ Set Timer:</label>
+                                        <select id="cbtTimerSelect" onchange="setCbtExamTimer(this.value)" style="background: #1e293b; color: #60a5fa; border: 1px solid #3b82f6; border-radius: 6px; padding: 4px 10px; font-size: 0.85rem; font-weight: 700; cursor: pointer;">
+                                            <option value="10">10 Minutes</option>
+                                            <option value="20">20 Minutes</option>
+                                            <option value="25" selected>25 Minutes (Standard)</option>
+                                            <option value="30">30 Minutes</option>
+                                            <option value="50">50 Minutes (Full Exam)</option>
+                                            <option value="60">60 Minutes</option>
+                                        </select>
+                                        <span style="color: #ef4444; font-weight: 800; font-size: 0.95rem; margin-left: 6px;">Timer: <strong id="liveTimerDisplay">25:00</strong></span>
+                                    </div>
                                 </div>
 
                                 <div class="quiz-question-title" id="liveQuestionText" style="color: #ffffff; font-size: 1.15rem; font-weight: 700; margin-bottom: 18px; line-height: 1.4;">
