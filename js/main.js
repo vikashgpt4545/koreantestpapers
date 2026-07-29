@@ -575,32 +575,39 @@ function renderCurrentGameQuestion() {
 }
 
 function checkGameAnswer(chosen, btnElem) {
+    if (!currentQuestionObj) {
+        currentQuestionObj = generateDynamicQuestion();
+    }
     if (isGameProcessing || gameTimeRemaining <= 0 || !currentQuestionObj) return;
     isGameProcessing = true;
+
+    if (!btnElem && window.event && window.event.target) {
+        btnElem = window.event.target;
+    }
 
     const allButtons = document.querySelectorAll('.game-opt-btn');
     allButtons.forEach(btn => btn.style.pointerEvents = 'none');
 
-    const isCorrect = (chosen === currentQuestionObj.ans);
+    const isCorrect = (chosen === currentQuestionObj.ans || chosen.trim() === currentQuestionObj.ans.trim());
 
     if (isCorrect) {
         gameCurrentScore += 10;
         if (btnElem) {
-            btnElem.style.background = '#059669';
-            btnElem.style.color = '#ffffff';
-            btnElem.style.borderColor = '#059669';
+            btnElem.style.setProperty('background', '#059669', 'important');
+            btnElem.style.setProperty('color', '#ffffff', 'important');
+            btnElem.style.setProperty('border-color', '#059669', 'important');
         }
     } else {
         if (btnElem) {
-            btnElem.style.background = '#dc2626';
-            btnElem.style.color = '#ffffff';
-            btnElem.style.borderColor = '#dc2626';
+            btnElem.style.setProperty('background', '#dc2626', 'important');
+            btnElem.style.setProperty('color', '#ffffff', 'important');
+            btnElem.style.setProperty('border-color', '#dc2626', 'important');
         }
         allButtons.forEach(btn => {
-            if (btn.textContent.trim() === currentQuestionObj.ans) {
-                btn.style.background = '#059669';
-                btn.style.color = '#ffffff';
-                btn.style.borderColor = '#059669';
+            if (btn.textContent.trim() === currentQuestionObj.ans.trim()) {
+                btn.style.setProperty('background', '#059669', 'important');
+                btn.style.setProperty('color', '#ffffff', 'important');
+                btn.style.setProperty('border-color', '#059669', 'important');
             }
         });
     }
