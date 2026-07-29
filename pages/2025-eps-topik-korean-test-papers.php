@@ -3,7 +3,7 @@
 require_once __DIR__ . '/../includes/db.php';
 
 // Page SEO Meta Configuration
-$page_title = "2025 Model EPS TOPIK Korean Test Papers Download";
+$page_title = "2025 Model EPS TOPIK Korean Test Papers & Korean Exam Paper";
 $page_desc = "Download free 2025 Model EPS TOPIK Korean test papers PDF with updated UBT tablet exam patterns, answer keys, English translations, and solved mock questions.";
 $canonical_url = "https://koreantestpapers.in/2025-eps-topik-korean-test-papers";
 
@@ -23,7 +23,7 @@ require_once __DIR__ . '/../includes/header.php';
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "2025 Model EPS TOPIK Korean Test Papers Download",
+  "headline": "2025 Model EPS TOPIK Korean Test Papers & Korean Exam Paper",
   "description": "Comprehensive guide and downloadable 2025 Model EPS TOPIK Korean test papers PDF sets with updated UBT exam rules and answer sheets.",
   "publisher": {
     "@type": "Organization",
@@ -34,91 +34,8 @@ require_once __DIR__ . '/../includes/header.php';
 }
 </script>
 
-<!-- HERO SECTION CONTAINER -->
-<section class="hero-section">
-    <div class="container">
-        <div class="hero-heading-box">
-            <h1 class="hero-title">2025 Model EPS TOPIK Korean Test Papers Download</h1>
-            <p class="hero-subtitle">
-                Access official 2025 model EPS TOPIK <strong>korean test papers</strong>, updated UBT tablet test patterns, solved <strong>korean exam paper</strong> archives, and complete answer keys designed for Indian job aspirants under HRD Korea.
-            </p>
-        </div>
-
-        <!-- 2-Column Split Box Container -->
-        <div class="hero-split-container">
-            <!-- Left Box: 2025 Model Paper Downloads -->
-            <div class="hero-left-box">
-                <div class="box-title-header">
-                    <h3>✨ 2025 Model Paper Archive</h3>
-                    <span class="tag-badge green">2025 Official</span>
-                </div>
-                <div class="exam-nav-list">
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>2025 Model EPS TOPIK Solved Exam Paper</h4>
-                            <p>Full 2025 Reading & Listening paper with key</p>
-                        </div>
-                        <a href="../pdf/eps-topik-2025-model.pdf" class="btn-download-sm" download>PDF</a>
-                    </div>
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>2025 HRD Korea Standardized Question Bank</h4>
-                            <p>Complete 2000-question UBT question bank PDF</p>
-                        </div>
-                        <a href="../pdf/eps-topik-official-question-bank.pdf" class="btn-download-sm" download>PDF</a>
-                    </div>
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>2024 Solved EPS TOPIK Past Test Set</h4>
-                            <p>Solved 2024 previous year exam paper & key</p>
-                        </div>
-                        <a href="../pdf/eps-topik-2024-solved.pdf" class="btn-download-sm" download>PDF</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right Box: Live CBT Mock Test Widget -->
-            <div class="hero-right-box" id="live-test-box">
-                <div class="live-test-header">
-                    <div class="live-indicator">
-                        <span class="live-dot"></span> LIVE 2025 UBT SIMULATOR
-                    </div>
-                    <div style="font-weight: 700; font-size: 0.9rem; color: #475569;">
-                        ⏱ Timer: <span id="liveTimerDisplay" style="color: #2563eb;">25:00</span>
-                    </div>
-                </div>
-
-                <div class="quiz-card-box">
-                    <div class="quiz-question-title" id="liveQuestionText">
-                        <?php echo htmlspecialchars($live_questions[0]['question_text']); ?>
-                    </div>
-                    
-                    <div class="quiz-options-list" id="liveOptionsContainer">
-                        <button class="quiz-option-btn" data-option="A">
-                            <span>A. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_a']); ?></span></span>
-                        </button>
-                        <button class="quiz-option-btn" data-option="B">
-                            <span>B. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_b']); ?></span></span>
-                        </button>
-                        <button class="quiz-option-btn" data-option="C">
-                            <span>C. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_c']); ?></span></span>
-                        </button>
-                        <button class="quiz-option-btn" data-option="D">
-                            <span>D. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_d']); ?></span></span>
-                        </button>
-                    </div>
-
-                    <div id="liveExplanationBox" style="display:none; margin-top: 14px; padding: 12px; background: #eff6ff; border-radius: 6px; font-size: 0.88rem; color: #1e3a8a;"></div>
-                </div>
-
-                <div class="quiz-action-bar">
-                    <button class="btn-primary-action" id="btnSubmitAnswer" disabled>Submit Answer</button>
-                    <button class="btn-primary-action" id="btnNextQuestion" style="display:none; background: #059669;">Next Question ▶</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<!-- HERO SECTION COMPONENT -->
+<?php require_once __DIR__ . '/../includes/hero-section.php'; ?>
 
 <!-- MAIN CONTENT CONTAINER (2,000+ WORDS DETAILED 2025 MODEL GUIDE) -->
 <section class="section-padding">
