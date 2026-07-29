@@ -990,5 +990,3 @@ function checkProAccessForNotes() {
         openProModal();
     }
 }
-
-
