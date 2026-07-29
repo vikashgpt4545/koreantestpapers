@@ -763,9 +763,11 @@ function renderCurrentGameQuestion() {
                     <div style="color: #94a3b8; font-size: 0.88rem; margin-top: 10px;">Listen to native Korean pronunciation and select the correct English meaning below:</div>
                 </div>
             `;
-            if (typeof speakKorean === 'function') {
-                speakKorean(currentQuestionObj.kor);
-            }
+            try {
+                if (typeof speakKorean === 'function') {
+                    speakKorean(currentQuestionObj.kor);
+                }
+            } catch (e) {}
         } else {
             qArea.innerHTML = `What is the English meaning of Korean word: <strong style="color: #60a5fa; font-size: 1.4rem;">"${currentQuestionObj.kor}"</strong>?`;
         }
@@ -776,6 +778,9 @@ function renderCurrentGameQuestion() {
             <button class="game-opt-btn" onclick="checkGameAnswer(${idx}, this)" style="transition: background 0.2s ease, transform 0.1s ease; cursor: pointer;">${opt}</button>
         `).join('');
     }
+
+    const allButtons = document.querySelectorAll('.game-opt-btn');
+    allButtons.forEach(btn => btn.style.pointerEvents = 'auto');
 }
 
 function checkGameAnswer(optIdx, btnElem) {
@@ -791,7 +796,7 @@ function checkGameAnswer(optIdx, btnElem) {
     }
     isGameProcessing = true;
 
-    if (!btnElem && window.event && window.event.target) {
+    if (!btnElem && typeof window !== 'undefined' && window.event && window.event.target) {
         btnElem = window.event.target;
     }
 
@@ -872,11 +877,17 @@ function checkGameAnswer(optIdx, btnElem) {
 }
 
 function selectGameMode(mode, btnElement) {
-    document.querySelectorAll('.game-mode-btn').forEach(btn => btn.classList.remove('active'));
+    const allModeBtns = document.querySelectorAll('.game-mode-btn');
+    allModeBtns.forEach(btn => btn.classList.remove('active'));
+
     if (btnElement) {
         btnElement.classList.add('active');
-    } else if (window.event && window.event.target) {
-        window.event.target.classList.add('active');
+    } else {
+        allModeBtns.forEach(btn => {
+            if (btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(mode)) {
+                btn.classList.add('active');
+            }
+        });
     }
 
     currentActiveGameMode = mode;

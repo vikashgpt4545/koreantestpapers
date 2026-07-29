@@ -95,9 +95,9 @@ $live_questions = get_live_questions();
 
                     <!-- Game Mode Selection -->
                     <div class="game-select-buttons">
-                        <button class="game-mode-btn active" onclick="selectGameMode('speed')">⚡ Speed Word Match</button>
-                        <button class="game-mode-btn" onclick="selectGameMode('signboard')">🚫 Safety Signboard Puzzle</button>
-                        <button class="game-mode-btn" onclick="selectGameMode('audio')">🎧 Audio Challenge</button>
+                        <button class="game-mode-btn active" onclick="selectGameMode('speed', this)">⚡ Speed Word Match</button>
+                        <button class="game-mode-btn" onclick="selectGameMode('signboard', this)">🚫 Safety Signboard Puzzle</button>
+                        <button class="game-mode-btn" onclick="selectGameMode('audio', this)">🎧 Audio Challenge</button>
                     </div>
 
                     <!-- Interactive Game Canvas Box -->
