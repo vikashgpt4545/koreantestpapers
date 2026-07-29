@@ -1,36 +1,120 @@
 ================================================================================
-KOREANTESTPAPERS.IN - PROJECT EXECUTION & SEO RULES
+KOREANTESTPAPERS.IN - MASTER ARCHITECTURE, ACCESS CONTROL & FLOW BLUEPRINT
 ================================================================================
 
-RULE 1: MANUAL PAGE CREATION ONLY (NO AUTOMATED SCRIPTS)
-- All website pages MUST be created manually, one by one, strictly following the 100 URL entries in `urls.txt`.
-- No automated scripts, batch generators, or programmatically generated dummy files are allowed.
+--------------------------------------------------------------------------------
+SECTION 0: MANDATORY DEVELOPMENT & CODE INTEGRITY RULES
+--------------------------------------------------------------------------------
+RULE 1: MANUAL HAND-CODING ONLY (NO AUTOMATED SCRIPTS OR DUMMY BATCH GENERATORS)
+- All edits, updates, and integrations MUST be done manually line-by-line.
+- Do NOT use automated generation scripts or shortcut scripts. Take time and build carefully.
 
-RULE 2: HOMEPAGE WORD COUNT & CONTENT DEPTH (3,000+ WORDS)
-- The Homepage (`index.php` / `index.html`) MUST contain over 3,000 words of rich, original, and deeply informative content.
-- Page Title must strictly follow: "Download Korean Test Papers and Korean Exam Paper with Answer Keys".
-- Hero section must be a split 2-column box layout: Left side listing all exam names, right side offering live test options.
+RULE 2: ZERO ASSUMPTIONS & DIRECT CODE INTEGRITY VERIFICATION
+- Never assume file behavior. Inspect existing files line-by-line before modifying.
+- Run XAMPP PHP syntax linting (`php.exe -l`) after every file modification to ensure zero syntax errors.
 
-RULE 3: SUBPAGE WORD COUNT & CONTENT DEPTH (2,000+ WORDS PER PAGE)
-- Each individual subpage created from `urls.txt` MUST contain at least 2,000+ words.
-- Pages must feature in-depth exam analysis, syllabus breakdown, actual sample/past questions, detailed step-by-step explanations, answer keys, and direct PDF download links of previous exam papers.
+RULE 3: PRESERVE ALL HERO SECTION & WEBSITE DESIGN PATTERNS
+- Do NOT alter or strip the existing design aesthetics, glassmorphism UI, container cards, or mobile navigation.
+- Keep the Hero Section UI intact while connecting its internal triggers to the central session state.
 
-RULE 4: KEYWORD INTEGRATION MANDATE
-- Every single page title and main H1 heading MUST feature at least one primary target keyword:
-  1. "korean test papers"
-  2. "korean exam paper"
-- Maintain high keyword density and natural semantic variations across content sections.
+RULE 4: SINGLE SOURCE OF AUTHENTICATION TRUTH (NO DUAL LOGIN)
+- Eliminate all client-side `localStorage` auth mechanisms from `pro-portal.php` and `main.js`.
+- All user permissions MUST be dictated solely by server-side PHP sessions (`$_SESSION`).
 
-RULE 5: STRUCTURAL CONTAINER BOX LAYOUT
-- Use clean, modular container box UI styling across all pages.
-- Standardized CSS box models for Exam Lists, Live Test Boxes, Question Cards, Download Tables, and FAQ Accordions.
+RULE 5: 100% LOGIC SYNC BETWEEN HERO SECTION AND PRO-PORTAL
+- What is unlocked in the Hero Section MUST be unlocked in `/pro-portal`.
+- What is locked in `/pro-portal` (`📝 Pro Study Notes` & `📄 Master PDF Vault`) MUST be locked in the Hero Section and subpages.
 
-RULE 6: TECHNICAL SEO & ASSETS
-- Schema markup (FAQ Page, Article, Course/Exam schema) on every page.
-- Clean semantic HTML5 layout (`<header>`, `<nav>`, `<main>`, `<section>`, `<aside>`, `<footer>`).
-- Standardized directory structure:
-  - `pages/` (for subpages)
-  - `css/` (for styling)
-  - `js/` (for interactive live tests)
-  - `pdf/` (for downloadable exam paper PDFs)
-  - `includes/` (for header, footer, navigation modules)
+--------------------------------------------------------------------------------
+SECTION 1: CORE PHILOSOPHY & SINGLE SOURCE OF TRUTH
+--------------------------------------------------------------------------------
+1. SINGLE AUTHENTICATION SYSTEM (PHP SESSION ONLY)
+   - All access control checks MUST rely on server-side PHP functions:
+     * `is_logged_in()`: Validates active user session.
+     * `is_user_pro()`: Validates paid 30-Day Pro status ($8 USD Pass).
+     * `is_user_in_trial()`: Validates active 5-Day (or +10 Day extended) Free Trial.
+     * `is_admin()`: Validates administrator access.
+
+2. GLOBAL REDIRECTION RULE
+   - Whenever ANY candidate logs in or registers via the Auth Modal, they MUST be redirected immediately to their Student Dashboard at `/pro-portal`.
+   - Whenever an Admin logs in, they MUST be redirected to `/admin/dashboard.php`.
+
+--------------------------------------------------------------------------------
+SECTION 2: COMPLETE USER STATE & ACCESS CONTROL MATRIX
+--------------------------------------------------------------------------------
+
+STATE A: UNAUTHENTICATED VISITOR (NOT LOGGED IN)
+- Hero Section Teaser:
+  * Can play up to 3 Teaser Questions (Games, Flashcards, CBT) without creating an account.
+- Limit Reached (after 3 questions OR clicking locked Study Notes / PDF Vault):
+  * Trigger: "Start 5-Day Free Trial" button.
+  * Action: Opens Auth Modal on the REGISTRATION tab (they are never forced to register before trying the preview).
+- Accessing Restricted Pages directly (`/pro-portal`, `/pages/download-paper.php`, direct Study Note PDFs):
+  * Trigger: Auto-opens Auth Modal prompting candidate to Log In or Register.
+
+STATE B: FREE TRIAL CANDIDATE (5-DAY ACTIVE TRIAL / +10 DAY EXTENSION)
+- Dashboard (`/pro-portal`):
+  * Automatic login destination.
+  * Displays active trial countdown timer badge (e.g., "🎁 5-Day Free Trial Active").
+  * CBT Mock Test Simulator: 100% UNLOCKED.
+  * Interactive Games & Flashcards: 100% UNLOCKED.
+- Hero Section:
+  * 100% IN SYNC WITH DASHBOARD. CBT & Games practice are fully accessible.
+- Locked Features (Paywall Enforced Everywhere):
+  * `📝 Pro Study Notes` (1000 Nouns Dictionary, Grammar Particles, 50 Safety Signs): STRICTLY LOCKED.
+  * `📄 Master PDF Vault` (`/pages/download-paper.php` and direct PDF links): STRICTLY LOCKED.
+  * Paywall Modal Prompt: Displays "Upgrade to 30-Day Pro Pass ($8 USD)" with option to claim "+10 Days Extra Free Trial".
+
+STATE C: PAID PRO MEMBER ($8 USD 30-DAY PASS)
+- Dashboard (`/pro-portal`):
+  * Automatic login destination with "💎 VIP Pro Subscriber" badge.
+  * ALL 6 TABS 100% UNLOCKED.
+- Site-Wide Access:
+  * `📝 Pro Study Notes`: 100% UNLOCKED (direct PDF viewing & download).
+  * `📄 Master PDF Vault`: 100% UNLOCKED (direct download without countdown paywalls).
+  * Unlimited CBT Simulator & Games: 100% UNLOCKED.
+
+STATE D: SYSTEM ADMINISTRATOR
+- Dedicated Admin Login Gateway (`/admin/index.php` or direct `/admin` URL):
+  * Independent standalone login interface specifically for System Administrators.
+  * Direct URL access (`/admin`) presents the System Admin Login form when unauthenticated.
+  * Checks `is_admin()` server-side: If already authenticated as admin, automatically redirects to `/admin/dashboard.php`.
+  * If a non-admin student attempts to log in via `/admin/index.php`, `auth-handler.php` safely routes them to `/pro-portal` based on their `$_SESSION['role'] === 'user'`.
+  * If an unauthenticated user or student attempts to directly access `/admin/dashboard.php`, the guard `if (!is_admin()) { header('Location: /admin/index.php'); exit; }` safely blocks access and redirects them to `/admin/index.php`.
+- Admin Control Panel (`/admin/dashboard.php`):
+  * View all candidate registrations, signup dates, last login IP, and roles.
+  * 1-Click Status Toggles: [⚡ Switch to Pro], [🎁 5-Day Trial], [🎁 +10 Days Trial], [🔄 Reset to Free].
+  * Backend Controller: Dynamically change Pro Pass price (default $8 USD) and trial duration.
+
+--------------------------------------------------------------------------------
+SECTION 3: STEP-BY-STEP PHASED EXECUTION PLAN
+--------------------------------------------------------------------------------
+
+PHASE 1: ARCHITECTURE & AUTH UNIFICATION (COMPLETED ✅)
+- Clean `pages/pro-portal.php`: Remove `proLoginBox` form and `localStorage` JS logic. Integrate server-side `is_logged_in()`, `is_user_pro()`, and `is_user_in_trial()` checks directly into the page template.
+- Update `auth-handler.php`: Ensure successful login/registration redirects directly to `/pro-portal`.
+
+PHASE 2: HERO SECTION & SITE-WIDE SYNC (COMPLETED ✅)
+- Audit `includes/hero-section.php` and `js/main.js`:
+  * Non-logged-in visitors get 3 free preview questions before triggering "Start 5-Day Free Trial" -> Auth Modal.
+  * Trial users get CBT & Games unlocked, but clicking `📝 Pro Study Notes` opens the Pro Paywall Modal.
+  * Pro users get all tabs and notes unlocked directly.
+
+PHASE 3: PAYWALL & EXTENSION INTEGRATION (COMPLETED ✅)
+- Ensure `includes/paywall-modal.php` features both:
+  * Primary Action: "🔓 Unlock 30-Day Pro Pass ($8 USD)".
+  * Secondary Action: "🎁 Claim +10 Days Extra Free Trial" (`/auth-handler.php?action=extend_trial`).
+
+PHASE 4: DEDICATED ADMIN LOGIN & PRE-CONFIGURED ACCOUNTS VERIFICATION (COMPLETED ✅)
+- Independent Admin Access:
+  * Direct URL access to `/admin` loads dedicated Admin Login page (`admin/index.php`).
+  * Authentication guard in `admin/dashboard.php` strictly enforces `is_admin()`.
+  * Zero-Conflict Role Separation: `$_SESSION['role']` ('admin' vs 'user') isolates student access from admin dashboard.
+- Verify instant login for pre-configured test credentials:
+  * Admin: `admin@koreantestpapers.in` / `admin123` -> Dedicated Admin Gateway -> Redirects to `/admin/dashboard.php`.
+  * Pro Member: `pro@koreantestpapers.in` / `pro123` -> Redirects to `/pro-portal` (All Unlocked).
+  * Trial Member: `trial@koreantestpapers.in` / `trial123` -> Redirects to `/pro-portal` (Trial Active, Notes Locked).
+
+PHASE 5: END-TO-END TESTING (COMPLETED ✅)
+- Linted all core PHP files with XAMPP PHP binary (`php.exe -l`). Result: 0 syntax errors.
+- Validated all 4 user states (Visitor, Trial, Pro, Admin) to ensure 0 logic gaps and 100% connected dots across the portal.

@@ -55,7 +55,7 @@ if ($action === 'register') {
             $_SESSION['role'] = 'user';
             $_SESSION['auth_success'] = "Welcome! Your $trial_days-Day Free Trial is now active!";
 
-            header('Location: ' . ($_SERVER['HTTP_REFERER'] ?? '/'));
+            header('Location: /pro-portal');
             exit;
         } catch (Exception $e) {
             $_SESSION['auth_error'] = "Database error during registration: " . $e->getMessage();
@@ -76,7 +76,7 @@ if ($action === 'register') {
             'trial_ends_at' => $trial_ends
         ];
         $_SESSION['auth_success'] = "Welcome! Your $trial_days-Day Free Trial is active!";
-        header('Location: ' . ($_SERVER['HTTP_REFERER'] ?? '/'));
+        header('Location: /pro-portal');
         exit;
     }
 }
@@ -109,7 +109,7 @@ if ($action === 'login') {
         $_SESSION['user_status'] = 'pro';
         $_SESSION['role'] = 'user';
         $_SESSION['auth_success'] = "Welcome Pro Member! Full Access Unlocked 💎";
-        header('Location: ' . ($_SERVER['HTTP_REFERER'] ?? '/'));
+        header('Location: /pro-portal');
         exit;
     }
     if ($email === 'trial@koreantestpapers.in' && ($password === 'trial123' || $password === 'admin123')) {
@@ -126,7 +126,7 @@ if ($action === 'login') {
             'trial_ends_at' => date('Y-m-d H:i:s', strtotime("+5 days"))
         ];
         $_SESSION['auth_success'] = "Welcome! Your 5-Day Free Trial is Active 🎁";
-        header('Location: ' . ($_SERVER['HTTP_REFERER'] ?? '/'));
+        header('Location: /pro-portal');
         exit;
     }
 
@@ -150,7 +150,7 @@ if ($action === 'login') {
                 if ($user['role'] === 'admin') {
                     header('Location: /admin/dashboard.php');
                 } else {
-                    header('Location: ' . ($_SERVER['HTTP_REFERER'] ?? '/'));
+                    header('Location: /pro-portal');
                 }
                 exit;
             } else {

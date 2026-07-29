@@ -1,6 +1,13 @@
 <?php
-// Core PHP Setup
+// Core PHP Setup & Access Control
 require_once __DIR__ . '/../includes/db.php';
+
+$is_logged = is_logged_in();
+$is_pro = is_user_pro();
+$is_trial = is_user_in_trial();
+$user_name = $_SESSION['user_name'] ?? 'Candidate';
+$user_email = $_SESSION['user_email'] ?? '';
+$user_status = $_SESSION['user_status'] ?? 'free';
 
 $live_questions = get_live_questions();
 $page_title = "Pro Vault & Subscriber Member Portal - KoreanTestPapers.in";
@@ -13,61 +20,55 @@ require_once __DIR__ . '/../includes/header.php';
 <section class="section-padding" style="background: #0f172a; min-height: 80vh;">
     <div class="container">
         
-        <!-- PRO LOGIN FORM CONTAINER (Shown when unauthenticated) -->
-        <div id="proLoginBox" style="max-width: 480px; margin: 0 auto; background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 36px 28px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); text-align: center;">
-            <div style="font-size: 2.5rem; margin-bottom: 12px;">🔑</div>
-            <h2 style="color: #ffffff; font-size: 1.5rem; font-weight: 800; margin-bottom: 8px;">Pro Member Login</h2>
-            <p style="color: #94a3b8; font-size: 0.88rem; margin-bottom: 24px;">
-                Enter your registered Pro Account credentials to unlock the subscriber portal.
-            </p>
+        <?php if (!$is_logged): ?>
+            <!-- UNAUTHENTICATED VISITOR GATEWAY -->
+            <div style="max-width: 520px; margin: 40px auto; background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 40px 28px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); text-align: center;">
+                <div style="font-size: 3rem; margin-bottom: 12px;">🔑</div>
+                <h2 style="color: #ffffff; font-size: 1.6rem; font-weight: 800; margin-bottom: 8px;">Candidate Student Portal</h2>
+                <p style="color: #94a3b8; font-size: 0.92rem; margin-bottom: 24px; line-height: 1.6;">
+                    Log in to your account to access your <strong>5-Day Free Trial</strong> practice tools or unlock your <strong>30-Day Pro Pass ($8 USD)</strong>.
+                </p>
 
-            <!-- DEMO PRO CREDENTIALS DISPLAY BOX -->
-            <div style="background: #0f172a; border: 1px solid #2563eb; border-radius: 8px; padding: 12px 16px; margin-bottom: 20px; text-align: left;">
-                <div style="font-size: 0.82rem; color: #60a5fa; font-weight: 700; margin-bottom: 6px;">🔑 Master Pro Access Credentials:</div>
-                <div style="font-size: 0.84rem; color: #ffffff; margin-bottom: 2px;">Email ID: <strong style="color: #fbbf24; font-family: monospace;">pro@koreantestpapers.in</strong></div>
-                <div style="font-size: 0.84rem; color: #ffffff;">Password: <strong style="color: #fbbf24; font-family: monospace;">KOREA2025</strong></div>
-            </div>
-
-            <form onsubmit="handleProMemberLogin(event)">
-                <div style="margin-bottom: 16px; text-align: left;">
-                    <label style="color: #cbd5e1; font-size: 0.84rem; font-weight: 600; display: block; margin-bottom: 6px;">Pro Account Email</label>
-                    <input type="email" id="proEmailInput" value="pro@koreantestpapers.in" placeholder="name@example.com" required style="width: 100%; padding: 12px 14px; background: #0f172a; border: 1px solid #334155; border-radius: 6px; color: #ffffff; outline: none; font-size: 0.95rem;">
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                    <button onclick="openAuthModal('login')" class="btn-primary-action" style="padding: 14px; font-size: 1rem; font-weight: 800; background: #2563eb; color: #ffffff; border-radius: 8px; cursor: pointer;">
+                        🔑 Log In to Student Portal ▶
+                    </button>
+                    <button onclick="openAuthModal('register')" class="btn-primary-action" style="padding: 14px; font-size: 1rem; font-weight: 800; background: #059669; color: #ffffff; border-radius: 8px; cursor: pointer;">
+                        🎁 Start 5-Day Free Trial (Create Account) ▶
+                    </button>
                 </div>
+            </div>
+        <?php else: ?>
+
+            <!-- UNLOCKED STUDENT DASHBOARD -->
+            <div id="proUnlockedDashboard" style="display: block;">
                 
-                <div style="margin-bottom: 20px; text-align: left;">
-                    <label style="color: #cbd5e1; font-size: 0.84rem; font-weight: 600; display: block; margin-bottom: 6px;">Password / Passkey</label>
-                    <input type="password" id="proPasswordInput" value="KOREA2025" placeholder="••••••••" required style="width: 100%; padding: 12px 14px; background: #0f172a; border: 1px solid #334155; border-radius: 6px; color: #ffffff; outline: none; font-size: 0.95rem;">
+                <!-- HEADER PORTAL BANNER -->
+                <div style="background: linear-gradient(135deg, #1e293b, #0f172a); border: 1px solid #334155; border-radius: 12px; padding: 20px 24px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+                    <div>
+                        <?php if ($is_pro): ?>
+                            <span class="tag-badge green" style="font-size: 0.8rem; padding: 4px 10px; margin-bottom: 6px; display: inline-block;">💎 VIP Pro Member (30-Day Pass Active)</span>
+                        <?php elseif ($is_trial): ?>
+                            <span class="tag-badge amber" style="font-size: 0.8rem; padding: 4px 10px; margin-bottom: 6px; display: inline-block;">🎁 5-Day Free Trial Candidate</span>
+                        <?php else: ?>
+                            <span class="tag-badge grey" style="font-size: 0.8rem; padding: 4px 10px; margin-bottom: 6px; display: inline-block;">Free Candidate Account</span>
+                        <?php endif; ?>
+                        <h1 style="font-size: 1.6rem; color: #ffffff; font-weight: 800; margin: 0;">
+                            Welcome, <?php echo htmlspecialchars($user_name); ?> 👋
+                        </h1>
+                    </div>
+                    
+                    <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                        <?php if (!$is_pro): ?>
+                            <a href="/subscription" class="btn-primary-action" style="background: #059669; font-size: 0.85rem; padding: 8px 14px; font-weight: 800; border-radius: 6px; text-decoration: none;">
+                                ⚡ Upgrade to Pro ($8 Pass)
+                            </a>
+                        <?php endif; ?>
+                        <a href="/auth-handler.php?action=logout" class="btn-primary-action" style="background: #dc2626; font-size: 0.85rem; padding: 8px 14px; font-weight: 800; border-radius: 6px; text-decoration: none;">
+                            🚪 Log Out
+                        </a>
+                    </div>
                 </div>
-
-                <button type="submit" class="btn-primary-action" style="width: 100%; padding: 12px; font-size: 0.95rem; font-weight: 800; background: #2563eb; color: #ffffff; border-radius: 6px;">
-                    Sign In to Pro Vault ▶
-                </button>
-            </form>
-
-            <div style="margin-top: 24px; padding-top: 18px; border-top: 1px solid #334155; font-size: 0.82rem; color: #94a3b8;">
-                ⚠️ <strong>Need a Pro Account ID?</strong><br>
-                Account creation is granted automatically <em>after</em> purchasing a Pro pass on our <a href="/subscription" style="color: #60a5fa; text-decoration: underline;">Subscription Page</a>.
-            </div>
-        </div>
-
-        <!-- UNLOCKED PRO DASHBOARD (Shown after login or for active subscribers) -->
-        <div id="proUnlockedDashboard" style="display: none;">
-            
-            <!-- HEADER PORTAL BANNER -->
-            <div style="background: linear-gradient(135deg, #1e293b, #0f172a); border: 1px solid #334155; border-radius: 12px; padding: 20px 24px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
-                <div>
-                    <span class="tag-badge amber" style="font-size: 0.8rem; padding: 4px 10px; margin-bottom: 6px; display: inline-block;">👑 VIP Pro Subscriber Portal</span>
-                    <h1 style="font-size: 1.6rem; color: #ffffff; font-weight: 800; margin: 0;">
-                        Pro Member Dashboard
-                    </h1>
-                </div>
-                
-                <div style="display: flex; gap: 10px; align-items: center;">
-                    <a href="https://drive.google.com/drive/folders/1opEW5O5mvYt2lcFP169Sizil7z0z6Qsv" target="_blank" class="btn-primary-action" style="background: #059669; font-size: 0.85rem; padding: 8px 14px; font-weight: 800; border-radius: 6px;">
-                        📂 Master Drive Folder ▶
-                    </a>
-                </div>
-            </div>
 
             <!-- PRO TOP NAVIGATION BAR (HORIZONTALLY POSITIONED AT TOP) -->
             <div class="pro-nav-bar" style="background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 12px 16px; margin-bottom: 24px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center;">
@@ -390,33 +391,56 @@ require_once __DIR__ . '/../includes/header.php';
                             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
                                 <div>
                                     <h3 style="color: #ffffff; font-size: 1.25rem; font-weight: 800; margin-bottom: 4px;">📝 Pro Cheatsheets & Workplace Vocabulary</h3>
-                                    <p style="color: #94a3b8; font-size: 0.88rem; margin: 0;">High-yield study guides created specifically for Indian candidates taking HRD Korea exams.</p>
+                                    <p style="color: #94a3b8; font-size: 0.88rem; margin: 0;">High-yield study guides created specifically for HRD Korea candidates.</p>
                                 </div>
-                                <span class="tag-badge amber" style="font-size: 0.85rem; padding: 6px 12px;">Pro Vault Exclusive</span>
+                                <?php if ($is_pro): ?>
+                                    <span class="tag-badge green" style="font-size: 0.85rem; padding: 6px 12px;">Unlocked</span>
+                                <?php else: ?>
+                                    <span class="tag-badge amber" style="font-size: 0.85rem; padding: 6px 12px;">🔒 Pro Pass Required</span>
+                                <?php endif; ?>
                             </div>
 
-                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin: 20px 0;">
-                                <div style="background: #0f172a; border: 1px solid #334155; padding: 16px; border-radius: 8px;">
-                                    <div style="font-size: 1.5rem; margin-bottom: 8px;">📖</div>
-                                    <h4 style="color: #ffffff; font-size: 0.95rem; font-weight: 700; margin-bottom: 4px;">1000 Workplace Nouns Dictionary</h4>
-                                    <p style="color: #94a3b8; font-size: 0.82rem; margin-bottom: 12px;">Factory, agriculture & construction vocabulary with Hindi + English translations.</p>
-                                    <a href="/pdf/1000-workplace-nouns-dictionary.html" target="_blank" class="btn-primary-action" style="font-size: 0.8rem; padding: 6px 12px; background: #2563eb; color: #ffffff; font-weight: 700; text-decoration: none; border-radius: 6px; display: inline-block;">Open & Download PDF 📥</a>
-                                </div>
+                            <?php if ($is_pro): ?>
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin: 20px 0;">
+                                    <div style="background: #0f172a; border: 1px solid #334155; padding: 16px; border-radius: 8px;">
+                                        <div style="font-size: 1.5rem; margin-bottom: 8px;">📖</div>
+                                        <h4 style="color: #ffffff; font-size: 0.95rem; font-weight: 700; margin-bottom: 4px;">1000 Workplace Nouns Dictionary</h4>
+                                        <p style="color: #94a3b8; font-size: 0.82rem; margin-bottom: 12px;">Factory, agriculture & construction vocabulary with Hindi + English translations.</p>
+                                        <a href="/pdf/1000-workplace-nouns-dictionary.html" target="_blank" class="btn-primary-action" style="font-size: 0.8rem; padding: 6px 12px; background: #2563eb; color: #ffffff; font-weight: 700; text-decoration: none; border-radius: 6px; display: inline-block;">Open & Download PDF 📥</a>
+                                    </div>
 
-                                <div style="background: #0f172a; border: 1px solid #334155; padding: 16px; border-radius: 8px;">
-                                    <div style="font-size: 1.5rem; margin-bottom: 8px;">⚡</div>
-                                    <h4 style="color: #ffffff; font-size: 0.95rem; font-weight: 700; margin-bottom: 4px;">Grammar Particles Mastery</h4>
-                                    <p style="color: #94a3b8; font-size: 0.82rem; margin-bottom: 12px;">Complete breakdown of essential exam particles (-은/는, -이/가, -을/를, -에서).</p>
-                                    <a href="/pdf/grammar-particles-mastery.html" target="_blank" class="btn-primary-action" style="font-size: 0.8rem; padding: 6px 12px; background: #d97706; color: #ffffff; font-weight: 700; text-decoration: none; border-radius: 6px; display: inline-block;">Open & Download PDF 📥</a>
-                                </div>
+                                    <div style="background: #0f172a; border: 1px solid #334155; padding: 16px; border-radius: 8px;">
+                                        <div style="font-size: 1.5rem; margin-bottom: 8px;">⚡</div>
+                                        <h4 style="color: #ffffff; font-size: 0.95rem; font-weight: 700; margin-bottom: 4px;">Grammar Particles Mastery</h4>
+                                        <p style="color: #94a3b8; font-size: 0.82rem; margin-bottom: 12px;">Complete breakdown of essential exam particles (-은/는, -이/가, -을/를, -에서).</p>
+                                        <a href="/pdf/grammar-particles-mastery.html" target="_blank" class="btn-primary-action" style="font-size: 0.8rem; padding: 6px 12px; background: #d97706; color: #ffffff; font-weight: 700; text-decoration: none; border-radius: 6px; display: inline-block;">Open & Download PDF 📥</a>
+                                    </div>
 
-                                <div style="background: #0f172a; border: 1px solid #334155; padding: 16px; border-radius: 8px;">
-                                    <div style="font-size: 1.5rem; margin-bottom: 8px;">⚠️</div>
-                                    <h4 style="color: #ffffff; font-size: 0.95rem; font-weight: 700; margin-bottom: 4px;">50 HRD Korea Safety Signboards</h4>
-                                    <p style="color: #94a3b8; font-size: 0.82rem; margin-bottom: 12px;">Official industrial safety symbols & warning signs appearing in reading exams.</p>
-                                    <a href="/pdf/50-safety-signboards-hrd-korea.html" target="_blank" class="btn-primary-action" style="font-size: 0.8rem; padding: 6px 12px; background: #dc2626; color: #ffffff; font-weight: 700; text-decoration: none; border-radius: 6px; display: inline-block;">Open & Download PDF 📥</a>
+                                    <div style="background: #0f172a; border: 1px solid #334155; padding: 16px; border-radius: 8px;">
+                                        <div style="font-size: 1.5rem; margin-bottom: 8px;">⚠️</div>
+                                        <h4 style="color: #ffffff; font-size: 0.95rem; font-weight: 700; margin-bottom: 4px;">50 HRD Korea Safety Signboards</h4>
+                                        <p style="color: #94a3b8; font-size: 0.82rem; margin-bottom: 12px;">Official industrial safety symbols & warning signs appearing in reading exams.</p>
+                                        <a href="/pdf/50-safety-signboards-hrd-korea.html" target="_blank" class="btn-primary-action" style="font-size: 0.8rem; padding: 6px 12px; background: #dc2626; color: #ffffff; font-weight: 700; text-decoration: none; border-radius: 6px; display: inline-block;">Open & Download PDF 📥</a>
+                                    </div>
                                 </div>
-                            </div>
+                            <?php else: ?>
+                                <!-- LOCKED PRO STUDY NOTES CARD FOR TRIAL USERS -->
+                                <div style="background: #0f172a; border: 1px solid #d97706; padding: 28px; border-radius: 10px; text-align: center; margin: 20px 0;">
+                                    <div style="font-size: 2.5rem; margin-bottom: 10px;">🔒</div>
+                                    <h4 style="color: #fbbf24; font-size: 1.2rem; font-weight: 800; margin-bottom: 8px;">Pro Study Notes Locked</h4>
+                                    <p style="color: #94a3b8; font-size: 0.9rem; max-width: 460px; margin: 0 auto 20px; line-height: 1.5;">
+                                        Pro Cheatsheets & Workplace Dictionaries are reserved exclusively for <strong>30-Day Pro Pass ($8 USD)</strong> subscribers.
+                                    </p>
+                                    <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                                        <button onclick="openPaywallModal('Pro Study Notes')" class="btn-primary-action" style="padding: 10px 20px; font-size: 0.9rem; background: #2563eb; font-weight: 800; cursor: pointer;">
+                                            🔓 Upgrade to 30-Day Pro Pass ($8)
+                                        </button>
+                                        <a href="/auth-handler.php?action=extend_trial" class="btn-primary-action" style="padding: 10px 20px; font-size: 0.9rem; background: #059669; font-weight: 800; text-decoration: none;">
+                                            🎁 Claim +10 Days Extra Free Trial
+                                        </a>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
                         </div>
                     </div>
 
@@ -428,25 +452,43 @@ require_once __DIR__ . '/../includes/header.php';
                                     <h3 style="color: #ffffff; font-size: 1.25rem; font-weight: 800; margin-bottom: 4px;">📄 Complete 156 Solved Master PDF Papers</h3>
                                     <p style="color: #94a3b8; font-size: 0.88rem; margin: 0;">Includes official question papers, answer sheets, listening transcripts, and audio files (2015 – 2025).</p>
                                 </div>
-                                <span class="tag-badge green" style="font-size: 0.85rem; padding: 6px 12px;">Unlimited Access</span>
+                                <?php if ($is_pro): ?>
+                                    <span class="tag-badge green" style="font-size: 0.85rem; padding: 6px 12px;">Unlimited Access</span>
+                                <?php else: ?>
+                                    <span class="tag-badge amber" style="font-size: 0.85rem; padding: 6px 12px;">🔒 Pro Pass Required</span>
+                                <?php endif; ?>
                             </div>
 
-                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin: 20px 0;">
-                                <div style="background: #0f172a; border: 1px solid #334155; padding: 16px; border-radius: 8px;">
-                                    <h4 style="color: #60a5fa; font-size: 0.98rem; font-weight: 700; margin-bottom: 6px;">📘 EPS-TOPIK Reading & Listening</h4>
-                                    <p style="color: #94a3b8; font-size: 0.82rem; margin-bottom: 12px;">Specialized industry papers with English option explanations.</p>
-                                    <a href="/eps-topik-reading-korean-test-papers" class="btn-primary-action" style="font-size: 0.8rem; padding: 6px 12px; background: #2563eb;">View EPS Papers ▶</a>
+                            <?php if ($is_pro): ?>
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin: 20px 0;">
+                                    <div style="background: #0f172a; border: 1px solid #334155; padding: 16px; border-radius: 8px;">
+                                        <h4 style="color: #60a5fa; font-size: 0.98rem; font-weight: 700; margin-bottom: 6px;">📘 EPS-TOPIK Reading & Listening</h4>
+                                        <p style="color: #94a3b8; font-size: 0.82rem; margin-bottom: 12px;">Specialized industry papers with English option explanations.</p>
+                                        <a href="/eps-topik-reading-korean-test-papers" class="btn-primary-action" style="font-size: 0.8rem; padding: 6px 12px; background: #2563eb;">View EPS Papers ▶</a>
+                                    </div>
+                                    <div style="background: #0f172a; border: 1px solid #334155; padding: 16px; border-radius: 8px;">
+                                        <h4 style="color: #60a5fa; font-size: 0.98rem; font-weight: 700; margin-bottom: 6px;">📙 TOPIK I & II Official Master Archive</h4>
+                                        <p style="color: #94a3b8; font-size: 0.82rem; margin-bottom: 12px;">30th to 102nd official examination question bundles.</p>
+                                        <a href="/topik-1-level-1-korean-test-papers" class="btn-primary-action" style="font-size: 0.8rem; padding: 6px 12px; background: #0284c7;">View TOPIK I & II ▶</a>
+                                    </div>
                                 </div>
-                                <div style="background: #0f172a; border: 1px solid #334155; padding: 16px; border-radius: 8px;">
-                                    <h4 style="color: #60a5fa; font-size: 0.98rem; font-weight: 700; margin-bottom: 6px;">📙 TOPIK I & II Official Master Archive</h4>
-                                    <p style="color: #94a3b8; font-size: 0.82rem; margin-bottom: 12px;">30th to 102nd official examination question bundles.</p>
-                                    <a href="/topik-1-level-1-korean-test-papers" class="btn-primary-action" style="font-size: 0.8rem; padding: 6px 12px; background: #0284c7;">View TOPIK I & II ▶</a>
-                                </div>
-                            </div>
 
-                            <a href="/download-paper?title=Pro%20Master%20Collection%20Bundle" class="btn-primary-action" style="display: block; text-align: center; width: 100%; font-size: 0.95rem; padding: 14px; background: #2563eb; font-weight: 800;">
-                                Download Full 156 Master PDF Archive Bundle 📥
-                            </a>
+                                <a href="/download-paper?title=Pro%20Master%20Collection%20Bundle" class="btn-primary-action" style="display: block; text-align: center; width: 100%; font-size: 0.95rem; padding: 14px; background: #2563eb; font-weight: 800;">
+                                    Download Full 156 Master PDF Archive Bundle 📥
+                                </a>
+                            <?php else: ?>
+                                <!-- LOCKED MASTER PDF VAULT CARD FOR TRIAL USERS -->
+                                <div style="background: #0f172a; border: 1px solid #d97706; padding: 28px; border-radius: 10px; text-align: center; margin: 20px 0;">
+                                    <div style="font-size: 2.5rem; margin-bottom: 10px;">🔒</div>
+                                    <h4 style="color: #fbbf24; font-size: 1.2rem; font-weight: 800; margin-bottom: 8px;">Master PDF Vault Locked</h4>
+                                    <p style="color: #94a3b8; font-size: 0.9rem; max-width: 460px; margin: 0 auto 20px; line-height: 1.5;">
+                                        Direct PDF downloads of the complete 156 solved exam paper vault require an active <strong>30-Day Pro Pass ($8 USD)</strong>.
+                                    </p>
+                                    <button onclick="openPaywallModal('Master PDF Vault')" class="btn-primary-action" style="padding: 12px 24px; font-size: 0.95rem; background: #2563eb; font-weight: 800; cursor: pointer;">
+                                        🔓 Upgrade to 30-Day Pro Pass ($8)
+                                    </button>
+                                </div>
+                            <?php endif; ?>
                         </div>
                     </div>
 
@@ -458,67 +500,43 @@ require_once __DIR__ . '/../includes/header.php';
                             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 20px;">
                                 <div style="background: #0f172a; border: 1px solid #334155; padding: 16px; border-radius: 8px;">
                                     <span style="color: #94a3b8; font-size: 0.8rem; display: block; margin-bottom: 4px;">Account Status</span>
-                                    <span style="color: #10b981; font-weight: 800; font-size: 1.05rem;">👑 VIP Pro Subscriber (Active)</span>
+                                    <?php if ($is_pro): ?>
+                                        <span style="color: #10b981; font-weight: 800; font-size: 1.05rem;">👑 VIP Pro Subscriber (Active)</span>
+                                    <?php elseif ($is_trial): ?>
+                                        <span style="color: #f59e0b; font-weight: 800; font-size: 1.05rem;">🎁 5-Day Free Trial Active</span>
+                                    <?php else: ?>
+                                        <span style="color: #94a3b8; font-weight: 800; font-size: 1.05rem;">Free Account</span>
+                                    <?php endif; ?>
                                 </div>
                                 <div style="background: #0f172a; border: 1px solid #334155; padding: 16px; border-radius: 8px;">
-                                    <span style="color: #94a3b8; font-size: 0.8rem; display: block; margin-bottom: 4px;">Registered Email</span>
-                                    <span id="accountEmailVal" style="color: #ffffff; font-weight: 700; font-size: 1.05rem;">pro@koreantestpapers.in</span>
+                                    <span style="color: #94a3b8; font-size: 0.8rem; display: block; margin-bottom: 4px;">Candidate Name & Email</span>
+                                    <span style="color: #ffffff; font-weight: 700; font-size: 1rem; display: block;"><?php echo htmlspecialchars($user_name); ?></span>
+                                    <span style="color: #60a5fa; font-size: 0.84rem;"><?php echo htmlspecialchars($user_email); ?></span>
                                 </div>
                                 <div style="background: #0f172a; border: 1px solid #334155; padding: 16px; border-radius: 8px;">
                                     <span style="color: #94a3b8; font-size: 0.8rem; display: block; margin-bottom: 4px;">Access Scope</span>
-                                    <span style="color: #fbbf24; font-weight: 700; font-size: 1.05rem;">All 156 PDFs + CBT + Cheatsheets</span>
+                                    <?php if ($is_pro): ?>
+                                        <span style="color: #fbbf24; font-weight: 700; font-size: 0.95rem;">All 156 PDFs + CBT + Cheatsheets</span>
+                                    <?php else: ?>
+                                        <span style="color: #fbbf24; font-weight: 700; font-size: 0.95rem;">CBT Tests + Flashcards + Games</span>
+                                    <?php endif; ?>
                                 </div>
                             </div>
 
-                            <button onclick="handleProLogout()" class="btn-primary-action" style="background: #dc2626; font-size: 0.9rem; padding: 12px 20px; font-weight: 800;">
-                                🚪 Log Out of Pro Portal
-                            </button>
+                            <a href="/auth-handler.php?action=logout" class="btn-primary-action" style="background: #dc2626; font-size: 0.9rem; padding: 12px 20px; font-weight: 800; text-decoration: none; display: inline-block;">
+                                🚪 Log Out of Account
+                            </a>
                         </div>
                     </div>
 
                 </main>
             </div>
-
-        </div>
+        <?php endif; ?>
 
     </div>
 </section>
 
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-    checkProLoginStatus();
-});
-
-function checkProLoginStatus() {
-    const isPro = localStorage.getItem("koreanTestProAccess");
-    const userEmail = localStorage.getItem("proUserEmail") || "pro@koreantestpapers.in";
-    if (isPro === "true") {
-        document.getElementById("proLoginBox").style.display = "none";
-        document.getElementById("proUnlockedDashboard").style.display = "block";
-        const emailDisp = document.getElementById("loggedUserEmailDisplay");
-        if (emailDisp) emailDisp.textContent = userEmail;
-        const accEmailVal = document.getElementById("accountEmailVal");
-        if (accEmailVal) accEmailVal.textContent = userEmail;
-    }
-}
-
-function handleProMemberLogin(e) {
-    e.preventDefault();
-    const email = document.getElementById("proEmailInput").value;
-    if (email) {
-        localStorage.setItem("koreanTestProAccess", "true");
-        localStorage.setItem("proUserEmail", email);
-        checkProLoginStatus();
-    }
-}
-
-function handleProLogout() {
-    localStorage.removeItem("koreanTestProAccess");
-    localStorage.removeItem("proUserEmail");
-    document.getElementById("proUnlockedDashboard").style.display = "none";
-    document.getElementById("proLoginBox").style.display = "block";
-}
-
 function switchProTab(tabId, btnElement) {
     const panels = document.querySelectorAll('.pro-tab-panel');
     panels.forEach(panel => panel.style.display = 'none');

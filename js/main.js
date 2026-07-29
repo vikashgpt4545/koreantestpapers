@@ -143,9 +143,9 @@ function initLiveTestModule() {
     // Handle Next Question with strict 3-Question Paywall Limit
     if (nextBtn) {
         nextBtn.addEventListener('click', function () {
-            const isPro = localStorage.getItem('koreantestpapers_pro') === 'true' || localStorage.getItem('koreanTestProAccess') === 'true';
+            const hasAccess = window.userSession && (window.userSession.isPro || window.userSession.isTrial);
             
-            if (!isPro && cbtQuestionsAnsweredCount >= 3) {
+            if (!hasAccess && cbtQuestionsAnsweredCount >= 3) {
                 const cbtCardBox = document.querySelector('#cbtTab .quiz-card-box');
                 const actionBar = document.querySelector('#cbtTab .quiz-action-bar');
 
@@ -154,19 +154,19 @@ function initLiveTestModule() {
                     cbtCardBox.style.border = '1px solid #f59e0b';
                     cbtCardBox.innerHTML = `
                         <div style="text-align: center; padding: 20px 10px;">
-                            <div style="font-size: 2.2rem; margin-bottom: 6px;">🔒</div>
-                            <div style="font-size: 0.85rem; color: #f59e0b; font-weight: 700; text-transform: uppercase; margin-bottom: 4px;">CBT Test Free Limit Reached (3/3 Questions)</div>
-                            <div style="font-size: 1.1rem; color: #ffffff; font-weight: 800; margin-bottom: 6px;">Unlock Full 40-Question Timed CBT Exams</div>
-                            <p style="font-size: 0.82rem; color: #94a3b8; margin-bottom: 14px;">Upgrade to a Pro Member Pass to access full 40-question CBT mock papers, audio listening tracks & instant score reports!</p>
-                            <button onclick="openProModal()" class="btn-primary-action" style="padding: 10px 20px; font-size: 0.88rem; font-weight: 800; background: #2563eb; color: #ffffff; border-radius: 6px; border: none; cursor: pointer;">
-                                🔓 Unlock Pro Member Pass ($3 - $11)
+                            <div style="font-size: 2.2rem; margin-bottom: 6px;">🎁</div>
+                            <div style="font-size: 0.85rem; color: #f59e0b; font-weight: 700; text-transform: uppercase; margin-bottom: 4px;">Free Teaser Preview Limit Reached (3/3 Questions)</div>
+                            <div style="font-size: 1.1rem; color: #ffffff; font-weight: 800; margin-bottom: 6px;">Start Your 5-Day Free Trial</div>
+                            <p style="font-size: 0.82rem; color: #94a3b8; margin-bottom: 14px;">Create a free candidate account to instantly unlock unlimited CBT mock test practice & interactive games for 5 full days!</p>
+                            <button onclick="openAuthModal('register')" class="btn-primary-action" style="padding: 10px 20px; font-size: 0.88rem; font-weight: 800; background: #059669; color: #ffffff; border-radius: 6px; border: none; cursor: pointer;">
+                                🎁 Start 5-Day Free Trial (Create Account) ▶
                             </button>
                         </div>
                     `;
                 }
 
                 if (actionBar) actionBar.style.display = 'none';
-                openProModal();
+                if (typeof openAuthModal === 'function') openAuthModal('register');
                 return;
             }
 
@@ -912,16 +912,20 @@ function nextVocabCard() {
 
 function downloadProNote(e, pdfUrl) {
     if (e) e.preventDefault();
-    const isPro = localStorage.getItem('koreantestpapers_pro') === 'true' || localStorage.getItem('koreanTestProAccess') === 'true';
-    if (!isPro) {
-        openProModal();
-    } else {
+    const isPro = window.userSession && window.userSession.isPro;
+    const isLoggedIn = window.userSession && window.userSession.isLoggedIn;
+
+    if (isPro) {
         window.open(pdfUrl, '_blank');
+    } else if (!isLoggedIn) {
+        if (typeof openAuthModal === 'function') openAuthModal('register');
+    } else {
+        openProModal();
     }
 }
 
 /* Pro Paywall Modal Functions */
-function openProModal() {
+function openProModal(featureName) {
     const modal = document.getElementById('proPaywallModal');
     if (modal) modal.style.display = 'flex';
 }
@@ -936,11 +940,15 @@ function selectPassPlan(planId, priceUSD) {
 }
 
 function checkProAccessForNotes() {
-    const isPro = localStorage.getItem('koreantestpapers_pro') === 'true' || localStorage.getItem('koreanTestProAccess') === 'true';
-    if (!isPro) {
-        openProModal();
-    } else {
+    const isPro = window.userSession && window.userSession.isPro;
+    const isLoggedIn = window.userSession && window.userSession.isLoggedIn;
+
+    if (isPro) {
         alert('🔓 Pro Note Unlocked! Downloading High-Yield Study Guide...');
+    } else if (!isLoggedIn) {
+        if (typeof openAuthModal === 'function') openAuthModal('register');
+    } else {
+        openProModal();
     }
 }
 

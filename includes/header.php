@@ -49,6 +49,14 @@ $canonical_url = "https://koreantestpapers.in" . ($_SERVER['REQUEST_URI'] ?? '')
       "description": "Download free Korean test papers and Korean exam paper with answer keys for EPS-TOPIK and TOPIK I & II."
     }
     </script>
+    <script>
+    window.userSession = {
+        isLoggedIn: <?php echo is_logged_in() ? 'true' : 'false'; ?>,
+        isPro: <?php echo is_user_pro() ? 'true' : 'false'; ?>,
+        isTrial: <?php echo is_user_in_trial() ? 'true' : 'false'; ?>,
+        status: '<?php echo $_SESSION['user_status'] ?? 'free'; ?>'
+    };
+    </script>
 </head>
 <body>
 
