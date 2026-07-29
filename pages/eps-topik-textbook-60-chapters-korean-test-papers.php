@@ -3,7 +3,7 @@
 require_once __DIR__ . '/../includes/db.php';
 
 // Page SEO Meta Configuration
-$page_title = "EPS TOPIK 60 Chapters Book Korean Test Papers";
+$page_title = "EPS TOPIK 60 Chapters Book Korean Test Papers & Korean Exam Paper";
 $page_desc = "Download free EPS TOPIK 60 Chapters Book Korean test papers PDF with official HRD Korea textbook solutions, chapter breakdown, audio script guides, and solved answer keys.";
 $canonical_url = "https://koreantestpapers.in/eps-topik-textbook-60-chapters-korean-test-papers";
 
@@ -23,7 +23,7 @@ require_once __DIR__ . '/../includes/header.php';
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "EPS TOPIK 60 Chapters Book Korean Test Papers",
+  "headline": "EPS TOPIK 60 Chapters Book Korean Test Papers & Korean Exam Paper",
   "description": "Comprehensive study guide and downloadable EPS TOPIK 60 Chapters Book Korean test papers PDF sets with official HRD Korea textbook solutions and answer keys.",
   "publisher": {
     "@type": "Organization",
@@ -34,91 +34,8 @@ require_once __DIR__ . '/../includes/header.php';
 }
 </script>
 
-<!-- HERO SECTION CONTAINER -->
-<section class="hero-section">
-    <div class="container">
-        <div class="hero-heading-box">
-            <h1 class="hero-title">EPS TOPIK 60 Chapters Book Korean Test Papers</h1>
-            <p class="hero-subtitle">
-                Master the official HRD Korea 60-chapter textbook curriculum with specialized EPS TOPIK <strong>korean test papers</strong>, featuring chapter-by-chapter exercises, downloadable <strong>korean exam paper</strong> PDFs, and answer keys.
-            </p>
-        </div>
-
-        <!-- 2-Column Split Box Container -->
-        <div class="hero-split-container">
-            <!-- Left Box: 60 Chapters Paper Downloads -->
-            <div class="hero-left-box">
-                <div class="box-title-header">
-                    <h3>📚 60-Chapter Textbook Archive</h3>
-                    <span class="tag-badge green">Official HRD Book</span>
-                </div>
-                <div class="exam-nav-list">
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>EPS TOPIK 60 Chapters Textbook Test Paper</h4>
-                            <p>Full 60-chapter official textbook practice set</p>
-                        </div>
-                        <a href="../pdf/eps-topik-official-question-bank.pdf" class="btn-download-sm" download>PDF</a>
-                    </div>
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>Chapter-wise Quiz & Question Bank PDF</h4>
-                            <p>Chapter 1 to 60 individual practice quizzes</p>
-                        </div>
-                        <a href="../pdf/eps-topik-vocab.pdf" class="btn-download-sm" download>PDF</a>
-                    </div>
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>EPS TOPIK Essential Vocabulary Exam Paper</h4>
-                            <p>Full 2,000-word classified textbook vocabulary paper</p>
-                        </div>
-                        <a href="../pdf/eps-topik-grammar.pdf" class="btn-download-sm" download>PDF</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right Box: Live CBT Mock Test Widget -->
-            <div class="hero-right-box" id="live-test-box">
-                <div class="live-test-header">
-                    <div class="live-indicator">
-                        <span class="live-dot"></span> LIVE 60-CHAPTER QUIZ SIMULATOR
-                    </div>
-                    <div style="font-weight: 700; font-size: 0.9rem; color: #475569;">
-                        ⏱ Timer: <span id="liveTimerDisplay" style="color: #2563eb;">25:00</span>
-                    </div>
-                </div>
-
-                <div class="quiz-card-box">
-                    <div class="quiz-question-title" id="liveQuestionText">
-                        <?php echo htmlspecialchars($live_questions[0]['question_text']); ?>
-                    </div>
-                    
-                    <div class="quiz-options-list" id="liveOptionsContainer">
-                        <button class="quiz-option-btn" data-option="A">
-                            <span>A. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_a']); ?></span></span>
-                        </button>
-                        <button class="quiz-option-btn" data-option="B">
-                            <span>B. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_b']); ?></span></span>
-                        </button>
-                        <button class="quiz-option-btn" data-option="C">
-                            <span>C. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_c']); ?></span></span>
-                        </button>
-                        <button class="quiz-option-btn" data-option="D">
-                            <span>D. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_d']); ?></span></span>
-                        </button>
-                    </div>
-
-                    <div id="liveExplanationBox" style="display:none; margin-top: 14px; padding: 12px; background: #eff6ff; border-radius: 6px; font-size: 0.88rem; color: #1e3a8a;"></div>
-                </div>
-
-                <div class="quiz-action-bar">
-                    <button class="btn-primary-action" id="btnSubmitAnswer" disabled>Submit Answer</button>
-                    <button class="btn-primary-action" id="btnNextQuestion" style="display:none; background: #059669;">Next Question ▶</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<!-- HERO SECTION COMPONENT -->
+<?php require_once __DIR__ . '/../includes/hero-section.php'; ?>
 
 <!-- MAIN CONTENT CONTAINER (2,000+ WORDS DETAILED 60 CHAPTERS GUIDE) -->
 <section class="section-padding">
