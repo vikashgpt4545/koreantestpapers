@@ -779,6 +779,7 @@ function renderCurrentGameQuestion() {
 }
 
 function checkGameAnswer(optIdx, btnElem) {
+    if (gameTimeRemaining <= 0) {
         restartGameRound();
         return;
     }
@@ -862,6 +863,8 @@ function checkGameAnswer(optIdx, btnElem) {
                 openAuthModal('register');
             }
         }, 600);
+        return;
+    }
     setTimeout(() => {
         isGameProcessing = false;
         renderCurrentGameQuestion();
@@ -996,3 +999,11 @@ function checkProAccessForNotes() {
         openProModal();
     }
 }
+
+function setCbtExamTimer(mins) {
+    const minutes = parseInt(mins, 10) || 25;
+    const formatted = `${minutes < 10 ? '0' + minutes : minutes}:00`;
+    const liveTimer = document.getElementById('liveTimerDisplay');
+    if (liveTimer) liveTimer.textContent = formatted;
+}
+
