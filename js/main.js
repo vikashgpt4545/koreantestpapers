@@ -608,7 +608,6 @@ const signboardVocabBank = [
     { icon: "🛑", type: "sign", name: "일시 정지 (Stop Inspection)", eng: "Stop & Inspect Hazard" }
 ];
 
-let heroGameCount = 0;
 let currentGameIdx = 0;
 let gameCurrentScore = 0;
 let gameTimerInterval = null;
