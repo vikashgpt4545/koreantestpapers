@@ -534,6 +534,10 @@ function switchProTab(tabId, btnElement) {
         btnElement.style.borderColor = '#2563eb';
         btnElement.style.fontWeight = '800';
     }
+
+    if (tabId === 'gamesTab' && typeof restartGameRound === 'function') {
+        restartGameRound();
+    }
 }
 </script>
 

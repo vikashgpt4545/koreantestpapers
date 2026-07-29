@@ -633,13 +633,9 @@ function selectGameMode(mode, btnElement) {
     restartGameRound();
 }
 
-// Auto-start timer on page load if game tab is active
+// Prepare initial question without auto-starting background timer on page load
 document.addEventListener('DOMContentLoaded', () => {
-    const gameArea = document.getElementById('gameQuestionText');
-    if (gameArea) {
-        startGameTimer();
-        renderCurrentGameQuestion();
-    }
+    renderCurrentGameQuestion();
 });
 
 /* Pro Paywall Modal Functions */
