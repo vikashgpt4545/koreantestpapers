@@ -3,7 +3,7 @@
 require_once __DIR__ . '/../includes/db.php';
 
 // Page SEO Meta Configuration
-$page_title = "EPS TOPIK Online Free Quiz Korean Exam Paper with Answers PDF";
+$page_title = "EPS TOPIK Online Free Quiz Korean Exam Paper with Answers PDF & Korean Test Papers";
 $page_desc = "Take EPS TOPIK Online Free Quiz Korean exam paper practice tests with instant automatic scoring, real-time timer simulation, downloadable answer key PDFs, workplace vocabulary drills, and reading/listening CBT question sets.";
 $canonical_url = "https://koreantestpapers.in/eps-topik-online-free-quiz-korean-exam-paper";
 
@@ -23,7 +23,7 @@ require_once __DIR__ . '/../includes/header.php';
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "EPS TOPIK Online Free Quiz Korean Exam Paper with Answers PDF",
+  "headline": "EPS TOPIK Online Free Quiz Korean Exam Paper with Answers PDF & Korean Test Papers",
   "description": "Comprehensive interactive EPS TOPIK Online Free Quiz Korean exam paper portal with instant automatic scoring, practice question sets, workplace vocabulary drills, and PDF downloads.",
   "publisher": {
     "@type": "Organization",
@@ -34,91 +34,8 @@ require_once __DIR__ . '/../includes/header.php';
 }
 </script>
 
-<!-- HERO SECTION CONTAINER -->
-<section class="hero-section">
-    <div class="container">
-        <div class="hero-heading-box">
-            <h1 class="hero-title">EPS TOPIK Online Free Quiz Korean Exam Paper with Answers PDF</h1>
-            <p class="hero-subtitle">
-                Practice with real-time interactive EPS TOPIK Online Free Quiz <strong>korean exam paper</strong> modules featuring instant automated scoring, complete workplace safety question sets, downloadable <strong>korean test papers</strong> PDFs, and official HRD Korea answer keys.
-            </p>
-        </div>
-
-        <!-- 2-Column Split Box Container -->
-        <div class="hero-split-container">
-            <!-- Left Box: Exam Paper Downloads & Category Directory -->
-            <div class="hero-left-box">
-                <div class="box-title-header">
-                    <h3>🎯 Free Online Quiz Modules & Downloads</h3>
-                    <span class="tag-badge green">Free Quiz</span>
-                </div>
-                <div class="exam-nav-list">
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>EPS TOPIK Online Free Quiz Full Set PDF</h4>
-                            <p>Complete 20-question mock paper with answer key & explanations</p>
-                        </div>
-                        <a href="../pdf/eps-topik-2025-model.pdf" class="btn-download-sm" download>PDF</a>
-                    </div>
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>EPS TOPIK Workplace Safety Signboard Quiz PDF</h4>
-                            <p>Illustrated safety signs & factory tool question bank</p>
-                        </div>
-                        <a href="../pdf/eps-topik-official-question-bank.pdf" class="btn-download-sm" download>PDF</a>
-                    </div>
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>EPS TOPIK Manufacturing Sector Practice Paper PDF</h4>
-                            <p>Sector-specific vocabulary and labor contract reading set</p>
-                        </div>
-                        <a href="../pdf/eps-topik-manufacturing.pdf" class="btn-download-sm" download>PDF</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right Box: Interactive Live CBT Quiz Simulator -->
-            <div class="hero-right-box" id="live-test-box">
-                <div class="live-test-header">
-                    <div class="live-indicator">
-                        <span class="live-dot"></span> LIVE ONLINE QUIZ SIMULATOR
-                    </div>
-                    <div style="font-weight: 700; font-size: 0.9rem; color: #475569;">
-                        ⏱ Timer: <span id="liveTimerDisplay" style="color: #2563eb;">25:00</span>
-                    </div>
-                </div>
-
-                <div class="quiz-card-box">
-                    <div class="quiz-question-title" id="liveQuestionText">
-                        <?php echo htmlspecialchars($live_questions[0]['question_text']); ?>
-                    </div>
-                    
-                    <div class="quiz-options-list" id="liveOptionsContainer">
-                        <button class="quiz-option-btn" data-option="A">
-                            <span>A. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_a']); ?></span></span>
-                        </button>
-                        <button class="quiz-option-btn" data-option="B">
-                            <span>B. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_b']); ?></span></span>
-                        </button>
-                        <button class="quiz-option-btn" data-option="C">
-                            <span>C. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_c']); ?></span></span>
-                        </button>
-                        <button class="quiz-option-btn" data-option="D">
-                            <span>D. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_d']); ?></span></span>
-                        </button>
-                    </div>
-
-                    <div id="liveExplanationBox" style="display:none; margin-top: 14px; padding: 12px; background: #eff6ff; border-radius: 6px; font-size: 0.88rem; color: #1e3a8a;"></div>
-                </div>
-
-                <div class="quiz-action-bar">
-                    <button class="btn-primary-action" id="btnSubmitAnswer" disabled>Submit Answer</button>
-                    <button class="btn-primary-action" id="btnNextQuestion" style="display:none; background: #059669;">Next Question ▶</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<!-- HERO SECTION COMPONENT -->
+<?php require_once __DIR__ . '/../includes/hero-section.php'; ?>
 
 <!-- MAIN CONTENT CONTAINER (2,000+ WORDS DETAILED ONLINE FREE QUIZ GUIDE) -->
 <section class="section-padding">
