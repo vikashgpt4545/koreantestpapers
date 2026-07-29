@@ -641,11 +641,17 @@ function shuffleArray(array) {
     return arr;
 }
 
+let lastPickedTargetIdx = -1;
+
 function generateDynamicQuestion() {
     const bank = (currentActiveGameMode === 'signboard') ? signboardVocabBank : speedMatchVocabBank;
     if (!bank || bank.length < 4) return null;
 
-    const targetIdx = Math.floor(Math.random() * bank.length);
+    let targetIdx = Math.floor(Math.random() * bank.length);
+    if (targetIdx === lastPickedTargetIdx && bank.length > 1) {
+        targetIdx = (targetIdx + 1) % bank.length;
+    }
+    lastPickedTargetIdx = targetIdx;
     const target = bank[targetIdx];
 
     const distractors = [];
@@ -757,23 +763,12 @@ function renderCurrentGameQuestion() {
                     <div style="color: #94a3b8; font-size: 0.88rem; margin-top: 10px;">Listen to native Korean pronunciation and select the correct English meaning below:</div>
                 </div>
             `;
-            // Auto-play spoken audio on question render
             if (typeof speakKorean === 'function') {
                 speakKorean(currentQuestionObj.kor);
             }
         } else {
             qArea.innerHTML = `What is the English meaning of Korean word: <strong style="color: #60a5fa; font-size: 1.4rem;">"${currentQuestionObj.kor}"</strong>?`;
         }
-    }
-
-    if (qGrid) {
-        qGrid.innerHTML = currentQuestionObj.opts.map((opt, idx) => `
-            <button class="game-opt-btn" onclick="checkGameAnswer(${idx}, this)" style="transition: background 0.2s ease, transform 0.1s ease; cursor: pointer;">${opt}</button>
-        `).join('');
-    }
-}
-
-function checkGameAnswer(optIdx, btnElem) {
     if (gameTimeRemaining <= 0) {
         restartGameRound();
         return;
@@ -863,9 +858,7 @@ function checkGameAnswer(optIdx, btnElem) {
 
     setTimeout(() => {
         isGameProcessing = false;
-        if (gameTimeRemaining > 0) {
-            renderCurrentGameQuestion();
-        }
+        renderCurrentGameQuestion();
     }, 850);
 }
 
@@ -913,7 +906,7 @@ const heroVocabList = [
     { kor: '장갑', eng: 'Work Gloves (दस्ताने)', cat: 'Factory Safety' },
     { kor: '망치', eng: 'Hammer (हथौड़ा)', cat: 'Tools & Equipment' },
     { kor: '줄자', eng: 'Measuring Tape (इंच टेप)', cat: 'Tools & Equipment' },
-    { kor: '스패너', eng: 'Spanner / Wrench (पाना)', cat: 'Tools & Equipment' }
+    { kor: '스패너', eng: 'Spanner / Wrench (पा나)', cat: 'Tools & Equipment' }
 ];
 
 function switchHeroTab(tabId, btnElem) {
@@ -930,6 +923,19 @@ function switchHeroTab(tabId, btnElem) {
         targetPanel.style.display = 'block';
         targetPanel.classList.add('active');
     }
+
+    if (tabId === 'gamesTab') {
+        isGameProcessing = false;
+        if (gameTimeRemaining <= 0) {
+            startGameTimer();
+        }
+        const hasAccess = window.userSession && (window.userSession.isPro || window.userSession.isTrial);
+        if (!hasAccess && heroGameCount >= 3) {
+            // Keep limit reached state displayed
+        } else {
+            renderCurrentGameQuestion();
+        }
+    }
 }
 
 function speakKorean(text) {
@@ -942,8 +948,6 @@ function speakKorean(text) {
         window.speechSynthesis.speak(utterance);
     }
 }
-
-
 
 function downloadProNote(e, pdfUrl) {
     if (e) e.preventDefault();
@@ -986,4 +990,5 @@ function checkProAccessForNotes() {
         openProModal();
     }
 }
+
 
