@@ -53,9 +53,44 @@ $canonical_url = "https://koreantestpapers.in" . ($_SERVER['REQUEST_URI'] ?? '')
 <body>
 
     <!-- Top Notification Bar -->
-    <div class="top-notification-bar">
-        ⚡ Free 2025 EPS-TOPIK & TOPIK I & II Solved Question Papers with English Explanations for Indian Candidates!
+    <div class="top-notification-bar" style="display: flex; justify-content: space-between; align-items: center; padding: 6px 16px;">
+        <span>⚡ Free 2025 EPS-TOPIK & TOPIK I & II Solved Question Papers with English Explanations!</span>
+        <?php if (is_logged_in()): 
+            $user_data = get_current_user_data();
+            $u_name = htmlspecialchars($user_data['name'] ?? $_SESSION['user_name'] ?? 'Candidate');
+        ?>
+            <span style="display: flex; align-items: center; gap: 10px;">
+                <?php if (is_admin()): ?>
+                    <a href="/admin/dashboard.php" style="color: #fbbf24; font-weight: 700; text-decoration: underline;">🛡️ Admin Dashboard</a>
+                <?php elseif (is_user_pro()): ?>
+                    <span style="background: #059669; color: white; padding: 2px 8px; border-radius: 12px; font-weight: 700; font-size: 0.78rem;">💎 30-Day Pro Active</span>
+                <?php elseif (is_user_in_trial()): ?>
+                    <span style="background: #2563eb; color: white; padding: 2px 8px; border-radius: 12px; font-weight: 700; font-size: 0.78rem;">🎁 5-Day Free Trial (<?php echo get_trial_remaining_hours(); ?>h left)</span>
+                <?php else: ?>
+                    <span style="background: #64748b; color: white; padding: 2px 8px; border-radius: 12px; font-weight: 700; font-size: 0.78rem;">Free Plan</span>
+                <?php endif; ?>
+                <span>👋 Hi, <strong><?php echo $u_name; ?></strong></span>
+                <a href="/auth-handler.php?action=logout" style="color: #cbd5e1; text-decoration: none; font-size: 0.8rem; border: 1px solid #475569; padding: 2px 6px; border-radius: 4px;">Logout</a>
+            </span>
+        <?php else: ?>
+            <span>
+                <a href="javascript:void(0)" onclick="openAuthModal('login')" style="color: #ffffff; text-decoration: underline; margin-right: 12px; font-weight: 700;">🔑 Log In</a>
+                <a href="javascript:void(0)" onclick="openAuthModal('register')" style="background: #059669; color: white; padding: 3px 10px; border-radius: 12px; font-weight: 700; font-size: 0.8rem; text-decoration: none;">🎁 Start 5-Day Free Trial</a>
+            </span>
+        <?php endif; ?>
     </div>
+
+    <!-- Session Notifications -->
+    <?php if (isset($_SESSION['auth_error'])): ?>
+        <div style="background: #fef2f2; border-bottom: 2px solid #ef4444; color: #991b1b; padding: 10px; text-align: center; font-weight: 700; font-size: 0.9rem;">
+            ⚠️ <?php echo htmlspecialchars($_SESSION['auth_error']); unset($_SESSION['auth_error']); ?>
+        </div>
+    <?php endif; ?>
+    <?php if (isset($_SESSION['auth_success'])): ?>
+        <div style="background: #f0fdf4; border-bottom: 2px solid #22c55e; color: #166534; padding: 10px; text-align: center; font-weight: 700; font-size: 0.9rem;">
+            🎉 <?php echo htmlspecialchars($_SESSION['auth_success']); unset($_SESSION['auth_success']); ?>
+        </div>
+    <?php endif; ?>
 
     <!-- Header Navigation -->
     <header class="header-main">
@@ -67,7 +102,11 @@ $canonical_url = "https://koreantestpapers.in" . ($_SERVER['REQUEST_URI'] ?? '')
 
             <!-- Mobile Only Header Actions -->
             <div class="mobile-header-actions">
-                <a href="/pro-portal" class="btn-header-login-mobile">🔑 Login</a>
+                <?php if (is_logged_in()): ?>
+                    <a href="/auth-handler.php?action=logout" class="btn-header-login-mobile">Logout</a>
+                <?php else: ?>
+                    <a href="javascript:void(0)" onclick="openAuthModal('login')" class="btn-header-login-mobile">🔑 Login</a>
+                <?php endif; ?>
                 <a href="/#cbtTab" onclick="if(window.switchHeroTab){ switchHeroTab('cbtTab', document.querySelectorAll('.tab-btn')[2]); }" class="btn-header-cta-mobile">▶ Live Test</a>
                 <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Navigation">
                     <span class="hamburger-icon">☰</span>
@@ -82,9 +121,20 @@ $canonical_url = "https://koreantestpapers.in" . ($_SERVER['REQUEST_URI'] ?? '')
                     <li><a href="/topik-1-level-1-korean-test-papers">TOPIK I & II</a></li>
                     <li><a href="/korean-exam-paper-master-collection">Past Papers PDF</a></li>
                     <li><a href="/eps-topik-passing-marks-guide-korean-exam-paper">FAQ</a></li>
-                    <li><a href="/pro-portal" style="background: #0f172a; color: #fbbf24; border: 1px solid #fbbf24; padding: 6px 12px; border-radius: 6px; font-weight: 700; font-size: 0.85rem;">🔑 Pro Login</a></li>
+                    <?php if (is_logged_in()): ?>
+                        <?php if (is_admin()): ?>
+                            <li><a href="/admin/dashboard.php" style="background: #d97706; color: #ffffff; padding: 6px 12px; border-radius: 6px; font-weight: 700; font-size: 0.85rem;">🛡️ Admin</a></li>
+                        <?php else: ?>
+                            <li><a href="/subscription" style="background: #059669; color: #ffffff; padding: 6px 12px; border-radius: 6px; font-weight: 700; font-size: 0.85rem;">💎 Pro ($8 Pass)</a></li>
+                        <?php endif; ?>
+                    <?php else: ?>
+                        <li><a href="javascript:void(0)" onclick="openAuthModal('login')" style="background: #0f172a; color: #fbbf24; border: 1px solid #fbbf24; padding: 6px 12px; border-radius: 6px; font-weight: 700; font-size: 0.85rem;">🔑 Log In</a></li>
+                    <?php endif; ?>
                     <li class="desktop-only-cta"><a href="/#cbtTab" onclick="if(window.switchHeroTab){ switchHeroTab('cbtTab', document.querySelectorAll('.tab-btn')[2]); }" class="btn-header-cta">▶ Live CBT Test</a></li>
                 </ul>
             </nav>
         </div>
     </header>
+
+    <!-- Include Auth Modal Component -->
+    <?php require_once __DIR__ . '/auth-modal.php'; ?>

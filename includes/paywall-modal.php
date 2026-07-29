@@ -3,24 +3,31 @@
     <div class="pro-modal-box">
         <button class="pro-modal-close" onclick="closeProModal()">&times;</button>
         <div class="pro-modal-badge">💎 PRO UNLOCK REQUIRED</div>
-        <h3 class="pro-modal-title">You've Completed Level 1 / Free Trial!</h3>
+        <h3 class="pro-modal-title">Unlock Full Pro Access & Study Notes!</h3>
         <p class="pro-modal-subtitle">
-            Upgrade to a <strong>Pro Student Pass</strong> to unlock Level 2+, Hard Mode Game Challenges, Dynamic No-Repeat Question Bank, and Full CBT Analytics!
+            Upgrade to the <strong>30-Day Pro Pass ($8 USD)</strong> to unlock <strong>📝 Pro Study Notes</strong>, <strong>📄 Master PDF Vault</strong>, and Unlimited CBT Simulator Practice!
         </p>
 
         <div class="pro-features-grid">
             <div class="pro-feature-item">
-                <span class="pro-icon">🎲</span>
+                <span class="pro-icon">📝</span>
                 <div>
-                    <strong>Dynamic Question Generator</strong>
-                    <p>Randomized unseen question sampling on every play session</p>
+                    <strong>📝 Exclusive Pro Study Notes</strong>
+                    <p>60-Chapter vocabulary notes, safety signs & grammar cheatsheets</p>
                 </div>
             </div>
             <div class="pro-feature-item">
-                <span class="pro-icon">🏆</span>
+                <span class="pro-icon">📄</span>
                 <div>
-                    <strong>Level 2+ & Pro Game Modes</strong>
-                    <p>Speed Blitz, Signboard Puzzles & Hard Challenges</p>
+                    <strong>📄 Master PDF Vault Access</strong>
+                    <p>150+ Solved official past exam papers & audio transcripts</p>
+                </div>
+            </div>
+            <div class="pro-feature-item">
+                <span class="pro-icon">🎲</span>
+                <div>
+                    <strong>Dynamic Question Generator</strong>
+                    <p>Randomized unseen question sampling on every practice session</p>
                 </div>
             </div>
             <div class="pro-feature-item">
@@ -30,43 +37,20 @@
                     <p>Detailed right/wrong reports & question breakdown</p>
                 </div>
             </div>
-            <div class="pro-feature-item">
-                <span class="pro-icon">📝</span>
-                <div>
-                    <strong>Pro Study Notes & Cheatsheets</strong>
-                    <p>60-Chapter vocabulary notes & grammar guides</p>
-                </div>
-            </div>
         </div>
 
-        <!-- Time-Based USD Pricing Tiers -->
-        <div class="pro-pricing-mini-grid">
-            <div class="mini-price-card" onclick="selectPassPlan('10-day', 3)">
-                <div class="mini-plan-badge">10 DAYS</div>
-                <div class="mini-plan-price">$3 <span>USD</span></div>
-                <div class="mini-plan-label">Cram Pass</div>
-            </div>
-            <div class="mini-price-card popular" onclick="selectPassPlan('20-day', 5)">
-                <div class="popular-tag">MOST POPULAR</div>
-                <div class="mini-plan-badge">20 DAYS</div>
-                <div class="mini-plan-price">$5 <span>USD</span></div>
-                <div class="mini-plan-label">Standard Pass</div>
-            </div>
-            <div class="mini-price-card" onclick="selectPassPlan('30-day', 7)">
-                <div class="mini-plan-badge">30 DAYS</div>
-                <div class="mini-plan-price">$7 <span>USD</span></div>
-                <div class="mini-plan-label">Monthly Pass</div>
-            </div>
-            <div class="mini-price-card" onclick="selectPassPlan('60-day', 11)">
-                <div class="mini-plan-badge">60 DAYS</div>
-                <div class="mini-plan-price">$11 <span>USD</span></div>
-                <div class="mini-plan-label">Ultimate Pass</div>
-            </div>
+        <!-- 30-Day Pass ($8 USD) Highlight Card -->
+        <div style="background: linear-gradient(135deg, #1e3a8a, #2563eb); color: white; border-radius: 10px; padding: 20px; text-align: center; margin: 18px 0;">
+            <div style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; background: #fbbf24; color: #0f172a; display: inline-block; padding: 3px 10px; border-radius: 12px; margin-bottom: 8px;">BEST VALUE MEMBER PASS</div>
+            <div style="font-size: 1.4rem; font-weight: 800;">30-Day Monthly Pro Pass</div>
+            <div style="font-size: 2.2rem; font-weight: 800; margin: 6px 0;">$<?php echo htmlspecialchars(get_setting('pro_price_usd', '8')); ?> <span style="font-size: 1rem; font-weight: 400;">USD / Month</span></div>
+            <p style="font-size: 0.88rem; color: #e0f2fe; margin: 0;">Instant 1-Click Access to Study Notes & All Test Archives</p>
         </div>
 
         <div class="pro-modal-actions">
-            <a href="/subscription" class="btn-pro-primary">🔓 Unlock Pro Pass Now ($3 - $11)</a>
-            <button class="btn-pro-secondary" onclick="closeProModal()">⚡ Continue Free Level 1</button>
+            <a href="/subscription" class="btn-pro-primary" style="background: #059669; font-weight: 800;">🔓 Unlock 30-Day Pro Pass ($<?php echo htmlspecialchars(get_setting('pro_price_usd', '8')); ?> USD)</a>
+            <button class="btn-pro-secondary" onclick="closeProModal()">⚡ Continue Free Practice</button>
         </div>
     </div>
 </div>
+

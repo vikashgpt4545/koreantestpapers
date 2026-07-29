@@ -202,7 +202,7 @@ function get_live_questions() {
             'id' => 4,
             'exam_type' => 'EPS-TOPIK',
             'question_text' => '다음 안전 표지판이 뜻하는 것은 무엇입니까? (What does this workplace safety sign mean?): [ 🚫 손대지 마시오 ]',
-            'option_a' => '만지지 마십시오 (Do not touch / छूना मना है)',
+            'option_a' => '만지지 마십시오 (Do not touch / छू나 मना है)',
             'option_b' => '들어가지 마십시오 (Do not enter / प्रवेश वर्जित)',
             'option_c' => '담배를 피우지 마십시오 (No smoking / धूम्रपान निषेध)',
             'option_d' => '주차하지 마십시오 (No parking / पार्किंग मना है)',
@@ -210,5 +210,104 @@ function get_live_questions() {
             'explanation' => 'English Explanation: "손대지 마시오" and "만지지 마십시오" both mean "Do not touch". Crucial safety sign question in EPS-TOPIK.'
         ]
     ];
+}
+
+// Session Management Initialization
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+// Helper to fetch dynamic site settings
+function get_setting($key, $default = '') {
+    global $conn, $db_connected;
+    if ($db_connected) {
+        try {
+            $stmt = $conn->prepare("SELECT setting_value FROM site_settings WHERE setting_key = :k LIMIT 1");
+            $stmt->execute([':k' => $key]);
+            $res = $stmt->fetchColumn();
+            if ($res !== false) return $res;
+        } catch (Exception $e) {}
+    }
+    // Fallback defaults
+    $fallbacks = [
+        'pro_price_usd' => '8',
+        'pro_plan_duration_days' => '30',
+        'trial_duration_days' => '5'
+    ];
+    return $fallbacks[$key] ?? $default;
+}
+
+// Helper to set site settings (Admin)
+function set_setting($key, $val) {
+    global $conn, $db_connected;
+    if ($db_connected) {
+        try {
+            $stmt = $conn->prepare("INSERT INTO site_settings (setting_key, setting_value) VALUES (:k, :v) ON DUPLICATE KEY UPDATE setting_value = :v");
+            return $stmt->execute([':k' => $key, ':v' => $val]);
+        } catch (Exception $e) {}
+    }
+    return false;
+}
+
+// User Auth Helpers
+function is_logged_in() {
+    return isset($_SESSION['user_id']) && !empty($_SESSION['user_id']);
+}
+
+function get_current_user_data() {
+    global $conn, $db_connected;
+    if (!is_logged_in()) return null;
+    if ($db_connected) {
+        try {
+            $stmt = $conn->prepare("SELECT * FROM users WHERE id = :id LIMIT 1");
+            $stmt->execute([':id' => $_SESSION['user_id']]);
+            $u = $stmt->fetch();
+            if ($u) return $u;
+        } catch (Exception $e) {}
+    }
+    return $_SESSION['user_data'] ?? null;
+}
+
+function is_admin() {
+    $u = get_current_user_data();
+    return $u && isset($u['role']) && $u['role'] === 'admin';
+}
+
+function is_user_pro() {
+    // Admin is always Pro
+    if (is_admin()) return true;
+    
+    // Check session or local override
+    if (isset($_SESSION['user_status']) && $_SESSION['user_status'] === 'pro') return true;
+
+    $u = get_current_user_data();
+    if (!$u) return false;
+
+    if ($u['status'] === 'pro') {
+        // Check if subscription has not expired
+        if (!empty($u['subscription_ends_at'])) {
+            return strtotime($u['subscription_ends_at']) > time();
+        }
+        return true;
+    }
+    return false;
+}
+
+function is_user_in_trial() {
+    if (is_user_pro()) return false;
+    $u = get_current_user_data();
+    if (!$u) return false;
+
+    if (!empty($u['trial_ends_at'])) {
+        return strtotime($u['trial_ends_at']) > time();
+    }
+    return false;
+}
+
+function get_trial_remaining_hours() {
+    $u = get_current_user_data();
+    if (!$u || empty($u['trial_ends_at'])) return 0;
+    $diff = strtotime($u['trial_ends_at']) - time();
+    return $diff > 0 ? ceil($diff / 3600) : 0;
 }
 ?>

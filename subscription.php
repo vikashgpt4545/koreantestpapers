@@ -23,80 +23,32 @@ require_once __DIR__ . '/includes/header.php';
 </section>
 
 <!-- SUBSCRIPTION PRICING CARDS SECTION -->
+<?php $pro_price = get_setting('pro_price_usd', '8'); ?>
 <section class="section-padding">
     <div class="container">
         <div style="text-align: center; margin-bottom: 40px;">
-            <h2 style="font-size: 2rem; color: #0f172a;">Select Your Study Pass Duration</h2>
-            <p style="color: #64748b;">(All PDF downloads on our site remain 100% FREE for all visitors! Passes apply to games & CBT tests.)</p>
+            <h2 style="font-size: 2rem; color: #0f172a;">30-Day Full Pro Pass ($<?php echo htmlspecialchars($pro_price); ?> USD)</h2>
+            <p style="color: #64748b;">(Includes 30 Days Full Access to 📝 Pro Study Notes, 📄 Master PDF Vault, Unlimited CBT Tests & Practice Games)</p>
         </div>
 
-        <div class="subscription-pricing-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px;">
-            
-            <!-- 10-Day Pass Card -->
-            <div class="plan-pricing-card" style="background: white; border: 2px solid #e2e8f0; border-radius: 12px; padding: 28px 20px; text-align: center; position: relative;">
-                <h3 style="font-size: 1.3rem; color: #0f172a; margin-bottom: 8px;">10-Day Cram Pass</h3>
-                <div style="font-size: 2.4rem; font-weight: 800; color: #2563eb; margin-bottom: 4px;">$3 <span style="font-size: 1rem; color: #64748b; font-weight: 400;">USD</span></div>
-                <p style="font-size: 0.88rem; color: #64748b; margin-bottom: 20px;">Short-Term Exam Refresher</p>
-                <ul style="text-align: left; font-size: 0.9rem; line-height: 1.8; color: #334155; margin-bottom: 24px; list-style: none; padding: 0;">
-                    <li>✔ 10 Days Unlimited Games</li>
-                    <li>✔ Level 2 & Hard Mode Access</li>
-                    <li>✔ Dynamic Random CBT Tests</li>
-                    <li>✔ Detailed Test Score Analytics</li>
-                    <li>✔ Pro Study Notes & Vocab</li>
-                    <li>✔ 100% Free PDF Downloads</li>
-                </ul>
-                <button onclick="startRazorpayPayment('10-day', 3)" class="btn-primary-action" style="width: 100%; border-radius: 6px; padding: 12px;">Subscribe for $3 USD</button>
-            </div>
+        <div style="max-width: 540px; margin: 0 auto;">
+            <!-- 30-Day Pass Card (Featured) -->
+            <div class="plan-pricing-card popular-card" style="background: white; border: 3px solid #2563eb; border-radius: 16px; padding: 36px 28px; text-align: center; position: relative; box-shadow: 0 15px 30px -5px rgba(37, 99, 235, 0.2);">
+                <div style="position: absolute; top: -16px; left: 50%; transform: translateX(-50%); background: #059669; color: white; padding: 4px 18px; border-radius: 20px; font-size: 0.8rem; font-weight: 800; text-transform: uppercase;">💎 ALL-IN-ONE PRO STUDENT PASS</div>
+                <h3 style="font-size: 1.6rem; color: #0f172a; margin-bottom: 8px;">30-Day Pro Membership</h3>
+                <div style="font-size: 3rem; font-weight: 800; color: #2563eb; margin-bottom: 4px;">$<?php echo htmlspecialchars($pro_price); ?> <span style="font-size: 1.1rem; color: #64748b; font-weight: 400;">USD / 30 Days</span></div>
+                <p style="font-size: 0.95rem; color: #64748b; margin-bottom: 24px;">Complete Exam Master Access Pass</p>
 
-            <!-- 20-Day Pass Card (Popular) -->
-            <div class="plan-pricing-card popular-card" style="background: white; border: 2px solid #2563eb; border-radius: 12px; padding: 28px 20px; text-align: center; position: relative; box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.15);">
-                <div style="position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: #2563eb; color: white; padding: 4px 14px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">MOST POPULAR</div>
-                <h3 style="font-size: 1.3rem; color: #0f172a; margin-bottom: 8px;">20-Day Standard Pass</h3>
-                <div style="font-size: 2.4rem; font-weight: 800; color: #2563eb; margin-bottom: 4px;">$5 <span style="font-size: 1rem; color: #64748b; font-weight: 400;">USD</span></div>
-                <p style="font-size: 0.88rem; color: #64748b; margin-bottom: 20px;">Complete Exam Preparation</p>
-                <ul style="text-align: left; font-size: 0.9rem; line-height: 1.8; color: #334155; margin-bottom: 24px; list-style: none; padding: 0;">
-                    <li>✔ 20 Days Unlimited Games</li>
-                    <li>✔ Level 2 & Hard Mode Access</li>
-                    <li>✔ Dynamic Random CBT Tests</li>
-                    <li>✔ Detailed Test Score Analytics</li>
-                    <li>✔ Pro Study Notes & Vocab</li>
-                    <li>✔ 100% Free PDF Downloads</li>
+                <ul style="text-align: left; font-size: 1rem; line-height: 2; color: #334155; margin-bottom: 28px; list-style: none; padding: 0;">
+                    <li>✔ <strong>🔓 Unlocked 📝 Pro Study Notes</strong> (60-Chapter Dict & Grammar)</li>
+                    <li>✔ <strong>🔓 Unlocked 📄 Master PDF Vault</strong> (150+ Solved Papers)</li>
+                    <li>✔ <strong>🔓 30 Days Unlimited Practice Games</strong> (Speed Match & Signboards)</li>
+                    <li>✔ <strong>🔓 Dynamic Random CBT Test Simulator</strong></li>
+                    <li>✔ <strong>🔓 Detailed Right/Wrong Answer Explanations</strong></li>
+                    <li>✔ <strong>🔓 5-Day Free Trial Auto-Upgraded to Pro</strong></li>
                 </ul>
-                <button onclick="startRazorpayPayment('20-day', 5)" class="btn-primary-action" style="width: 100%; border-radius: 6px; padding: 12px; background: #2563eb;">Subscribe for $5 USD</button>
+                <button onclick="startRazorpayPayment('30-day', <?php echo htmlspecialchars($pro_price); ?>)" class="btn-primary-action" style="width: 100%; border-radius: 8px; padding: 14px; background: #059669; font-size: 1.1rem; font-weight: 800;">Subscribe for $<?php echo htmlspecialchars($pro_price); ?> USD</button>
             </div>
-
-            <!-- 30-Day Pass Card -->
-            <div class="plan-pricing-card" style="background: white; border: 2px solid #e2e8f0; border-radius: 12px; padding: 28px 20px; text-align: center;">
-                <h3 style="font-size: 1.3rem; color: #0f172a; margin-bottom: 8px;">30-Day Monthly Pass</h3>
-                <div style="font-size: 2.4rem; font-weight: 800; color: #059669; margin-bottom: 4px;">$7 <span style="font-size: 1rem; color: #64748b; font-weight: 400;">USD</span></div>
-                <p style="font-size: 0.88rem; color: #64748b; margin-bottom: 20px;">Full Month Master Pass</p>
-                <ul style="text-align: left; font-size: 0.9rem; line-height: 1.8; color: #334155; margin-bottom: 24px; list-style: none; padding: 0;">
-                    <li>✔ 30 Days Unlimited Games</li>
-                    <li>✔ Level 2 & Hard Mode Access</li>
-                    <li>✔ Dynamic Random CBT Tests</li>
-                    <li>✔ Detailed Test Score Analytics</li>
-                    <li>✔ Pro Study Notes & Vocab</li>
-                    <li>✔ 100% Free PDF Downloads</li>
-                </ul>
-                <button onclick="startRazorpayPayment('30-day', 7)" class="btn-primary-action" style="width: 100%; border-radius: 6px; padding: 12px; background: #059669;">Subscribe for $7 USD</button>
-            </div>
-
-            <!-- 60-Day Pass Card -->
-            <div class="plan-pricing-card" style="background: white; border: 2px solid #e2e8f0; border-radius: 12px; padding: 28px 20px; text-align: center;">
-                <h3 style="font-size: 1.3rem; color: #0f172a; margin-bottom: 8px;">60-Day Ultimate Pass</h3>
-                <div style="font-size: 2.4rem; font-weight: 800; color: #7c3aed; margin-bottom: 4px;">$11 <span style="font-size: 1rem; color: #64748b; font-weight: 400;">USD</span></div>
-                <p style="font-size: 0.88rem; color: #64748b; margin-bottom: 20px;">Maximum Preparation & Value</p>
-                <ul style="text-align: left; font-size: 0.9rem; line-height: 1.8; color: #334155; margin-bottom: 24px; list-style: none; padding: 0;">
-                    <li>✔ 60 Days Unlimited Games</li>
-                    <li>✔ Level 2 & Hard Mode Access</li>
-                    <li>✔ Dynamic Random CBT Tests</li>
-                    <li>✔ Detailed Test Score Analytics</li>
-                    <li>✔ Pro Study Notes & Vocab</li>
-                    <li>✔ Priority Candidate Support</li>
-                </ul>
-                <button onclick="startRazorpayPayment('60-day', 11)" class="btn-primary-action" style="width: 100%; border-radius: 6px; padding: 12px; background: #7c3aed;">Subscribe for $11 USD</button>
-            </div>
-
         </div>
     </div>
 </section>
