@@ -3,7 +3,7 @@
 require_once __DIR__ . '/../includes/db.php';
 
 // Page SEO Meta Configuration
-$page_title = "EPS TOPIK Listening Korean Exam Paper with Audio Files";
+$page_title = "EPS TOPIK Listening Korean Exam Paper with Audio Files & Korean Test Papers";
 $page_desc = "Download free EPS TOPIK Listening Korean exam paper PDF with MP3 audio scripts, transcript translation, answer keys, and listening practice questions for HRD Korea candidates in India.";
 $canonical_url = "https://koreantestpapers.in/eps-topik-listening-korean-exam-paper";
 
@@ -25,7 +25,7 @@ require_once __DIR__ . '/../includes/header.php';
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "EPS TOPIK Listening Korean Exam Paper with Audio Files",
+  "headline": "EPS TOPIK Listening Korean Exam Paper with Audio Files & Korean Test Papers",
   "description": "Comprehensive audio guide and downloadable EPS TOPIK Listening Korean exam paper PDF sets with scripts and verified answer keys.",
   "publisher": {
     "@type": "Organization",
@@ -36,91 +36,8 @@ require_once __DIR__ . '/../includes/header.php';
 }
 </script>
 
-<!-- HERO SECTION CONTAINER -->
-<section class="hero-section">
-    <div class="container">
-        <div class="hero-heading-box">
-            <h1 class="hero-title">EPS TOPIK Listening Korean Exam Paper with Audio Files</h1>
-            <p class="hero-subtitle">
-                Master the official 20-question EPS TOPIK Listening <strong>korean exam paper</strong> module with complete MP3 audio transcripts, solved <strong>korean test papers</strong>, dialogue transcripts, and answer sheets designed for HRD Korea aspirants.
-            </p>
-        </div>
-
-        <!-- 2-Column Split Box Container -->
-        <div class="hero-split-container">
-            <!-- Left Box: Listening Audio Downloads -->
-            <div class="hero-left-box">
-                <div class="box-title-header">
-                    <h3>🎧 Listening Audio & Paper Archive</h3>
-                    <span class="tag-badge cyan">MP3 + PDF</span>
-                </div>
-                <div class="exam-nav-list">
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>2024 EPS TOPIK Listening Official Paper</h4>
-                            <p>Full 20-question listening test paper & audio transcript</p>
-                        </div>
-                        <a href="../pdf/eps-topik-listening-2024.pdf" class="btn-download-sm" download>PDF + Audio</a>
-                    </div>
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>2025 EPS TOPIK Listening Model Paper</h4>
-                            <p>Updated 2025 model audio dialogues & answer key</p>
-                        </div>
-                        <a href="../pdf/eps-topik-2025-model.pdf" class="btn-download-sm" download>PDF</a>
-                    </div>
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>Workplace Dialogue Audio Script</h4>
-                            <p>Factory conversations & supervisor command scripts</p>
-                        </div>
-                        <a href="../pdf/eps-topik-official-question-bank.pdf" class="btn-download-sm" download>PDF</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right Box: Live CBT Mock Test Widget -->
-            <div class="hero-right-box" id="live-test-box">
-                <div class="live-test-header">
-                    <div class="live-indicator">
-                        <span class="live-dot"></span> LIVE LISTENING PRACTICE
-                    </div>
-                    <div style="font-weight: 700; font-size: 0.9rem; color: #475569;">
-                        ⏱ Timer: <span id="liveTimerDisplay" style="color: #2563eb;">25:00</span>
-                    </div>
-                </div>
-
-                <div class="quiz-card-box">
-                    <div class="quiz-question-title" id="liveQuestionText">
-                        <?php echo htmlspecialchars($live_questions[1]['question_text'] ?? $live_questions[0]['question_text']); ?>
-                    </div>
-                    
-                    <div class="quiz-options-list" id="liveOptionsContainer">
-                        <button class="quiz-option-btn" data-option="A">
-                            <span>A. <span class="opt-text"><?php echo htmlspecialchars($live_questions[1]['option_a'] ?? $live_questions[0]['option_a']); ?></span></span>
-                        </button>
-                        <button class="quiz-option-btn" data-option="B">
-                            <span>B. <span class="opt-text"><?php echo htmlspecialchars($live_questions[1]['option_b'] ?? $live_questions[0]['option_b']); ?></span></span>
-                        </button>
-                        <button class="quiz-option-btn" data-option="C">
-                            <span>C. <span class="opt-text"><?php echo htmlspecialchars($live_questions[1]['option_c'] ?? $live_questions[0]['option_c']); ?></span></span>
-                        </button>
-                        <button class="quiz-option-btn" data-option="D">
-                            <span>D. <span class="opt-text"><?php echo htmlspecialchars($live_questions[1]['option_d'] ?? $live_questions[0]['option_d']); ?></span></span>
-                        </button>
-                    </div>
-
-                    <div id="liveExplanationBox" style="display:none; margin-top: 14px; padding: 12px; background: #eff6ff; border-radius: 6px; font-size: 0.88rem; color: #1e3a8a;"></div>
-                </div>
-
-                <div class="quiz-action-bar">
-                    <button class="btn-primary-action" id="btnSubmitAnswer" disabled>Submit Answer</button>
-                    <button class="btn-primary-action" id="btnNextQuestion" style="display:none; background: #059669;">Next Question ▶</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<!-- HERO SECTION COMPONENT -->
+<?php require_once __DIR__ . '/../includes/hero-section.php'; ?>
 
 <!-- MAIN CONTENT CONTAINER (2,000+ WORDS DETAILED LISTENING GUIDE) -->
 <section class="section-padding">
