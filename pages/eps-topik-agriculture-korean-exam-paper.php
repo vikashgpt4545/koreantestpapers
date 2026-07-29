@@ -3,7 +3,7 @@
 require_once __DIR__ . '/../includes/db.php';
 
 // Page SEO Meta Configuration
-$page_title = "EPS TOPIK Agriculture Korean Exam Paper with Keys";
+$page_title = "EPS TOPIK Agriculture Korean Exam Paper & Korean Test Papers with Keys";
 $page_desc = "Download free EPS TOPIK Agriculture Korean exam paper PDF with farming equipment vocabulary, crop cultivation terms, answer keys, and solved HRD Korea test papers.";
 $canonical_url = "https://koreantestpapers.in/eps-topik-agriculture-korean-exam-paper";
 
@@ -23,7 +23,7 @@ require_once __DIR__ . '/../includes/header.php';
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "EPS TOPIK Agriculture Korean Exam Paper with Keys",
+  "headline": "EPS TOPIK Agriculture Korean Exam Paper & Korean Test Papers with Keys",
   "description": "Comprehensive study guide and downloadable EPS TOPIK Agriculture Korean exam paper PDF sets with farming tools vocabulary and answer keys.",
   "publisher": {
     "@type": "Organization",
@@ -34,91 +34,8 @@ require_once __DIR__ . '/../includes/header.php';
 }
 </script>
 
-<!-- HERO SECTION CONTAINER -->
-<section class="hero-section">
-    <div class="container">
-        <div class="hero-heading-box">
-            <h1 class="hero-title">EPS TOPIK Agriculture Korean Exam Paper with Keys</h1>
-            <p class="hero-subtitle">
-                Master the HRD Korea Agriculture & Stockbreeding (농축산업) sector test with solved <strong>korean exam paper</strong> sets, farming machinery terminology, crop cultivation guides, and official <strong>korean test papers</strong>.
-            </p>
-        </div>
-
-        <!-- 2-Column Split Box Container -->
-        <div class="hero-split-container">
-            <!-- Left Box: Agriculture Sector Downloads -->
-            <div class="hero-left-box">
-                <div class="box-title-header">
-                    <h3>🌾 Agriculture Paper Archive</h3>
-                    <span class="tag-badge amber">Agriculture E-9</span>
-                </div>
-                <div class="exam-nav-list">
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>EPS TOPIK Agriculture Official Solved Paper</h4>
-                            <p>Official 20-question agricultural paper & key</p>
-                        </div>
-                        <a href="../pdf/eps-topik-agriculture.pdf" class="btn-download-sm" download>PDF</a>
-                    </div>
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>Farming Tools & Greenhouse Guide</h4>
-                            <p>200 Illustrated questions of farming equipment & crops</p>
-                        </div>
-                        <a href="../pdf/eps-topik-official-question-bank.pdf" class="btn-download-sm" download>PDF</a>
-                    </div>
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>2024 EPS TOPIK Solved Special Paper</h4>
-                            <p>Solved agricultural sector past test paper</p>
-                        </div>
-                        <a href="../pdf/eps-topik-2024-solved.pdf" class="btn-download-sm" download>PDF</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right Box: Live CBT Mock Test Widget -->
-            <div class="hero-right-box" id="live-test-box">
-                <div class="live-test-header">
-                    <div class="live-indicator">
-                        <span class="live-dot"></span> LIVE AGRICULTURE CBT
-                    </div>
-                    <div style="font-weight: 700; font-size: 0.9rem; color: #475569;">
-                        ⏱ Timer: <span id="liveTimerDisplay" style="color: #2563eb;">25:00</span>
-                    </div>
-                </div>
-
-                <div class="quiz-card-box">
-                    <div class="quiz-question-title" id="liveQuestionText">
-                        <?php echo htmlspecialchars($live_questions[0]['question_text']); ?>
-                    </div>
-                    
-                    <div class="quiz-options-list" id="liveOptionsContainer">
-                        <button class="quiz-option-btn" data-option="A">
-                            <span>A. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_a']); ?></span></span>
-                        </button>
-                        <button class="quiz-option-btn" data-option="B">
-                            <span>B. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_b']); ?></span></span>
-                        </button>
-                        <button class="quiz-option-btn" data-option="C">
-                            <span>C. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_c']); ?></span></span>
-                        </button>
-                        <button class="quiz-option-btn" data-option="D">
-                            <span>D. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_d']); ?></span></span>
-                        </button>
-                    </div>
-
-                    <div id="liveExplanationBox" style="display:none; margin-top: 14px; padding: 12px; background: #eff6ff; border-radius: 6px; font-size: 0.88rem; color: #1e3a8a;"></div>
-                </div>
-
-                <div class="quiz-action-bar">
-                    <button class="btn-primary-action" id="btnSubmitAnswer" disabled>Submit Answer</button>
-                    <button class="btn-primary-action" id="btnNextQuestion" style="display:none; background: #059669;">Next Question ▶</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<!-- HERO SECTION COMPONENT -->
+<?php require_once __DIR__ . '/../includes/hero-section.php'; ?>
 
 <!-- MAIN CONTENT CONTAINER (2,000+ WORDS DETAILED AGRICULTURE SECTOR GUIDE) -->
 <section class="section-padding">
