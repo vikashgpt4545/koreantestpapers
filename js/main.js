@@ -426,7 +426,23 @@ function nextVocabCard() {
     const hasAccess = window.userSession && (window.userSession.isPro || window.userSession.isTrial);
     vocabPreviewCount++;
 
-    if (!hasAccess && vocabPreviewCount > 3) {
+    if (!hasAccess && vocabPreviewCount >= 3) {
+        const flashcardBox = document.getElementById('vocabFlashcard');
+        if (flashcardBox) {
+            flashcardBox.style.background = '#1e293b';
+            flashcardBox.style.border = '1px solid #f59e0b';
+            flashcardBox.innerHTML = `
+                <div style="text-align: center; padding: 16px 8px;">
+                    <div style="font-size: 2.2rem; margin-bottom: 6px;">🎁</div>
+                    <div style="font-size: 0.85rem; color: #f59e0b; font-weight: 700; text-transform: uppercase; margin-bottom: 4px;">Free Teaser Preview Limit Reached (3/3 Words)</div>
+                    <div style="font-size: 1.05rem; color: #ffffff; font-weight: 800; margin-bottom: 6px;">Start Your 5-Day Free Trial</div>
+                    <p style="font-size: 0.82rem; color: #94a3b8; margin-bottom: 14px;">Create a free candidate account to unlock complete workplace vocabulary, flashcards & audio lessons!</p>
+                    <button onclick="openAuthModal('register')" class="btn-primary-action" style="padding: 10px 20px; font-size: 0.88rem; font-weight: 800; background: #059669; color: #ffffff; border-radius: 6px; border: none; cursor: pointer;">
+                        🎁 Start 5-Day Free Trial (Create Account) ▶
+                    </button>
+                </div>
+            `;
+        }
         if (typeof openAuthModal === 'function') {
             openAuthModal('register');
         }
@@ -854,14 +870,17 @@ function selectGameMode(mode, btnElement) {
         window.event.target.classList.add('active');
     }
 
-    const isPro = localStorage.getItem('koreantestpapers_pro') === 'true' || localStorage.getItem('koreanTestProAccess') === 'true';
-    if ((mode === 'signboard' || mode === 'audio') && !isPro) {
-        openProModal();
+    currentActiveGameMode = mode;
+
+    const hasAccess = window.userSession && (window.userSession.isPro || window.userSession.isTrial);
+    if (!hasAccess && heroGameCount >= 3) {
+        if (typeof openAuthModal === 'function') {
+            openAuthModal('register');
+        }
         return;
     }
 
-    currentActiveGameMode = mode;
-    restartGameRound();
+    renderCurrentGameQuestion();
 }
 
 // Prepare initial question without auto-starting background timer on page load
@@ -875,7 +894,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 let heroVocabIndex = 0;
 let heroVocabCount = 0;
-let heroGameCount = 0;
 let heroCbtCount = 0;
 
 const heroVocabList = [
@@ -916,42 +934,7 @@ function speakKorean(text) {
     }
 }
 
-function nextVocabCard() {
-    const isPro = localStorage.getItem('koreantestpapers_pro') === 'true' || localStorage.getItem('koreanTestProAccess') === 'true';
-    heroVocabCount++;
 
-    if (!isPro && heroVocabCount >= 5) {
-        const flashcardBox = document.getElementById('vocabFlashcard');
-        if (flashcardBox) {
-            flashcardBox.style.background = '#1e293b';
-            flashcardBox.style.border = '1px solid #f59e0b';
-            flashcardBox.innerHTML = `
-                <div style="text-align: center; padding: 16px 8px;">
-                    <div style="font-size: 2.2rem; margin-bottom: 6px;">🔒</div>
-                    <div style="font-size: 0.85rem; color: #f59e0b; font-weight: 700; text-transform: uppercase; margin-bottom: 4px;">Free Trial Limit Reached</div>
-                    <div style="font-size: 1.05rem; color: #ffffff; font-weight: 800; margin-bottom: 6px;">Unlock 1000+ Unlimited Vocabulary Words</div>
-                    <p style="font-size: 0.82rem; color: #94a3b8; margin-bottom: 14px;">Upgrade to a Pro Member Pass to access complete workplace dictionaries, audio lessons & flashcards!</p>
-                    <button onclick="openProModal()" class="btn-primary-action" style="padding: 10px 20px; font-size: 0.88rem; font-weight: 800; background: #2563eb; color: #ffffff; border-radius: 6px; border: none; cursor: pointer;">
-                        🔓 Unlock Pro Pass Now ($3 - $11)
-                    </button>
-                </div>
-            `;
-        }
-        openProModal();
-        return;
-    }
-
-    heroVocabIndex = (heroVocabIndex + 1) % heroVocabList.length;
-    const item = heroVocabList[heroVocabIndex];
-
-    const korEl = document.getElementById('fcKorean');
-    const engEl = document.getElementById('fcEnglish');
-    const catEl = document.querySelector('.vocab-flashcard-box .flashcard-category');
-
-    if (korEl) korEl.textContent = item.kor;
-    if (engEl) engEl.textContent = item.eng;
-    if (catEl) catEl.textContent = item.cat;
-}
 
 function downloadProNote(e, pdfUrl) {
     if (e) e.preventDefault();
