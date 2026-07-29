@@ -400,7 +400,7 @@ require_once __DIR__ . '/../includes/header.php';
                                     <div style="font-size: 1.5rem; margin-bottom: 8px;">📖</div>
                                     <h4 style="color: #ffffff; font-size: 0.95rem; font-weight: 700; margin-bottom: 4px;">1000 Workplace Nouns Dictionary</h4>
                                     <p style="color: #94a3b8; font-size: 0.82rem; margin-bottom: 12px;">Factory, agriculture & construction vocabulary with Hindi + English translations.</p>
-                                    <a href="https://drive.google.com/drive/folders/1opEW5O5mvYt2lcFP169Sizil7z0z6Qsv" target="_blank" class="btn-primary-action" style="font-size: 0.8rem; padding: 6px 12px; background: #d97706;">Download PDF 📥</a>
+                                    <a href="/pdf/1000-workplace-nouns-dictionary.html" target="_blank" class="btn-primary-action" style="font-size: 0.8rem; padding: 6px 12px; background: #2563eb; color: #ffffff; font-weight: 700; text-decoration: none; border-radius: 6px; display: inline-block;">Open & Download PDF 📥</a>
                                 </div>
 
                                 <div style="background: #0f172a; border: 1px solid #334155; padding: 16px; border-radius: 8px;">
