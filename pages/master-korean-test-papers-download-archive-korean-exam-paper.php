@@ -3,7 +3,7 @@
 require_once __DIR__ . '/../includes/db.php';
 
 // Page SEO Meta Configuration
-$page_title = "Master Korean Test Papers Download Archive Korean Exam Paper";
+$page_title = "Master Korean Test Papers Download Archive & Korean Exam Paper Vault";
 $page_desc = "Download free Master Korean Test Papers Download Archive Korean exam paper PDF with 100+ solved TOPIK I, TOPIK II, EPS-TOPIK, KIIP integration, listening MP3 packs, and answer keys.";
 $canonical_url = "https://koreantestpapers.in/master-korean-test-papers-download-archive-korean-exam-paper";
 
@@ -23,7 +23,7 @@ require_once __DIR__ . '/../includes/header.php';
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Master Korean Test Papers Download Archive Korean Exam Paper",
+  "headline": "Master Korean Test Papers Download Archive & Korean Exam Paper Vault",
   "description": "Comprehensive master portal and downloadable Master Korean Test Papers Download Archive Korean exam paper PDF sets with complete TOPIK I, TOPIK II, EPS-TOPIK, and KIIP archives.",
   "publisher": {
     "@type": "Organization",
@@ -34,91 +34,8 @@ require_once __DIR__ . '/../includes/header.php';
 }
 </script>
 
-<!-- HERO SECTION CONTAINER -->
-<section class="hero-section">
-    <div class="container">
-        <div class="hero-heading-box">
-            <h1 class="hero-title">Master Korean Test Papers Download Archive Korean Exam Paper</h1>
-            <p class="hero-subtitle">
-                The ultimate 100-page master repository for <strong>korean test papers</strong>, featuring downloadable TOPIK I & II papers, EPS-TOPIK UBT question banks, KIIP integration exams, MP3 listening audio packs, and complete <strong>korean exam paper</strong> answer keys.
-            </p>
-        </div>
-
-        <!-- 2-Column Split Box Container -->
-        <div class="hero-split-container">
-            <!-- Left Box: Master Archive Downloads -->
-            <div class="hero-left-box">
-                <div class="box-title-header">
-                    <h3>🏆 Master Download Hub (100 Pages Archive)</h3>
-                    <span class="tag-badge green">Master Vault</span>
-                </div>
-                <div class="exam-nav-list">
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>Master Korean Test Papers Complete PDF Pack</h4>
-                            <p>Ultimate 100-resource TOPIK & EPS-TOPIK master archive</p>
-                        </div>
-                        <a href="../pdf/eps-topik-2025-model.pdf" class="btn-download-sm" download>PDF</a>
-                    </div>
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>91st Official TOPIK II Full Exam Paper PDF</h4>
-                            <p>Official 91st NIIED session test paper & key</p>
-                        </div>
-                        <a href="../pdf/topik-91st-official-paper.pdf" class="btn-download-sm" download>PDF</a>
-                    </div>
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>EPS TOPIK Official 2000 Question Bank PDF</h4>
-                            <p>Official HRD Korea 2000-question UBT compilation</p>
-                        </div>
-                        <a href="../pdf/eps-topik-official-question-bank.pdf" class="btn-download-sm" download>PDF</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right Box: Live CBT Mock Test Widget -->
-            <div class="hero-right-box" id="live-test-box">
-                <div class="live-test-header">
-                    <div class="live-indicator">
-                        <span class="live-dot"></span> LIVE MASTER CBT TEST SIMULATOR
-                    </div>
-                    <div style="font-weight: 700; font-size: 0.9rem; color: #475569;">
-                        ⏱ Timer: <span id="liveTimerDisplay" style="color: #2563eb;">25:00</span>
-                    </div>
-                </div>
-
-                <div class="quiz-card-box">
-                    <div class="quiz-question-title" id="liveQuestionText">
-                        <?php echo htmlspecialchars($live_questions[0]['question_text']); ?>
-                    </div>
-                    
-                    <div class="quiz-options-list" id="liveOptionsContainer">
-                        <button class="quiz-option-btn" data-option="A">
-                            <span>A. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_a']); ?></span></span>
-                        </button>
-                        <button class="quiz-option-btn" data-option="B">
-                            <span>B. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_b']); ?></span></span>
-                        </button>
-                        <button class="quiz-option-btn" data-option="C">
-                            <span>C. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_c']); ?></span></span>
-                        </button>
-                        <button class="quiz-option-btn" data-option="D">
-                            <span>D. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_d']); ?></span></span>
-                        </button>
-                    </div>
-
-                    <div id="liveExplanationBox" style="display:none; margin-top: 14px; padding: 12px; background: #eff6ff; border-radius: 6px; font-size: 0.88rem; color: #1e3a8a;"></div>
-                </div>
-
-                <div class="quiz-action-bar">
-                    <button class="btn-primary-action" id="btnSubmitAnswer" disabled>Submit Answer</button>
-                    <button class="btn-primary-action" id="btnNextQuestion" style="display:none; background: #059669;">Next Question ▶</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<!-- HERO SECTION COMPONENT -->
+<?php require_once __DIR__ . '/../includes/hero-section.php'; ?>
 
 <!-- MAIN CONTENT CONTAINER (2,000+ WORDS MASTER ARCHIVE GUIDE) -->
 <section class="section-padding">

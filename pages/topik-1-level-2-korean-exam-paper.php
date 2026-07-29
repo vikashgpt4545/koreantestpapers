@@ -3,7 +3,7 @@
 require_once __DIR__ . '/../includes/db.php';
 
 // Page SEO Meta Configuration
-$page_title = "TOPIK 1 Level 2 Korean Exam Paper and Solutions";
+$page_title = "TOPIK 1 Level 2 Korean Exam Paper and Solutions & Korean Test Papers";
 $page_desc = "Download free TOPIK 1 Level 2 Korean exam paper PDF with elementary answer keys, solutions, complex particle rules, reading passage breakdowns, and past NIIED papers for global aspirants.";
 $canonical_url = "https://koreantestpapers.in/topik-1-level-2-korean-exam-paper";
 
@@ -23,7 +23,7 @@ require_once __DIR__ . '/../includes/header.php';
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "TOPIK 1 Level 2 Korean Exam Paper and Solutions",
+  "headline": "TOPIK 1 Level 2 Korean Exam Paper and Solutions & Korean Test Papers",
   "description": "Comprehensive study guide and downloadable TOPIK 1 Level 2 Korean exam paper PDF sets with elementary answer keys and step-by-step solutions.",
   "publisher": {
     "@type": "Organization",
@@ -34,91 +34,8 @@ require_once __DIR__ . '/../includes/header.php';
 }
 </script>
 
-<!-- HERO SECTION CONTAINER -->
-<section class="hero-section">
-    <div class="container">
-        <div class="hero-heading-box">
-            <h1 class="hero-title">TOPIK 1 Level 2 Korean Exam Paper and Solutions</h1>
-            <p class="hero-subtitle">
-                Achieve TOPIK Level 2 certification with solved <strong>korean exam paper</strong> archives, step-by-step elementary solutions, passage comprehension guides, and official NIIED <strong>korean test papers</strong>.
-            </p>
-        </div>
-
-        <!-- 2-Column Split Box Container -->
-        <div class="hero-split-container">
-            <!-- Left Box: Level 2 Paper Downloads -->
-            <div class="hero-left-box">
-                <div class="box-title-header">
-                    <h3>📘 TOPIK 1 Level 2 Exam Archive</h3>
-                    <span class="tag-badge green">Level 2 Elementary</span>
-                </div>
-                <div class="exam-nav-list">
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>TOPIK I Level 2 Solved Model Paper</h4>
-                            <p>Full Reading & Listening paper with elementary solutions</p>
-                        </div>
-                        <a href="../pdf/topik-1-beginner-solved.pdf" class="btn-download-sm" download>PDF</a>
-                    </div>
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>91st TOPIK I Official Level 2 Paper</h4>
-                            <p>NIIED official 91st session test paper & key</p>
-                        </div>
-                        <a href="../pdf/topik-91st-official-paper.pdf" class="btn-download-sm" download>PDF</a>
-                    </div>
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>90th TOPIK I Level 2 Session Paper</h4>
-                            <p>Official past 90th session exam paper & solutions</p>
-                        </div>
-                        <a href="../pdf/topik-90th-official-paper.pdf" class="btn-download-sm" download>PDF</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right Box: Live CBT Mock Test Widget -->
-            <div class="hero-right-box" id="live-test-box">
-                <div class="live-test-header">
-                    <div class="live-indicator">
-                        <span class="live-dot"></span> LIVE LEVEL 2 MOCK TEST
-                    </div>
-                    <div style="font-weight: 700; font-size: 0.9rem; color: #475569;">
-                        ⏱ Timer: <span id="liveTimerDisplay" style="color: #2563eb;">25:00</span>
-                    </div>
-                </div>
-
-                <div class="quiz-card-box">
-                    <div class="quiz-question-title" id="liveQuestionText">
-                        <?php echo htmlspecialchars($live_questions[0]['question_text']); ?>
-                    </div>
-                    
-                    <div class="quiz-options-list" id="liveOptionsContainer">
-                        <button class="quiz-option-btn" data-option="A">
-                            <span>A. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_a']); ?></span></span>
-                        </button>
-                        <button class="quiz-option-btn" data-option="B">
-                            <span>B. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_b']); ?></span></span>
-                        </button>
-                        <button class="quiz-option-btn" data-option="C">
-                            <span>C. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_c']); ?></span></span>
-                        </button>
-                        <button class="quiz-option-btn" data-option="D">
-                            <span>D. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_d']); ?></span></span>
-                        </button>
-                    </div>
-
-                    <div id="liveExplanationBox" style="display:none; margin-top: 14px; padding: 12px; background: #eff6ff; border-radius: 6px; font-size: 0.88rem; color: #1e3a8a;"></div>
-                </div>
-
-                <div class="quiz-action-bar">
-                    <button class="btn-primary-action" id="btnSubmitAnswer" disabled>Submit Answer</button>
-                    <button class="btn-primary-action" id="btnNextQuestion" style="display:none; background: #059669;">Next Question ▶</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<!-- HERO SECTION COMPONENT -->
+<?php require_once __DIR__ . '/../includes/hero-section.php'; ?>
 
 <!-- MAIN CONTENT CONTAINER (2,000+ WORDS DETAILED LEVEL 2 GUIDE) -->
 <section class="section-padding">
