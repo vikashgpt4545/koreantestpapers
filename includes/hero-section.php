@@ -35,7 +35,7 @@ $live_questions = get_live_questions();
                 <div id="learnTab" class="tab-content-panel active" style="display: block;">
                     <div class="panel-header-box">
                         <h3>한글 & 어휘 학습 — Basic Hangul & Vocab Lessons</h3>
-                        <span class="tag-badge amber" id="vocabCountBadge">5 Free Words Trial</span>
+                        <span class="tag-badge green">Free Lessons</span>
                     </div>
 
                     <!-- Hangul Interactive Quick Chart -->
