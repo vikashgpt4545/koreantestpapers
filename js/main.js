@@ -663,7 +663,9 @@ function generateDynamicQuestion() {
     const optsWithLabels = options.map((opt, i) => {
         const displayLabel = opt.name || opt.eng;
         const txt = `${labels[i]}. ${displayLabel}`;
-        if ((opt.icon && opt.icon === target.icon) || (opt.kor && opt.kor === target.kor)) {
+        if ((opt.icon && target.icon && opt.icon === target.icon) || 
+            (opt.kor && target.kor && opt.kor === target.kor) ||
+            (opt.name && target.name && opt.name === target.name)) {
             correctText = txt;
         }
         return txt;
@@ -772,7 +774,12 @@ function renderCurrentGameQuestion() {
 }
 
 function checkGameAnswer(optIdx, btnElem) {
-    if (isGameProcessing || gameTimeRemaining <= 0) return;
+    if (gameTimeRemaining <= 0) {
+        restartGameRound();
+        return;
+    }
+    if (isGameProcessing) return;
+
     if (!currentQuestionObj) {
         renderCurrentGameQuestion();
         return;
@@ -786,7 +793,7 @@ function checkGameAnswer(optIdx, btnElem) {
     const allButtons = document.querySelectorAll('.game-opt-btn');
     allButtons.forEach(btn => btn.style.pointerEvents = 'none');
 
-    const chosenText = currentQuestionObj.opts[optIdx] || (btnElem ? btnElem.textContent.trim() : '');
+    const chosenText = typeof optIdx === 'number' ? (currentQuestionObj.opts[optIdx] || '') : (btnElem ? btnElem.textContent.trim() : '');
     const isCorrect = (chosenText.trim() === currentQuestionObj.ans.trim());
 
     if (isCorrect) {
@@ -871,6 +878,7 @@ function selectGameMode(mode, btnElement) {
     }
 
     currentActiveGameMode = mode;
+    isGameProcessing = false;
 
     const hasAccess = window.userSession && (window.userSession.isPro || window.userSession.isTrial);
     if (!hasAccess && heroGameCount >= 3) {
@@ -880,6 +888,7 @@ function selectGameMode(mode, btnElement) {
         return;
     }
 
+    startGameTimer();
     renderCurrentGameQuestion();
 }
 

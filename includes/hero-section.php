@@ -113,10 +113,10 @@ $live_questions = get_live_questions();
                         </div>
 
                         <div class="game-options-grid" id="gameOptionsGrid">
-                            <button class="game-opt-btn" onclick="checkGameAnswer('A. Doctor', this)">A. Doctor</button>
-                            <button class="game-opt-btn" onclick="checkGameAnswer('B. Teacher', this)">B. Teacher</button>
-                            <button class="game-opt-btn" onclick="checkGameAnswer('C. Police Officer', this)">C. Police Officer</button>
-                            <button class="game-opt-btn" onclick="checkGameAnswer('D. Chef', this)">D. Chef</button>
+                            <button class="game-opt-btn" onclick="checkGameAnswer(0, this)">A. Doctor</button>
+                            <button class="game-opt-btn" onclick="checkGameAnswer(1, this)">B. Teacher</button>
+                            <button class="game-opt-btn" onclick="checkGameAnswer(2, this)">C. Police Officer</button>
+                            <button class="game-opt-btn" onclick="checkGameAnswer(3, this)">D. Chef</button>
                         </div>
                     </div>
                 </div>
