@@ -3,7 +3,7 @@
 require_once __DIR__ . '/../includes/db.php';
 
 // Page SEO Meta Configuration
-$page_title = "82nd Practice Archive TOPIK Korean Exam Paper";
+$page_title = "82nd Practice Archive TOPIK Korean Exam Paper & Korean Test Papers";
 $page_desc = "Download free 82nd Practice Archive TOPIK Korean exam paper PDF with official NIIED answer keys, listening transcripts, writing section solutions, and solved past papers.";
 $canonical_url = "https://koreantestpapers.in/topik-82nd-official-korean-exam-paper";
 
@@ -23,7 +23,7 @@ require_once __DIR__ . '/../includes/header.php';
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "82nd Practice Archive TOPIK Korean Exam Paper",
+  "headline": "82nd Practice Archive TOPIK Korean Exam Paper & Korean Test Papers",
   "description": "Comprehensive guide and downloadable 82nd Practice Archive TOPIK Korean exam paper PDF sets with official NIIED answer keys and writing essay models.",
   "publisher": {
     "@type": "Organization",
@@ -34,91 +34,8 @@ require_once __DIR__ . '/../includes/header.php';
 }
 </script>
 
-<!-- HERO SECTION CONTAINER -->
-<section class="hero-section">
-    <div class="container">
-        <div class="hero-heading-box">
-            <h1 class="hero-title">82nd Practice Archive TOPIK Korean Exam Paper</h1>
-            <p class="hero-subtitle">
-                Download official NIIED 82nd practice archive TOPIK I and TOPIK II <strong>korean exam paper</strong> PDF sets complete with verified answer sheets, listening transcripts, and solved <strong>korean test papers</strong>.
-            </p>
-        </div>
-
-        <!-- 2-Column Split Box Container -->
-        <div class="hero-split-container">
-            <!-- Left Box: 82nd Official Downloads -->
-            <div class="hero-left-box">
-                <div class="box-title-header">
-                    <h3>🏆 82nd Practice Archive</h3>
-                    <span class="tag-badge amber">82nd Session</span>
-                </div>
-                <div class="exam-nav-list">
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>82nd Practice Archive TOPIK II Exam Paper</h4>
-                            <p>Full 300-point listening, writing & reading set</p>
-                        </div>
-                        <a href="../pdf/topik-82nd-official-paper.pdf" class="btn-download-sm" download>PDF</a>
-                    </div>
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>83rd Mock Series TOPIK II Test Paper</h4>
-                            <p>Official 83rd NIIED session test paper & key</p>
-                        </div>
-                        <a href="../pdf/topik-83rd-official-paper.pdf" class="btn-download-sm" download>PDF</a>
-                    </div>
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>84th Standard TOPIK II Exam Paper PDF</h4>
-                            <p>Official 84th NIIED session test paper & key</p>
-                        </div>
-                        <a href="../pdf/topik-84th-official-paper.pdf" class="btn-download-sm" download>PDF</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right Box: Live CBT Mock Test Widget -->
-            <div class="hero-right-box" id="live-test-box">
-                <div class="live-test-header">
-                    <div class="live-indicator">
-                        <span class="live-dot"></span> LIVE 82ND TOPIK PRACTICE
-                    </div>
-                    <div style="font-weight: 700; font-size: 0.9rem; color: #475569;">
-                        ⏱ Timer: <span id="liveTimerDisplay" style="color: #2563eb;">25:00</span>
-                    </div>
-                </div>
-
-                <div class="quiz-card-box">
-                    <div class="quiz-question-title" id="liveQuestionText">
-                        <?php echo htmlspecialchars($live_questions[0]['question_text']); ?>
-                    </div>
-                    
-                    <div class="quiz-options-list" id="liveOptionsContainer">
-                        <button class="quiz-option-btn" data-option="A">
-                            <span>A. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_a']); ?></span></span>
-                        </button>
-                        <button class="quiz-option-btn" data-option="B">
-                            <span>B. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_b']); ?></span></span>
-                        </button>
-                        <button class="quiz-option-btn" data-option="C">
-                            <span>C. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_c']); ?></span></span>
-                        </button>
-                        <button class="quiz-option-btn" data-option="D">
-                            <span>D. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_d']); ?></span></span>
-                        </button>
-                    </div>
-
-                    <div id="liveExplanationBox" style="display:none; margin-top: 14px; padding: 12px; background: #eff6ff; border-radius: 6px; font-size: 0.88rem; color: #1e3a8a;"></div>
-                </div>
-
-                <div class="quiz-action-bar">
-                    <button class="btn-primary-action" id="btnSubmitAnswer" disabled>Submit Answer</button>
-                    <button class="btn-primary-action" id="btnNextQuestion" style="display:none; background: #059669;">Next Question ▶</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<!-- HERO SECTION COMPONENT -->
+<?php require_once __DIR__ . '/../includes/hero-section.php'; ?>
 
 <!-- MAIN CONTENT CONTAINER (2,000+ WORDS DETAILED 82ND SESSION GUIDE) -->
 <section class="section-padding">

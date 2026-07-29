@@ -3,7 +3,7 @@
 require_once __DIR__ . '/../includes/db.php';
 
 // Page SEO Meta Configuration
-$page_title = "87th Full Model TOPIK Korean Test Papers";
+$page_title = "87th Full Model TOPIK Korean Test Papers & Korean Exam Paper";
 $page_desc = "Download free 87th Full Model TOPIK Korean test papers PDF with official NIIED answer keys, listening transcripts, writing section solutions, and solved past papers.";
 $canonical_url = "https://koreantestpapers.in/topik-87th-official-korean-test-papers";
 
@@ -23,7 +23,7 @@ require_once __DIR__ . '/../includes/header.php';
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "87th Full Model TOPIK Korean Test Papers",
+  "headline": "87th Full Model TOPIK Korean Test Papers & Korean Exam Paper",
   "description": "Comprehensive study guide and downloadable 87th Full Model TOPIK Korean test papers PDF sets with official NIIED answer keys and writing essay models.",
   "publisher": {
     "@type": "Organization",
@@ -34,91 +34,8 @@ require_once __DIR__ . '/../includes/header.php';
 }
 </script>
 
-<!-- HERO SECTION CONTAINER -->
-<section class="hero-section">
-    <div class="container">
-        <div class="hero-heading-box">
-            <h1 class="hero-title">87th Full Model TOPIK Korean Test Papers</h1>
-            <p class="hero-subtitle">
-                Download official NIIED 87th full model TOPIK I and TOPIK II <strong>korean test papers</strong> PDF archives complete with verified answer sheets, listening transcripts, and solved <strong>korean exam paper</strong> sets.
-            </p>
-        </div>
-
-        <!-- 2-Column Split Box Container -->
-        <div class="hero-split-container">
-            <!-- Left Box: 87th Official Downloads -->
-            <div class="hero-left-box">
-                <div class="box-title-header">
-                    <h3>🏆 87th Full Model Archive</h3>
-                    <span class="tag-badge amber">87th Session</span>
-                </div>
-                <div class="exam-nav-list">
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>87th Full Model TOPIK II Exam Paper</h4>
-                            <p>Full 300-point listening, writing & reading set</p>
-                        </div>
-                        <a href="../pdf/topik-87th-official-paper.pdf" class="btn-download-sm" download>PDF</a>
-                    </div>
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>88th Question Set TOPIK II Exam Paper</h4>
-                            <p>Official 88th NIIED session test paper & key</p>
-                        </div>
-                        <a href="../pdf/topik-88th-official-paper.pdf" class="btn-download-sm" download>PDF</a>
-                    </div>
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>89th Past Official TOPIK II Paper PDF</h4>
-                            <p>Official 89th NIIED session test paper & key</p>
-                        </div>
-                        <a href="../pdf/topik-89th-official-paper.pdf" class="btn-download-sm" download>PDF</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right Box: Live CBT Mock Test Widget -->
-            <div class="hero-right-box" id="live-test-box">
-                <div class="live-test-header">
-                    <div class="live-indicator">
-                        <span class="live-dot"></span> LIVE 87TH TOPIK PRACTICE
-                    </div>
-                    <div style="font-weight: 700; font-size: 0.9rem; color: #475569;">
-                        ⏱ Timer: <span id="liveTimerDisplay" style="color: #2563eb;">25:00</span>
-                    </div>
-                </div>
-
-                <div class="quiz-card-box">
-                    <div class="quiz-question-title" id="liveQuestionText">
-                        <?php echo htmlspecialchars($live_questions[0]['question_text']); ?>
-                    </div>
-                    
-                    <div class="quiz-options-list" id="liveOptionsContainer">
-                        <button class="quiz-option-btn" data-option="A">
-                            <span>A. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_a']); ?></span></span>
-                        </button>
-                        <button class="quiz-option-btn" data-option="B">
-                            <span>B. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_b']); ?></span></span>
-                        </button>
-                        <button class="quiz-option-btn" data-option="C">
-                            <span>C. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_c']); ?></span></span>
-                        </button>
-                        <button class="quiz-option-btn" data-option="D">
-                            <span>D. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_d']); ?></span></span>
-                        </button>
-                    </div>
-
-                    <div id="liveExplanationBox" style="display:none; margin-top: 14px; padding: 12px; background: #eff6ff; border-radius: 6px; font-size: 0.88rem; color: #1e3a8a;"></div>
-                </div>
-
-                <div class="quiz-action-bar">
-                    <button class="btn-primary-action" id="btnSubmitAnswer" disabled>Submit Answer</button>
-                    <button class="btn-primary-action" id="btnNextQuestion" style="display:none; background: #059669;">Next Question ▶</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<!-- HERO SECTION COMPONENT -->
+<?php require_once __DIR__ . '/../includes/hero-section.php'; ?>
 
 <!-- MAIN CONTENT CONTAINER (2,000+ WORDS DETAILED 87TH SESSION GUIDE) -->
 <section class="section-padding">
