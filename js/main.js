@@ -470,6 +470,45 @@ function toggleModuleBox(boxId, btn) {
 }
 
 /* Dynamic ⚡ Speed Word Match Game Engine */
+const speedMatchVocabBank = [
+    { kor: "의사", eng: "Doctor" },
+    { kor: "선생님", eng: "Teacher" },
+    { kor: "경찰관", eng: "Police Officer" },
+    { kor: "요리사", eng: "Chef" },
+    { kor: "안전모", eng: "Safety Helmet" },
+    { kor: "안전화", eng: "Safety Boots" },
+    { kor: "안전장갑", eng: "Safety Gloves" },
+    { kor: "손대지 마시오", eng: "Do Not Touch" },
+    { kor: "스패너", eng: "Spanner / Wrench" },
+    { kor: "드라이버", eng: "Screwdriver" },
+    { kor: "망치", eng: "Hammer" },
+    { kor: "사과", eng: "Apple" },
+    { kor: "바나나", eng: "Banana" },
+    { kor: "포도", eng: "Grape" },
+    { kor: "수박", eng: "Watermelon" },
+    { kor: "병원", eng: "Hospital" },
+    { kor: "약국", eng: "Pharmacy" },
+    { kor: "공장", eng: "Factory" },
+    { kor: "사무실", eng: "Office" },
+    { kor: "화장실", eng: "Restroom" },
+    { kor: "지하철", eng: "Subway" },
+    { kor: "버스", eng: "Bus" },
+    { kor: "비행기", eng: "Airplane" },
+    { kor: "택시", eng: "Taxi" },
+    { kor: "물", eng: "Water" },
+    { kor: "밥", eng: "Rice / Meal" },
+    { kor: "고기", eng: "Meat" },
+    { kor: "빵", eng: "Bread" },
+    { kor: "비상구", eng: "Emergency Exit" },
+    { kor: "금연", eng: "No Smoking" },
+    { kor: "고압 전원", eng: "High Voltage" },
+    { kor: "위험", eng: "Danger" },
+    { kor: "보안경", eng: "Safety Glasses" },
+    { kor: "줄자", eng: "Tape Measure" },
+    { kor: "니퍼", eng: "Cutting Pliers" },
+    { kor: "절단기", eng: "Cutter / Shear" }
+];
+
 let currentGameIdx = 0;
 let gameCurrentScore = 0;
 let gameTimerInterval = null;
@@ -477,16 +516,26 @@ let gameTimeRemaining = 60;
 let isGameProcessing = false;
 let currentQuestionObj = null;
 
+function shuffleArray(array) {
+    const arr = [...array];
+    for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+}
+
 function generateDynamicQuestion() {
-    if (!vocabList || vocabList.length < 4) return null;
-    const targetIdx = Math.floor(Math.random() * vocabList.length);
-    const target = vocabList[targetIdx];
+    const bank = speedMatchVocabBank;
+    if (!bank || bank.length < 4) return null;
+    const targetIdx = Math.floor(Math.random() * bank.length);
+    const target = bank[targetIdx];
 
     const distractors = [];
     while (distractors.length < 3) {
-        const r = Math.floor(Math.random() * vocabList.length);
-        if (r !== targetIdx && !distractors.includes(vocabList[r])) {
-            distractors.push(vocabList[r]);
+        const r = Math.floor(Math.random() * bank.length);
+        if (r !== targetIdx && !distractors.includes(bank[r])) {
+            distractors.push(bank[r]);
         }
     }
 
