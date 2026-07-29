@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Korean Grammar Particles Mastery Guide – EPS-TOPIK Special</title>
+    <style>
+        @page {
+            size: A4 portrait;
+            margin: 15mm;
+        }
+        body {
+            font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', 'Noto Sans KR', Arial, sans-serif;
+            color: #1e293b;
+            background: #ffffff;
+            margin: 0;
+            padding: 20px;
+            font-size: 10pt;
+            line-height: 1.5;
+        }
+        .page-break {
+            page-break-before: always;
+        }
+        .cover-page {
+            min-height: 800px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            color: #ffffff;
+            padding: 60px 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            margin-bottom: 40px;
+        }
+        .cover-badge {
+            background: #d97706;
+            color: #ffffff;
+            font-size: 11pt;
+            font-weight: 800;
+            padding: 8px 20px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+        }
+        .cover-title {
+            font-size: 32pt;
+            font-weight: 900;
+            color: #ffffff;
+            margin: 0 0 14px 0;
+            line-height: 1.2;
+        }
+        .cover-subtitle {
+            font-size: 18pt;
+            color: #fbbf24;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+        .cover-divider {
+            width: 90px;
+            height: 4px;
+            background: #f59e0b;
+            margin: 20px auto 30px auto;
+            border-radius: 2px;
+        }
+        .cover-category {
+            font-size: 12pt;
+            color: #cbd5e1;
+            max-width: 580px;
+            line-height: 1.6;
+        }
+        .cover-footer {
+            margin-top: 60px;
+            font-size: 10.5pt;
+            color: #94a3b8;
+        }
+        .section-header {
+            border-bottom: 3px solid #d97706;
+            padding-bottom: 10px;
+            margin-bottom: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        .section-title {
+            font-size: 20pt;
+            font-weight: 800;
+            color: #0f172a;
+            margin: 0;
+        }
+        .section-sub {
+            font-size: 10.5pt;
+            color: #64748b;
+            font-weight: 600;
+        }
+        .grammar-card {
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            border-left: 6px solid #d97706;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+        .grammar-title {
+            font-size: 14pt;
+            font-weight: 800;
+            color: #0f172a;
+            margin-top: 0;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .particle-tag {
+            background: #fef3c7;
+            color: #b45309;
+            font-size: 10pt;
+            font-weight: 800;
+            padding: 4px 12px;
+            border-radius: 6px;
+            border: 1px solid #fde68a;
+        }
+        .rule-box {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 12px 16px;
+            margin: 12px 0;
+            font-size: 9.5pt;
+        }
+        .example-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 14px;
+            font-size: 9.5pt;
+        }
+        .example-table th {
+            background: #1e293b;
+            color: #ffffff;
+            padding: 8px 12px;
+            text-align: left;
+            font-weight: 700;
+        }
+        .example-table td {
+            padding: 8px 12px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .example-table tr:nth-child(even) {
+            background: #ffffff;
+        }
+        .example-table tr:nth-child(odd) {
+            background: #f8fafc;
+        }
+        .highlight-part {
+            color: #d97706;
+            font-weight: 800;
+        }
+        @media print {
+            .no-print { display: none !important; }
+            body { padding-top: 0 !important; }
+        }
+    </style>
+</head>
+<body style="padding-top: 70px;">
+
+    <!-- TOP DOWNLOAD / PRINT BAR -->
+    <div class="no-print" style="position: fixed; top: 0; left: 0; right: 0; background: #0f172a; border-bottom: 2px solid #d97706; padding: 12px 24px; display: flex; justify-content: space-between; align-items: center; z-index: 99999; box-shadow: 0 4px 14px rgba(0,0,0,0.4);">
+        <div style="color: #ffffff; font-weight: 800; font-size: 1.05rem; display: flex; align-items: center; gap: 8px;">
+            <span>⚡ Korean Grammar Particles Mastery Guide (EPS-TOPIK)</span>
+        </div>
+        <button onclick="window.print()" style="background: #d97706; color: #ffffff; font-weight: 800; font-size: 0.95rem; border: none; padding: 10px 22px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 10px rgba(217,119,6,0.4);">
+            <span>📥 Save / Download as PDF</span>
+        </button>
+    </div>
+
+    <!-- 1. COVER PAGE -->
+    <div class="cover-page">
+        <div class="cover-badge">HRD Korea EPS-TOPIK Grammar Vault</div>
+        <h1 class="cover-title">Grammar Particles Mastery</h1>
+        <div class="cover-subtitle">Complete Exam Breakdown of Essential Particles</div>
+        <div class="cover-divider"></div>
+        <div class="cover-category">
+            Master -은/는, -이/가, -을/를, -에서, -에, -과/와, -하고, -부터/까지, -로/으로, -에게/한테 with Workplace Examples & Practice Drills.
+        </div>
+        <div class="cover-footer">
+            Published by <strong>koreantestpapers.in</strong> | Certified Exam Study Material
+        </div>
+    </div>
+
+    <!-- 2. MODULE BREAKDOWN -->
+    <div class="page-break"></div>
+    <div class="section-header">
+        <h2 class="section-title">Core Particles Breakdown</h2>
+        <span class="section-sub">Detailed Rules, Distinctions & Workplace Examples</span>
+    </div>
+
+    <!-- MODULE 1: -은 / -는 -->
+    <div class="grammar-card">
+        <div class="grammar-title">
+            <span>1. Topic Marking Particle (-은 / -는)</span>
+            <span class="particle-tag">Topic & Contrast</span>
+        </div>
+        <p style="margin: 4px 0 10px 0; color: #475569; font-size: 9.5pt;">
+            Used to state the main topic of a sentence or to make a contrast between two elements ("As for...", "Regarding...").
+        </p>
+        <div class="rule-box">
+            <strong>Grammar Rule:</strong><br>
+            • Attach <strong>-은</strong> to nouns ending in a <strong>Consonants (받침)</strong>: 공장 ➔ 공장<span class="highlight-part">은</span>, 작업 ➔ 작업<span class="highlight-part">은</span><br>
+            • Attach <strong>-는</strong> to nouns ending in a <strong>Vowel (no 받침)</strong>: 반장 ➔ 반장<span class="highlight-part">은</span>, 기계 ➔ 기계<span class="highlight-part">는</span>
+        </div>
+
+        <table class="example-table">
+            <thead>
+                <tr>
+                    <th style="width: 35%;">Korean Workplace Sentence</th>
+                    <th style="width: 35%;">English Translation</th>
+                    <th style="width: 30%;">Exam Key Point</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>이 기계<span class="highlight-part">는</span> 아주 안전합니다.</td>
+                    <td>As for this machine, it is very safe.</td>
+                    <td>Topic marker after vowel '기계'</td>
+                </tr>
+                <tr>
+                    <td>오늘 작업<span class="highlight-part">은</span> 6시에 끝납니다.</td>
+                    <td>Today's work finishes at 6 o'clock.</td>
+                    <td>Topic marker after consonant '작업'</td>
+                </tr>
+                <tr>
+                    <td>저는 용접<span class="highlight-part">은</span> 잘하지만 절단<span class="highlight-part">은</span> 못합니다.</td>
+                    <td>I am good at welding, but I cannot do cutting.</td>
+                    <td>Contrast between welding and cutting</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- MODULE 2: -이 / -가 -->
+    <div class="grammar-card">
+        <div class="grammar-title">
+            <span>2. Subject Marking Particle (-이 / -가)</span>
+            <span class="particle-tag">Subject & New Information</span>
+        </div>
+        <p style="margin: 4px 0 10px 0; color: #475569; font-size: 9.5pt;">
+            Identifies the subject of an action or state. Used when introducing new information or emphasizing the subject.
+        </p>
+        <div class="rule-box">
+            <strong>Grammar Rule:</strong><br>
+            • Attach <strong>-이</strong> to nouns ending in a <strong>Consonant (받침)</strong>: 부품 ➔ 부품<span class="highlight-part">이</span>, 안전모 ➔ 안전모<span class="highlight-part">가</span><br>
+            • Attach <strong>-가</strong> to nouns ending in a <strong>Vowel (no 받침)</strong>: 관리자 ➔ 관리자<span class="highlight-part">가</span>, 전선 ➔ 전선<span class="highlight-part">이</span>
+        </div>
+
+        <table class="example-table">
+            <thead>
+                <tr>
+                    <th style="width: 35%;">Korean Workplace Sentence</th>
+                    <th style="width: 35%;">English Translation</th>
+                    <th style="width: 30%;">Exam Key Point</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>안전모<span class="highlight-part">가</span> 어디에 있습니까?</td>
+                    <td>Where is the safety helmet?</td>
+                    <td>Subject focus on '안전모'</td>
+                </tr>
+                <tr>
+                    <td>새 부품<span class="highlight-part">이</span> 도착했습니다.</td>
+                    <td>The new spare parts have arrived.</td>
+                    <td>New information announcement</td>
+                </tr>
+                <tr>
+                    <td>누구<span class="highlight-part">가</span> 스위치를 켰습니까?</td>
+                    <td>Who turned on the switch?</td>
+                    <td>Emphasis on question word '누구'</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- MODULE 3: -을 / -를 -->
+    <div class="grammar-card">
+        <div class="grammar-title">
+            <span>3. Object Marking Particle (-을 / -를)</span>
+            <span class="particle-tag">Direct Object</span>
+        </div>
+        <p style="margin: 4px 0 10px 0; color: #475569; font-size: 9.5pt;">
+            Attaches to a noun that receives the direct action of a transitive verb (e.g. operate, fix, clean, wear).
+        </p>
+        <div class="rule-box">
+            <strong>Grammar Rule:</strong><br>
+            • Attach <strong>-을</strong> to nouns ending in a <strong>Consonant (받침)</strong>: 장갑 ➔ 장갑<span class="highlight-part">을</span>, 기계 ➔ 기계를<br>
+            • Attach <strong>-를</strong> to nouns ending in a <strong>Vowel (no 받침)</strong>: 차 ➔ 차<span class="highlight-part">를</span>, 자재 ➔ 자재<span class="highlight-part">를</span>
+        </div>
+
+        <table class="example-table">
+            <thead>
+                <tr>
+                    <th style="width: 35%;">Korean Workplace Sentence</th>
+                    <th style="width: 35%;">English Translation</th>
+                    <th style="width: 30%;">Exam Key Point</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>작업 전에 안전화<span class="highlight-part">를</span> 착용하세요.</td>
+                    <td>Please wear safety boots before work.</td>
+                    <td>Object of action verb '착용하다'</td>
+                </tr>
+                <tr>
+                    <td>볼트<span class="highlight-part">를</span> 렌치로 조입니다.</td>
+                    <td>Tighten the bolt with a wrench.</td>
+                    <td>Object of action verb '조이다'</td>
+                </tr>
+                <tr>
+                    <td>폐기물<span class="highlight-part">을</span> 분리해서 버리세요.</td>
+                    <td>Separate and throw away the industrial waste.</td>
+                    <td>Object of action verb '버리다'</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- MODULE 4: -에서 -->
+    <div class="grammar-card">
+        <div class="grammar-title">
+            <span>4. Dynamic Location & Origin Particle (-에서)</span>
+            <span class="particle-tag">Action Location / From</span>
+        </div>
+        <p style="margin: 4px 0 10px 0; color: #475569; font-size: 9.5pt;">
+            1) Indicates the location where an action takes place ("At / In").<br>
+            2) Indicates the starting point or origin ("From").
+        </p>
+        <div class="rule-box">
+            <strong>Grammar Rule:</strong> Attach <strong>-에서</strong> to location nouns regardless of consonant/vowel ending.
+        </div>
+
+        <table class="example-table">
+            <thead>
+                <tr>
+                    <th style="width: 35%;">Korean Workplace Sentence</th>
+                    <th style="width: 35%;">English Translation</th>
+                    <th style="width: 30%;">Exam Key Point</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>작업장<span class="highlight-part">에서</span> 담배를 피우지 마세요.</td>
+                    <td>Do not smoke in the workplace.</td>
+                    <td>Location where smoking action occurs</td>
+                </tr>
+                <tr>
+                    <td>창고<span class="highlight-part">에서</span> 자재를 가져왔습니다.</td>
+                    <td>I brought the materials from the warehouse.</td>
+                    <td>Starting origin point ('From')</td>
+                </tr>
+                <tr>
+                    <td>식당<span class="highlight-part">에서</span> 점심을 먹습니다.</td>
+                    <td>We eat lunch in the cafeteria.</td>
+                    <td>Location of eating action</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- MODULE 5: -에 -->
+    <div class="grammar-card">
+        <div class="grammar-title">
+            <span>5. Time, Destination & Existence Particle (-에)</span>
+            <span class="particle-tag">Time / Destination / Location</span>
+        </div>
+        <p style="margin: 4px 0 10px 0; color: #475569; font-size: 9.5pt;">
+            Used for specific time, target destination of movement (가다/오다), or location of existence (있다/없다).
+        </p>
+
+        <table class="example-table">
+            <thead>
+                <tr>
+                    <th style="width: 35%;">Korean Workplace Sentence</th>
+                    <th style="width: 35%;">English Translation</th>
+                    <th style="width: 30%;">Exam Key Point</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>8시<span class="highlight-part">에</span> 조회가 시작됩니다.</td>
+                    <td>The morning meeting starts at 8 o'clock.</td>
+                    <td>Specific time marker</td>
+                </tr>
+                <tr>
+                    <td>내일 사무실<span class="highlight-part">에</span> 갑니다.</td>
+                    <td>I will go to the office tomorrow.</td>
+                    <td>Destination target of '가다'</td>
+                </tr>
+                <tr>
+                    <td>공구함<span class="highlight-part">에</span> 망치가 있습니다.</td>
+                    <td>There is a hammer in the toolbox.</td>
+                    <td>Static location of existence ('있다')</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- MODULE 6: -과/와, -하고, -부터/까지, -로/으로 -->
+    <div class="grammar-card">
+        <div class="grammar-title">
+            <span>6. Range, Connective & Instrument Particles</span>
+            <span class="particle-tag">Advanced Particles</span>
+        </div>
+        
+        <table class="example-table">
+            <thead>
+                <tr>
+                    <th style="width: 25%;">Particle</th>
+                    <th style="width: 45%;">Workplace Example Sentence</th>
+                    <th style="width: 30%;">Meaning</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>-과 / -와</strong></td>
+                    <td>반장님<span class="highlight-part">과</span> 대리님이 회의 중입니다.</td>
+                    <td>And / With (Formal)</td>
+                </tr>
+                <tr>
+                    <td><strong>-하고</strong></td>
+                    <td>볼트<span class="highlight-part">하고</span> 너트를 준비하세요.</td>
+                    <td>And / With (Conversational)</td>
+                </tr>
+                <tr>
+                    <td><strong>-부터 ~ -까지</strong></td>
+                    <td>9시<span class="highlight-part">부터</span> 6시<span class="highlight-part">까지</span> 근무합니다.</td>
+                    <td>From ~ Until (Time / Range)</td>
+                </tr>
+                <tr>
+                    <td><strong>-로 / -으로</strong></td>
+                    <td>지게차<span class="highlight-part">로</span> 상자를 운반하세요.</td>
+                    <td>By means of / Tool used</td>
+                </tr>
+                <tr>
+                    <td><strong>-에게 / -한테</strong></td>
+                    <td>관리자<span class="highlight-part">에게</span> 보고했습니다.</td>
+                    <td>To someone (Receiver)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- PRACTICE DRILLS -->
+    <div class="page-break"></div>
+    <div class="section-header">
+        <h2 class="section-title">EPS-TOPIK Particle Practice Drills</h2>
+        <span class="section-sub">Test Your Knowledge with Official Pattern Questions</span>
+    </div>
+
+    <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 10px; padding: 20px;">
+        <h4 style="margin-top: 0; color: #0f172a;">Fill in the blank with the correct particle:</h4>
+        <ol style="font-size: 9.5pt; line-height: 1.8; color: #334155; padding-left: 20px;">
+            <li>작업장 ( &nbsp;&nbsp;&nbsp;&nbsp; ) 안전모를 꼭 써야 합니다. &nbsp;&nbsp; <em>[Choice: ① 에 &nbsp; ② 에서 &nbsp; ③ 을 &nbsp; ④ 은]</em></li>
+            <li>망치 ( &nbsp;&nbsp;&nbsp;&nbsp; ) 못을 박으세요. &nbsp;&nbsp; <em>[Choice: ① 로 &nbsp; ② 에게 &nbsp; ③ 과 &nbsp; ④ 가]</em></li>
+            <li>오늘 ( &nbsp;&nbsp;&nbsp;&nbsp; ) 야간 작업을 하지 않습니다. &nbsp;&nbsp; <em>[Choice: ① 는 &nbsp; ② 를 &nbsp; ③ 에서 &nbsp; ④ 과]</em></li>
+            <li>스패너 ( &nbsp;&nbsp;&nbsp;&nbsp; ) 어딨습니까? &nbsp;&nbsp; <em>[Choice: ① 가 &nbsp; ② 를 &nbsp; ③ 로 &nbsp; ④ 에서]</em></li>
+            <li>오전 8시 ( &nbsp;&nbsp;&nbsp;&nbsp; ) 오후 5시까지 일합니다. &nbsp;&nbsp; <em>[Choice: ① 부터 &nbsp; ② 까지 &nbsp; ③ 에서 &nbsp; ④ 과]</em></li>
+        </ol>
+
+        <div style="margin-top: 20px; background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 6px; padding: 12px; color: #065f46; font-size: 9pt;">
+            <strong>Answer Key & Explanations:</strong><br>
+            1. <strong>② 에서</strong> (Location of wearing safety helmet action)<br>
+            2. <strong>① 로</strong> (Instrument tool 'by means of hammer')<br>
+            3. <strong>① 는</strong> (Topic/contrast marker for 'Today')<br>
+            4. <strong>① 가</strong> (Subject marker asking location of spanner)<br>
+            5. <strong>① 부터</strong> (Starting time point 'From 8 AM')
+        </div>
+    </div>
+
+</body>
+</html>
