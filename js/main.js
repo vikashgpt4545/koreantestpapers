@@ -744,6 +744,17 @@ function checkGameAnswer(optIdx, btnElem) {
     const scoreEl = document.getElementById('gameScore');
     if (scoreEl) scoreEl.textContent = gameCurrentScore;
 
+    // Track Free Game Limit
+    const isPro = localStorage.getItem('koreantestpapers_pro') === 'true' || localStorage.getItem('koreanTestProAccess') === 'true';
+    heroGameCount++;
+    if (!isPro && heroGameCount >= 3) {
+        setTimeout(() => {
+            isGameProcessing = false;
+            openProModal();
+        }, 600);
+        return;
+    }
+
     setTimeout(() => {
         isGameProcessing = false;
         if (gameTimeRemaining > 0) {
@@ -774,6 +785,84 @@ function selectGameMode(mode, btnElement) {
 document.addEventListener('DOMContentLoaded', () => {
     renderCurrentGameQuestion();
 });
+
+/* ==========================================================================
+   HERO SECTION ENGINE & PAYWALL LIMITS
+   ========================================================================== */
+
+let heroVocabIndex = 0;
+let heroVocabCount = 0;
+let heroGameCount = 0;
+let heroCbtCount = 0;
+
+const heroVocabList = [
+    { kor: '안전모', eng: 'Safety Helmet (सुरक्षा पेटी)', cat: 'Factory Safety' },
+    { kor: '보안경', eng: 'Safety Goggles (सुरक्षा चश्मा)', cat: 'Factory Safety' },
+    { kor: '귀마개', eng: 'Earplugs (कान के प्लग)', cat: 'Factory Safety' },
+    { kor: '안전화', eng: 'Safety Shoes (सुरक्षा जूते)', cat: 'Factory Safety' },
+    { kor: '장갑', eng: 'Work Gloves (दस्ताने)', cat: 'Factory Safety' },
+    { kor: '망치', eng: 'Hammer (हथौड़ा)', cat: 'Tools & Equipment' },
+    { kor: '줄자', eng: 'Measuring Tape (इंच टेप)', cat: 'Tools & Equipment' },
+    { kor: '스패너', eng: 'Spanner / Wrench (पाना)', cat: 'Tools & Equipment' }
+];
+
+function switchHeroTab(tabId, btnElem) {
+    document.querySelectorAll('.hero-tab-nav .tab-btn').forEach(btn => btn.classList.remove('active'));
+    if (btnElem) btnElem.classList.add('active');
+
+    document.querySelectorAll('.hero-left-box-70 .tab-content-panel').forEach(panel => {
+        panel.style.display = 'none';
+        panel.classList.remove('active');
+    });
+
+    const targetPanel = document.getElementById(tabId);
+    if (targetPanel) {
+        targetPanel.style.display = 'block';
+        targetPanel.classList.add('active');
+    }
+}
+
+function speakKorean(text) {
+    if (!text) return;
+    if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'ko-KR';
+        utterance.rate = 0.85;
+        window.speechSynthesis.speak(utterance);
+    }
+}
+
+function nextVocabCard() {
+    const isPro = localStorage.getItem('koreantestpapers_pro') === 'true' || localStorage.getItem('koreanTestProAccess') === 'true';
+    heroVocabCount++;
+    
+    if (!isPro && heroVocabCount >= 5) {
+        openProModal();
+        return;
+    }
+
+    heroVocabIndex = (heroVocabIndex + 1) % heroVocabList.length;
+    const item = heroVocabList[heroVocabIndex];
+
+    const korEl = document.getElementById('fcKorean');
+    const engEl = document.getElementById('fcEnglish');
+    const catEl = document.querySelector('.vocab-flashcard-box .flashcard-category');
+
+    if (korEl) korEl.textContent = item.kor;
+    if (engEl) engEl.textContent = item.eng;
+    if (catEl) catEl.textContent = item.cat;
+}
+
+function downloadProNote(e, pdfUrl) {
+    if (e) e.preventDefault();
+    const isPro = localStorage.getItem('koreantestpapers_pro') === 'true' || localStorage.getItem('koreanTestProAccess') === 'true';
+    if (!isPro) {
+        openProModal();
+    } else {
+        window.open(pdfUrl, '_blank');
+    }
+}
 
 /* Pro Paywall Modal Functions */
 function openProModal() {

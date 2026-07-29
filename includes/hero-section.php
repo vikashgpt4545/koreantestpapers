@@ -183,21 +183,21 @@ $live_questions = get_live_questions();
                                 <h4>1000 High-Yield EPS TOPIK Workplace Vocab</h4>
                                 <p>Factory, agriculture & construction dictionary with English translations</p>
                             </div>
-                            <a href="/pdf/1000-workplace-nouns-dictionary.html" target="_blank" class="btn-download-sm" style="background: #2563eb; color: #ffffff; font-weight: 700; text-decoration: none;">Download PDF 📥</a>
+                            <button onclick="downloadProNote(event, '/pdf/1000-workplace-nouns-dictionary.html')" class="btn-download-sm" style="background: #2563eb; color: #ffffff; font-weight: 700; border: none; cursor: pointer;">Download PDF 📥</button>
                         </div>
                         <div class="note-card-item">
                             <div class="note-card-info">
                                 <h4>Grammar Particles Mastery Guide</h4>
                                 <p>Master -은/는, -이/가, -을/를, -에서 rules in 10 minutes</p>
                             </div>
-                            <a href="/pdf/grammar-particles-mastery.html" target="_blank" class="btn-download-sm" style="background: #d97706; color: #ffffff; font-weight: 700; text-decoration: none;">Download PDF 📥</a>
+                            <button onclick="downloadProNote(event, '/pdf/grammar-particles-mastery.html')" class="btn-download-sm" style="background: #d97706; color: #ffffff; font-weight: 700; border: none; cursor: pointer;">Download PDF 📥</button>
                         </div>
                         <div class="note-card-item">
                             <div class="note-card-info">
                                 <h4>50 HRD Korea Safety Signboards</h4>
                                 <p>High-resolution visual catalogue of all official warning signs</p>
                             </div>
-                            <a href="/pdf/50-safety-signboards-hrd-korea.html" target="_blank" class="btn-download-sm" style="background: #dc2626; color: #ffffff; font-weight: 700; text-decoration: none;">Download PDF 📥</a>
+                            <button onclick="downloadProNote(event, '/pdf/50-safety-signboards-hrd-korea.html')" class="btn-download-sm" style="background: #dc2626; color: #ffffff; font-weight: 700; border: none; cursor: pointer;">Download PDF 📥</button>
                         </div>
                     </div>
                 </div>
