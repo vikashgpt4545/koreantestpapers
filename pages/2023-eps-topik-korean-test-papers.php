@@ -3,7 +3,7 @@
 require_once __DIR__ . '/../includes/db.php';
 
 // Page SEO Meta Configuration
-$page_title = "2023 Official EPS TOPIK Korean Test Papers";
+$page_title = "2023 Official EPS TOPIK Korean Test Papers & Korean Exam Paper";
 $page_desc = "Download free 2023 Official EPS TOPIK Korean test papers PDF with official HRD Korea answer keys, reading solutions, listening scripts, and past paper archives.";
 $canonical_url = "https://koreantestpapers.in/2023-eps-topik-korean-test-papers";
 
@@ -23,7 +23,7 @@ require_once __DIR__ . '/../includes/header.php';
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "2023 Official EPS TOPIK Korean Test Papers",
+  "headline": "2023 Official EPS TOPIK Korean Test Papers & Korean Exam Paper",
   "description": "Comprehensive guide and downloadable 2023 Official EPS TOPIK Korean test papers PDF sets with answer keys and audio transcripts.",
   "publisher": {
     "@type": "Organization",
@@ -34,91 +34,8 @@ require_once __DIR__ . '/../includes/header.php';
 }
 </script>
 
-<!-- HERO SECTION CONTAINER -->
-<section class="hero-section">
-    <div class="container">
-        <div class="hero-heading-box">
-            <h1 class="hero-title">2023 Official EPS TOPIK Korean Test Papers</h1>
-            <p class="hero-subtitle">
-                Download official past 2023 EPS TOPIK <strong>korean test papers</strong> PDF archives complete with verified HRD Korea answer keys, listening transcripts, and solved <strong>korean exam paper</strong> sets.
-            </p>
-        </div>
-
-        <!-- 2-Column Split Box Container -->
-        <div class="hero-split-container">
-            <!-- Left Box: 2023 Official Paper Downloads -->
-            <div class="hero-left-box">
-                <div class="box-title-header">
-                    <h3>📜 2023 Official Paper Archive</h3>
-                    <span class="tag-badge green">2023 Official</span>
-                </div>
-                <div class="exam-nav-list">
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>2023 Official EPS TOPIK Exam Paper</h4>
-                            <p>Official 40-question past paper with answer sheet</p>
-                        </div>
-                        <a href="../pdf/eps-topik-2023-past.pdf" class="btn-download-sm" download>PDF</a>
-                    </div>
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>2022 Official EPS TOPIK Past Paper</h4>
-                            <p>Solved 2022 previous year exam paper & key</p>
-                        </div>
-                        <a href="../pdf/eps-topik-2022-past.pdf" class="btn-download-sm" download>PDF</a>
-                    </div>
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>2024 Solved EPS TOPIK Paper PDF</h4>
-                            <p>Solved 2024 recent test set with explanations</p>
-                        </div>
-                        <a href="../pdf/eps-topik-2024-solved.pdf" class="btn-download-sm" download>PDF</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right Box: Live CBT Mock Test Widget -->
-            <div class="hero-right-box" id="live-test-box">
-                <div class="live-test-header">
-                    <div class="live-indicator">
-                        <span class="live-dot"></span> LIVE 2023 MOCK TEST
-                    </div>
-                    <div style="font-weight: 700; font-size: 0.9rem; color: #475569;">
-                        ⏱ Timer: <span id="liveTimerDisplay" style="color: #2563eb;">25:00</span>
-                    </div>
-                </div>
-
-                <div class="quiz-card-box">
-                    <div class="quiz-question-title" id="liveQuestionText">
-                        <?php echo htmlspecialchars($live_questions[0]['question_text']); ?>
-                    </div>
-                    
-                    <div class="quiz-options-list" id="liveOptionsContainer">
-                        <button class="quiz-option-btn" data-option="A">
-                            <span>A. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_a']); ?></span></span>
-                        </button>
-                        <button class="quiz-option-btn" data-option="B">
-                            <span>B. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_b']); ?></span></span>
-                        </button>
-                        <button class="quiz-option-btn" data-option="C">
-                            <span>C. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_c']); ?></span></span>
-                        </button>
-                        <button class="quiz-option-btn" data-option="D">
-                            <span>D. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_d']); ?></span></span>
-                        </button>
-                    </div>
-
-                    <div id="liveExplanationBox" style="display:none; margin-top: 14px; padding: 12px; background: #eff6ff; border-radius: 6px; font-size: 0.88rem; color: #1e3a8a;"></div>
-                </div>
-
-                <div class="quiz-action-bar">
-                    <button class="btn-primary-action" id="btnSubmitAnswer" disabled>Submit Answer</button>
-                    <button class="btn-primary-action" id="btnNextQuestion" style="display:none; background: #059669;">Next Question ▶</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<!-- HERO SECTION COMPONENT -->
+<?php require_once __DIR__ . '/../includes/hero-section.php'; ?>
 
 <!-- MAIN CONTENT CONTAINER (2,000+ WORDS DETAILED 2023 GUIDE) -->
 <section class="section-padding">
