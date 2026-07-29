@@ -1,19 +1,19 @@
 <?php
-// Unified 70%/30% Hero Section Component for KoreanTestPapers.in
+// Unified Pro-Engine 70%/30% Hero Section Component for KoreanTestPapers.in
 require_once __DIR__ . '/media_catalog.php';
 
 $live_questions = get_live_questions();
 ?>
 
-<!-- HERO SECTION CONTAINER (70% / 30% SPLIT BOX LAYOUT) -->
+<!-- HERO SECTION CONTAINER (PRO-ENGINE LAYOUT) -->
 <section class="hero-section">
     <div class="container">
         
-        <!-- Hero Header Notice Bar -->
+        <!-- Hero Header Title Bar -->
         <div class="hero-heading-box">
             <h1 class="hero-title"><?php echo htmlspecialchars($page_title ?? 'Download Korean Test Papers and Korean Exam Paper with Answer Keys'); ?></h1>
             <p class="hero-subtitle">
-                Practice interactive level-based games, learn daily vocabulary, take randomized CBT mock tests, and download 100% free official <strong>korean test papers</strong> & <strong>korean exam paper</strong> PDFs directly from Google Drive!
+                Practice interactive level-based games, learn daily vocabulary, take randomized CBT mock tests, and download 100% free official <strong>korean test papers</strong> & <strong>korean exam paper</strong> PDFs with verified answer keys!
             </p>
         </div>
 
@@ -40,35 +40,35 @@ $live_questions = get_live_questions();
 
                     <!-- Hangul Interactive Quick Chart -->
                     <div class="hangul-chart-grid">
-                        <div class="hangul-card" onclick="playHangulSound('ㄱ', 'Giyeok (k/g)')">
+                        <div class="hangul-card" onclick="speakKorean('ㄱ');">
                             <span class="kor-char">ㄱ</span>
                             <span class="rom-char">g / k</span>
                         </div>
-                        <div class="hangul-card" onclick="playHangulSound('ㄴ', 'Nieun (n)')">
+                        <div class="hangul-card" onclick="speakKorean('ㄴ');">
                             <span class="kor-char">ㄴ</span>
                             <span class="rom-char">n</span>
                         </div>
-                        <div class="hangul-card" onclick="playHangulSound('ㄷ', 'Digeut (d/t)')">
+                        <div class="hangul-card" onclick="speakKorean('ㄷ');">
                             <span class="kor-char">ㄷ</span>
                             <span class="rom-char">d / t</span>
                         </div>
-                        <div class="hangul-card" onclick="playHangulSound('ㄹ', 'Rieul (r/l)')">
+                        <div class="hangul-card" onclick="speakKorean('ㄹ');">
                             <span class="kor-char">ㄹ</span>
                             <span class="rom-char">r / l</span>
                         </div>
-                        <div class="hangul-card" onclick="playHangulSound('ㅁ', 'Mieum (m)')">
+                        <div class="hangul-card" onclick="speakKorean('ㅁ');">
                             <span class="kor-char">ㅁ</span>
                             <span class="rom-char">m</span>
                         </div>
-                        <div class="hangul-card" onclick="playHangulSound('ㅂ', 'Bieup (b/p)')">
+                        <div class="hangul-card" onclick="speakKorean('ㅂ');">
                             <span class="kor-char">ㅂ</span>
                             <span class="rom-char">b / p</span>
                         </div>
-                        <div class="hangul-card" onclick="playHangulSound('ㅅ', 'Siot (s)')">
+                        <div class="hangul-card" onclick="speakKorean('ㅅ');">
                             <span class="kor-char">ㅅ</span>
                             <span class="rom-char">s</span>
                         </div>
-                        <div class="hangul-card" onclick="playHangulSound('ㅇ', 'Ieung (ng)')">
+                        <div class="hangul-card" onclick="speakKorean('ㅇ');">
                             <span class="kor-char">ㅇ</span>
                             <span class="rom-char">ng</span>
                         </div>
@@ -79,7 +79,10 @@ $live_questions = get_live_questions();
                         <div class="flashcard-category">Factory Safety & Tools</div>
                         <div class="flashcard-kor" id="fcKorean">안전모</div>
                         <div class="flashcard-eng" id="fcEnglish">Safety Helmet (सुरक्षा पेटी)</div>
-                        <button class="btn-sm-action" onclick="nextVocabCard()">Next Word ▶</button>
+                        <div style="display: flex; gap: 10px; margin-top: 10px;">
+                            <button class="btn-sm-action" onclick="speakKorean(document.getElementById('fcKorean').innerText)" style="background: #2563eb;">🔊 Listen Audio</button>
+                            <button class="btn-sm-action" onclick="nextVocabCard()">Next Word ▶</button>
+                        </div>
                     </div>
                 </div>
 
@@ -87,7 +90,7 @@ $live_questions = get_live_questions();
                 <div id="gamesTab" class="tab-content-panel" style="display: none;">
                     <div class="panel-header-box">
                         <h3>🎮 Level-Based Korean Practice Games</h3>
-                        <div class="level-indicator-badge">Level 1 (Free Trial)</div>
+                        <div class="level-indicator-badge">5 Free Trial Qs</div>
                     </div>
 
                     <!-- Game Mode Selection -->
@@ -110,22 +113,35 @@ $live_questions = get_live_questions();
                         </div>
 
                         <div class="game-options-grid" id="gameOptionsGrid">
-                            <button class="game-opt-btn" onclick="checkGameAnswer('A. Doctor')">A. Doctor</button>
-                            <button class="game-opt-btn" onclick="checkGameAnswer('B. Teacher')">B. Teacher</button>
-                            <button class="game-opt-btn" onclick="checkGameAnswer('C. Police Officer')">C. Police Officer</button>
-                            <button class="game-opt-btn" onclick="checkGameAnswer('D. Chef')">D. Chef</button>
+                            <button class="game-opt-btn" onclick="checkGameAnswer('A. Doctor', this)">A. Doctor</button>
+                            <button class="game-opt-btn" onclick="checkGameAnswer('B. Teacher', this)">B. Teacher</button>
+                            <button class="game-opt-btn" onclick="checkGameAnswer('C. Police Officer', this)">C. Police Officer</button>
+                            <button class="game-opt-btn" onclick="checkGameAnswer('D. Chef', this)">D. Chef</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- TAB 3: FULL CBT MOCK TEST -->
                 <div id="cbtTab" class="tab-content-panel" style="display: none;">
-                    <div class="panel-header-box">
-                        <h3>⏱️ Dynamic Random CBT Mock Simulator</h3>
-                        <span class="tag-badge blue">Dynamic Question Engine</span>
+                    <div class="panel-header-box" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                        <div>
+                            <h3 style="margin: 0;">⏱️ Dynamic Random CBT Mock Simulator</h3>
+                            <span class="tag-badge blue">Dynamic Question Engine</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <label for="cbtTimerSelectHero" style="font-size: 0.8rem; color: #94a3b8; font-weight: 700;">Set Timer:</label>
+                            <select id="cbtTimerSelectHero" onchange="setCbtExamTimer(this.value)" style="background: #0f172a; color: #ffffff; border: 1px solid #334155; padding: 4px 8px; border-radius: 6px; font-size: 0.8rem; font-weight: 700; cursor: pointer;">
+                                <option value="25">25 Mins (Official)</option>
+                                <option value="10">10 Mins (Quick)</option>
+                                <option value="20">20 Mins</option>
+                                <option value="30">30 Mins</option>
+                                <option value="50">50 Mins (Full Set)</option>
+                                <option value="60">60 Mins (Marathon)</option>
+                            </select>
+                        </div>
                     </div>
 
-                    <div class="quiz-card-box">
+                    <div class="quiz-card-box" style="margin-top: 14px;">
                         <div class="quiz-question-title" id="liveQuestionText">
                             <?php echo htmlspecialchars($live_questions[0]['question_text']); ?>
                         </div>
@@ -158,30 +174,30 @@ $live_questions = get_live_questions();
                 <div id="notesTab" class="tab-content-panel" style="display: none;">
                     <div class="panel-header-box">
                         <h3>📝 Exclusive Pro Study Notes & Cheatsheets</h3>
-                        <span class="tag-badge amber">Pro Vault</span>
+                        <span class="tag-badge amber">Pro Vault Exclusive</span>
                     </div>
 
                     <div class="notes-list-grid">
                         <div class="note-card-item">
                             <div class="note-card-info">
                                 <h4>1000 High-Yield EPS TOPIK Workplace Vocab</h4>
-                                <p>Complete English & Hindi dictionary for factory work</p>
+                                <p>Factory, agriculture & construction dictionary with English translations</p>
                             </div>
-                            <button onclick="checkProAccessForNotes()" class="btn-download-sm">View Notes</button>
+                            <a href="/pdf/1000-workplace-nouns-dictionary.html" target="_blank" class="btn-download-sm" style="background: #2563eb; color: #ffffff; font-weight: 700; text-decoration: none;">Download PDF 📥</a>
                         </div>
                         <div class="note-card-item">
                             <div class="note-card-info">
-                                <h4>Complete Korean Grammar Particles Cheatsheet</h4>
-                                <p>Master -은/는, -이/가, -을/를, -아/어서 rules in 10 minutes</p>
+                                <h4>Grammar Particles Mastery Guide</h4>
+                                <p>Master -은/는, -이/가, -을/를, -에서 rules in 10 minutes</p>
                             </div>
-                            <button onclick="checkProAccessForNotes()" class="btn-download-sm">View Notes</button>
+                            <a href="/pdf/grammar-particles-mastery.html" target="_blank" class="btn-download-sm" style="background: #d97706; color: #ffffff; font-weight: 700; text-decoration: none;">Download PDF 📥</a>
                         </div>
                         <div class="note-card-item">
                             <div class="note-card-info">
-                                <h4>Industrial Safety Signboard Reference Guide</h4>
-                                <p>High-resolution diagrams of all 50 HRD Korea warning signs</p>
+                                <h4>50 HRD Korea Safety Signboards</h4>
+                                <p>High-resolution visual catalogue of all official warning signs</p>
                             </div>
-                            <button onclick="checkProAccessForNotes()" class="btn-download-sm">View Notes</button>
+                            <a href="/pdf/50-safety-signboards-hrd-korea.html" target="_blank" class="btn-download-sm" style="background: #dc2626; color: #ffffff; font-weight: 700; text-decoration: none;">Download PDF 📥</a>
                         </div>
                     </div>
                 </div>
@@ -214,7 +230,7 @@ $live_questions = get_live_questions();
 
                 <!-- Primary CTA Banner Button -->
                 <div style="text-align: center;">
-                    <a href="/korean-exam-paper-master-collection" class="btn-primary-action" style="display: block; width: 100%; text-align: center; padding: 12px 16px; font-size: 0.9rem; font-weight: 800; background: #2563eb; color: #ffffff !important; border-radius: 6px; box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);">
+                    <a href="/korean-exam-paper-master-collection" class="btn-primary-action" style="display: block; width: 100%; text-align: center; padding: 12px 16px; font-size: 0.9rem; font-weight: 800; background: #2563eb; color: #ffffff !important; border-radius: 6px; box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4); text-decoration: none;">
                         Access Master Archive Hub (156 Papers) ▶
                     </a>
                 </div>
