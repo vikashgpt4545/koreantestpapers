@@ -769,7 +769,16 @@ function renderCurrentGameQuestion() {
         } else {
             qArea.innerHTML = `What is the English meaning of Korean word: <strong style="color: #60a5fa; font-size: 1.4rem;">"${currentQuestionObj.kor}"</strong>?`;
         }
-    if (gameTimeRemaining <= 0) {
+    }
+
+    if (qGrid) {
+        qGrid.innerHTML = currentQuestionObj.opts.map((opt, idx) => `
+            <button class="game-opt-btn" onclick="checkGameAnswer(${idx}, this)" style="transition: background 0.2s ease, transform 0.1s ease; cursor: pointer;">${opt}</button>
+        `).join('');
+    }
+}
+
+function checkGameAnswer(optIdx, btnElem) {
         restartGameRound();
         return;
     }
@@ -853,9 +862,6 @@ function renderCurrentGameQuestion() {
                 openAuthModal('register');
             }
         }, 600);
-        return;
-    }
-
     setTimeout(() => {
         isGameProcessing = false;
         renderCurrentGameQuestion();
