@@ -82,11 +82,16 @@ $canonical_url = "https://koreantestpapers.in" . ($_SERVER['REQUEST_URI'] ?? '')
             </span>
         <?php else: ?>
             <span>
-                <a href="javascript:void(0)" onclick="openAuthModal('login')" style="color: #ffffff; text-decoration: underline; margin-right: 12px; font-weight: 700;">🔑 Log In</a>
-                <a href="javascript:void(0)" onclick="openAuthModal('register')" style="background: #059669; color: white; padding: 3px 10px; border-radius: 12px; font-weight: 700; font-size: 0.8rem; text-decoration: none;">🎁 Start 5-Day Free Trial</a>
+                <a href="javascript:void(0)" onclick="openAuthModal('register')" style="background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #0f172a; padding: 4px 14px; border-radius: 20px; font-weight: 800; font-size: 0.82rem; text-decoration: none; display: inline-block; box-shadow: 0 0 12px rgba(251, 191, 36, 0.7); animation: trialBlink 1.2s infinite alternate;">🎁 Start 5-Day Free Trial</a>
             </span>
         <?php endif; ?>
     </div>
+    <style>
+    @keyframes trialBlink {
+        0% { transform: scale(0.97); opacity: 0.85; box-shadow: 0 0 4px rgba(251, 191, 36, 0.4); }
+        100% { transform: scale(1.05); opacity: 1; box-shadow: 0 0 16px rgba(251, 191, 36, 0.95); }
+    }
+    </style>
 
     <!-- Session Notifications -->
     <?php if (isset($_SESSION['auth_error'])): ?>
