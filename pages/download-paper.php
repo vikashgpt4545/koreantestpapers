@@ -32,6 +32,9 @@ require_once __DIR__ . '/../includes/header.php';
                 <a href="/subscription" class="btn-primary-action" style="padding: 14px; font-size: 1.05rem; font-weight: 800; background: #059669; color: #ffffff; border-radius: 8px; text-decoration: none;">
                     🔓 Unlock 30-Day Pro Pass ($<?php echo htmlspecialchars(get_setting('pro_price_usd', '8')); ?> USD)
                 </a>
+                <a href="/auth-handler.php?action=extend_trial" style="background: #fbbf24; color: #0f172a; padding: 12px; border-radius: 8px; font-weight: 800; text-decoration: none; font-size: 0.95rem;">
+                    🎁 Claim +10 Days Extra Free Trial ▶
+                </a>
                 <a href="javascript:void(0)" onclick="openAuthModal('login')" style="color: #cbd5e1; font-size: 0.9rem; text-decoration: underline;">
                     Already a Pro Member? Log In Here 🔑
                 </a>

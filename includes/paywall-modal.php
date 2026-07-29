@@ -47,8 +47,11 @@
             <p style="font-size: 0.88rem; color: #e0f2fe; margin: 0;">Instant 1-Click Access to Study Notes & All Test Archives</p>
         </div>
 
-        <div class="pro-modal-actions">
-            <a href="/subscription" class="btn-pro-primary" style="background: #059669; font-weight: 800;">🔓 Unlock 30-Day Pro Pass ($<?php echo htmlspecialchars(get_setting('pro_price_usd', '8')); ?> USD)</a>
+        <div class="pro-modal-actions" style="display: flex; flex-direction: column; gap: 10px;">
+            <a href="/subscription" class="btn-pro-primary" style="background: #059669; font-weight: 800; text-align: center;">🔓 Unlock 30-Day Pro Pass ($<?php echo htmlspecialchars(get_setting('pro_price_usd', '8')); ?> USD)</a>
+            <a href="/auth-handler.php?action=extend_trial" style="background: #fbbf24; color: #0f172a; padding: 12px; border-radius: 8px; font-weight: 800; text-decoration: none; text-align: center; font-size: 0.95rem;">
+                🎁 Need More Practice? Claim +10 Days Extra Free Trial ▶
+            </a>
             <button class="btn-pro-secondary" onclick="closeProModal()">⚡ Continue Free Practice</button>
         </div>
     </div>

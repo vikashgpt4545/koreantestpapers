@@ -74,6 +74,7 @@ CREATE TABLE IF NOT EXISTS `users` (
     `role` ENUM('user', 'admin') DEFAULT 'user',
     `status` ENUM('free', 'trial', 'pro') DEFAULT 'trial',
     `trial_ends_at` DATETIME NULL,
+    `trial_extended` TINYINT(1) DEFAULT 0,
     `subscription_ends_at` DATETIME NULL,
     `ip_address` VARCHAR(45) DEFAULT NULL,
     `last_login` DATETIME DEFAULT NULL,

@@ -37,10 +37,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $stmt = $conn->prepare("UPDATE users SET status = 'pro', subscription_ends_at = :sub_ends WHERE id = :id");
                     $stmt->execute([':sub_ends' => $sub_ends, ':id' => $target_user_id]);
                     $msg = "User #$target_user_id successfully upgraded to Pro (30-Day Pass)! Unlocked Study Notes & PDF Vault.";
-                } elseif ($new_status === 'trial') {
-                    $trial_days = (int)get_setting('trial_duration_days', 5);
+                } elseif ($new_status === 'trial' || $new_status === 'trial_10') {
+                    $trial_days = ($new_status === 'trial_10') ? 10 : (int)get_setting('trial_duration_days', 5);
                     $trial_ends = date('Y-m-d H:i:s', strtotime("+$trial_days days"));
-                    $stmt = $conn->prepare("UPDATE users SET status = 'trial', trial_ends_at = :trial_ends WHERE id = :id");
+                    $stmt = $conn->prepare("UPDATE users SET status = 'trial', trial_ends_at = :trial_ends, trial_extended = 1 WHERE id = :id");
                     $stmt->execute([':trial_ends' => $trial_ends, ':id' => $target_user_id]);
                     $msg = "User #$target_user_id assigned a $trial_days-Day Free Trial.";
                 } else {
@@ -209,11 +209,12 @@ require_once __DIR__ . '/../includes/header.php';
                                                 </button>
                                             <?php endif; ?>
 
-                                            <?php if ($user['status'] !== 'trial'): ?>
-                                                <button type="submit" name="new_status" value="trial" class="btn-sm-action" style="background: #d97706; color: white; border: none; padding: 6px 12px; border-radius: 4px; font-weight: 700; cursor: pointer;" title="Give 5-Day Free Trial">
-                                                    🎁 5-Day Trial
-                                                </button>
-                                            <?php endif; ?>
+                                            <button type="submit" name="new_status" value="trial_10" class="btn-sm-action" style="background: #d97706; color: white; border: none; padding: 6px 12px; border-radius: 4px; font-weight: 700; cursor: pointer;" title="Give +10 Days Extra Free Trial">
+                                                🎁 +10 Days Trial
+                                            </button>
+                                            <button type="submit" name="new_status" value="trial" class="btn-sm-action" style="background: #2563eb; color: white; border: none; padding: 6px 12px; border-radius: 4px; font-weight: 700; cursor: pointer;" title="Reset 5-Day Free Trial">
+                                                🎁 5-Day Trial
+                                            </button>
                                         </form>
                                     </td>
                                 </tr>

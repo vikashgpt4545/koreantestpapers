@@ -138,6 +138,39 @@ if ($action === 'login') {
     exit;
 }
 
+if ($action === 'extend_trial') {
+    if (!is_logged_in()) {
+        $_SESSION['auth_error'] = "Please log in or register to claim your +10 Days Extra Free Trial!";
+        header('Location: ' . ($_SERVER['HTTP_REFERER'] ?? '/'));
+        exit;
+    }
+
+    $user_id = $_SESSION['user_id'] ?? 0;
+    $new_trial_ends = date('Y-m-d H:i:s', strtotime("+10 days"));
+
+    if ($db_connected && $user_id > 0) {
+        try {
+            $stmt = $conn->prepare("UPDATE users SET status = 'trial', trial_ends_at = :t_ends, trial_extended = 1 WHERE id = :id");
+            $stmt->execute([':t_ends' => $new_trial_ends, ':id' => $user_id]);
+            
+            $_SESSION['user_status'] = 'trial';
+            $_SESSION['auth_success'] = "🎉 Bonus Unlocked! You received +10 Days Extra Free Trial practice!";
+        } catch (Exception $e) {
+            $_SESSION['auth_error'] = "Could not extend trial: " . $e->getMessage();
+        }
+    } else {
+        $_SESSION['user_status'] = 'trial';
+        if (isset($_SESSION['user_data'])) {
+            $_SESSION['user_data']['trial_ends_at'] = $new_trial_ends;
+            $_SESSION['user_data']['status'] = 'trial';
+        }
+        $_SESSION['auth_success'] = "🎉 Bonus Unlocked! You received +10 Days Extra Free Trial practice!";
+    }
+
+    header('Location: ' . ($_SERVER['HTTP_REFERER'] ?? '/'));
+    exit;
+}
+
 if ($action === 'logout') {
     session_destroy();
     header('Location: /');
