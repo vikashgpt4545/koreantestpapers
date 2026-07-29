@@ -3,7 +3,7 @@
 require_once __DIR__ . '/../includes/db.php';
 
 // Page SEO Meta Configuration
-$page_title = "EPS TOPIK Reading Korean Test Papers with Answer Keys PDF";
+$page_title = "EPS TOPIK Reading Korean Test Papers with Answer Keys PDF & Korean Exam Paper";
 $page_desc = "Download free EPS TOPIK Reading Korean test papers PDF with official answer keys, detailed English explanations, workplace vocabulary lists, and picture question solutions for Indian job candidates.";
 $canonical_url = "https://koreantestpapers.in/eps-topik-reading-korean-test-papers";
 
@@ -26,7 +26,7 @@ require_once __DIR__ . '/../includes/header.php';
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "EPS TOPIK Reading Korean Test Papers with Answer Keys PDF",
+  "headline": "EPS TOPIK Reading Korean Test Papers with Answer Keys PDF & Korean Exam Paper",
   "description": "Comprehensive guide and free PDF download archive for EPS TOPIK Reading Korean test papers with answer keys and step-by-step explanations.",
   "publisher": {
     "@type": "Organization",

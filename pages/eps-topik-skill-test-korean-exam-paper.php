@@ -3,7 +3,7 @@
 require_once __DIR__ . '/../includes/db.php';
 
 // Page SEO Meta Configuration
-$page_title = "EPS TOPIK Skill Test Interview Korean Exam Paper";
+$page_title = "EPS TOPIK Skill Test Interview Korean Exam Paper & Korean Test Papers";
 $page_desc = "Download free EPS TOPIK Skill Test Interview Korean exam paper PDF with official HRD Korea interview questions, self-introduction script, physical test guides, and score rubrics.";
 $canonical_url = "https://koreantestpapers.in/eps-topik-skill-test-korean-exam-paper";
 
@@ -23,7 +23,7 @@ require_once __DIR__ . '/../includes/header.php';
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "EPS TOPIK Skill Test Interview Korean Exam Paper",
+  "headline": "EPS TOPIK Skill Test Interview Korean Exam Paper & Korean Test Papers",
   "description": "Comprehensive guide and downloadable EPS TOPIK Skill Test Interview Korean exam paper PDF sets with self-introduction scripts and practical workplace command guides.",
   "publisher": {
     "@type": "Organization",
@@ -34,91 +34,8 @@ require_once __DIR__ . '/../includes/header.php';
 }
 </script>
 
-<!-- HERO SECTION CONTAINER -->
-<section class="hero-section">
-    <div class="container">
-        <div class="hero-heading-box">
-            <h1 class="hero-title">EPS TOPIK Skill Test Interview Korean Exam Paper</h1>
-            <p class="hero-subtitle">
-                Master the HRD Korea Phase 2 Skill Test & Interview with official <strong>korean exam paper</strong> scripts, downloadable self-introduction templates, practical physical test guides, and <strong>korean test papers</strong>.
-            </p>
-        </div>
-
-        <!-- 2-Column Split Box Container -->
-        <div class="hero-split-container">
-            <!-- Left Box: Skill Test Downloads -->
-            <div class="hero-left-box">
-                <div class="box-title-header">
-                    <h3>🛠 Skill Test & Interview Archive</h3>
-                    <span class="tag-badge green">Phase 2 Official</span>
-                </div>
-                <div class="exam-nav-list">
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>EPS TOPIK Skill Test & Interview Exam Paper</h4>
-                            <p>Full self-introduction script & interviewer question set</p>
-                        </div>
-                        <a href="../pdf/eps-topik-special-cbt.pdf" class="btn-download-sm" download>PDF</a>
-                    </div>
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>Special CBT & Skill Test Practice Paper</h4>
-                            <p>Re-entry worker skill test & interview paper</p>
-                        </div>
-                        <a href="../pdf/eps-topik-cbt-mock.pdf" class="btn-download-sm" download>PDF</a>
-                    </div>
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>EPS TOPIK Essential Vocabulary Exam Paper</h4>
-                            <p>Workplace commands & tool vocabulary PDF</p>
-                        </div>
-                        <a href="../pdf/eps-topik-vocab.pdf" class="btn-download-sm" download>PDF</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right Box: Live CBT Mock Test Widget -->
-            <div class="hero-right-box" id="live-test-box">
-                <div class="live-test-header">
-                    <div class="live-indicator">
-                        <span class="live-dot"></span> LIVE INTERVIEW COMMAND QUIZ
-                    </div>
-                    <div style="font-weight: 700; font-size: 0.9rem; color: #475569;">
-                        ⏱ Timer: <span id="liveTimerDisplay" style="color: #2563eb;">25:00</span>
-                    </div>
-                </div>
-
-                <div class="quiz-card-box">
-                    <div class="quiz-question-title" id="liveQuestionText">
-                        <?php echo htmlspecialchars($live_questions[0]['question_text']); ?>
-                    </div>
-                    
-                    <div class="quiz-options-list" id="liveOptionsContainer">
-                        <button class="quiz-option-btn" data-option="A">
-                            <span>A. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_a']); ?></span></span>
-                        </button>
-                        <button class="quiz-option-btn" data-option="B">
-                            <span>B. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_b']); ?></span></span>
-                        </button>
-                        <button class="quiz-option-btn" data-option="C">
-                            <span>C. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_c']); ?></span></span>
-                        </button>
-                        <button class="quiz-option-btn" data-option="D">
-                            <span>D. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_d']); ?></span></span>
-                        </button>
-                    </div>
-
-                    <div id="liveExplanationBox" style="display:none; margin-top: 14px; padding: 12px; background: #eff6ff; border-radius: 6px; font-size: 0.88rem; color: #1e3a8a;"></div>
-                </div>
-
-                <div class="quiz-action-bar">
-                    <button class="btn-primary-action" id="btnSubmitAnswer" disabled>Submit Answer</button>
-                    <button class="btn-primary-action" id="btnNextQuestion" style="display:none; background: #059669;">Next Question ▶</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<!-- HERO SECTION COMPONENT -->
+<?php require_once __DIR__ . '/../includes/hero-section.php'; ?>
 
 <!-- MAIN CONTENT CONTAINER (2,000+ WORDS DETAILED SKILL TEST GUIDE) -->
 <section class="section-padding">
