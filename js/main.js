@@ -418,10 +418,21 @@ const vocabList = [
 
 let currentVocabLinearIndex = 0;
 let currentVocabItem = vocabList[0];
+let vocabPreviewCount = 0;
 
 function nextVocabCard() {
     if (!vocabList || vocabList.length === 0) return;
     
+    const hasAccess = window.userSession && (window.userSession.isPro || window.userSession.isTrial);
+    vocabPreviewCount++;
+
+    if (!hasAccess && vocabPreviewCount > 3) {
+        if (typeof openAuthModal === 'function') {
+            openAuthModal('register');
+        }
+        return;
+    }
+
     currentVocabLinearIndex = (currentVocabLinearIndex + 1) % vocabList.length;
     currentVocabItem = vocabList[currentVocabLinearIndex];
     updateVocabCardDisplay();
@@ -597,6 +608,7 @@ const signboardVocabBank = [
     { icon: "🛑", type: "sign", name: "일시 정지 (Stop Inspection)", eng: "Stop & Inspect Hazard" }
 ];
 
+let heroGameCount = 0;
 let currentGameIdx = 0;
 let gameCurrentScore = 0;
 let gameTimerInterval = null;
@@ -691,9 +703,12 @@ function endGameRound() {
 
 function restartGameRound() {
     gameCurrentScore = 0;
+    heroGameCount = 0;
     isGameProcessing = false;
     const scoreEl = document.getElementById('gameScore');
     if (scoreEl) scoreEl.textContent = '0';
+    const qCountEl = document.getElementById('gameQCount');
+    if (qCountEl) qCountEl.textContent = '1 / 5';
     startGameTimer();
     renderCurrentGameQuestion();
 }
@@ -784,13 +799,42 @@ function checkGameAnswer(optIdx, btnElem) {
     const scoreEl = document.getElementById('gameScore');
     if (scoreEl) scoreEl.textContent = gameCurrentScore;
 
-    // Track Free Game Limit
-    const isPro = localStorage.getItem('koreantestpapers_pro') === 'true' || localStorage.getItem('koreanTestProAccess') === 'true';
     heroGameCount++;
-    if (!isPro && heroGameCount >= 3) {
+
+    const qCountEl = document.getElementById('gameQCount');
+    if (qCountEl) {
+        qCountEl.textContent = `${Math.min(heroGameCount + 1, 5)} / 5`;
+    }
+
+    // Track Free Game Limit using server-side session state
+    const hasAccess = window.userSession && (window.userSession.isPro || window.userSession.isTrial);
+    if (!hasAccess && heroGameCount >= 3) {
         setTimeout(() => {
             isGameProcessing = false;
-            openProModal();
+            const qArea = document.getElementById('gameQuestionText');
+            const qGrid = document.getElementById('gameOptionsGrid');
+            if (qArea) {
+                qArea.innerHTML = `
+                    <div style="text-align: center; padding: 10px;">
+                        <div style="font-size: 2.2rem; margin-bottom: 4px;">🎁</div>
+                        <div style="font-size: 0.85rem; color: #f59e0b; font-weight: 700; text-transform: uppercase; margin-bottom: 4px;">Free Teaser Preview Limit Reached (3/5 Questions)</div>
+                        <div style="font-size: 1.1rem; color: #ffffff; font-weight: 800; margin-bottom: 6px;">Start Your 5-Day Free Trial</div>
+                        <p style="font-size: 0.82rem; color: #94a3b8; margin-bottom: 12px;">Create a free candidate account to play unlimited practice games!</p>
+                    </div>
+                `;
+            }
+            if (qGrid) {
+                qGrid.innerHTML = `
+                    <div style="grid-column: 1 / -1; text-align: center;">
+                        <button onclick="openAuthModal('register')" style="background: #059669; color: #ffffff; font-weight: 800; padding: 12px 24px; border-radius: 8px; font-size: 0.95rem; cursor: pointer; border: none;">
+                            🎁 Start 5-Day Free Trial (Create Account) ▶
+                        </button>
+                    </div>
+                `;
+            }
+            if (typeof openAuthModal === 'function') {
+                openAuthModal('register');
+            }
         }, 600);
         return;
     }
