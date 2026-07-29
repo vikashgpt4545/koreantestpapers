@@ -316,10 +316,7 @@ require_once __DIR__ . '/../includes/header.php';
                                 </div>
 
                                 <div class="game-options-grid" id="gameOptionsGrid">
-                                    <button class="game-opt-btn" onclick="checkGameAnswer('A. Doctor')">A. Doctor</button>
-                                    <button class="game-opt-btn" onclick="checkGameAnswer('B. Teacher')">B. Teacher</button>
-                                    <button class="game-opt-btn" onclick="checkGameAnswer('C. Police')">C. Police</button>
-                                    <button class="game-opt-btn" onclick="checkGameAnswer('D. Chef')">D. Chef</button>
+                                    <div style="grid-column: 1 / -1; text-align: center; color: #94a3b8; padding: 20px;">Loading practice questions...</div>
                                 </div>
                             </div>
                         </div>

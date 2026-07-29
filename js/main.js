@@ -557,6 +557,7 @@ function restartGameRound() {
 }
 
 function renderCurrentGameQuestion() {
+    isGameProcessing = false;
     currentQuestionObj = generateDynamicQuestion();
     if (!currentQuestionObj) return;
 
@@ -568,17 +569,18 @@ function renderCurrentGameQuestion() {
     }
 
     if (qGrid) {
-        qGrid.innerHTML = currentQuestionObj.opts.map(opt => `
-            <button class="game-opt-btn" onclick="checkGameAnswer('${opt.replace(/'/g, "\\'")}', this)" style="transition: background 0.2s ease, transform 0.1s ease; cursor: pointer;">${opt}</button>
+        qGrid.innerHTML = currentQuestionObj.opts.map((opt, idx) => `
+            <button class="game-opt-btn" onclick="checkGameAnswer(${idx}, this)" style="transition: background 0.2s ease, transform 0.1s ease; cursor: pointer;">${opt}</button>
         `).join('');
     }
 }
 
-function checkGameAnswer(chosen, btnElem) {
+function checkGameAnswer(optIdx, btnElem) {
+    if (isGameProcessing || gameTimeRemaining <= 0) return;
     if (!currentQuestionObj) {
-        currentQuestionObj = generateDynamicQuestion();
+        renderCurrentGameQuestion();
+        return;
     }
-    if (isGameProcessing || gameTimeRemaining <= 0 || !currentQuestionObj) return;
     isGameProcessing = true;
 
     if (!btnElem && window.event && window.event.target) {
@@ -588,7 +590,8 @@ function checkGameAnswer(chosen, btnElem) {
     const allButtons = document.querySelectorAll('.game-opt-btn');
     allButtons.forEach(btn => btn.style.pointerEvents = 'none');
 
-    const isCorrect = (chosen === currentQuestionObj.ans || chosen.trim() === currentQuestionObj.ans.trim());
+    const chosenText = currentQuestionObj.opts[optIdx] || (btnElem ? btnElem.textContent.trim() : '');
+    const isCorrect = (chosenText.trim() === currentQuestionObj.ans.trim());
 
     if (isCorrect) {
         gameCurrentScore += 10;
