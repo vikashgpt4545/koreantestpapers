@@ -3,7 +3,7 @@
 require_once __DIR__ . '/../includes/db.php';
 
 // Page SEO Meta Configuration
-$page_title = "Real-time EPS TOPIK CBT 3 Korean Exam Paper";
+$page_title = "Real-time EPS TOPIK CBT 3 Korean Exam Paper & Korean Test Papers";
 $page_desc = "Download free Real-time EPS TOPIK CBT 3 Korean exam paper PDF with official HRD Korea 50-minute timed touchscreen simulator, answer keys, and score calculation.";
 $canonical_url = "https://koreantestpapers.in/eps-topik-timed-cbt-3-korean-exam-paper";
 
@@ -23,7 +23,7 @@ require_once __DIR__ . '/../includes/header.php';
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Real-time EPS TOPIK CBT 3 Korean Exam Paper",
+  "headline": "Real-time EPS TOPIK CBT 3 Korean Exam Paper & Korean Test Papers",
   "description": "Comprehensive guide and downloadable Real-time EPS TOPIK CBT 3 Korean exam paper PDF sets with 50-minute real-time computer simulation questions and answer keys.",
   "publisher": {
     "@type": "Organization",
@@ -34,91 +34,8 @@ require_once __DIR__ . '/../includes/header.php';
 }
 </script>
 
-<!-- HERO SECTION CONTAINER -->
-<section class="hero-section">
-    <div class="container">
-        <div class="hero-heading-box">
-            <h1 class="hero-title">Real-time EPS TOPIK CBT 3 Korean Exam Paper</h1>
-            <p class="hero-subtitle">
-                Enhance your exam performance with official Real-time EPS TOPIK CBT 3 <strong>korean exam paper</strong> sets, complete with 50-minute timer simulation, downloadable <strong>korean test papers</strong> PDFs, and answer keys.
-            </p>
-        </div>
-
-        <!-- 2-Column Split Box Container -->
-        <div class="hero-split-container">
-            <!-- Left Box: Timed CBT 3 Downloads -->
-            <div class="hero-left-box">
-                <div class="box-title-header">
-                    <h3>⏱ Timed CBT Set 3 Archive</h3>
-                    <span class="tag-badge blue">Timed CBT 3</span>
-                </div>
-                <div class="exam-nav-list">
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>Real-time EPS TOPIK CBT 3 Exam Paper PDF</h4>
-                            <p>Full 40-question timed UBT practice test set</p>
-                        </div>
-                        <a href="../pdf/eps-topik-cbt-mock.pdf" class="btn-download-sm" download>PDF</a>
-                    </div>
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>EPS TOPIK 2025 Model Question Paper PDF</h4>
-                            <p>Official 40-question UBT practice test set & answer key</p>
-                        </div>
-                        <a href="../pdf/eps-topik-2025-model.pdf" class="btn-download-sm" download>PDF</a>
-                    </div>
-                    <div class="exam-item-card">
-                        <div class="exam-item-info">
-                            <h4>HRD Korea Official Question Bank PDF</h4>
-                            <p>Complete 2000-question solved question bank</p>
-                        </div>
-                        <a href="../pdf/eps-topik-official-question-bank.pdf" class="btn-download-sm" download>PDF</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right Box: Live CBT Mock Test Widget -->
-            <div class="hero-right-box" id="live-test-box">
-                <div class="live-test-header">
-                    <div class="live-indicator">
-                        <span class="live-dot"></span> LIVE TIMED CBT 3 SIMULATOR
-                    </div>
-                    <div style="font-weight: 700; font-size: 0.9rem; color: #475569;">
-                        ⏱ Timer: <span id="liveTimerDisplay" style="color: #2563eb;">25:00</span>
-                    </div>
-                </div>
-
-                <div class="quiz-card-box">
-                    <div class="quiz-question-title" id="liveQuestionText">
-                        <?php echo htmlspecialchars($live_questions[0]['question_text']); ?>
-                    </div>
-                    
-                    <div class="quiz-options-list" id="liveOptionsContainer">
-                        <button class="quiz-option-btn" data-option="A">
-                            <span>A. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_a']); ?></span></span>
-                        </button>
-                        <button class="quiz-option-btn" data-option="B">
-                            <span>B. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_b']); ?></span></span>
-                        </button>
-                        <button class="quiz-option-btn" data-option="C">
-                            <span>C. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_c']); ?></span></span>
-                        </button>
-                        <button class="quiz-option-btn" data-option="D">
-                            <span>D. <span class="opt-text"><?php echo htmlspecialchars($live_questions[0]['option_d']); ?></span></span>
-                        </button>
-                    </div>
-
-                    <div id="liveExplanationBox" style="display:none; margin-top: 14px; padding: 12px; background: #eff6ff; border-radius: 6px; font-size: 0.88rem; color: #1e3a8a;"></div>
-                </div>
-
-                <div class="quiz-action-bar">
-                    <button class="btn-primary-action" id="btnSubmitAnswer" disabled>Submit Answer</button>
-                    <button class="btn-primary-action" id="btnNextQuestion" style="display:none; background: #059669;">Next Question ▶</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<!-- HERO SECTION COMPONENT -->
+<?php require_once __DIR__ . '/../includes/hero-section.php'; ?>
 
 <!-- MAIN CONTENT CONTAINER (2,000+ WORDS DETAILED TIMED CBT 3 GUIDE) -->
 <section class="section-padding">
