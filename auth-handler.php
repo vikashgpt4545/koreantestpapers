@@ -91,14 +91,42 @@ if ($action === 'login') {
         exit;
     }
 
-    // Default admin fallback check
+    // Default admin & test account quick login handler
     if ($email === 'admin@koreantestpapers.in' && ($password === 'admin123' || $password === 'admin')) {
         $_SESSION['user_id'] = 1;
         $_SESSION['user_name'] = 'System Admin';
         $_SESSION['user_email'] = 'admin@koreantestpapers.in';
         $_SESSION['user_status'] = 'pro';
         $_SESSION['role'] = 'admin';
+        $_SESSION['auth_success'] = "Logged in as System Admin!";
         header('Location: /admin/dashboard.php');
+        exit;
+    }
+    if ($email === 'pro@koreantestpapers.in' && ($password === 'pro123' || $password === 'admin123')) {
+        $_SESSION['user_id'] = 2;
+        $_SESSION['user_name'] = 'Pro Student Member';
+        $_SESSION['user_email'] = 'pro@koreantestpapers.in';
+        $_SESSION['user_status'] = 'pro';
+        $_SESSION['role'] = 'user';
+        $_SESSION['auth_success'] = "Welcome Pro Member! Full Access Unlocked 💎";
+        header('Location: ' . ($_SERVER['HTTP_REFERER'] ?? '/'));
+        exit;
+    }
+    if ($email === 'trial@koreantestpapers.in' && ($password === 'trial123' || $password === 'admin123')) {
+        $_SESSION['user_id'] = 3;
+        $_SESSION['user_name'] = 'Free Trial Student';
+        $_SESSION['user_email'] = 'trial@koreantestpapers.in';
+        $_SESSION['user_status'] = 'trial';
+        $_SESSION['role'] = 'user';
+        $_SESSION['user_data'] = [
+            'id' => 3,
+            'name' => 'Free Trial Student',
+            'email' => 'trial@koreantestpapers.in',
+            'status' => 'trial',
+            'trial_ends_at' => date('Y-m-d H:i:s', strtotime("+5 days"))
+        ];
+        $_SESSION['auth_success'] = "Welcome! Your 5-Day Free Trial is Active 🎁";
+        header('Location: ' . ($_SERVER['HTTP_REFERER'] ?? '/'));
         exit;
     }
 

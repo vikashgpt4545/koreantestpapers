@@ -96,8 +96,10 @@ INSERT INTO `site_settings` (`setting_key`, `setting_value`) VALUES
 ('trial_duration_days', '5')
 ON DUPLICATE KEY UPDATE `setting_value` = VALUES(`setting_value`);
 
--- Default Admin User (admin@koreantestpapers.in / admin123)
-INSERT INTO `users` (`name`, `email`, `password`, `role`, `status`) VALUES
-('System Admin', 'admin@koreantestpapers.in', '$2y$10$wN1QyZq0wK3pQ0b5pW3Ome0qJ/Y6vO/P5m5q8.0J5.k1m2m3m4m5m6', 'admin', 'pro')
+-- Default Accounts (Admin, Pro Member, Trial Candidate)
+INSERT INTO `users` (`name`, `email`, `password`, `role`, `status`, `trial_ends_at`, `subscription_ends_at`) VALUES
+('System Admin', 'admin@koreantestpapers.in', '$2y$10$e.w2pUvQxL.rB4X/B.1z0.bV0.bV0.bV0.bV0.bV0.bV0.bV0.bV0', 'admin', 'pro', NULL, DATE_ADD(NOW(), INTERVAL 365 DAY)),
+('Pro Candidate', 'pro@koreantestpapers.in', '$2y$10$e.w2pUvQxL.rB4X/B.1z0.bV0.bV0.bV0.bV0.bV0.bV0.bV0.bV0', 'user', 'pro', NULL, DATE_ADD(NOW(), INTERVAL 30 DAY)),
+('Free Trial Candidate', 'trial@koreantestpapers.in', '$2y$10$e.w2pUvQxL.rB4X/B.1z0.bV0.bV0.bV0.bV0.bV0.bV0.bV0.bV0', 'user', 'trial', DATE_ADD(NOW(), INTERVAL 5 DAY), NULL)
 ON DUPLICATE KEY UPDATE `id` = `id`;
 
