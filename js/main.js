@@ -469,7 +469,7 @@ function toggleModuleBox(boxId, btn) {
     }
 }
 
-/* Dynamic ⚡ Speed Word Match Game Engine */
+/* Dynamic ⚡ Speed Word Match & 🚫 Safety Signboard Puzzle Engine */
 const speedMatchVocabBank = [
     { kor: "의사", eng: "Doctor" },
     { kor: "선생님", eng: "Teacher" },
@@ -509,12 +509,30 @@ const speedMatchVocabBank = [
     { kor: "절단기", eng: "Cutter / Shear" }
 ];
 
+const signboardVocabBank = [
+    { icon: "🚫", type: "sign", name: "출입 금지 (No Entry)", eng: "No Entry / Prohibited Area" },
+    { icon: "🚭", type: "sign", name: "금연 (No Smoking)", eng: "No Smoking Area" },
+    { icon: "⚡", type: "sign", name: "고압 전원 위험 (High Voltage Hazard)", eng: "High Voltage Hazard" },
+    { icon: "⛑️", type: "sign", name: "안전모 착용 (Wear Safety Helmet)", eng: "Wear Safety Helmet Mandatory" },
+    { icon: "🦺", type: "sign", name: "안전복 착용 (Wear Safety Vest)", eng: "Wear Protective Safety Vest" },
+    { icon: "👢", type: "sign", name: "안전화 착용 (Wear Safety Boots)", eng: "Wear Safety Boots Mandatory" },
+    { icon: "🧤", type: "sign", name: "안전장갑 착용 (Wear Safety Gloves)", eng: "Wear Protective Gloves" },
+    { icon: "🧯", type: "sign", name: "소화기 위치 (Fire Extinguisher)", eng: "Fire Extinguisher Location" },
+    { icon: "🏃", type: "sign", name: "비상구 대피로 (Emergency Exit)", eng: "Emergency Exit Escape Route" },
+    { icon: "☣️", type: "sign", name: "생물학적 위험 (Biohazard Danger)", eng: "Biohazard Warning Sign" },
+    { icon: "🛢️", type: "sign", name: "인화성 물질 위험 (Flammable Hazard)", eng: "Flammable Liquid Warning" },
+    { icon: "🥽", type: "sign", name: "보안경 착용 (Wear Eye Protection)", eng: "Wear Eye Protection Goggles" },
+    { icon: "🔇", type: "sign", name: "소음 주의 (High Noise Area)", eng: "High Noise Danger Zone" },
+    { icon: "🛑", type: "sign", name: "일시 정지 (Stop Inspection)", eng: "Stop & Inspect Hazard" }
+];
+
 let currentGameIdx = 0;
 let gameCurrentScore = 0;
 let gameTimerInterval = null;
 let gameTimeRemaining = 60;
 let isGameProcessing = false;
 let currentQuestionObj = null;
+let currentActiveGameMode = 'speed';
 
 function shuffleArray(array) {
     const arr = [...array];
@@ -526,8 +544,9 @@ function shuffleArray(array) {
 }
 
 function generateDynamicQuestion() {
-    const bank = speedMatchVocabBank;
+    const bank = (currentActiveGameMode === 'signboard') ? signboardVocabBank : speedMatchVocabBank;
     if (!bank || bank.length < 4) return null;
+
     const targetIdx = Math.floor(Math.random() * bank.length);
     const target = bank[targetIdx];
 
@@ -544,15 +563,18 @@ function generateDynamicQuestion() {
     let correctText = '';
 
     const optsWithLabels = options.map((opt, i) => {
-        const txt = `${labels[i]}. ${opt.eng}`;
-        if (opt.kor === target.kor) {
+        const displayLabel = opt.name || opt.eng;
+        const txt = `${labels[i]}. ${displayLabel}`;
+        if ((opt.icon && opt.icon === target.icon) || (opt.kor && opt.kor === target.kor)) {
             correctText = txt;
         }
         return txt;
     });
 
     return {
-        kor: target.kor,
+        mode: currentActiveGameMode,
+        icon: target.icon || null,
+        kor: target.kor || target.name,
         eng: target.eng,
         opts: optsWithLabels,
         ans: correctText
@@ -614,7 +636,18 @@ function renderCurrentGameQuestion() {
     const qGrid = document.getElementById('gameOptionsGrid');
 
     if (qArea) {
-        qArea.innerHTML = `What is the English meaning of Korean word: <strong style="color: #60a5fa; font-size: 1.4rem;">"${currentQuestionObj.kor}"</strong>?`;
+        if (currentQuestionObj.mode === 'signboard') {
+            qArea.innerHTML = `
+                <div style="text-align: center; margin-bottom: 8px;">
+                    <div style="font-size: 3.5rem; line-height: 1; display: inline-block; background: #0f172a; border: 2px solid #ef4444; border-radius: 16px; padding: 14px 28px; margin-bottom: 10px; box-shadow: 0 4px 12px rgba(239, 68, 68, 0.25);">
+                        ${currentQuestionObj.icon}
+                    </div>
+                    <div style="color: #60a5fa; font-size: 1.1rem; font-weight: 700;">Identify Safety Signboard Rule / Meaning:</div>
+                </div>
+            `;
+        } else {
+            qArea.innerHTML = `What is the English meaning of Korean word: <strong style="color: #60a5fa; font-size: 1.4rem;">"${currentQuestionObj.kor}"</strong>?`;
+        }
     }
 
     if (qGrid) {
@@ -688,7 +721,8 @@ function selectGameMode(mode, btnElement) {
         openProModal();
         return;
     }
-    
+
+    currentActiveGameMode = mode;
     restartGameRound();
 }
 
