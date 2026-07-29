@@ -39,6 +39,8 @@ function initMobileMenu() {
 let currentQuestionIndex = 0;
 let cbtTimerInterval = null;
 let cbtTimeRemainingSeconds = 25 * 60;
+let selectedOption = null;
+let cbtQuestionsAnsweredCount = 0;
 
 function setCbtExamTimer(minutes) {
     const mins = parseInt(minutes, 10) || 25;
@@ -80,14 +82,22 @@ function initLiveTestModule() {
         btn.addEventListener('click', function () {
             optionBtns.forEach(b => {
                 b.classList.remove('selected');
-                b.style.background = '#1e293b';
+                b.style.background = '#0f172a';
                 b.style.borderColor = '#334155';
+                b.style.color = '#ffffff';
             });
             this.classList.add('selected');
             this.style.background = '#1e3a8a';
             this.style.borderColor = '#2563eb';
+            this.style.color = '#ffffff';
             selectedOption = this.getAttribute('data-option');
-            if (submitBtn) submitBtn.disabled = false;
+            
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.style.opacity = '1';
+                submitBtn.style.cursor = 'pointer';
+                submitBtn.style.background = '#2563eb';
+            }
         });
     });
 
@@ -101,38 +111,65 @@ function initLiveTestModule() {
 
             const currentQ = window.liveQuestions ? window.liveQuestions[currentQuestionIndex] : null;
             const correctOpt = currentQ ? currentQ.correct_option : 'A';
-            const explanation = currentQ ? currentQ.explanation : 'Correct answer verified.';
+            const explanation = currentQ ? currentQ.explanation : 'Correct answer verified by HRD Korea guidelines.';
 
             optionBtns.forEach(btn => {
                 const optVal = btn.getAttribute('data-option');
                 if (optVal === correctOpt) {
-                    btn.style.backgroundColor = '#dcfce7';
-                    btn.style.borderColor = '#16a34a';
-                    btn.style.color = '#15803d';
+                    btn.style.setProperty('background', '#059669', 'important');
+                    btn.style.setProperty('border-color', '#059669', 'important');
+                    btn.style.setProperty('color', '#ffffff', 'important');
                 } else if (optVal === selectedOption && optVal !== correctOpt) {
-                    btn.style.backgroundColor = '#fee2e2';
-                    btn.style.borderColor = '#dc2626';
-                    btn.style.color = '#b91c1c';
+                    btn.style.setProperty('background', '#dc2626', 'important');
+                    btn.style.setProperty('border-color', '#dc2626', 'important');
+                    btn.style.setProperty('color', '#ffffff', 'important');
                 }
             });
 
-            if (selectedOption === correctOpt) {
-                userScore += 10;
-            }
-
             if (explanationBox) {
                 explanationBox.style.display = 'block';
+                explanationBox.style.background = '#1e293b';
+                explanationBox.style.border = '1px solid #334155';
+                explanationBox.style.color = '#93c5fd';
                 explanationBox.innerHTML = `<strong>Explanation:</strong> ${explanation}`;
             }
 
+            cbtQuestionsAnsweredCount++;
             this.style.display = 'none';
             if (nextBtn) nextBtn.style.display = 'inline-block';
         });
     }
 
-    // Handle Next Question
+    // Handle Next Question with strict 3-Question Paywall Limit
     if (nextBtn) {
         nextBtn.addEventListener('click', function () {
+            const isPro = localStorage.getItem('koreantestpapers_pro') === 'true' || localStorage.getItem('koreanTestProAccess') === 'true';
+            
+            if (!isPro && cbtQuestionsAnsweredCount >= 3) {
+                const cbtCardBox = document.querySelector('#cbtTab .quiz-card-box');
+                const actionBar = document.querySelector('#cbtTab .quiz-action-bar');
+
+                if (cbtCardBox) {
+                    cbtCardBox.style.background = '#1e293b';
+                    cbtCardBox.style.border = '1px solid #f59e0b';
+                    cbtCardBox.innerHTML = `
+                        <div style="text-align: center; padding: 20px 10px;">
+                            <div style="font-size: 2.2rem; margin-bottom: 6px;">🔒</div>
+                            <div style="font-size: 0.85rem; color: #f59e0b; font-weight: 700; text-transform: uppercase; margin-bottom: 4px;">CBT Test Free Limit Reached (3/3 Questions)</div>
+                            <div style="font-size: 1.1rem; color: #ffffff; font-weight: 800; margin-bottom: 6px;">Unlock Full 40-Question Timed CBT Exams</div>
+                            <p style="font-size: 0.82rem; color: #94a3b8; margin-bottom: 14px;">Upgrade to a Pro Member Pass to access full 40-question CBT mock papers, audio listening tracks & instant score reports!</p>
+                            <button onclick="openProModal()" class="btn-primary-action" style="padding: 10px 20px; font-size: 0.88rem; font-weight: 800; background: #2563eb; color: #ffffff; border-radius: 6px; border: none; cursor: pointer;">
+                                🔓 Unlock Pro Member Pass ($3 - $11)
+                            </button>
+                        </div>
+                    `;
+                }
+
+                if (actionBar) actionBar.style.display = 'none';
+                openProModal();
+                return;
+            }
+
             if (!window.liveQuestions || window.liveQuestions.length === 0) return;
 
             currentQuestionIndex = (currentQuestionIndex + 1) % window.liveQuestions.length;
@@ -151,9 +188,9 @@ function initLiveTestModule() {
 
                 opts.forEach(b => {
                     b.classList.remove('selected');
-                    b.style.backgroundColor = '#ffffff';
-                    b.style.borderColor = '#e2e8f0';
-                    b.style.color = '#0f172a';
+                    b.style.background = '#0f172a';
+                    b.style.borderColor = '#334155';
+                    b.style.color = '#ffffff';
                 });
             }
 
@@ -161,6 +198,9 @@ function initLiveTestModule() {
             if (submitBtn) {
                 submitBtn.style.display = 'inline-block';
                 submitBtn.disabled = true;
+                submitBtn.style.opacity = '0.6';
+                submitBtn.style.cursor = 'not-allowed';
+                submitBtn.style.background = '#334155';
             }
             this.style.display = 'none';
         });
