@@ -414,7 +414,7 @@ require_once __DIR__ . '/../includes/header.php';
                                     <div style="font-size: 1.5rem; margin-bottom: 8px;">⚠️</div>
                                     <h4 style="color: #ffffff; font-size: 0.95rem; font-weight: 700; margin-bottom: 4px;">50 HRD Korea Safety Signboards</h4>
                                     <p style="color: #94a3b8; font-size: 0.82rem; margin-bottom: 12px;">Official industrial safety symbols & warning signs appearing in reading exams.</p>
-                                    <a href="https://drive.google.com/drive/folders/1opEW5O5mvYt2lcFP169Sizil7z0z6Qsv" target="_blank" class="btn-primary-action" style="font-size: 0.8rem; padding: 6px 12px; background: #d97706;">Download PDF 📥</a>
+                                    <a href="/pdf/50-safety-signboards-hrd-korea.html" target="_blank" class="btn-primary-action" style="font-size: 0.8rem; padding: 6px 12px; background: #dc2626; color: #ffffff; font-weight: 700; text-decoration: none; border-radius: 6px; display: inline-block;">Open & Download PDF 📥</a>
                                 </div>
                             </div>
                         </div>
