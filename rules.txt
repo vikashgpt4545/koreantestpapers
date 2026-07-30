@@ -79,4 +79,4 @@ SECTION 3: SEQUENTIAL EXECUTION CHECKLIST
 [x] Step 10: Create Pages #141 - #145 (`korean grammar notes` series).
 [x] Step 11: Re-generate `sitemap.xml` with 146 total URLs.
 [x] Step 12: Lint all modified/new files with `php.exe -l`.
-[ ] Step 13: Stage, commit, and push changes to GitHub `main` branch.
+[x] Step 13: Stage, commit, and push changes to GitHub `main` branch.
