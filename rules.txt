@@ -71,12 +71,12 @@ SECTION 3: SEQUENTIAL EXECUTION CHECKLIST
 [x] Step 2: Append URLs #111 - #145 to `urls.txt`.
 [x] Step 3: Create Pages #111 - #114 (`eps topik exam papers` series).
 [x] Step 4: Create Pages #115 - #124 (`eps question paper` series).
-[ ] Step 5: Create Pages #125 - #129 (`korean answer sheet` series).
-[ ] Step 6: Create Pages #130 - #132 (`eps topik exam papers 2019 Philippines` series).
-[ ] Step 7: Create Pages #133 - #134 (`kgsp scholarship 2021` series).
-[ ] Step 8: Create Pages #135 - #137 (`korean word test` 3k-word series).
-[ ] Step 9: Create Pages #138 - #140 (`korean language test` series).
-[ ] Step 10: Create Pages #141 - #145 (`korean grammar notes` series).
-[ ] Step 11: Re-generate `sitemap.xml` with 146 total URLs.
-[ ] Step 12: Lint all modified/new files with `php.exe -l`.
+[x] Step 5: Create Pages #125 - #129 (`korean answer sheet` series).
+[x] Step 6: Create Pages #130 - #132 (`eps topik exam papers 2019 Philippines` series).
+[x] Step 7: Create Pages #133 - #134 (`kgsp scholarship 2021` series).
+[x] Step 8: Create Pages #135 - #137 (`korean word test` 3k-word series).
+[x] Step 9: Create Pages #138 - #140 (`korean language test` series).
+[x] Step 10: Create Pages #141 - #145 (`korean grammar notes` series).
+[x] Step 11: Re-generate `sitemap.xml` with 146 total URLs.
+[x] Step 12: Lint all modified/new files with `php.exe -l`.
 [ ] Step 13: Stage, commit, and push changes to GitHub `main` branch.
