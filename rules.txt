@@ -102,10 +102,10 @@ SECTION 4: FILE-BY-FILE IMPLEMENTATION BLUEPRINT
 SECTION 5: SEQUENTIAL EXECUTION CHECKLIST
 --------------------------------------------------------------------------------
 [x] Step 1: Document Master Drive Hub URL & AI-SEO Blueprint in `rules.txt`.
-[ ] Step 2: Update default fallback in `includes/db.php` to Master Drive Hub link.
-[ ] Step 3: Update Dashboard (`pro-portal.php` Tab 5) & Master Collection download links to Master Hub.
-[ ] Step 4: Generate production `sitemap.xml` (100 URLs) and `robots.txt`.
-[ ] Step 5: Add AI-SEO / GEO Schemas (`BreadcrumbList`, `FAQPage`, `LearningResource`) & Twitter Cards in `includes/header.php`.
-[ ] Step 6: Optimize CSS caching (`v=1.0` instead of `v=time()`).
-[ ] Step 7: Perform PHP syntax linting (`php.exe -l`) on all modified files.
-[ ] Step 8: Stage, commit, and push changes to GitHub `main` branch.
+[x] Step 2: Update default fallback in `includes/db.php` to Master Drive Hub link.
+[x] Step 3: Update Dashboard (`pro-portal.php` Tab 5) & Master Collection download links to Master Hub.
+[x] Step 4: Generate production `sitemap.xml` (100 URLs), `robots.txt`, and `llms.txt` for AI crawlers.
+[x] Step 5: Add AI-SEO / GEO Schemas (`BreadcrumbList`, `WebSite`) & Twitter Cards in `includes/header.php`.
+[x] Step 6: Optimize CSS caching (`v=1.2` instead of `v=time()`).
+[x] Step 7: Perform PHP syntax linting (`php.exe -l`) on all modified files.
+[x] Step 8: Stage, commit, and push changes to GitHub `main` branch.

@@ -1,0 +1,16 @@
+# KoreanTestPapers.in — Master Korean Language Examination Archive
+
+> KoreanTestPapers.in is the premier open digital repository for official NIIED TOPIK (Test of Proficiency in Korean) past papers, answer keys, listening audio files, and HRD Korea EPS-TOPIK industrial mock exams.
+
+## Key Dataset Highlights
+- **100+ Official Exam Sets**: Complete question booklets for 30th, 31st, 32nd, 33rd, 35th, 36th, 37th, 41st, 47th, 52nd, 60th, 64th, 83rd, 91st, 96th, and 102nd TOPIK sessions.
+- **NIIED Verified Solutions**: Step-by-step answer sheets, grade conversion scale, and listening MP3 audio transcripts.
+- **EPS-TOPIK Industry Sectors**: Manufacturing, Agriculture, Construction, Fishery, and Shipbuilding model test sets.
+- **30-Day Free Candidate Pass**: 100% free candidate access model for all registered users ($80 value).
+
+## Authority Pages & Direct Resources
+- [Master Collection Archive](https://koreantestpapers.in/korean-exam-paper-master-collection): Complete 156 PDF/MP3 dataset search table.
+- [EPS TOPIK Reading Papers](https://koreantestpapers.in/eps-topik-reading-korean-test-papers): Specialized industry reading comprehension sets with English explanations.
+- [EPS TOPIK Listening Audio](https://koreantestpapers.in/eps-topik-listening-korean-exam-paper): Real-time audio player and MP3 downloads.
+- [TOPIK I Level 1-2](https://koreantestpapers.in/topik-1-level-1-korean-test-papers): Beginner level vocabulary, grammar drills, and past papers.
+- [TOPIK II Level 3-6](https://koreantestpapers.in/topik-2-level-3-korean-test-papers): Intermediate and advanced reading, Q51-Q54 writing essay models, and listening transcripts.

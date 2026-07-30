@@ -23,30 +23,60 @@ $canonical_url = "https://koreantestpapers.in" . ($_SERVER['REQUEST_URI'] ?? '')
     <link rel="shortcut icon" href="/images/favicon.png">
     <link rel="apple-touch-icon" href="/images/favicon.png">
 
-    <!-- Open Graph Metadata -->
+    <!-- Open Graph & Social Metadata -->
     <meta property="og:title" content="<?php echo htmlspecialchars($page_title); ?>">
     <meta property="og:description" content="<?php echo htmlspecialchars($page_desc); ?>">
     <meta property="og:type" content="website">
     <meta property="og:url" content="<?php echo htmlspecialchars($canonical_url); ?>">
     <meta property="og:site_name" content="KoreanTestPapers.in">
-    <meta property="og:image" content="/images/logo.png">
+    <meta property="og:image" content="https://koreantestpapers.in/images/logo.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="KoreanTestPapers.in Master Archive Hub">
 
-    <!-- CSS Stylesheet -->
-    <link rel="stylesheet" href="/css/style.css?v=<?= time() ?>">
+    <!-- Twitter Card Metadata -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<?php echo htmlspecialchars($page_title); ?>">
+    <meta name="twitter:description" content="<?php echo htmlspecialchars($page_desc); ?>">
+    <meta name="twitter:image" content="https://koreantestpapers.in/images/logo.png">
 
-    <!-- JSON-LD Structured Data Schema -->
+    <!-- CSS Stylesheet with Static Cache Versioning -->
+    <link rel="stylesheet" href="/css/style.css?v=1.2">
+
+    <!-- JSON-LD Structured Data Schemas (WebSite & BreadcrumbList) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "KoreanTestPapers.in",
-      "url": "https://koreantestpapers.in/",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://koreantestpapers.in/?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      },
-      "description": "Download free Korean test papers and Korean exam paper with answer keys for EPS-TOPIK and TOPIK I & II."
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "name": "KoreanTestPapers.in",
+          "url": "https://koreantestpapers.in/",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://koreantestpapers.in/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          },
+          "description": "Download free official Korean test papers and Korean exam paper with answer keys for EPS-TOPIK and TOPIK I & II."
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://koreantestpapers.in/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "<?php echo htmlspecialchars(str_replace(' | KoreanTestPapers.in', '', $page_title)); ?>",
+              "item": "<?php echo htmlspecialchars($canonical_url); ?>"
+            }
+          ]
+        }
+      ]
     }
     </script>
     <script>
