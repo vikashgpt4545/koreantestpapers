@@ -61,8 +61,8 @@ $canonical_url = "https://koreantestpapers.in" . ($_SERVER['REQUEST_URI'] ?? '')
 <body>
 
     <!-- Top Notification Bar -->
-    <div class="top-notification-bar">
-        <span class="top-notif-left">🎁 Claim 30-Day Free Candidate Pass ($80 Value — CBT Exams, Audio Scripts & PDF Papers)!</span>
+    <div class="top-notification-bar" style="<?php echo !is_logged_in() ? 'justify-content: center; text-align: center;' : ''; ?>">
+        <span class="top-notif-left" style="<?php echo !is_logged_in() ? 'text-align: center; width: 100%; font-weight: 700;' : ''; ?>">🎁 Claim 30-Day Free Candidate Pass ($80 Value — CBT Exams, Audio Scripts & PDF Papers)!</span>
         <?php if (is_logged_in()): 
             $user_data = get_current_user_data();
             $u_name = htmlspecialchars($user_data['name'] ?? $_SESSION['user_name'] ?? 'Candidate');
@@ -76,10 +76,6 @@ $canonical_url = "https://koreantestpapers.in" . ($_SERVER['REQUEST_URI'] ?? '')
                 <?php endif; ?>
                 <span style="white-space: nowrap;">👋 Hi, <strong><?php echo $u_name; ?></strong></span>
                 <a href="/auth-handler.php?action=logout" style="color: #cbd5e1; text-decoration: none; font-size: 0.8rem; border: 1px solid #475569; padding: 3px 8px; border-radius: 4px; white-space: nowrap;">Logout</a>
-            </span>
-        <?php else: ?>
-            <span class="top-notif-right">
-                <a href="javascript:void(0)" onclick="openAuthModal('register')" style="background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #0f172a; padding: 4px 14px; border-radius: 20px; font-weight: 800; font-size: 0.82rem; text-decoration: none; display: inline-block; box-shadow: 0 0 12px rgba(251, 191, 36, 0.7); animation: trialBlink 1.2s infinite alternate; white-space: nowrap;">🎁 Claim $80 Free Pass</a>
             </span>
         <?php endif; ?>
     </div>
