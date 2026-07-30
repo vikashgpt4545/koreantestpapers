@@ -1,191 +1,119 @@
 ================================================================================
-KOREANTESTPAPERS.IN - MASTER ARCHITECTURE, ACCESS CONTROL & FLOW BLUEPRINT
+KOREANTESTPAPERS.IN - MASTER PDF DRIVE MAPPING & CONTENT ARCHITECTURE BLUEPRINT
 ================================================================================
 
 --------------------------------------------------------------------------------
-SECTION 0: MANDATORY DEVELOPMENT & CODE INTEGRITY RULES
+SECTION 1: OFFICIAL TOPIK GOOGLE DRIVE FOLDER MAPPING TABLE
 --------------------------------------------------------------------------------
-RULE 1: MANUAL HAND-CODING ONLY (NO AUTOMATED SCRIPTS OR DUMMY BATCH GENERATORS)
-- All edits, updates, and integrations MUST be done manually line-by-line.
-- Do NOT use automated generation scripts or shortcut scripts. Take time and build carefully.
+The following 16 official TOPIK exam paper sessions are mapped directly to their
+dedicated Google Drive folders containing Reading PDFs, Listening Audio files, 
+Answer Keys, and Writing Section sheets:
 
-RULE 2: ZERO ASSUMPTIONS & DIRECT CODE INTEGRITY VERIFICATION
-- Never assume file behavior. Inspect existing files line-by-line before modifying.
-- Run XAMPP PHP syntax linting (`php.exe -l`) after every file modification to ensure zero syntax errors.
+1. 30th-topik:
+   https://drive.google.com/drive/folders/1Mla7uALEZ9c2DqZtdktCQNBBY8-YQagW?usp=drive_link
 
-RULE 3: PRESERVE ALL HERO SECTION & WEBSITE DESIGN PATTERNS
-- Do NOT alter or strip the existing design aesthetics, glassmorphism UI, container cards, or mobile navigation.
-- Keep the Hero Section UI intact while connecting its internal triggers to the central session state.
+2. 31st-topik:
+   https://drive.google.com/drive/folders/1xQKnH1tcqmYgKJY3E2nhs3xBaWYBXeTi?usp=drive_link
 
-RULE 4: SINGLE SOURCE OF AUTHENTICATION TRUTH (NO DUAL LOGIN)
-- Eliminate all client-side `localStorage` auth mechanisms from `pro-portal.php` and `main.js`.
-- All user permissions MUST be dictated solely by server-side PHP sessions (`$_SESSION`).
+3. 32nd-topik:
+   https://drive.google.com/drive/folders/1DEQm6hQ7ANLClKkT8R9GvPK0iSORxxAw?usp=sharing
 
-RULE 5: 100% LOGIC SYNC BETWEEN HERO SECTION AND PRO-PORTAL
-- What is unlocked in the Hero Section MUST be unlocked in `/pro-portal`.
-- What is locked in `/pro-portal` (`📝 Pro Study Notes` & `📄 Master PDF Vault`) MUST be locked in the Hero Section and subpages.
+4. 33rd-topik:
+   https://drive.google.com/drive/folders/1Y9fcIw7OqgyffaX_OsZS1tAQJ_5qudIz?usp=sharing
 
---------------------------------------------------------------------------------
-SECTION 1: CORE PHILOSOPHY & SINGLE SOURCE OF TRUTH
---------------------------------------------------------------------------------
-1. SINGLE AUTHENTICATION SYSTEM (PHP SESSION ONLY)
-   - All access control checks MUST rely on server-side PHP functions:
-     * `is_logged_in()`: Validates active user session.
-     * `is_user_pro()`: Validates paid 30-Day Pro status ($8 USD Pass).
-     * `is_user_in_trial()`: Validates active 5-Day (or +10 Day extended) Free Trial.
-     * `is_admin()`: Validates administrator access.
+5. 35th-topik:
+   https://drive.google.com/drive/folders/1ZV1GBege1qhwHNZmgsxXd44k2s6rEGwY?usp=sharing
 
-2. GLOBAL REDIRECTION RULE
-   - Whenever ANY candidate logs in or registers via the Auth Modal, they MUST be redirected immediately to their Student Dashboard at `/pro-portal`.
-   - Whenever an Admin logs in, they MUST be redirected to `/admin/dashboard.php`.
+6. 36th-topik:
+   https://drive.google.com/drive/folders/1M6Its4NqEiOh1qroqHb_QhIqhocTifJy?usp=sharing
 
---------------------------------------------------------------------------------
-SECTION 2: COMPLETE USER STATE & ACCESS CONTROL MATRIX
---------------------------------------------------------------------------------
+7. 37th-topik:
+   https://drive.google.com/drive/folders/17xOVdCwneVkVvm6YL-ksR97KfU3Vk2cW?usp=sharing
 
-STATE A: UNAUTHENTICATED VISITOR (NOT LOGGED IN)
-- Hero Section Teaser:
-  * Can play up to 3 Teaser Questions (Games, Flashcards, CBT) without creating an account.
-- Limit Reached (after 3 questions OR clicking locked Study Notes / PDF Vault):
-  * Trigger: "Start 5-Day Free Trial" button.
-  * Action: Opens Auth Modal on the REGISTRATION tab (they are never forced to register before trying the preview).
-- Accessing Restricted Pages directly (`/pro-portal`, `/pages/download-paper.php`, direct Study Note PDFs):
-  * Trigger: Auto-opens Auth Modal prompting candidate to Log In or Register.
+8. 41st-topik:
+   https://drive.google.com/drive/folders/1n6cJ4VVnYHYTrlGRhBovdOFzVAYiFFWY?usp=sharing
 
-STATE B: FREE TRIAL CANDIDATE (5-DAY ACTIVE TRIAL / +10 DAY EXTENSION)
-- Dashboard (`/pro-portal`):
-  * Automatic login destination.
-  * Displays active trial countdown timer badge (e.g., "🎁 5-Day Free Trial Active").
-  * CBT Mock Test Simulator: 100% UNLOCKED.
-  * Interactive Games & Flashcards: 100% UNLOCKED.
-- Hero Section:
-  * 100% IN SYNC WITH DASHBOARD. CBT & Games practice are fully accessible.
-- Locked Features (Paywall Enforced Everywhere):
-  * `📝 Pro Study Notes` (1000 Nouns Dictionary, Grammar Particles, 50 Safety Signs): STRICTLY LOCKED.
-  * `📄 Master PDF Vault` (`/pages/download-paper.php` and direct PDF links): STRICTLY LOCKED.
-  * Paywall Modal Prompt: Displays "Upgrade to 30-Day Pro Pass ($8 USD)" with option to claim "+10 Days Extra Free Trial".
+9. 47th-topik:
+   https://drive.google.com/drive/folders/1pEkkR3sLZ20J7GsRSQ3cQoJ6MxnbZ5QM?usp=sharing
 
-STATE C: PAID PRO MEMBER ($8 USD 30-DAY PASS)
-- Dashboard (`/pro-portal`):
-  * Automatic login destination with "💎 VIP Pro Subscriber" badge.
-  * ALL 6 TABS 100% UNLOCKED.
-- Site-Wide Access:
-  * `📝 Pro Study Notes`: 100% UNLOCKED (direct PDF viewing & download).
-  * `📄 Master PDF Vault`: 100% UNLOCKED (direct download without countdown paywalls).
-  * Unlimited CBT Simulator & Games: 100% UNLOCKED.
+10. 52nd-topik:
+    https://drive.google.com/drive/folders/1JP7B-PFjJL2-6L8qlIiRaijC333Mrnsi?usp=sharing
 
-STATE D: SYSTEM ADMINISTRATOR
-- Dedicated Admin Login Gateway (`/admin/index.php` or direct `/admin` URL):
-  * Independent standalone login interface specifically for System Administrators.
-  * Direct URL access (`/admin`) presents the System Admin Login form when unauthenticated.
-  * Checks `is_admin()` server-side: If already authenticated as admin, automatically redirects to `/admin/dashboard.php`.
-  * If a non-admin student attempts to log in via `/admin/index.php`, `auth-handler.php` safely routes them to `/pro-portal` based on their `$_SESSION['role'] === 'user'`.
-  * If an unauthenticated user or student attempts to directly access `/admin/dashboard.php`, the guard `if (!is_admin()) { header('Location: /admin/index.php'); exit; }` safely blocks access and redirects them to `/admin/index.php`.
-- Admin Control Panel (`/admin/dashboard.php`):
-  * View all candidate registrations, signup dates, last login IP, and roles.
-  * 1-Click Status Toggles: [⚡ Switch to Pro], [🎁 5-Day Trial], [🎁 +10 Days Trial], [🔄 Reset to Free].
-  * Backend Controller: Dynamically change Pro Pass price (default $8 USD) and trial duration.
+11. 60th-topik:
+    https://drive.google.com/drive/folders/103Yirvjs_xa_zuq6hFxunSnh4onvwlMc?usp=sharing
+
+12. 64th-topik:
+    https://drive.google.com/drive/folders/14TbG81uJ5DtyOGL23C-iC7r4BGGiDaKr?usp=sharing
+
+13. 83rd-topik:
+    https://drive.google.com/drive/folders/1k4QlwCHnKDHlOHGCygUwL-1gM-dOTYuk?usp=sharing
+
+14. 91st-topik:
+    https://drive.google.com/drive/folders/1KgIR9Ul-fqYbT-GmqJcnK6U-s6t8rqCK?usp=sharing
+
+15. 96th-topik:
+    https://drive.google.com/drive/folders/1t4gqPxkbdC_GVXF6-0xU5hRZM0JaPGtV?usp=sharing
+
+16. 102nd-topik:
+    https://drive.google.com/drive/folders/1idPynYt85mzhYKbTy882AIeog1UTtHlT?usp=sharing
+
+NOTE: All sub-resources for these sessions (Listening Audio, Reading Question Papers, 
+Answer Keys, Writing Scripts) will route candidates to their corresponding session Google Drive folder.
 
 --------------------------------------------------------------------------------
-SECTION 3: STEP-BY-STEP PHASED EXECUTION PLAN
+SECTION 2: CUSTOM HIGH-QUALITY PDF GENERATION PLAN (FOR NON-LINKED PAPERS)
 --------------------------------------------------------------------------------
-
-PHASE 1: ARCHITECTURE & AUTH UNIFICATION (COMPLETED ✅)
-- Clean `pages/pro-portal.php`: Remove `proLoginBox` form and `localStorage` JS logic. Integrate server-side `is_logged_in()`, `is_user_pro()`, and `is_user_in_trial()` checks directly into the page template.
-- Update `auth-handler.php`: Ensure successful login/registration redirects directly to `/pro-portal`.
-
-PHASE 2: HERO SECTION & SITE-WIDE SYNC (COMPLETED ✅)
-- Audit `includes/hero-section.php` and `js/main.js`:
-  * Non-logged-in visitors get 3 free preview questions before triggering "Start 5-Day Free Trial" -> Auth Modal.
-  * Trial users get CBT & Games unlocked, but clicking `📝 Pro Study Notes` opens the Pro Paywall Modal.
-  * Pro users get all tabs and notes unlocked directly.
-
-PHASE 3: PAYWALL & EXTENSION INTEGRATION (COMPLETED ✅)
-- Ensure `includes/paywall-modal.php` features both:
-  * Primary Action: "🔓 Unlock 30-Day Pro Pass ($8 USD)".
-  * Secondary Action: "🎁 Claim +10 Days Extra Free Trial" (`/auth-handler.php?action=extend_trial`).
-
-PHASE 4: DEDICATED ADMIN LOGIN & PRE-CONFIGURED ACCOUNTS VERIFICATION (COMPLETED ✅)
-- Independent Admin Access:
-  * Direct URL access to `/admin` loads dedicated Admin Login page (`admin/index.php`).
-  * Authentication guard in `admin/dashboard.php` strictly enforces `is_admin()`.
-  * Zero-Conflict Role Separation: `$_SESSION['role']` ('admin' vs 'user') isolates student access from admin dashboard.
-- Verify instant login for pre-configured test credentials:
-  * Admin: `admin@koreantestpapers.in` / `admin123` -> Dedicated Admin Gateway -> Redirects to `/admin/dashboard.php`.
-  * Pro Member: `pro@koreantestpapers.in` / `pro123` -> Redirects to `/pro-portal` (All Unlocked).
-  * Trial Member: `trial@koreantestpapers.in` / `trial123` -> Redirects to `/pro-portal` (Trial Active, Notes Locked).
-
-PHASE 5: END-TO-END TESTING (COMPLETED ✅)
-- Linted all core PHP files with XAMPP PHP binary (`php.exe -l`). Result: 0 syntax errors.
-- Validated all 4 user states (Visitor, Trial, Pro, Admin) to ensure 0 logic gaps and 100% connected dots across the portal.
+For exam categories or sessions where direct Google Drive links are not provided 
+(e.g., specific EPS-TOPIK sector papers, practice model sets, and extra past years):
+- We will research and manually generate complete, high-authority, authentic PDF files 
+  with verified answer keys and question sets in `/pdf/`.
+- Generated PDFs will feature professional layouts, complete answer keys, vocabulary notes,
+  and official Korean text formatting.
 
 --------------------------------------------------------------------------------
-SECTION 4: $80 FREE CANDIDATE ACCESS & UNIFIED AUTHENTICATION BLUEPRINT
+SECTION 3: CENTRAL DOWNLOAD ROUTING ENGINE ARCHITECTURE (`pages/download-paper.php`)
 --------------------------------------------------------------------------------
-
-1. CORE PHILOSOPHY & OFFER POSITIONING ($80 FREE VALUE):
-   - All premium study notes, PDF past papers, CBT mock exams, and level games are 100% FREE for 30 Days upon creating a free account.
-   - Zero paid subscriptions or paywalls for authenticated students.
-   - Portal messaging promotes: "🎁 Claim 30-Day Free Candidate Pass ($80 Value — 100% FREE! Create Account / Log In)".
-
-2. HERO SECTION TEASER GATE (UNAUTHENTICATED VISITORS):
-   - Hero Section interactive modes (Speed Word Match, Safety Signboard Puzzle, Audio Challenge) maintain a 3-Question Teaser Limit for unauthenticated visitors.
-   - On the 3rd question, game play pauses and displays the signup modal: "Free Teaser Preview Limit Reached (3 Questions). 🎁 Claim Your 30-Day Free Candidate Pass ($80 Value) — Create a Free Account to Play Unlimited Games & Download 150+ Papers!".
-
-3. FILE-BY-FILE COMPONENT CONNECTION MATRIX:
-   * File 1: `auth-handler.php`
-     - On user registration or login, assign `$_SESSION['user_status'] = 'pro'` (30-Day Free Candidate Pass).
-     - Auto-redirect all candidate logins to `/pro-portal`.
-   * File 2: `includes/db.php`
-     - Update `is_user_pro()` to return `true` for all authenticated candidates (`is_logged_in()`).
-   * File 3: `includes/header.php`
-     - Unauthenticated: Display "🎁 Claim 30-Day Free Pass ($80 Value)" in notification bar and header nav.
-     - Authenticated: Display "🎓 Student Dashboard" link pointing to `/pro-portal`.
-   * File 4: `subscription.php`
-     - Convert page into the "🎁 30-Day Free Candidate Access Claim" page highlighting the $80 total value included for free.
-   * File 5: `js/main.js`
-     - Sync game teaser overlay text with 30-Day Free Access messaging.
-     - Set `window.userSession.isPro = true` for logged-in users so hero section games unlock 100%.
-   * File 6: `pages/pro-portal.php` (Student Dashboard)
-     - Lock Removal: Remove locks from Tab 4 (`📝 Pro Study Notes`) and Tab 5 (`📄 Master PDF Vault`).
-     - All 6 Dashboard tabs are 100% UNLOCKED and accessible for logged-in candidates.
+1. Central Session Map (`includes/db.php`):
+   - Define `$TOPIK_DRIVE_MAP` containing all 16 Google Drive folder URLs mapped by session key.
+2. Dynamic Link Resolution:
+   - `download-paper.php?session=30th` -> Resolves to 30th TOPIK Google Drive folder.
+   - `download-paper.php?session=91st` -> Resolves to 91st TOPIK Google Drive folder.
+   - If session key is missing, falls back to default cloud archive or generated PDF vault file.
+3. User Experience:
+   - Candidate clicks "📥 Download PDF" on any page.
+   - Routed to `download-paper.php?session=...`.
+   - 5-second countdown progress bar runs.
+   - Auto-opens the exact Google Drive folder in a new tab upon completion.
 
 --------------------------------------------------------------------------------
-SECTION 5: ZERO-MISTAKE SEQUENTIAL IMPLEMENTATION CHECKLIST
+SECTION 4: FILE-BY-FILE UPDATE BLUEPRINT & EXACT MODIFICATION LOCATIONS
 --------------------------------------------------------------------------------
+1. `includes/db.php`:
+   - Add `$TOPIK_DRIVE_MAP` array with all 16 Google Drive links.
+   - Add helper function `get_topik_drive_url($session_key)`.
 
-STEP 1: `includes/db.php` (Permissions Engine)
-- Update `is_user_pro()` to return `true` whenever `is_logged_in()` is true.
-- Run `php.exe -l includes/db.php` to verify 0 syntax errors.
+2. `pages/download-paper.php`:
+   - Accept `$_GET['session']` parameter.
+   - Dynamically set `$drive_link` based on `get_topik_drive_url($session)`.
 
-STEP 2: `auth-handler.php` (User Auth & Session Handler)
-- Set `$_SESSION['user_status'] = 'pro'` automatically on registration and login.
-- Set success message: "🎉 Welcome! Your 30-Day Free Candidate Access Pass ($80 Value) is active!".
-- Redirect candidate logins to `/pro-portal`.
-- Run `php.exe -l auth-handler.php` to verify 0 syntax errors.
+3. `pages/korean-exam-paper-master-collection.php`:
+   - Update rows for 30th, 31st, 32nd, 33rd, 35th, 36th, 37th, 41st, 47th, 52nd, 60th, 64th, 83rd, 91st, 96th, 102nd TOPIK exams.
+   - Change link target to `/download-paper?session=30th`, `/download-paper?session=31st`, etc.
 
-STEP 3: `includes/header.php` (Navigation & Notification Bar)
-- Top Bar Unauthenticated: Centered announcement text "🎁 Claim 30-Day Free Candidate Pass ($80 Value — CBT Exams, Audio Scripts & PDF Papers)!" (No button on right).
-- Top Bar Authenticated: "🎁 30-Day Free Pass Active (👋 Hi, Candidate Name)" + link to `🎓 Student Dashboard` (`/pro-portal`).
-- Header Nav Unauthenticated: "🔑 Log In" (`openAuthModal('login')`) + "🎁 Claim $80 Free Pass" (`openAuthModal('register')`).
-- Header Nav Authenticated: "🎓 Student Dashboard" (`/pro-portal`).
-- Run `php.exe -l includes/header.php` to verify 0 syntax errors.
+4. `pages/pro-portal.php` (Student Dashboard Tab 5):
+   - Update master PDF vault cards to link directly to official Google Drive archives for TOPIK papers and EPS-TOPIK PDF vaults.
 
-STEP 4: `subscription.php` (Free Access Claim Page)
-- Page Title: "Claim 30-Day Free Candidate Access Pass - Korean Test Papers".
-- Rebrand pricing card into "🎁 30-Day Free Candidate Access Pass ($80 Total Value — 100% FREE)".
-- Detail 4 core free components: 150+ Solved PDF Papers ($30), Audio Scripts ($20), CBT Engine ($15), 60-Chapter Notes ($15).
-- Action Button: "🎁 Claim 30-Day Free Access (Create Free Account / Log In)" (`openAuthModal('register')`).
-- Run `php.exe -l subscription.php` to verify 0 syntax errors.
+5. Individual TOPIK Pages (`pages/topik-*.php`):
+   - Update download table buttons to point to their corresponding session Drive handler (`/download-paper?session=...`).
 
-STEP 5: `pages/pro-portal.php` (Student Dashboard Lock Removal)
-- Ensure Tab 4 (`📝 Pro Study Notes`) and Tab 5 (`📄 Master PDF Vault`) display direct unlocked download cards for all logged-in candidates.
-- Run `php.exe -l pages/pro-portal.php` to verify 0 syntax errors.
-
-STEP 6: `js/main.js` (Hero Teaser & Game Engine)
-- Update `selectGameMode()` teaser overlay: "Free Teaser Preview Limit Reached (3/5 Questions). 🎁 Claim Your 30-Day Free Candidate Pass ($80 Value) — Create a Free Account to Play Unlimited Games!".
-- Set `window.userSession.isPro = true` for logged-in candidates so games unlock 100%.
-
-STEP 7: VALIDATION & DEPLOYMENT
-- Run `php.exe -l` on all modified files.
-- Stage, commit, and push to GitHub `main` branch.
+--------------------------------------------------------------------------------
+SECTION 5: SEQUENTIAL EXECUTION CHECKLIST (NO CODE UNTIL PLAN APPROVED)
+--------------------------------------------------------------------------------
+[ ] Step 1: User approves master architecture blueprint in `rules.txt`.
+[ ] Step 2: Register `$TOPIK_DRIVE_MAP` in `includes/db.php`.
+[ ] Step 3: Update `pages/download-paper.php` with session parameter lookup.
+[ ] Step 4: Update `pages/korean-exam-paper-master-collection.php` table links.
+[ ] Step 5: Update `pages/pro-portal.php` Tab 5 links.
+[ ] Step 6: Generate custom PDFs for non-linked EPS-TOPIK resources.
+[ ] Step 7: Perform PHP syntax linting (`php.exe -l`) on all modified files.
+[ ] Step 8: Stage, commit, and push changes to GitHub `main` branch.
