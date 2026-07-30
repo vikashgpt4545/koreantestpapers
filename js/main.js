@@ -892,22 +892,46 @@ function selectGameMode(mode, btnElement) {
     }
 
     currentActiveGameMode = mode;
-    gameCurrentScore = 0;
-    heroGameCount = 0;
     isGameProcessing = false;
-
-    const scoreEl = document.getElementById('gameScore');
-    if (scoreEl) scoreEl.textContent = '0';
-    const qCountEl = document.getElementById('gameQCount');
-    if (qCountEl) qCountEl.textContent = '1 / 5';
 
     const hasAccess = window.userSession && (window.userSession.isPro || window.userSession.isTrial);
     if (!hasAccess && heroGameCount >= 3) {
+        const qArea = document.getElementById('gameQuestionText');
+        const qGrid = document.getElementById('gameOptionsGrid');
+        if (qArea) {
+            qArea.innerHTML = `
+                <div style="text-align: center; padding: 10px;">
+                    <div style="font-size: 2.2rem; margin-bottom: 4px;">🎁</div>
+                    <div style="font-size: 0.85rem; color: #f59e0b; font-weight: 700; text-transform: uppercase; margin-bottom: 4px;">Free Teaser Preview Limit Reached (3/5 Questions)</div>
+                    <div style="font-size: 1.1rem; color: #ffffff; font-weight: 800; margin-bottom: 6px;">Start Your 5-Day Free Trial</div>
+                    <p style="font-size: 0.82rem; color: #94a3b8; margin-bottom: 12px;">Create a free candidate account to play unlimited practice games!</p>
+                </div>
+            `;
+        }
+        if (qGrid) {
+            qGrid.innerHTML = `
+                <div style="grid-column: 1 / -1; text-align: center;">
+                    <button onclick="openAuthModal('register')" style="background: #059669; color: #ffffff; font-weight: 800; padding: 12px 24px; border-radius: 8px; font-size: 0.95rem; cursor: pointer; border: none;">
+                        🎁 Start 5-Day Free Trial (Create Account) ▶
+                    </button>
+                </div>
+            `;
+        }
         if (typeof openAuthModal === 'function') {
             openAuthModal('register');
         }
         return;
     }
+
+    gameCurrentScore = 0;
+    if (hasAccess) {
+        heroGameCount = 0;
+    }
+
+    const scoreEl = document.getElementById('gameScore');
+    if (scoreEl) scoreEl.textContent = '0';
+    const qCountEl = document.getElementById('gameQCount');
+    if (qCountEl) qCountEl.textContent = `${Math.min(heroGameCount + 1, 5)} / 5`;
 
     startGameTimer();
     renderCurrentGameQuestion();
@@ -959,7 +983,27 @@ function switchHeroTab(tabId, btnElem) {
         }
         const hasAccess = window.userSession && (window.userSession.isPro || window.userSession.isTrial);
         if (!hasAccess && heroGameCount >= 3) {
-            // Keep limit reached state displayed
+            const qArea = document.getElementById('gameQuestionText');
+            const qGrid = document.getElementById('gameOptionsGrid');
+            if (qArea) {
+                qArea.innerHTML = `
+                    <div style="text-align: center; padding: 10px;">
+                        <div style="font-size: 2.2rem; margin-bottom: 4px;">🎁</div>
+                        <div style="font-size: 0.85rem; color: #f59e0b; font-weight: 700; text-transform: uppercase; margin-bottom: 4px;">Free Teaser Preview Limit Reached (3/5 Questions)</div>
+                        <div style="font-size: 1.1rem; color: #ffffff; font-weight: 800; margin-bottom: 6px;">Start Your 5-Day Free Trial</div>
+                        <p style="font-size: 0.82rem; color: #94a3b8; margin-bottom: 12px;">Create a free candidate account to play unlimited practice games!</p>
+                    </div>
+                `;
+            }
+            if (qGrid) {
+                qGrid.innerHTML = `
+                    <div style="grid-column: 1 / -1; text-align: center;">
+                        <button onclick="openAuthModal('register')" style="background: #059669; color: #ffffff; font-weight: 800; padding: 12px 24px; border-radius: 8px; font-size: 0.95rem; cursor: pointer; border: none;">
+                            🎁 Start 5-Day Free Trial (Create Account) ▶
+                        </button>
+                    </div>
+                `;
+            }
         } else {
             renderCurrentGameQuestion();
         }
