@@ -38,12 +38,13 @@ if ($action === 'register') {
                 exit;
             }
 
-            $stmt = $conn->prepare("INSERT INTO users (name, email, password, role, status, trial_ends_at, ip_address, last_login) VALUES (:name, :email, :pass, 'user', 'trial', :trial_ends, :ip, NOW())");
+            $sub_ends = date('Y-m-d H:i:s', strtotime("+30 days"));
+            $stmt = $conn->prepare("INSERT INTO users (name, email, password, role, status, subscription_ends_at, ip_address, last_login) VALUES (:name, :email, :pass, 'user', 'pro', :sub_ends, :ip, NOW())");
             $stmt->execute([
                 ':name' => $name,
                 ':email' => $email,
                 ':pass' => $hashed,
-                ':trial_ends' => $trial_ends,
+                ':sub_ends' => $sub_ends,
                 ':ip' => $ip
             ]);
             $user_id = $conn->lastInsertId();
@@ -51,9 +52,9 @@ if ($action === 'register') {
             $_SESSION['user_id'] = $user_id;
             $_SESSION['user_name'] = $name;
             $_SESSION['user_email'] = $email;
-            $_SESSION['user_status'] = 'trial';
+            $_SESSION['user_status'] = 'pro';
             $_SESSION['role'] = 'user';
-            $_SESSION['auth_success'] = "Welcome! Your $trial_days-Day Free Trial is now active!";
+            $_SESSION['auth_success'] = "🎉 Welcome! Your 30-Day Free Candidate Pass ($80 Value) is active!";
 
             header('Location: /pro-portal');
             exit;
@@ -65,17 +66,17 @@ if ($action === 'register') {
         $_SESSION['user_id'] = rand(100, 999);
         $_SESSION['user_name'] = $name;
         $_SESSION['user_email'] = $email;
-        $_SESSION['user_status'] = 'trial';
+        $_SESSION['user_status'] = 'pro';
         $_SESSION['role'] = 'user';
         $_SESSION['user_data'] = [
             'id' => $_SESSION['user_id'],
             'name' => $name,
             'email' => $email,
-            'status' => 'trial',
+            'status' => 'pro',
             'role' => 'user',
-            'trial_ends_at' => $trial_ends
+            'subscription_ends_at' => date('Y-m-d H:i:s', strtotime("+30 days"))
         ];
-        $_SESSION['auth_success'] = "Welcome! Your $trial_days-Day Free Trial is active!";
+        $_SESSION['auth_success'] = "🎉 Welcome! Your 30-Day Free Candidate Pass ($80 Value) is active!";
         header('Location: /pro-portal');
         exit;
     }

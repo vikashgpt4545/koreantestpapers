@@ -62,7 +62,7 @@ $canonical_url = "https://koreantestpapers.in" . ($_SERVER['REQUEST_URI'] ?? '')
 
     <!-- Top Notification Bar -->
     <div class="top-notification-bar">
-        <span class="top-notif-left">⚡ Free 2025 EPS-TOPIK & TOPIK I & II Solved Question Papers with English Explanations!</span>
+        <span class="top-notif-left">🎁 Claim 30-Day Free Candidate Pass ($80 Value — CBT Exams, Audio Scripts & PDF Papers)!</span>
         <?php if (is_logged_in()): 
             $user_data = get_current_user_data();
             $u_name = htmlspecialchars($user_data['name'] ?? $_SESSION['user_name'] ?? 'Candidate');
@@ -70,19 +70,16 @@ $canonical_url = "https://koreantestpapers.in" . ($_SERVER['REQUEST_URI'] ?? '')
             <span class="top-notif-right">
                 <?php if (is_admin()): ?>
                     <a href="/admin/dashboard.php" style="color: #fbbf24; font-weight: 700; text-decoration: underline;">🛡️ Admin Dashboard</a>
-                <?php elseif (is_user_pro()): ?>
-                    <span style="background: #059669; color: white; padding: 3px 10px; border-radius: 12px; font-weight: 700; font-size: 0.78rem; white-space: nowrap;">💎 30-Day Pro Active</span>
-                <?php elseif (is_user_in_trial()): ?>
-                    <span style="background: #2563eb; color: white; padding: 3px 10px; border-radius: 12px; font-weight: 700; font-size: 0.78rem; white-space: nowrap;">🎁 5-Day Free Trial (<?php echo get_trial_remaining_hours(); ?>h left)</span>
                 <?php else: ?>
-                    <span style="background: #64748b; color: white; padding: 3px 10px; border-radius: 12px; font-weight: 700; font-size: 0.78rem; white-space: nowrap;">Free Plan</span>
+                    <span style="background: #059669; color: white; padding: 3px 10px; border-radius: 12px; font-weight: 700; font-size: 0.78rem; white-space: nowrap;">🎁 30-Day Free Pass Active</span>
+                    <a href="/pro-portal" style="background: #2563eb; color: white; padding: 3px 10px; border-radius: 12px; font-weight: 700; font-size: 0.78rem; text-decoration: none; white-space: nowrap;">🎓 Student Dashboard</a>
                 <?php endif; ?>
                 <span style="white-space: nowrap;">👋 Hi, <strong><?php echo $u_name; ?></strong></span>
                 <a href="/auth-handler.php?action=logout" style="color: #cbd5e1; text-decoration: none; font-size: 0.8rem; border: 1px solid #475569; padding: 3px 8px; border-radius: 4px; white-space: nowrap;">Logout</a>
             </span>
         <?php else: ?>
             <span class="top-notif-right">
-                <a href="javascript:void(0)" onclick="openAuthModal('register')" style="background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #0f172a; padding: 4px 14px; border-radius: 20px; font-weight: 800; font-size: 0.82rem; text-decoration: none; display: inline-block; box-shadow: 0 0 12px rgba(251, 191, 36, 0.7); animation: trialBlink 1.2s infinite alternate; white-space: nowrap;">🎁 Start 5-Day Free Trial</a>
+                <a href="javascript:void(0)" onclick="openAuthModal('register')" style="background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #0f172a; padding: 4px 14px; border-radius: 20px; font-weight: 800; font-size: 0.82rem; text-decoration: none; display: inline-block; box-shadow: 0 0 12px rgba(251, 191, 36, 0.7); animation: trialBlink 1.2s infinite alternate; white-space: nowrap;">🎁 Claim $80 Free Pass</a>
             </span>
         <?php endif; ?>
     </div>
@@ -138,10 +135,10 @@ $canonical_url = "https://koreantestpapers.in" . ($_SERVER['REQUEST_URI'] ?? '')
                         <?php if (is_admin()): ?>
                             <li><a href="/admin/dashboard.php" style="background: #d97706; color: #ffffff; padding: 6px 12px; border-radius: 6px; font-weight: 700; font-size: 0.85rem;">🛡️ Admin</a></li>
                         <?php else: ?>
-                            <li><a href="/subscription" style="background: #059669; color: #ffffff; padding: 6px 12px; border-radius: 6px; font-weight: 700; font-size: 0.85rem;">💎 Pro ($8 Pass)</a></li>
+                            <li><a href="/pro-portal" style="background: #059669; color: #ffffff; padding: 6px 12px; border-radius: 6px; font-weight: 700; font-size: 0.85rem;">🎓 Student Dashboard</a></li>
                         <?php endif; ?>
                     <?php else: ?>
-                        <li><a href="javascript:void(0)" onclick="openAuthModal('login')" style="background: #0f172a; color: #fbbf24; border: 1px solid #fbbf24; padding: 6px 12px; border-radius: 6px; font-weight: 700; font-size: 0.85rem;">🔑 Log In</a></li>
+                        <li><a href="javascript:void(0)" onclick="openAuthModal('register')" style="background: linear-gradient(135deg, #059669, #10b981); color: #ffffff; padding: 6px 12px; border-radius: 6px; font-weight: 800; font-size: 0.85rem; text-decoration: none;">🎁 Claim $80 Free Pass</a></li>
                     <?php endif; ?>
                     <li class="desktop-only-cta"><a href="/#cbtTab" onclick="if(window.switchHeroTab){ switchHeroTab('cbtTab', document.querySelectorAll('.tab-btn')[2]); }" class="btn-header-cta">▶ Live CBT Test</a></li>
                 </ul>

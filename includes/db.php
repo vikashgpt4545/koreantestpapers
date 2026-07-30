@@ -282,8 +282,8 @@ function is_admin() {
 }
 
 function is_user_pro() {
-    // Admin is always Pro
-    if (is_admin()) return true;
+    // Admin and all registered/logged-in candidates get 100% full unlocked access
+    if (is_logged_in()) return true;
     
     // Check session or local override
     if (isset($_SESSION['user_status']) && $_SESSION['user_status'] === 'pro') return true;
@@ -292,7 +292,6 @@ function is_user_pro() {
     if (!$u) return false;
 
     if ($u['status'] === 'pro') {
-        // Check if subscription has not expired
         if (!empty($u['subscription_ends_at'])) {
             return strtotime($u['subscription_ends_at']) > time();
         }

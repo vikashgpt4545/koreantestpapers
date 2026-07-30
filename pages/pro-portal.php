@@ -46,24 +46,13 @@ require_once __DIR__ . '/../includes/header.php';
                 <!-- HEADER PORTAL BANNER -->
                 <div style="background: linear-gradient(135deg, #1e293b, #0f172a); border: 1px solid #334155; border-radius: 12px; padding: 20px 24px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
                     <div>
-                        <?php if ($is_pro): ?>
-                            <span class="tag-badge green" style="font-size: 0.8rem; padding: 4px 10px; margin-bottom: 6px; display: inline-block;">💎 VIP Pro Member (30-Day Pass Active)</span>
-                        <?php elseif ($is_trial): ?>
-                            <span class="tag-badge amber" style="font-size: 0.8rem; padding: 4px 10px; margin-bottom: 6px; display: inline-block;">🎁 5-Day Free Trial Candidate</span>
-                        <?php else: ?>
-                            <span class="tag-badge grey" style="font-size: 0.8rem; padding: 4px 10px; margin-bottom: 6px; display: inline-block;">Free Candidate Account</span>
-                        <?php endif; ?>
+                        <span class="tag-badge green" style="font-size: 0.8rem; padding: 4px 10px; margin-bottom: 6px; display: inline-block;">🎁 30-Day Free Pass Active ($80 Value Unlocked)</span>
                         <h1 style="font-size: 1.6rem; color: #ffffff; font-weight: 800; margin: 0;">
                             Welcome, <?php echo htmlspecialchars($user_name); ?> 👋
                         </h1>
                     </div>
                     
                     <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
-                        <?php if (!$is_pro): ?>
-                            <a href="/subscription" class="btn-primary-action" style="background: #059669; font-size: 0.85rem; padding: 8px 14px; font-weight: 800; border-radius: 6px; text-decoration: none;">
-                                ⚡ Upgrade to Pro ($8 Pass)
-                            </a>
-                        <?php endif; ?>
                         <a href="/auth-handler.php?action=logout" class="btn-primary-action" style="background: #dc2626; font-size: 0.85rem; padding: 8px 14px; font-weight: 800; border-radius: 6px; text-decoration: none;">
                             🚪 Log Out
                         </a>
@@ -400,47 +389,28 @@ require_once __DIR__ . '/../includes/header.php';
                                 <?php endif; ?>
                             </div>
 
-                            <?php if ($is_pro): ?>
-                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin: 20px 0;">
-                                    <div style="background: #0f172a; border: 1px solid #334155; padding: 16px; border-radius: 8px;">
-                                        <div style="font-size: 1.5rem; margin-bottom: 8px;">📖</div>
-                                        <h4 style="color: #ffffff; font-size: 0.95rem; font-weight: 700; margin-bottom: 4px;">1000 Workplace Nouns Dictionary</h4>
-                                        <p style="color: #94a3b8; font-size: 0.82rem; margin-bottom: 12px;">Factory, agriculture & construction vocabulary with Hindi + English translations.</p>
-                                        <a href="/pdf/1000-workplace-nouns-dictionary.html" target="_blank" class="btn-primary-action" style="font-size: 0.8rem; padding: 6px 12px; background: #2563eb; color: #ffffff; font-weight: 700; text-decoration: none; border-radius: 6px; display: inline-block;">Open & Download PDF 📥</a>
-                                    </div>
-
-                                    <div style="background: #0f172a; border: 1px solid #334155; padding: 16px; border-radius: 8px;">
-                                        <div style="font-size: 1.5rem; margin-bottom: 8px;">⚡</div>
-                                        <h4 style="color: #ffffff; font-size: 0.95rem; font-weight: 700; margin-bottom: 4px;">Grammar Particles Mastery</h4>
-                                        <p style="color: #94a3b8; font-size: 0.82rem; margin-bottom: 12px;">Complete breakdown of essential exam particles (-은/는, -이/가, -을/를, -에서).</p>
-                                        <a href="/pdf/grammar-particles-mastery.html" target="_blank" class="btn-primary-action" style="font-size: 0.8rem; padding: 6px 12px; background: #d97706; color: #ffffff; font-weight: 700; text-decoration: none; border-radius: 6px; display: inline-block;">Open & Download PDF 📥</a>
-                                    </div>
-
-                                    <div style="background: #0f172a; border: 1px solid #334155; padding: 16px; border-radius: 8px;">
-                                        <div style="font-size: 1.5rem; margin-bottom: 8px;">⚠️</div>
-                                        <h4 style="color: #ffffff; font-size: 0.95rem; font-weight: 700; margin-bottom: 4px;">50 HRD Korea Safety Signboards</h4>
-                                        <p style="color: #94a3b8; font-size: 0.82rem; margin-bottom: 12px;">Official industrial safety symbols & warning signs appearing in reading exams.</p>
-                                        <a href="/pdf/50-safety-signboards-hrd-korea.html" target="_blank" class="btn-primary-action" style="font-size: 0.8rem; padding: 6px 12px; background: #dc2626; color: #ffffff; font-weight: 700; text-decoration: none; border-radius: 6px; display: inline-block;">Open & Download PDF 📥</a>
-                                    </div>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin: 20px 0;">
+                                <div style="background: #0f172a; border: 1px solid #334155; padding: 16px; border-radius: 8px;">
+                                    <div style="font-size: 1.5rem; margin-bottom: 8px;">📖</div>
+                                    <h4 style="color: #ffffff; font-size: 0.95rem; font-weight: 700; margin-bottom: 4px;">1000 Workplace Nouns Dictionary</h4>
+                                    <p style="color: #94a3b8; font-size: 0.82rem; margin-bottom: 12px;">Factory, agriculture & construction vocabulary with Hindi + English translations.</p>
+                                    <a href="/pdf/1000-workplace-nouns-dictionary.html" target="_blank" class="btn-primary-action" style="font-size: 0.8rem; padding: 6px 12px; background: #2563eb; color: #ffffff; font-weight: 700; text-decoration: none; border-radius: 6px; display: inline-block;">Open & Download PDF 📥</a>
                                 </div>
-                            <?php else: ?>
-                                <!-- LOCKED PRO STUDY NOTES CARD FOR TRIAL USERS -->
-                                <div style="background: #0f172a; border: 1px solid #d97706; padding: 28px; border-radius: 10px; text-align: center; margin: 20px 0;">
-                                    <div style="font-size: 2.5rem; margin-bottom: 10px;">🔒</div>
-                                    <h4 style="color: #fbbf24; font-size: 1.2rem; font-weight: 800; margin-bottom: 8px;">Pro Study Notes Locked</h4>
-                                    <p style="color: #94a3b8; font-size: 0.9rem; max-width: 460px; margin: 0 auto 20px; line-height: 1.5;">
-                                        Pro Cheatsheets & Workplace Dictionaries are reserved exclusively for <strong>30-Day Pro Pass ($8 USD)</strong> subscribers.
-                                    </p>
-                                    <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-                                        <button onclick="openPaywallModal('Pro Study Notes')" class="btn-primary-action" style="padding: 10px 20px; font-size: 0.9rem; background: #2563eb; font-weight: 800; cursor: pointer;">
-                                            🔓 Upgrade to 30-Day Pro Pass ($8)
-                                        </button>
-                                        <a href="/auth-handler.php?action=extend_trial" class="btn-primary-action" style="padding: 10px 20px; font-size: 0.9rem; background: #059669; font-weight: 800; text-decoration: none;">
-                                            🎁 Claim +10 Days Extra Free Trial
-                                        </a>
-                                    </div>
+
+                                <div style="background: #0f172a; border: 1px solid #334155; padding: 16px; border-radius: 8px;">
+                                    <div style="font-size: 1.5rem; margin-bottom: 8px;">⚡</div>
+                                    <h4 style="color: #ffffff; font-size: 0.95rem; font-weight: 700; margin-bottom: 4px;">Grammar Particles Mastery</h4>
+                                    <p style="color: #94a3b8; font-size: 0.82rem; margin-bottom: 12px;">Complete breakdown of essential exam particles (-은/는, -이/가, -을/를, -에서).</p>
+                                    <a href="/pdf/grammar-particles-mastery.html" target="_blank" class="btn-primary-action" style="font-size: 0.8rem; padding: 6px 12px; background: #d97706; color: #ffffff; font-weight: 700; text-decoration: none; border-radius: 6px; display: inline-block;">Open & Download PDF 📥</a>
                                 </div>
-                            <?php endif; ?>
+
+                                <div style="background: #0f172a; border: 1px solid #334155; padding: 16px; border-radius: 8px;">
+                                    <div style="font-size: 1.5rem; margin-bottom: 8px;">⚠️</div>
+                                    <h4 style="color: #ffffff; font-size: 0.95rem; font-weight: 700; margin-bottom: 4px;">50 HRD Korea Safety Signboards</h4>
+                                    <p style="color: #94a3b8; font-size: 0.82rem; margin-bottom: 12px;">Official industrial safety symbols & warning signs appearing in reading exams.</p>
+                                    <a href="/pdf/50-safety-signboards-hrd-korea.html" target="_blank" class="btn-primary-action" style="font-size: 0.8rem; padding: 6px 12px; background: #dc2626; color: #ffffff; font-weight: 700; text-decoration: none; border-radius: 6px; display: inline-block;">Open & Download PDF 📥</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -452,43 +422,25 @@ require_once __DIR__ . '/../includes/header.php';
                                     <h3 style="color: #ffffff; font-size: 1.25rem; font-weight: 800; margin-bottom: 4px;">📄 Complete 156 Solved Master PDF Papers</h3>
                                     <p style="color: #94a3b8; font-size: 0.88rem; margin: 0;">Includes official question papers, answer sheets, listening transcripts, and audio files (2015 – 2025).</p>
                                 </div>
-                                <?php if ($is_pro): ?>
-                                    <span class="tag-badge green" style="font-size: 0.85rem; padding: 6px 12px;">Unlimited Access</span>
-                                <?php else: ?>
-                                    <span class="tag-badge amber" style="font-size: 0.85rem; padding: 6px 12px;">🔒 Pro Pass Required</span>
-                                <?php endif; ?>
+                                <span class="tag-badge green" style="font-size: 0.85rem; padding: 6px 12px;">Unlimited Access</span>
                             </div>
 
-                            <?php if ($is_pro): ?>
-                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin: 20px 0;">
-                                    <div style="background: #0f172a; border: 1px solid #334155; padding: 16px; border-radius: 8px;">
-                                        <h4 style="color: #60a5fa; font-size: 0.98rem; font-weight: 700; margin-bottom: 6px;">📘 EPS-TOPIK Reading & Listening</h4>
-                                        <p style="color: #94a3b8; font-size: 0.82rem; margin-bottom: 12px;">Specialized industry papers with English option explanations.</p>
-                                        <a href="/eps-topik-reading-korean-test-papers" class="btn-primary-action" style="font-size: 0.8rem; padding: 6px 12px; background: #2563eb;">View EPS Papers ▶</a>
-                                    </div>
-                                    <div style="background: #0f172a; border: 1px solid #334155; padding: 16px; border-radius: 8px;">
-                                        <h4 style="color: #60a5fa; font-size: 0.98rem; font-weight: 700; margin-bottom: 6px;">📙 TOPIK I & II Official Master Archive</h4>
-                                        <p style="color: #94a3b8; font-size: 0.82rem; margin-bottom: 12px;">30th to 102nd official examination question bundles.</p>
-                                        <a href="/topik-1-level-1-korean-test-papers" class="btn-primary-action" style="font-size: 0.8rem; padding: 6px 12px; background: #0284c7;">View TOPIK I & II ▶</a>
-                                    </div>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin: 20px 0;">
+                                <div style="background: #0f172a; border: 1px solid #334155; padding: 16px; border-radius: 8px;">
+                                    <h4 style="color: #60a5fa; font-size: 0.98rem; font-weight: 700; margin-bottom: 6px;">📘 EPS-TOPIK Reading & Listening</h4>
+                                    <p style="color: #94a3b8; font-size: 0.82rem; margin-bottom: 12px;">Specialized industry papers with English option explanations.</p>
+                                    <a href="/eps-topik-reading-korean-test-papers" class="btn-primary-action" style="font-size: 0.8rem; padding: 6px 12px; background: #2563eb;">View EPS Papers ▶</a>
                                 </div>
+                                <div style="background: #0f172a; border: 1px solid #334155; padding: 16px; border-radius: 8px;">
+                                    <h4 style="color: #60a5fa; font-size: 0.98rem; font-weight: 700; margin-bottom: 6px;">📙 TOPIK I & II Official Master Archive</h4>
+                                    <p style="color: #94a3b8; font-size: 0.82rem; margin-bottom: 12px;">30th to 102nd official examination question bundles.</p>
+                                    <a href="/topik-1-level-1-korean-test-papers" class="btn-primary-action" style="font-size: 0.8rem; padding: 6px 12px; background: #0284c7;">View TOPIK I & II ▶</a>
+                                </div>
+                            </div>
 
-                                <a href="/download-paper?title=Pro%20Master%20Collection%20Bundle" class="btn-primary-action" style="display: block; text-align: center; width: 100%; font-size: 0.95rem; padding: 14px; background: #2563eb; font-weight: 800;">
-                                    Download Full 156 Master PDF Archive Bundle 📥
-                                </a>
-                            <?php else: ?>
-                                <!-- LOCKED MASTER PDF VAULT CARD FOR TRIAL USERS -->
-                                <div style="background: #0f172a; border: 1px solid #d97706; padding: 28px; border-radius: 10px; text-align: center; margin: 20px 0;">
-                                    <div style="font-size: 2.5rem; margin-bottom: 10px;">🔒</div>
-                                    <h4 style="color: #fbbf24; font-size: 1.2rem; font-weight: 800; margin-bottom: 8px;">Master PDF Vault Locked</h4>
-                                    <p style="color: #94a3b8; font-size: 0.9rem; max-width: 460px; margin: 0 auto 20px; line-height: 1.5;">
-                                        Direct PDF downloads of the complete 156 solved exam paper vault require an active <strong>30-Day Pro Pass ($8 USD)</strong>.
-                                    </p>
-                                    <button onclick="openPaywallModal('Master PDF Vault')" class="btn-primary-action" style="padding: 12px 24px; font-size: 0.95rem; background: #2563eb; font-weight: 800; cursor: pointer;">
-                                        🔓 Upgrade to 30-Day Pro Pass ($8)
-                                    </button>
-                                </div>
-                            <?php endif; ?>
+                            <a href="/download-paper?title=Pro%20Master%20Collection%20Bundle" class="btn-primary-action" style="display: block; text-align: center; width: 100%; font-size: 0.95rem; padding: 14px; background: #2563eb; font-weight: 800;">
+                                Download Full 156 Master PDF Archive Bundle 📥
+                            </a>
                         </div>
                     </div>
 

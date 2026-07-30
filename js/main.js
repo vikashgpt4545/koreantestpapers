@@ -909,8 +909,8 @@ function selectGameMode(mode, btnElement) {
                 <div style="text-align: center; padding: 10px;">
                     <div style="font-size: 2.2rem; margin-bottom: 4px;">🎁</div>
                     <div style="font-size: 0.85rem; color: #f59e0b; font-weight: 700; text-transform: uppercase; margin-bottom: 4px;">Free Teaser Preview Limit Reached (3/5 Questions)</div>
-                    <div style="font-size: 1.1rem; color: #ffffff; font-weight: 800; margin-bottom: 6px;">Start Your 5-Day Free Trial</div>
-                    <p style="font-size: 0.82rem; color: #94a3b8; margin-bottom: 12px;">Create a free candidate account to play unlimited practice games!</p>
+                    <div style="font-size: 1.1rem; color: #ffffff; font-weight: 800; margin-bottom: 6px;">Claim Your 30-Day Free Candidate Pass ($80 Value)</div>
+                    <p style="font-size: 0.82rem; color: #94a3b8; margin-bottom: 12px;">Create a free candidate account to play unlimited practice games and download 156+ solved papers!</p>
                 </div>
             `;
         }
@@ -918,7 +918,7 @@ function selectGameMode(mode, btnElement) {
             qGrid.innerHTML = `
                 <div style="grid-column: 1 / -1; text-align: center;">
                     <button onclick="openAuthModal('register')" style="background: #059669; color: #ffffff; font-weight: 800; padding: 12px 24px; border-radius: 8px; font-size: 0.95rem; cursor: pointer; border: none;">
-                        🎁 Start 5-Day Free Trial (Create Account) ▶
+                        🎁 Claim 30-Day Free Access Pass (Create Account) ▶
                     </button>
                 </div>
             `;
