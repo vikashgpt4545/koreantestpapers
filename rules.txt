@@ -85,16 +85,16 @@ SECTION 4: SEQUENTIAL IMPLEMENTATION CHECKLIST
 --------------------------------------------------------------------------------
 [x] Step 1: Document 10-page master blueprint in `rules.txt`.
 [x] Step 2: Append URLs #101 - #110 to `urls.txt`.
-[ ] Step 3: Manually create Page 101 (`pages/korean-question-paper-pdf-download.php`).
-[ ] Step 4: Manually create Page 102 (`pages/eps-topik-korean-question-paper.php`).
-[ ] Step 5: Manually create Page 103 (`pages/topik-1-korean-question-paper.php`).
-[ ] Step 6: Manually create Page 104 (`pages/topik-2-korean-question-paper.php`).
-[ ] Step 7: Manually create Page 105 (`pages/korean-question-paper-with-answers.php`).
-[ ] Step 8: Manually create Page 106 (`pages/korean-language-exam-question-paper.php`).
-[ ] Step 9: Manually create Page 107 (`pages/previous-year-korean-question-paper.php`).
-[ ] Step 10: Manually create Page 108 (`pages/korean-cbt-exam-question-paper.php`).
-[ ] Step 11: Manually create Page 109 (`pages/beginner-korean-question-paper.php`).
-[ ] Step 12: Manually create Page 110 (`pages/master-korean-question-paper-vault.php`).
-[ ] Step 13: Re-generate `sitemap.xml` with 111 URLs.
-[ ] Step 14: Lint all modified/new files with `php.exe -l`.
-[ ] Step 15: Stage, commit, and push changes to GitHub `main` branch.
+[x] Step 3: Manually create Page 101 (`pages/korean-question-paper-pdf-download.php`).
+[x] Step 4: Manually create Page 102 (`pages/eps-topik-korean-question-paper.php`).
+[x] Step 5: Manually create Page 103 (`pages/topik-1-korean-question-paper.php`).
+[x] Step 6: Manually create Page 104 (`pages/topik-2-korean-question-paper.php`).
+[x] Step 7: Manually create Page 105 (`pages/korean-question-paper-with-answers.php`).
+[x] Step 8: Manually create Page 106 (`pages/korean-language-exam-question-paper.php`).
+[x] Step 9: Manually create Page 107 (`pages/previous-year-korean-question-paper.php`).
+[x] Step 10: Manually create Page 108 (`pages/korean-cbt-exam-question-paper.php`).
+[x] Step 11: Manually create Page 109 (`pages/beginner-korean-question-paper.php`).
+[x] Step 12: Manually create Page 110 (`pages/master-korean-question-paper-vault.php`).
+[x] Step 13: Re-generate `sitemap.xml` with 111 URLs.
+[x] Step 14: Lint all modified/new files with `php.exe -l`.
+[x] Step 15: Stage, commit, and push changes to GitHub `main` branch.
