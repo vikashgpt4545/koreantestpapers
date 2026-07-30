@@ -81,7 +81,7 @@ require_once __DIR__ . '/../includes/header.php';
                             <td><?php echo htmlspecialchars($item['type']); ?></td>
                             <td><?php echo htmlspecialchars($item['year']); ?></td>
                             <td>
-                                <a href="/download-paper?title=<?php echo urlencode($item['session'] . ' (' . $item['level'] . ')'); ?>" class="btn-download-sm">
+                                <a href="/download-paper?session=<?php echo urlencode($item['session']); ?>&title=<?php echo urlencode($item['session'] . ' (' . $item['level'] . ')'); ?>" class="btn-download-sm">
                                     📥 Download File
                                 </a>
                             </td>

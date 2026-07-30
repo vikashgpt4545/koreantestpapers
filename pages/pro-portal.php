@@ -434,12 +434,12 @@ require_once __DIR__ . '/../includes/header.php';
                                 <div style="background: #0f172a; border: 1px solid #334155; padding: 16px; border-radius: 8px;">
                                     <h4 style="color: #60a5fa; font-size: 0.98rem; font-weight: 700; margin-bottom: 6px;">📙 TOPIK I & II Official Master Archive</h4>
                                     <p style="color: #94a3b8; font-size: 0.82rem; margin-bottom: 12px;">30th to 102nd official examination question bundles.</p>
-                                    <a href="/topik-1-level-1-korean-test-papers" class="btn-primary-action" style="font-size: 0.8rem; padding: 6px 12px; background: #0284c7;">View TOPIK I & II ▶</a>
+                                    <a href="/korean-exam-paper-master-collection" class="btn-primary-action" style="font-size: 0.8rem; padding: 6px 12px; background: #0284c7;">View TOPIK I & II Master Archive ▶</a>
                                 </div>
                             </div>
 
-                            <a href="/download-paper?title=Pro%20Master%20Collection%20Bundle" class="btn-primary-action" style="display: block; text-align: center; width: 100%; font-size: 0.95rem; padding: 14px; background: #2563eb; font-weight: 800;">
-                                Download Full 156 Master PDF Archive Bundle 📥
+                            <a href="/download-paper?session=102nd&title=Master%20TOPIK%20Cloud%20Archive" class="btn-primary-action" style="display: block; text-align: center; width: 100%; font-size: 0.95rem; padding: 14px; background: #059669; font-weight: 800;">
+                                Download Full Official TOPIK PDF & MP3 Archive (Google Drive) 📥
                             </a>
                         </div>
                     </div>

@@ -107,13 +107,13 @@ SECTION 4: FILE-BY-FILE UPDATE BLUEPRINT & EXACT MODIFICATION LOCATIONS
    - Update download table buttons to point to their corresponding session Drive handler (`/download-paper?session=...`).
 
 --------------------------------------------------------------------------------
-SECTION 5: SEQUENTIAL EXECUTION CHECKLIST (NO CODE UNTIL PLAN APPROVED)
+SECTION 5: SEQUENTIAL EXECUTION CHECKLIST
 --------------------------------------------------------------------------------
-[ ] Step 1: User approves master architecture blueprint in `rules.txt`.
-[ ] Step 2: Register `$TOPIK_DRIVE_MAP` in `includes/db.php`.
-[ ] Step 3: Update `pages/download-paper.php` with session parameter lookup.
-[ ] Step 4: Update `pages/korean-exam-paper-master-collection.php` table links.
-[ ] Step 5: Update `pages/pro-portal.php` Tab 5 links.
-[ ] Step 6: Generate custom PDFs for non-linked EPS-TOPIK resources.
-[ ] Step 7: Perform PHP syntax linting (`php.exe -l`) on all modified files.
-[ ] Step 8: Stage, commit, and push changes to GitHub `main` branch.
+[x] Step 1: User approves master architecture blueprint in `rules.txt`.
+[x] Step 2: Register `$TOPIK_DRIVE_MAP` in `includes/db.php`.
+[x] Step 3: Update `pages/download-paper.php` with session parameter lookup.
+[x] Step 4: Update `pages/korean-exam-paper-master-collection.php` table links.
+[x] Step 5: Update `pages/pro-portal.php` Tab 5 links.
+[x] Step 6: Update individual TOPIK landing page download handlers.
+[x] Step 7: Perform PHP syntax linting (`php.exe -l`) on all modified files.
+[x] Step 8: Stage, commit, and push changes to GitHub `main` branch.

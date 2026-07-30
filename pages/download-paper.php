@@ -2,8 +2,9 @@
 // Core PHP & Database Setup
 require_once __DIR__ . '/../includes/db.php';
 
-$paper_title = isset($_GET['title']) ? htmlspecialchars($_GET['title']) : "Official Korean Test Paper PDF";
-$drive_link = "https://drive.google.com/drive/folders/1opEW5O5mvYt2lcFP169Sizil7z0z6Qsv";
+$session_key = $_GET['session'] ?? $_GET['paper'] ?? $_GET['title'] ?? '';
+$paper_title = isset($_GET['title']) ? htmlspecialchars($_GET['title']) : (!empty($session_key) ? htmlspecialchars($session_key) . " Official Exam Paper" : "Official Korean Test Paper PDF");
+$drive_link = get_topik_drive_url($session_key);
 
 // Page SEO Meta
 $page_title = "Preparing PDF Download - KoreanTestPapers.in";

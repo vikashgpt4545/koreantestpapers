@@ -317,4 +317,54 @@ function get_trial_remaining_hours() {
     $diff = strtotime($u['trial_ends_at']) - time();
     return $diff > 0 ? ceil($diff / 3600) : 0;
 }
+
+// Master Google Drive Cloud Storage Folder Map for Official TOPIK Exams
+$TOPIK_DRIVE_MAP = [
+    '30'    => 'https://drive.google.com/drive/folders/1Mla7uALEZ9c2DqZtdktCQNBBY8-YQagW?usp=drive_link',
+    '30th'  => 'https://drive.google.com/drive/folders/1Mla7uALEZ9c2DqZtdktCQNBBY8-YQagW?usp=drive_link',
+    '31'    => 'https://drive.google.com/drive/folders/1xQKnH1tcqmYgKJY3E2nhs3xBaWYBXeTi?usp=drive_link',
+    '31st'  => 'https://drive.google.com/drive/folders/1xQKnH1tcqmYgKJY3E2nhs3xBaWYBXeTi?usp=drive_link',
+    '32'    => 'https://drive.google.com/drive/folders/1DEQm6hQ7ANLClKkT8R9GvPK0iSORxxAw?usp=sharing',
+    '32nd'  => 'https://drive.google.com/drive/folders/1DEQm6hQ7ANLClKkT8R9GvPK0iSORxxAw?usp=sharing',
+    '33'    => 'https://drive.google.com/drive/folders/1Y9fcIw7OqgyffaX_OsZS1tAQJ_5qudIz?usp=sharing',
+    '33rd'  => 'https://drive.google.com/drive/folders/1Y9fcIw7OqgyffaX_OsZS1tAQJ_5qudIz?usp=sharing',
+    '35'    => 'https://drive.google.com/drive/folders/1ZV1GBege1qhwHNZmgsxXd44k2s6rEGwY?usp=sharing',
+    '35th'  => 'https://drive.google.com/drive/folders/1ZV1GBege1qhwHNZmgsxXd44k2s6rEGwY?usp=sharing',
+    '36'    => 'https://drive.google.com/drive/folders/1M6Its4NqEiOh1qroqHb_QhIqhocTifJy?usp=sharing',
+    '36th'  => 'https://drive.google.com/drive/folders/1M6Its4NqEiOh1qroqHb_QhIqhocTifJy?usp=sharing',
+    '37'    => 'https://drive.google.com/drive/folders/17xOVdCwneVkVvm6YL-ksR97KfU3Vk2cW?usp=sharing',
+    '37th'  => 'https://drive.google.com/drive/folders/17xOVdCwneVkVvm6YL-ksR97KfU3Vk2cW?usp=sharing',
+    '41'    => 'https://drive.google.com/drive/folders/1n6cJ4VVnYHYTrlGRhBovdOFzVAYiFFWY?usp=sharing',
+    '41st'  => 'https://drive.google.com/drive/folders/1n6cJ4VVnYHYTrlGRhBovdOFzVAYiFFWY?usp=sharing',
+    '47'    => 'https://drive.google.com/drive/folders/1pEkkR3sLZ20J7GsRSQ3cQoJ6MxnbZ5QM?usp=sharing',
+    '47th'  => 'https://drive.google.com/drive/folders/1pEkkR3sLZ20J7GsRSQ3cQoJ6MxnbZ5QM?usp=sharing',
+    '52'    => 'https://drive.google.com/drive/folders/1JP7B-PFjJL2-6L8qlIiRaijC333Mrnsi?usp=sharing',
+    '52nd'  => 'https://drive.google.com/drive/folders/1JP7B-PFjJL2-6L8qlIiRaijC333Mrnsi?usp=sharing',
+    '60'    => 'https://drive.google.com/drive/folders/103Yirvjs_xa_zuq6hFxunSnh4onvwlMc?usp=sharing',
+    '60th'  => 'https://drive.google.com/drive/folders/103Yirvjs_xa_zuq6hFxunSnh4onvwlMc?usp=sharing',
+    '64'    => 'https://drive.google.com/drive/folders/14TbG81uJ5DtyOGL23C-iC7r4BGGiDaKr?usp=sharing',
+    '64th'  => 'https://drive.google.com/drive/folders/14TbG81uJ5DtyOGL23C-iC7r4BGGiDaKr?usp=sharing',
+    '83'    => 'https://drive.google.com/drive/folders/1k4QlwCHnKDHlOHGCygUwL-1gM-dOTYuk?usp=sharing',
+    '83rd'  => 'https://drive.google.com/drive/folders/1k4QlwCHnKDHlOHGCygUwL-1gM-dOTYuk?usp=sharing',
+    '91'    => 'https://drive.google.com/drive/folders/1KgIR9Ul-fqYbT-GmqJcnK6U-s6t8rqCK?usp=sharing',
+    '91st'  => 'https://drive.google.com/drive/folders/1KgIR9Ul-fqYbT-GmqJcnK6U-s6t8rqCK?usp=sharing',
+    '96'    => 'https://drive.google.com/drive/folders/1t4gqPxkbdC_GVXF6-0xU5hRZM0JaPGtV?usp=sharing',
+    '96th'  => 'https://drive.google.com/drive/folders/1t4gqPxkbdC_GVXF6-0xU5hRZM0JaPGtV?usp=sharing',
+    '102'   => 'https://drive.google.com/drive/folders/1idPynYt85mzhYKbTy882AIeog1UTtHlT?usp=sharing',
+    '102nd' => 'https://drive.google.com/drive/folders/1idPynYt85mzhYKbTy882AIeog1UTtHlT?usp=sharing',
+];
+
+function get_topik_drive_url($key = '') {
+    global $TOPIK_DRIVE_MAP;
+    $clean_key = strtolower(trim($key));
+    if (!empty($clean_key) && isset($TOPIK_DRIVE_MAP[$clean_key])) {
+        return $TOPIK_DRIVE_MAP[$clean_key];
+    }
+    // Extract numbers if present
+    preg_match('/(\d+)/', $clean_key, $matches);
+    if (!empty($matches[1]) && isset($TOPIK_DRIVE_MAP[$matches[1]])) {
+        return $TOPIK_DRIVE_MAP[$matches[1]];
+    }
+    return 'https://drive.google.com/drive/folders/1opEW5O5mvYt2lcFP169Sizil7z0z6Qsv';
+}
 ?>

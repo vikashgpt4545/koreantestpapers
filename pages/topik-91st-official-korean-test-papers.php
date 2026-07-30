@@ -106,21 +106,21 @@ require_once __DIR__ . '/../includes/header.php';
                             <td><span class="tag-badge amber">91st Session</span></td>
                             <td>2024</td>
                             <td>✔ Solved Paper + NIIED Key</td>
-                            <td><a href="../pdf/topik-91st-official-paper.pdf" class="btn-download-sm" download>📥 Download PDF</a></td>
+                            <td><a href="/download-paper?session=91st&title=91st%20Official%20TOPIK%20II%20Exam%20Paper" class="btn-download-sm">📥 Download PDF</a></td>
                         </tr>
                         <tr>
                             <td><strong>90th Official TOPIK II Exam Paper PDF</strong></td>
                             <td><span class="tag-badge amber">90th Session</span></td>
                             <td>2023</td>
                             <td>✔ Official Answer Key</td>
-                            <td><a href="../pdf/topik-90th-official-paper.pdf" class="btn-download-sm" download>📥 Download PDF</a></td>
+                            <td><a href="/download-paper?session=90th&title=90th%20Official%20TOPIK%20II%20Exam%20Paper" class="btn-download-sm">📥 Download PDF</a></td>
                         </tr>
                         <tr>
                             <td><strong>TOPIK II Writing Section Model Set</strong></td>
                             <td><span class="tag-badge amber">Writing Model</span></td>
                             <td>2024</td>
                             <td>✔ Model Essay Solutions</td>
-                            <td><a href="../pdf/topik-2-advanced-model.pdf" class="btn-download-sm" download>📥 Download PDF</a></td>
+                            <td><a href="/download-paper?session=91st&title=91st%20TOPIK%20II%20Writing%20Section%20Model" class="btn-download-sm">📥 Download PDF</a></td>
                         </tr>
                     </tbody>
                 </table>
