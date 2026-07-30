@@ -1,25 +1,33 @@
 <?php
 // Core PHP MySQL Database Connection for koreantestpapers.in
 
-$db_host = 'localhost';
-$db_user = 'root';
-$db_pass = '';
-$db_name = 'koreantestpapers_db';
+$db_host = getenv('DB_HOST') ?: 'localhost';
+$db_user = getenv('DB_USER') ?: 'u840855356_koreantest';
+$db_pass = getenv('DB_PASS') ?: 'Koreantest1';
+$db_name = getenv('DB_NAME') ?: 'u840855356_koreantest';
 
 $conn = null;
 $db_connected = false;
 
-try {
-    // Attempt PDO connection
-    $conn = new PDO("mysql:host=$db_host;dbname=$db_name;charset=utf8mb4", $db_user, $db_pass, [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-        PDO::ATTR_EMULATE_PREPARES => false,
-    ]);
-    $db_connected = true;
-} catch (PDOException $e) {
-    // Graceful fallback mode if MySQL database is not created yet
-    $db_connected = false;
+// List of credential sets to try (Hostinger Live first, then Local XAMPP fallback)
+$credentials_to_try = [
+    ['host' => $db_host, 'user' => $db_user, 'pass' => $db_pass, 'name' => $db_name],
+    ['host' => 'localhost', 'user' => 'root', 'pass' => '', 'name' => 'u840855356_koreantest'],
+    ['host' => 'localhost', 'user' => 'root', 'pass' => '', 'name' => 'koreantestpapers_db']
+];
+
+foreach ($credentials_to_try as $cred) {
+    try {
+        $conn = new PDO("mysql:host={$cred['host']};dbname={$cred['name']};charset=utf8mb4", $cred['user'], $cred['pass'], [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+            PDO::ATTR_EMULATE_PREPARES => false,
+        ]);
+        $db_connected = true;
+        break;
+    } catch (PDOException $e) {
+        $db_connected = false;
+    }
 }
 
 // Function to fetch Exam Categories

@@ -1,6 +1,5 @@
 -- KoreanTestPapers.in Database Schema & Initial Data
-CREATE DATABASE IF NOT EXISTS `koreantestpapers_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE `koreantestpapers_db`;
+-- Safe for direct import into phpMyAdmin (Hostinger / cPanel)
 
 -- Table 1: Exam Categories & Names
 CREATE TABLE IF NOT EXISTS `exam_categories` (
