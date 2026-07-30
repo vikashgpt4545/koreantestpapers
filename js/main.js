@@ -873,7 +873,7 @@ function checkGameAnswer(optIdx, btnElem) {
     setTimeout(() => {
         isGameProcessing = false;
         renderCurrentGameQuestion();
-    }, 850);
+    }, 400);
 }
 
 function selectGameMode(mode, btnElement) {
@@ -901,7 +901,9 @@ function selectGameMode(mode, btnElement) {
         return;
     }
 
-    startGameTimer();
+    if (!gameTimerInterval || gameTimeRemaining <= 0) {
+        startGameTimer();
+    }
     renderCurrentGameQuestion();
 }
 
@@ -946,7 +948,7 @@ function switchHeroTab(tabId, btnElem) {
 
     if (tabId === 'gamesTab') {
         isGameProcessing = false;
-        if (gameTimeRemaining <= 0) {
+        if (!gameTimerInterval || gameTimeRemaining <= 0) {
             startGameTimer();
         }
         const hasAccess = window.userSession && (window.userSession.isPro || window.userSession.isTrial);
