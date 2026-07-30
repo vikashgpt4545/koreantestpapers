@@ -69,8 +69,8 @@ SECTION 3: SEQUENTIAL EXECUTION CHECKLIST
 --------------------------------------------------------------------------------
 [x] Step 1: Document master 35-page blueprint in `rules.txt`.
 [x] Step 2: Append URLs #111 - #145 to `urls.txt`.
-[ ] Step 3: Create Pages #111 - #114 (`eps topik exam papers` series).
-[ ] Step 4: Create Pages #115 - #124 (`eps question paper` series).
+[x] Step 3: Create Pages #111 - #114 (`eps topik exam papers` series).
+[x] Step 4: Create Pages #115 - #124 (`eps question paper` series).
 [ ] Step 5: Create Pages #125 - #129 (`korean answer sheet` series).
 [ ] Step 6: Create Pages #130 - #132 (`eps topik exam papers 2019 Philippines` series).
 [ ] Step 7: Create Pages #133 - #134 (`kgsp scholarship 2021` series).
