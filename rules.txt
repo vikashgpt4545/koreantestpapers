@@ -118,3 +118,31 @@ PHASE 4: DEDICATED ADMIN LOGIN & PRE-CONFIGURED ACCOUNTS VERIFICATION (COMPLETED
 PHASE 5: END-TO-END TESTING (COMPLETED ✅)
 - Linted all core PHP files with XAMPP PHP binary (`php.exe -l`). Result: 0 syntax errors.
 - Validated all 4 user states (Visitor, Trial, Pro, Admin) to ensure 0 logic gaps and 100% connected dots across the portal.
+
+--------------------------------------------------------------------------------
+SECTION 4: $80 FREE CANDIDATE ACCESS & UNIFIED AUTHENTICATION BLUEPRINT
+--------------------------------------------------------------------------------
+
+1. CORE PHILOSOPHY & OFFER POSITIONING ($80 FREE VALUE):
+   - All premium study notes, PDF past papers, CBT mock exams, and level games are 100% FREE for registered candidates.
+   - Zero paid subscriptions or paywalls for authenticated students.
+   - Portal messaging promotes: "🎁 Claim $80 Worth of EPS-TOPIK & TOPIK Premium CBT Exams & Audio Scripts 100% FREE! (Create Account / Log In)".
+
+2. HERO SECTION TEASER GATE (UNAUTHENTICATED VISITORS):
+   - Hero Section interactive modes (Speed Word Match, Safety Signboard Puzzle, Audio Challenge) maintain a 3-Question Teaser Limit for unauthenticated visitors.
+   - On the 3rd question, game play pauses and displays the signup modal: "Free Teaser Preview Limit Reached (3 Questions). 🎁 Claim Your $80 Free Candidate Access — Create a Free Account to Play Unlimited Games & Download 150+ Papers!".
+
+3. FILE-BY-FILE COMPONENT CONNECTION MATRIX:
+   * File 1: `auth-handler.php`
+     - On user registration or login, assign `$_SESSION['user_status'] = 'pro'` (lifetime candidate access).
+     - Auto-redirect all candidate logins to `/pro-portal`.
+   * File 2: `includes/db.php`
+     - Update `is_user_pro()` to return `true` for all authenticated candidates (`is_logged_in()`).
+   * File 3: `includes/header.php`
+     - Unauthenticated: Display "🎁 Claim $80 Free Pass" in notification bar and header nav.
+     - Authenticated: Display "🎓 Student Dashboard" link pointing to `/pro-portal`.
+   * File 4: `subscription.php`
+     - Convert page into the "$80 Free Candidate Access Claim" page highlighting the $80 total value included for free.
+   * File 5: `js/main.js`
+     - Sync game teaser overlay text with $80 Free Access messaging.
+     - Set `window.userSession.isPro = true` for logged-in users so hero section games unlock 100%.
