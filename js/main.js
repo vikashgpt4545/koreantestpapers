@@ -1018,11 +1018,19 @@ function switchHeroTab(tabId, btnElem) {
 
 function speakKorean(text) {
     if (!text) return;
-    if ('speechSynthesis' in window) {
+    if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
         window.speechSynthesis.cancel();
         const utterance = new SpeechSynthesisUtterance(text);
         utterance.lang = 'ko-KR';
         utterance.rate = 0.85;
+
+        // Attempt to find native ko-KR voice
+        const voices = window.speechSynthesis.getVoices();
+        const korVoice = voices.find(v => v.lang && (v.lang.includes('ko') || v.lang.includes('KO')));
+        if (korVoice) {
+            utterance.voice = korVoice;
+        }
+
         window.speechSynthesis.speak(utterance);
     }
 }
