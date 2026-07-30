@@ -739,6 +739,9 @@ function restartGameRound() {
 
 function renderCurrentGameQuestion() {
     isGameProcessing = false;
+    if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+    }
     currentQuestionObj = generateDynamicQuestion();
     if (!currentQuestionObj) return;
 
@@ -756,19 +759,22 @@ function renderCurrentGameQuestion() {
                 </div>
             `;
         } else if (currentQuestionObj.mode === 'audio') {
+            const currentQNum = Math.min(heroGameCount + 1, 5);
             qArea.innerHTML = `
                 <div style="text-align: center; margin-bottom: 8px;">
                     <button onclick="speakKorean('${currentQuestionObj.kor.replace(/'/g, "\\'")}')" style="background: linear-gradient(135deg, #2563eb, #1d4ed8); color: #ffffff; border: 1px solid #3b82f6; padding: 12px 24px; border-radius: 30px; font-size: 1.1rem; font-weight: 800; cursor: pointer; box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4); display: inline-flex; align-items: center; gap: 10px; transition: transform 0.15s ease;">
-                        <span style="font-size: 1.4rem;">🔊</span> Listen Audio (듣기) - Tap to Play
+                        <span style="font-size: 1.4rem;">🔊</span> Listen Audio #${currentQNum} (듣기) - Tap to Play
                     </button>
                     <div style="color: #94a3b8; font-size: 0.88rem; margin-top: 10px;">Listen to native Korean pronunciation and select the correct English meaning below:</div>
                 </div>
             `;
-            try {
-                if (typeof speakKorean === 'function') {
-                    speakKorean(currentQuestionObj.kor);
-                }
-            } catch (e) {}
+            setTimeout(() => {
+                try {
+                    if (typeof speakKorean === 'function') {
+                        speakKorean(currentQuestionObj.kor);
+                    }
+                } catch (e) {}
+            }, 100);
         } else {
             qArea.innerHTML = `What is the English meaning of Korean word: <strong style="color: #60a5fa; font-size: 1.4rem;">"${currentQuestionObj.kor}"</strong>?`;
         }
