@@ -626,6 +626,7 @@ const signboardVocabBank = [
 
 let currentGameIdx = 0;
 let gameCurrentScore = 0;
+let heroGameCount = 0;
 let gameTimerInterval = null;
 let gameTimeRemaining = 60;
 let isGameProcessing = false;
