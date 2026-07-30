@@ -1,14 +1,14 @@
 ================================================================================
-KOREANTESTPAPERS.IN - MASTER PDF DRIVE MAPPING & CONTENT ARCHITECTURE BLUEPRINT
+KOREANTESTPAPERS.IN - MASTER PDF DRIVE MAPPING & SEO/AI-SEO ARCHITECTURE BLUEPRINT
 ================================================================================
 
 --------------------------------------------------------------------------------
-SECTION 1: OFFICIAL TOPIK GOOGLE DRIVE FOLDER MAPPING TABLE
+SECTION 1: MASTER CLOUD DRIVE HUB & SESSION MAPPING TABLE
 --------------------------------------------------------------------------------
-The following 16 official TOPIK exam paper sessions are mapped directly to their
-dedicated Google Drive folders containing Reading PDFs, Listening Audio files, 
-Answer Keys, and Writing Section sheets:
+MASTER HUB DIRECTORY (ALL EXAM PAPERS & BUNDLES):
+https://drive.google.com/drive/folders/1jXwvNp4L_3x7CUu3glBdiHfZIb6WI9jB?usp=sharing
 
+OFFICIAL TOPIK SESSION DIRECTORIES:
 1. 30th-topik:
    https://drive.google.com/drive/folders/1Mla7uALEZ9c2DqZtdktCQNBBY8-YQagW?usp=drive_link
 
@@ -57,63 +57,55 @@ Answer Keys, and Writing Section sheets:
 16. 102nd-topik:
     https://drive.google.com/drive/folders/1idPynYt85mzhYKbTy882AIeog1UTtHlT?usp=sharing
 
-NOTE: All sub-resources for these sessions (Listening Audio, Reading Question Papers, 
-Answer Keys, Writing Scripts) will route candidates to their corresponding session Google Drive folder.
+--------------------------------------------------------------------------------
+SECTION 2: TRADITIONAL SEO & AI-SEO (GEO) MASTER RULES
+--------------------------------------------------------------------------------
+1. AI SEO / Generative Engine Optimization (SearchGPT, Perplexity, Gemini, ChatGPT, Claude):
+   - Format key information in structured Q&A headers (`## Where to download free official TOPIK past papers with answer keys?`)
+     so AI search bots extract direct answers and cite `koreantestpapers.in` as the primary authority source.
+   - Implement comprehensive JSON-LD schemas (`EducationalOrganization`, `LearningResource`, `Course`, `FAQPage`, `BreadcrumbList`).
+   - Create an `llms.txt` summary file in root for direct AI assistant indexing.
 
---------------------------------------------------------------------------------
-SECTION 2: CUSTOM HIGH-QUALITY PDF GENERATION PLAN (FOR NON-LINKED PAPERS)
---------------------------------------------------------------------------------
-For exam categories or sessions where direct Google Drive links are not provided 
-(e.g., specific EPS-TOPIK sector papers, practice model sets, and extra past years):
-- We will research and manually generate complete, high-authority, authentic PDF files 
-  with verified answer keys and question sets in `/pdf/`.
-- Generated PDFs will feature professional layouts, complete answer keys, vocabulary notes,
-  and official Korean text formatting.
+2. Technical & Search Indexing SEO:
+   - Sitemap: Generate production `sitemap.xml` listing all 100 clean URLs from `urls.txt`.
+   - Robots: Generate standard `robots.txt` linking to `https://koreantestpapers.in/sitemap.xml`.
+   - Social Metadata: Include OpenGraph image dimensions (1200x630) and complete Twitter Card tags.
+   - Caching Performance: Replace `style.css?v=<?= time() ?>` with static file versioning for 100/100 Core Web Vitals speed.
 
 --------------------------------------------------------------------------------
 SECTION 3: CENTRAL DOWNLOAD ROUTING ENGINE ARCHITECTURE (`pages/download-paper.php`)
 --------------------------------------------------------------------------------
 1. Central Session Map (`includes/db.php`):
-   - Define `$TOPIK_DRIVE_MAP` containing all 16 Google Drive folder URLs mapped by session key.
+   - `$TOPIK_DRIVE_MAP` contains 16 specific TOPIK folders.
+   - Fallback Drive URL resolves directly to Master Hub:
+     `https://drive.google.com/drive/folders/1jXwvNp4L_3x7CUu3glBdiHfZIb6WI9jB?usp=sharing`
 2. Dynamic Link Resolution:
-   - `download-paper.php?session=30th` -> Resolves to 30th TOPIK Google Drive folder.
-   - `download-paper.php?session=91st` -> Resolves to 91st TOPIK Google Drive folder.
-   - If session key is missing, falls back to default cloud archive or generated PDF vault file.
-3. User Experience:
-   - Candidate clicks "📥 Download PDF" on any page.
-   - Routed to `download-paper.php?session=...`.
-   - 5-second countdown progress bar runs.
-   - Auto-opens the exact Google Drive folder in a new tab upon completion.
+   - `download-paper.php?session=30th` -> Resolves to 30th TOPIK Drive folder.
+   - `download-paper.php` (general) -> Resolves to Master Drive Hub link.
 
 --------------------------------------------------------------------------------
-SECTION 4: FILE-BY-FILE UPDATE BLUEPRINT & EXACT MODIFICATION LOCATIONS
+SECTION 4: FILE-BY-FILE IMPLEMENTATION BLUEPRINT
 --------------------------------------------------------------------------------
 1. `includes/db.php`:
-   - Add `$TOPIK_DRIVE_MAP` array with all 16 Google Drive links.
-   - Add helper function `get_topik_drive_url($session_key)`.
+   - Set default fallback in `get_topik_drive_url()` to Master Hub Link.
 
-2. `pages/download-paper.php`:
-   - Accept `$_GET['session']` parameter.
-   - Dynamically set `$drive_link` based on `get_topik_drive_url($session)`.
+2. `pages/pro-portal.php` & `pages/korean-exam-paper-master-collection.php`:
+   - Set master PDF bundle download links to route to the Master Drive Hub.
 
-3. `pages/korean-exam-paper-master-collection.php`:
-   - Update rows for 30th, 31st, 32nd, 33rd, 35th, 36th, 37th, 41st, 47th, 52nd, 60th, 64th, 83rd, 91st, 96th, 102nd TOPIK exams.
-   - Change link target to `/download-paper?session=30th`, `/download-paper?session=31st`, etc.
+3. `sitemap.xml` & `robots.txt`:
+   - Build full sitemap of 100 pages and robot crawl rules.
 
-4. `pages/pro-portal.php` (Student Dashboard Tab 5):
-   - Update master PDF vault cards to link directly to official Google Drive archives for TOPIK papers and EPS-TOPIK PDF vaults.
-
-5. Individual TOPIK Pages (`pages/topik-*.php`):
-   - Update download table buttons to point to their corresponding session Drive handler (`/download-paper?session=...`).
+4. `includes/header.php`:
+   - Add OpenGraph dimensions, Twitter Cards, `BreadcrumbList` schema, and static CSS caching.
 
 --------------------------------------------------------------------------------
 SECTION 5: SEQUENTIAL EXECUTION CHECKLIST
 --------------------------------------------------------------------------------
-[x] Step 1: User approves master architecture blueprint in `rules.txt`.
-[x] Step 2: Register `$TOPIK_DRIVE_MAP` in `includes/db.php`.
-[x] Step 3: Update `pages/download-paper.php` with session parameter lookup.
-[x] Step 4: Update `pages/korean-exam-paper-master-collection.php` table links.
-[x] Step 5: Update `pages/pro-portal.php` Tab 5 links.
-[x] Step 6: Update individual TOPIK landing page download handlers.
-[x] Step 7: Perform PHP syntax linting (`php.exe -l`) on all modified files.
-[x] Step 8: Stage, commit, and push changes to GitHub `main` branch.
+[x] Step 1: Document Master Drive Hub URL & AI-SEO Blueprint in `rules.txt`.
+[ ] Step 2: Update default fallback in `includes/db.php` to Master Drive Hub link.
+[ ] Step 3: Update Dashboard (`pro-portal.php` Tab 5) & Master Collection download links to Master Hub.
+[ ] Step 4: Generate production `sitemap.xml` (100 URLs) and `robots.txt`.
+[ ] Step 5: Add AI-SEO / GEO Schemas (`BreadcrumbList`, `FAQPage`, `LearningResource`) & Twitter Cards in `includes/header.php`.
+[ ] Step 6: Optimize CSS caching (`v=1.0` instead of `v=time()`).
+[ ] Step 7: Perform PHP syntax linting (`php.exe -l`) on all modified files.
+[ ] Step 8: Stage, commit, and push changes to GitHub `main` branch.
