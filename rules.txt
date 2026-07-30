@@ -124,28 +124,31 @@ SECTION 4: $80 FREE CANDIDATE ACCESS & UNIFIED AUTHENTICATION BLUEPRINT
 --------------------------------------------------------------------------------
 
 1. CORE PHILOSOPHY & OFFER POSITIONING ($80 FREE VALUE):
-   - All premium study notes, PDF past papers, CBT mock exams, and level games are 100% FREE for registered candidates.
+   - All premium study notes, PDF past papers, CBT mock exams, and level games are 100% FREE for 30 Days upon creating a free account.
    - Zero paid subscriptions or paywalls for authenticated students.
-   - Portal messaging promotes: "🎁 Claim $80 Worth of EPS-TOPIK & TOPIK Premium CBT Exams & Audio Scripts 100% FREE! (Create Account / Log In)".
+   - Portal messaging promotes: "🎁 Claim 30-Day Free Candidate Pass ($80 Value — 100% FREE! Create Account / Log In)".
 
 2. HERO SECTION TEASER GATE (UNAUTHENTICATED VISITORS):
    - Hero Section interactive modes (Speed Word Match, Safety Signboard Puzzle, Audio Challenge) maintain a 3-Question Teaser Limit for unauthenticated visitors.
-   - On the 3rd question, game play pauses and displays the signup modal: "Free Teaser Preview Limit Reached (3 Questions). 🎁 Claim Your $80 Free Candidate Access — Create a Free Account to Play Unlimited Games & Download 150+ Papers!".
+   - On the 3rd question, game play pauses and displays the signup modal: "Free Teaser Preview Limit Reached (3 Questions). 🎁 Claim Your 30-Day Free Candidate Pass ($80 Value) — Create a Free Account to Play Unlimited Games & Download 150+ Papers!".
 
 3. FILE-BY-FILE COMPONENT CONNECTION MATRIX:
    * File 1: `auth-handler.php`
-     - On user registration or login, assign `$_SESSION['user_status'] = 'pro'` (lifetime candidate access).
+     - On user registration or login, assign `$_SESSION['user_status'] = 'pro'` (30-Day Free Candidate Pass).
      - Auto-redirect all candidate logins to `/pro-portal`.
    * File 2: `includes/db.php`
      - Update `is_user_pro()` to return `true` for all authenticated candidates (`is_logged_in()`).
    * File 3: `includes/header.php`
-     - Unauthenticated: Display "🎁 Claim $80 Free Pass" in notification bar and header nav.
+     - Unauthenticated: Display "🎁 Claim 30-Day Free Pass ($80 Value)" in notification bar and header nav.
      - Authenticated: Display "🎓 Student Dashboard" link pointing to `/pro-portal`.
    * File 4: `subscription.php`
-     - Convert page into the "$80 Free Candidate Access Claim" page highlighting the $80 total value included for free.
+     - Convert page into the "🎁 30-Day Free Candidate Access Claim" page highlighting the $80 total value included for free.
    * File 5: `js/main.js`
-     - Sync game teaser overlay text with $80 Free Access messaging.
+     - Sync game teaser overlay text with 30-Day Free Access messaging.
      - Set `window.userSession.isPro = true` for logged-in users so hero section games unlock 100%.
+   * File 6: `pages/pro-portal.php` (Student Dashboard)
+     - Lock Removal: Remove locks from Tab 4 (`📝 Pro Study Notes`) and Tab 5 (`📄 Master PDF Vault`).
+     - All 6 Dashboard tabs are 100% UNLOCKED and accessible for logged-in candidates.
 
 --------------------------------------------------------------------------------
 SECTION 5: ZERO-MISTAKE SEQUENTIAL IMPLEMENTATION CHECKLIST
@@ -157,28 +160,32 @@ STEP 1: `includes/db.php` (Permissions Engine)
 
 STEP 2: `auth-handler.php` (User Auth & Session Handler)
 - Set `$_SESSION['user_status'] = 'pro'` automatically on registration and login.
-- Set success message: "🎉 Welcome! Your $80 Free Candidate Access Pass is active!".
+- Set success message: "🎉 Welcome! Your 30-Day Free Candidate Access Pass ($80 Value) is active!".
 - Redirect candidate logins to `/pro-portal`.
 - Run `php.exe -l auth-handler.php` to verify 0 syntax errors.
 
 STEP 3: `includes/header.php` (Navigation & Notification Bar)
-- Top Bar Unauthenticated: "🎁 Claim $80 Worth of EPS-TOPIK & TOPIK Premium Papers FREE! [Claim Free Pass]"
-- Top Bar Authenticated: "🎁 $80 Free Lifetime Candidate Pass Active (👋 Hi, Candidate Name)" + link to `🎓 Student Dashboard` (`/pro-portal`).
-- Header Nav Unauthenticated: "🎁 Claim $80 Free Pass" (opens registration modal).
+- Top Bar Unauthenticated: "🎁 Claim 30-Day Free Candidate Pass ($80 Value) FREE! [Claim Free Pass]"
+- Top Bar Authenticated: "🎁 30-Day Free Pass Active (👋 Hi, Candidate Name)" + link to `🎓 Student Dashboard` (`/pro-portal`).
+- Header Nav Unauthenticated: "🎁 Claim 30-Day Free Pass" (opens registration modal).
 - Header Nav Authenticated: "🎓 Student Dashboard" (`/pro-portal`).
 - Run `php.exe -l includes/header.php` to verify 0 syntax errors.
 
 STEP 4: `subscription.php` (Free Access Claim Page)
-- Page Title: "Claim $80 Free Candidate Access Pass - Korean Test Papers".
-- Rebrand pricing card into "🎁 $80 Total Value — 100% FREE Candidate Access".
+- Page Title: "Claim 30-Day Free Candidate Access Pass - Korean Test Papers".
+- Rebrand pricing card into "🎁 30-Day Free Candidate Access Pass ($80 Total Value — 100% FREE)".
 - Detail 4 core free components: 150+ Solved PDF Papers ($30), Audio Scripts ($20), CBT Engine ($15), 60-Chapter Notes ($15).
-- Action Button: "🎁 Claim $80 Free Access (Create Free Account / Log In)" (`openAuthModal('register')`).
+- Action Button: "🎁 Claim 30-Day Free Access (Create Free Account / Log In)" (`openAuthModal('register')`).
 - Run `php.exe -l subscription.php` to verify 0 syntax errors.
 
-STEP 5: `js/main.js` (Hero Teaser & Game Engine)
-- Update `selectGameMode()` teaser overlay: "Free Teaser Preview Limit Reached (3/5 Questions). 🎁 Claim Your $80 Free Candidate Access — Create a Free Account to Play Unlimited Games!".
+STEP 5: `pages/pro-portal.php` (Student Dashboard Lock Removal)
+- Ensure Tab 4 (`📝 Pro Study Notes`) and Tab 5 (`📄 Master PDF Vault`) display direct unlocked download cards for all logged-in candidates.
+- Run `php.exe -l pages/pro-portal.php` to verify 0 syntax errors.
+
+STEP 6: `js/main.js` (Hero Teaser & Game Engine)
+- Update `selectGameMode()` teaser overlay: "Free Teaser Preview Limit Reached (3/5 Questions). 🎁 Claim Your 30-Day Free Candidate Pass ($80 Value) — Create a Free Account to Play Unlimited Games!".
 - Set `window.userSession.isPro = true` for logged-in candidates so games unlock 100%.
 
-STEP 6: VALIDATION & DEPLOYMENT
+STEP 7: VALIDATION & DEPLOYMENT
 - Run `php.exe -l` on all modified files.
 - Stage, commit, and push to GitHub `main` branch.
