@@ -6,7 +6,7 @@
         <!-- Auth Tabs Header -->
         <div style="display: flex; gap: 8px; border-bottom: 2px solid #e2e8f0; margin-bottom: 20px;">
             <button id="tabAuthLoginBtn" onclick="switchAuthTab('login')" style="flex: 1; padding: 10px; font-weight: 700; border: none; background: transparent; border-bottom: 3px solid #2563eb; color: #2563eb; cursor: pointer;">🔑 Log In</button>
-            <button id="tabAuthRegisterBtn" onclick="switchAuthTab('register')" style="flex: 1; padding: 10px; font-weight: 700; border: none; background: transparent; border-bottom: 3px solid transparent; color: #64748b; cursor: pointer;">✨ Register (5-Day Free Trial)</button>
+            <button id="tabAuthRegisterBtn" onclick="switchAuthTab('register')" style="flex: 1; padding: 10px; font-weight: 700; border: none; background: transparent; border-bottom: 3px solid transparent; color: #64748b; cursor: pointer;">✨ Register (30-Day Free Pass)</button>
         </div>
 
         <!-- LOGIN FORM -->
@@ -32,7 +32,7 @@
         <form id="authRegisterForm" action="/auth-handler.php" method="POST" style="display: none;">
             <input type="hidden" name="action" value="register">
             <div style="background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; padding: 10px; border-radius: 6px; font-size: 0.85rem; margin-bottom: 16px; text-align: center;">
-                🎁 <strong>5-Day Free Trial Included!</strong> Instant access to CBT tests and vocabulary games upon registration.
+                🎁 <strong>30-Day Free Pass Included ($80 Value)!</strong> Instant unlocked access to all PDF papers, CBT tests, and audio scripts upon registration.
             </div>
 
             <div style="margin-bottom: 12px; text-align: left;">
@@ -50,7 +50,7 @@
                 <input type="password" name="password" required placeholder="••••••••" style="width: 100%; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 0.95rem;">
             </div>
 
-            <button type="submit" class="btn-primary-action" style="width: 100%; padding: 12px; font-weight: 700; background: #059669; border-radius: 6px; color: white;">Start 5-Day Free Trial 🚀</button>
+            <button type="submit" class="btn-primary-action" style="width: 100%; padding: 12px; font-weight: 700; background: #059669; border-radius: 6px; color: white;">Claim 30-Day Free Access Pass 🚀</button>
         </form>
     </div>
 </div>

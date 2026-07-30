@@ -26,7 +26,7 @@ require_once __DIR__ . '/../includes/header.php';
                 <div style="font-size: 3rem; margin-bottom: 12px;">🔑</div>
                 <h2 style="color: #ffffff; font-size: 1.6rem; font-weight: 800; margin-bottom: 8px;">Candidate Student Portal</h2>
                 <p style="color: #94a3b8; font-size: 0.92rem; margin-bottom: 24px; line-height: 1.6;">
-                    Log in to your account to access your <strong>5-Day Free Trial</strong> practice tools or unlock your <strong>30-Day Pro Pass ($8 USD)</strong>.
+                    Log in to your account or register to claim your <strong>30-Day Free Candidate Pass ($80 Value)</strong> for full access to all CBT tests, PDF past papers, and study notes.
                 </p>
 
                 <div style="display: flex; flex-direction: column; gap: 12px;">
@@ -34,7 +34,7 @@ require_once __DIR__ . '/../includes/header.php';
                         🔑 Log In to Student Portal ▶
                     </button>
                     <button onclick="openAuthModal('register')" class="btn-primary-action" style="padding: 14px; font-size: 1rem; font-weight: 800; background: #059669; color: #ffffff; border-radius: 8px; cursor: pointer;">
-                        🎁 Start 5-Day Free Trial (Create Account) ▶
+                        🎁 Claim 30-Day Free Access Pass (Create Account) ▶
                     </button>
                 </div>
             </div>
@@ -453,9 +453,7 @@ require_once __DIR__ . '/../includes/header.php';
                                 <div style="background: #0f172a; border: 1px solid #334155; padding: 16px; border-radius: 8px;">
                                     <span style="color: #94a3b8; font-size: 0.8rem; display: block; margin-bottom: 4px;">Account Status</span>
                                     <?php if ($is_pro): ?>
-                                        <span style="color: #10b981; font-weight: 800; font-size: 1.05rem;">👑 VIP Pro Subscriber (Active)</span>
-                                    <?php elseif ($is_trial): ?>
-                                        <span style="color: #f59e0b; font-weight: 800; font-size: 1.05rem;">🎁 5-Day Free Trial Active</span>
+                                        <span style="color: #10b981; font-weight: 800; font-size: 1.05rem;">🎁 30-Day Free Candidate Pass Active ($80 Value Unlocked)</span>
                                     <?php else: ?>
                                         <span style="color: #94a3b8; font-weight: 800; font-size: 1.05rem;">Free Account</span>
                                     <?php endif; ?>

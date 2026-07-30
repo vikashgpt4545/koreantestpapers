@@ -126,7 +126,7 @@ if ($action === 'login') {
             'status' => 'trial',
             'trial_ends_at' => date('Y-m-d H:i:s', strtotime("+5 days"))
         ];
-        $_SESSION['auth_success'] = "Welcome! Your 5-Day Free Trial is Active 🎁";
+        $_SESSION['auth_success'] = "Welcome! Your 30-Day Free Candidate Pass ($80 Value) is Active 🎁";
         header('Location: /pro-portal');
         exit;
     }
