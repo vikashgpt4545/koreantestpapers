@@ -76,56 +76,56 @@ $canonical_url = "https://koreantestpapers.in" . ($_SERVER['REQUEST_URI'] ?? '')
             }
           ]
         }
+      ]
+    }
+    </script>
+
+    <!-- Dedicated FAQPage JSON-LD Schema for Google Rich Snippets & AI Search -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
         <?php if (!empty($page_faqs) && is_array($page_faqs)): ?>
-        ,{
-          "@type": "FAQPage",
-          "mainEntity": [
-            <?php 
-            $faq_items = [];
-            foreach ($page_faqs as $faq) {
-                $faq_items[] = json_encode([
-                    "@type" => "Question",
-                    "name" => $faq['question'],
-                    "acceptedAnswer" => [
-                        "@type" => "Answer",
-                        "text" => strip_tags($faq['answer'])
-                    ]
-                ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
-            }
-            echo implode(",\n", $faq_items);
-            ?>
-          ]
-        }
+          <?php 
+          $faq_items = [];
+          foreach ($page_faqs as $faq) {
+              $faq_items[] = json_encode([
+                  "@type" => "Question",
+                  "name" => $faq['question'],
+                  "acceptedAnswer" => [
+                      "@type" => "Answer",
+                      "text" => strip_tags($faq['answer'])
+                  ]
+              ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+          }
+          echo implode(",\n", $faq_items);
+          ?>
         <?php else: ?>
-        ,{
-          "@type": "FAQPage",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "Where can I download official NIIED TOPIK and EPS-TOPIK past papers with answer keys?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "You can download official 30th to 102nd TOPIK past papers, listening audio files, and EPS-TOPIK exam sets for free on KoreanTestPapers.in."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Are answer keys and listening transcripts included with the test paper downloads?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes! All test papers on KoreanTestPapers.in include official NIIED & HRD Korea answer sheets, reading solutions, and listening MP3 audio transcripts."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Is access to the Master PDF Archive completely free for candidates?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes, candidates receive a 30-Day Free Pass ($80 Value) giving 100% free access to all question papers, listening MP3s, and CBT practice tests upon registering."
-              }
+          {
+            "@type": "Question",
+            "name": "Where can I download official NIIED TOPIK and EPS-TOPIK past papers with answer keys?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can download official 30th to 102nd TOPIK past papers, listening audio files, and EPS-TOPIK exam sets for free on KoreanTestPapers.in."
             }
-          ]
-        }
+          },
+          {
+            "@type": "Question",
+            "name": "Are answer keys and listening transcripts included with the test paper downloads?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! All test papers on KoreanTestPapers.in include official NIIED & HRD Korea answer sheets, reading solutions, and listening MP3 audio transcripts."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is access to the Master PDF Archive completely free for candidates?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, candidates receive a 30-Day Free Pass ($80 Value) giving 100% free access to all question papers, listening MP3s, and CBT practice tests upon registering."
+            }
+          }
         <?php endif; ?>
       ]
     }
