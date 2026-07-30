@@ -365,6 +365,6 @@ function get_topik_drive_url($key = '') {
     if (!empty($matches[1]) && isset($TOPIK_DRIVE_MAP[$matches[1]])) {
         return $TOPIK_DRIVE_MAP[$matches[1]];
     }
-    return 'https://drive.google.com/drive/folders/1opEW5O5mvYt2lcFP169Sizil7z0z6Qsv';
+    return 'https://drive.google.com/drive/folders/1jXwvNp4L_3x7CUu3glBdiHfZIb6WI9jB?usp=sharing';
 }
 ?>

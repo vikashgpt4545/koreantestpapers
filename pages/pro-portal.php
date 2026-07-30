@@ -438,7 +438,7 @@ require_once __DIR__ . '/../includes/header.php';
                                 </div>
                             </div>
 
-                            <a href="/download-paper?session=102nd&title=Master%20TOPIK%20Cloud%20Archive" class="btn-primary-action" style="display: block; text-align: center; width: 100%; font-size: 0.95rem; padding: 14px; background: #059669; font-weight: 800;">
+                            <a href="https://drive.google.com/drive/folders/1jXwvNp4L_3x7CUu3glBdiHfZIb6WI9jB?usp=sharing" target="_blank" class="btn-primary-action" style="display: block; text-align: center; width: 100%; font-size: 0.95rem; padding: 14px; background: #059669; font-weight: 800;">
                                 Download Full Official TOPIK PDF & MP3 Archive (Google Drive) 📥
                             </a>
                         </div>
