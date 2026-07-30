@@ -115,9 +115,8 @@ $canonical_url = "https://koreantestpapers.in" . ($_SERVER['REQUEST_URI'] ?? '')
                 <?php if (is_logged_in()): ?>
                     <a href="/auth-handler.php?action=logout" class="btn-header-login-mobile">Logout</a>
                 <?php else: ?>
-                    <a href="javascript:void(0)" onclick="openAuthModal('login')" class="btn-header-login-mobile">🔑 Login</a>
+                    <a href="javascript:void(0)" onclick="openAuthModal('login')" class="btn-header-login-mobile">🔑 Log In</a>
                 <?php endif; ?>
-                <a href="/#cbtTab" onclick="if(window.switchHeroTab){ switchHeroTab('cbtTab', document.querySelectorAll('.tab-btn')[2]); }" class="btn-header-cta-mobile">▶ Live Test</a>
                 <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Navigation">
                     <span class="hamburger-icon">☰</span>
                 </button>
@@ -138,9 +137,9 @@ $canonical_url = "https://koreantestpapers.in" . ($_SERVER['REQUEST_URI'] ?? '')
                             <li><a href="/pro-portal" style="background: #059669; color: #ffffff; padding: 6px 12px; border-radius: 6px; font-weight: 700; font-size: 0.85rem;">🎓 Student Dashboard</a></li>
                         <?php endif; ?>
                     <?php else: ?>
-                        <li><a href="javascript:void(0)" onclick="openAuthModal('register')" style="background: linear-gradient(135deg, #059669, #10b981); color: #ffffff; padding: 6px 12px; border-radius: 6px; font-weight: 800; font-size: 0.85rem; text-decoration: none;">🎁 Claim $80 Free Pass</a></li>
+                        <li><a href="javascript:void(0)" onclick="openAuthModal('login')" style="background: #0f172a; color: #fbbf24; border: 1px solid #fbbf24; padding: 6px 14px; border-radius: 6px; font-weight: 700; font-size: 0.85rem; text-decoration: none;">🔑 Log In</a></li>
+                        <li><a href="javascript:void(0)" onclick="openAuthModal('register')" style="background: linear-gradient(135deg, #059669, #10b981); color: #ffffff; padding: 6px 14px; border-radius: 6px; font-weight: 800; font-size: 0.85rem; text-decoration: none;">🎁 Claim $80 Free Pass</a></li>
                     <?php endif; ?>
-                    <li class="desktop-only-cta"><a href="/#cbtTab" onclick="if(window.switchHeroTab){ switchHeroTab('cbtTab', document.querySelectorAll('.tab-btn')[2]); }" class="btn-header-cta">▶ Live CBT Test</a></li>
                 </ul>
             </nav>
         </div>

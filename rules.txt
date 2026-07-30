@@ -167,7 +167,7 @@ STEP 2: `auth-handler.php` (User Auth & Session Handler)
 STEP 3: `includes/header.php` (Navigation & Notification Bar)
 - Top Bar Unauthenticated: "🎁 Claim 30-Day Free Candidate Pass ($80 Value) FREE! [Claim Free Pass]"
 - Top Bar Authenticated: "🎁 30-Day Free Pass Active (👋 Hi, Candidate Name)" + link to `🎓 Student Dashboard` (`/pro-portal`).
-- Header Nav Unauthenticated: "🎁 Claim 30-Day Free Pass" (opens registration modal).
+- Header Nav Unauthenticated: "🔑 Log In" (`openAuthModal('login')`) + "🎁 Claim $80 Free Pass" (`openAuthModal('register')`).
 - Header Nav Authenticated: "🎓 Student Dashboard" (`/pro-portal`).
 - Run `php.exe -l includes/header.php` to verify 0 syntax errors.
 
