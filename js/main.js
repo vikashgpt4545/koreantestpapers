@@ -892,7 +892,14 @@ function selectGameMode(mode, btnElement) {
     }
 
     currentActiveGameMode = mode;
+    gameCurrentScore = 0;
+    heroGameCount = 0;
     isGameProcessing = false;
+
+    const scoreEl = document.getElementById('gameScore');
+    if (scoreEl) scoreEl.textContent = '0';
+    const qCountEl = document.getElementById('gameQCount');
+    if (qCountEl) qCountEl.textContent = '1 / 5';
 
     const hasAccess = window.userSession && (window.userSession.isPro || window.userSession.isTrial);
     if (!hasAccess && heroGameCount >= 3) {
@@ -902,9 +909,7 @@ function selectGameMode(mode, btnElement) {
         return;
     }
 
-    if (!gameTimerInterval || gameTimeRemaining <= 0) {
-        startGameTimer();
-    }
+    startGameTimer();
     renderCurrentGameQuestion();
 }
 
