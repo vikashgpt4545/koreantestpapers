@@ -18,26 +18,23 @@ require_once __DIR__ . '/../includes/header.php';
     <div class="container" style="max-width: 650px; text-align: center;">
         
         <?php if (!is_user_pro()): ?>
-        <!-- LOCKED PRO VAULT CARD FOR NON-PAID USERS -->
-        <div style="background: #1e293b; border: 2px solid #f59e0b; border-radius: 12px; padding: 40px 28px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);">
-            <div style="font-size: 3.5rem; margin-bottom: 12px;">🔒</div>
-            <div style="font-size: 0.85rem; color: #f59e0b; font-weight: 700; text-transform: uppercase; margin-bottom: 8px;">Master PDF Vault Locked</div>
+        <!-- LOCKED PRO VAULT CARD FOR UNAUTHENTICATED USERS -->
+        <div style="background: #1e293b; border: 2px solid #059669; border-radius: 12px; padding: 40px 28px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);">
+            <div style="font-size: 3.5rem; margin-bottom: 12px;">🔑</div>
+            <div style="font-size: 0.85rem; color: #10b981; font-weight: 700; text-transform: uppercase; margin-bottom: 8px;">Free Candidate Access Required</div>
             <h1 style="font-size: 1.6rem; color: #ffffff; font-weight: 800; margin-bottom: 12px;">
-                Pro Membership Required to Download PDF
+                Log In or Register to Download PDF
             </h1>
             <p style="font-size: 0.95rem; color: #94a3b8; margin-bottom: 24px; line-height: 1.6;">
-                Downloading <strong><?php echo $paper_title; ?></strong> requires an active <strong>30-Day Pro Pass ($<?php echo htmlspecialchars(get_setting('pro_price_usd', '8')); ?> USD)</strong>.
+                Downloading <strong><?php echo $paper_title; ?></strong> is <strong>100% FREE</strong> for all registered candidates with our <strong>30-Day Free Candidate Pass ($80 Value)</strong>.
             </p>
 
             <div style="display: flex; flex-direction: column; gap: 12px; max-width: 380px; margin: 0 auto 20px;">
-                <a href="/subscription" class="btn-primary-action" style="padding: 14px; font-size: 1.05rem; font-weight: 800; background: #059669; color: #ffffff; border-radius: 8px; text-decoration: none;">
-                    🔓 Unlock 30-Day Pro Pass ($<?php echo htmlspecialchars(get_setting('pro_price_usd', '8')); ?> USD)
+                <a href="javascript:void(0)" onclick="openAuthModal('register')" class="btn-primary-action" style="padding: 14px; font-size: 1.05rem; font-weight: 800; background: #059669; color: #ffffff; border-radius: 8px; text-decoration: none; box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);">
+                    🎁 Claim 30-Day Free Candidate Pass ($80 Value)
                 </a>
-                <a href="/auth-handler.php?action=extend_trial" style="background: #fbbf24; color: #0f172a; padding: 12px; border-radius: 8px; font-weight: 800; text-decoration: none; font-size: 0.95rem;">
-                    🎁 Claim +10 Days Extra Free Trial ▶
-                </a>
-                <a href="javascript:void(0)" onclick="openAuthModal('login')" style="color: #cbd5e1; font-size: 0.9rem; text-decoration: underline;">
-                    Already a Pro Member? Log In Here 🔑
+                <a href="javascript:void(0)" onclick="openAuthModal('login')" style="background: #2563eb; color: #ffffff; padding: 12px; border-radius: 8px; font-weight: 800; text-decoration: none; font-size: 0.95rem;">
+                    🔑 Log In to Download Immediately
                 </a>
             </div>
 
