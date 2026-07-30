@@ -5,7 +5,7 @@ require_once __DIR__ . '/../includes/db.php';
 // Page SEO Meta Configuration
 $page_title = "Korean Grammar Notes Particles & Irregular Verb Conjugation Chart PDF";
 $page_desc = "Master Korean grammar notes particles and irregular verb conjugation charts with 7 irregular verb rules (ㅂ, ㄷ, ㄹ, ㅡ, 르, ㅅ, ㅎ), particle matrices, and PDF downloads.";
-$canonical_url = "https://koreantestpapers.in/korean-grammar-notes-particles-verbs-chart";
+$canonical_url = "https://koreantestpapers.in/korean-grammar-notes-master-pdf-download";
 
 // Fetch dynamic exam questions & test paper list
 $live_questions = get_live_questions();
@@ -30,7 +30,7 @@ require_once __DIR__ . '/../includes/header.php';
     "name": "KoreanTestPapers.in",
     "logo": "https://koreantestpapers.in/images/logo.png"
   },
-  "mainEntityOfPage": "https://koreantestpapers.in/korean-grammar-notes-particles-verbs-chart"
+  "mainEntityOfPage": "https://koreantestpapers.in/korean-grammar-notes-master-pdf-download"
 }
 </script>
 

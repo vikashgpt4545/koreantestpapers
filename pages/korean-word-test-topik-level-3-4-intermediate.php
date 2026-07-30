@@ -5,7 +5,7 @@ require_once __DIR__ . '/../includes/db.php';
 // Page SEO Meta Configuration
 $page_title = "Korean Word Test Intermediate Level 3 & 4 Vocabulary Vault PDF";
 $page_desc = "Master 3,000+ words Korean word test Level 3 and Level 4 intermediate vocabulary vault with Hanja roots, academic terms, reading drills, audio MP3s, and PDF downloads.";
-$canonical_url = "https://koreantestpapers.in/korean-word-test-intermediate-vault";
+$canonical_url = "https://koreantestpapers.in/korean-word-test-topik-level-3-4-intermediate";
 
 // Fetch dynamic exam questions & test paper list
 $live_questions = get_live_questions();
@@ -30,7 +30,7 @@ require_once __DIR__ . '/../includes/header.php';
     "name": "KoreanTestPapers.in",
     "logo": "https://koreantestpapers.in/images/logo.png"
   },
-  "mainEntityOfPage": "https://koreantestpapers.in/korean-word-test-intermediate-vault"
+  "mainEntityOfPage": "https://koreantestpapers.in/korean-word-test-topik-level-3-4-intermediate"
 }
 </script>
 

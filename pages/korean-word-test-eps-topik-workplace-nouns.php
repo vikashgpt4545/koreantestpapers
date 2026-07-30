@@ -5,7 +5,7 @@ require_once __DIR__ . '/../includes/db.php';
 // Page SEO Meta Configuration
 $page_title = "Korean Word Test EPS Workplace Nouns Dictionary PDF & Flashcards";
 $page_desc = "Master 3,000+ words Korean word test EPS workplace nouns dictionary PDF containing 1,000 industrial, agricultural, construction, and fishery terms with audio MP3s and solved keys.";
-$canonical_url = "https://koreantestpapers.in/korean-word-test-eps-workplace-nouns";
+$canonical_url = "https://koreantestpapers.in/korean-word-test-eps-topik-workplace-nouns";
 
 // Fetch dynamic exam questions & test paper list
 $live_questions = get_live_questions();
@@ -30,7 +30,7 @@ require_once __DIR__ . '/../includes/header.php';
     "name": "KoreanTestPapers.in",
     "logo": "https://koreantestpapers.in/images/logo.png"
   },
-  "mainEntityOfPage": "https://koreantestpapers.in/korean-word-test-eps-workplace-nouns"
+  "mainEntityOfPage": "https://koreantestpapers.in/korean-word-test-eps-topik-workplace-nouns"
 }
 </script>
 

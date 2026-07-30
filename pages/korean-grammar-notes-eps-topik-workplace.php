@@ -5,7 +5,7 @@ require_once __DIR__ . '/../includes/db.php';
 // Page SEO Meta Configuration
 $page_title = "Korean Grammar Notes EPS TOPIK PDF Download & Solved Patterns";
 $page_desc = "Download free Korean grammar notes EPS TOPIK PDF summary containing 100 workplace exam patterns, tool directives, safety rule conjugations, and solved question guides.";
-$canonical_url = "https://koreantestpapers.in/korean-grammar-notes-eps-topik-pdf";
+$canonical_url = "https://koreantestpapers.in/korean-grammar-notes-eps-topik-workplace";
 
 // Fetch dynamic exam questions & test paper list
 $live_questions = get_live_questions();
@@ -30,7 +30,7 @@ require_once __DIR__ . '/../includes/header.php';
     "name": "KoreanTestPapers.in",
     "logo": "https://koreantestpapers.in/images/logo.png"
   },
-  "mainEntityOfPage": "https://koreantestpapers.in/korean-grammar-notes-eps-topik-pdf"
+  "mainEntityOfPage": "https://koreantestpapers.in/korean-grammar-notes-eps-topik-workplace"
 }
 </script>
 

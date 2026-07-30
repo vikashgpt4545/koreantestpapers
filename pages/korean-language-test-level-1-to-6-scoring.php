@@ -5,7 +5,7 @@ require_once __DIR__ . '/../includes/db.php';
 // Page SEO Meta Configuration
 $page_title = "Korean Language Test CBT Practice Online Free Mock Simulator";
 $page_desc = "Practice free interactive Korean language test CBT/UBT online mock exams with real-time score calculators, timer simulations, 40-question sets, and detailed solution keys.";
-$canonical_url = "https://koreantestpapers.in/korean-language-test-cbt-practice-online";
+$canonical_url = "https://koreantestpapers.in/korean-language-test-level-1-to-6-scoring";
 
 // Fetch dynamic exam questions & test paper list
 $live_questions = get_live_questions();
@@ -30,7 +30,7 @@ require_once __DIR__ . '/../includes/header.php';
     "name": "KoreanTestPapers.in",
     "logo": "https://koreantestpapers.in/images/logo.png"
   },
-  "mainEntityOfPage": "https://koreantestpapers.in/korean-language-test-cbt-practice-online"
+  "mainEntityOfPage": "https://koreantestpapers.in/korean-language-test-level-1-to-6-scoring"
 }
 </script>
 

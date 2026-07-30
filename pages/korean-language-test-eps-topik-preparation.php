@@ -5,7 +5,7 @@ require_once __DIR__ . '/../includes/db.php';
 // Page SEO Meta Configuration
 $page_title = "Korean Language Test EPS-TOPIK Structure & Question Format PDF";
 $page_desc = "Understand HRD Korea EPS-TOPIK Korean language test structure, UBT computer exam interfaces, Reading and Listening question sub-types, and download solved booklets.";
-$canonical_url = "https://koreantestpapers.in/korean-language-test-eps-topik-structure";
+$canonical_url = "https://koreantestpapers.in/korean-language-test-eps-topik-preparation";
 
 // Fetch dynamic exam questions & test paper list
 $live_questions = get_live_questions();
@@ -30,7 +30,7 @@ require_once __DIR__ . '/../includes/header.php';
     "name": "KoreanTestPapers.in",
     "logo": "https://koreantestpapers.in/images/logo.png"
   },
-  "mainEntityOfPage": "https://koreantestpapers.in/korean-language-test-eps-topik-structure"
+  "mainEntityOfPage": "https://koreantestpapers.in/korean-language-test-eps-topik-preparation"
 }
 </script>
 

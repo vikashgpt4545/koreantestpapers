@@ -5,7 +5,7 @@ require_once __DIR__ . '/../includes/db.php';
 // Page SEO Meta Configuration
 $page_title = "Korean Grammar Notes PDF Free Download & Level 1-6 Master Summary";
 $page_desc = "Download free Korean grammar notes PDF master summary covering TOPIK Level 1 to Level 6 grammar rules, particle tables, connective endings, and solved exam exercises.";
-$canonical_url = "https://koreantestpapers.in/korean-grammar-notes-pdf-free-download";
+$canonical_url = "https://koreantestpapers.in/korean-grammar-notes-topik-level-1-2-particles";
 
 // Fetch dynamic exam questions & test paper list
 $live_questions = get_live_questions();
@@ -30,7 +30,7 @@ require_once __DIR__ . '/../includes/header.php';
     "name": "KoreanTestPapers.in",
     "logo": "https://koreantestpapers.in/images/logo.png"
   },
-  "mainEntityOfPage": "https://koreantestpapers.in/korean-grammar-notes-pdf-free-download"
+  "mainEntityOfPage": "https://koreantestpapers.in/korean-grammar-notes-topik-level-1-2-particles"
 }
 </script>
 

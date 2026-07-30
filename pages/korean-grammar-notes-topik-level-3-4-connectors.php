@@ -5,7 +5,7 @@ require_once __DIR__ . '/../includes/db.php';
 // Page SEO Meta Configuration
 $page_title = "Korean Grammar Notes TOPIK Level 1 & 2 Beginner PDF Rules";
 $page_desc = "Master TOPIK Level 1 and Level 2 beginner Korean grammar notes with particle guides, sentence structures, honorific verbs, audio examples, and downloadable PDF summaries.";
-$canonical_url = "https://koreantestpapers.in/korean-grammar-notes-topik-level-1-2";
+$canonical_url = "https://koreantestpapers.in/korean-grammar-notes-topik-level-3-4-connectors";
 
 // Fetch dynamic exam questions & test paper list
 $live_questions = get_live_questions();
@@ -30,7 +30,7 @@ require_once __DIR__ . '/../includes/header.php';
     "name": "KoreanTestPapers.in",
     "logo": "https://koreantestpapers.in/images/logo.png"
   },
-  "mainEntityOfPage": "https://koreantestpapers.in/korean-grammar-notes-topik-level-1-2"
+  "mainEntityOfPage": "https://koreantestpapers.in/korean-grammar-notes-topik-level-3-4-connectors"
 }
 </script>
 

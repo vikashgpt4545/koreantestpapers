@@ -5,7 +5,7 @@ require_once __DIR__ . '/../includes/db.php';
 // Page SEO Meta Configuration
 $page_title = "Korean Grammar Notes TOPIK Level 3 & 4 Intermediate PDF Rules";
 $page_desc = "Master TOPIK Level 3 and Level 4 intermediate Korean grammar notes with academic connective endings, passive/causative verbs, essay writing structures, and PDF downloads.";
-$canonical_url = "https://koreantestpapers.in/korean-grammar-notes-topik-level-3-4";
+$canonical_url = "https://koreantestpapers.in/korean-grammar-notes-topik-level-5-6-advanced";
 
 // Fetch dynamic exam questions & test paper list
 $live_questions = get_live_questions();
@@ -30,7 +30,7 @@ require_once __DIR__ . '/../includes/header.php';
     "name": "KoreanTestPapers.in",
     "logo": "https://koreantestpapers.in/images/logo.png"
   },
-  "mainEntityOfPage": "https://koreantestpapers.in/korean-grammar-notes-topik-level-3-4"
+  "mainEntityOfPage": "https://koreantestpapers.in/korean-grammar-notes-topik-level-5-6-advanced"
 }
 </script>
 
