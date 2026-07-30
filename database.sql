@@ -1,6 +1,8 @@
 -- KoreanTestPapers.in Database Schema & Initial Data
 -- Safe for direct import into phpMyAdmin (Hostinger / cPanel)
 
+USE `u840855356_koreantest`;
+
 -- Table 1: Exam Categories & Names
 CREATE TABLE IF NOT EXISTS `exam_categories` (
     `id` INT AUTO_INCREMENT PRIMARY KEY,
